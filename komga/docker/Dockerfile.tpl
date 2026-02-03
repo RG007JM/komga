@@ -43,7 +43,6 @@ RUN apt -y update && \
     apt -y autoremove && rm -rf /var/lib/apt/lists/*
 
 FROM build-${TARGETARCH} AS runner
-VOLUME /tmp
 VOLUME /config
 WORKDIR app
 COPY --from=builder /builder/extracted/dependencies/ ./

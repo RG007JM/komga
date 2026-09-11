@@ -161,7 +161,7 @@ private val logger = KotlinLogging.logger {}
 class KoboController(
   private val koboProxy: KoboProxy,
   private val kepubConverter: KepubConverter,
-	private val koboKepubSizeCacheRepository: KoboKepubSizeCacheRepository,
+  private val koboKepubSizeCacheRepository: KoboKepubSizeCacheRepository,
   private val syncPointLifecycle: SyncPointLifecycle,
   private val syncPointRepository: SyncPointRepository,
   private val komgaSyncTokenGenerator: KomgaSyncTokenGenerator,
@@ -677,7 +677,9 @@ class KoboController(
           logger.debug { "Found kepub in cache" }
         }
 				
-        val kepubFileSize = java.nio.file.Files.size(kepubPath)
+        val kepubFileSize =
+          java.nio.file.Files
+            .size(kepubPath)
         val sourceFileHash = book.fileHash
 
         if (!sourceFileHash.isNullOrBlank()) {
@@ -799,41 +801,37 @@ class KoboController(
               val currentFileHash = book?.fileHash
               val cached = koboKepubSizeCacheRepository.findByBookId(entitlementId)
 
+              val resolvedSize =
+                KoboKepubSizeResolver.advertisedSize(
+                  sourceFileSize = fileSize,
+                  currentFileHash = currentFileHash,
+                  cached = cached,
+                )
+
               when {
                 currentFileHash.isNullOrBlank() || cached == null -> {
                   logger.debug {
-                    "No stored Kobo KEPUB size for $entitlementId, using source size=$fileSize"
+                    "No stored Kobo KEPUB size for $entitlementId, using source size=$resolvedSize"
                   }
-                  fileSize
                 }
 
                 cached.sourceFileHash == currentFileHash -> {
                   logger.debug {
                     "Source hash unchanged for $entitlementId, " +
-                      "using stored KEPUB size=${cached.kepubFileSize}"
+                      "using stored KEPUB size=$resolvedSize"
                   }
-                  cached.kepubFileSize
                 }
 
                 else -> {
-                  // The EPUB content changed. We must advertise something different
-                  // from the previously downloaded KEPUB so Kobo requests it again.
-                  val changedSize =
-                    if (fileSize == cached.kepubFileSize) {
-                      fileSize + 1L
-                    } else {
-                      fileSize
-                    }
-
                   logger.debug {
                     "Source hash changed for $entitlementId: " +
                       "${cached.sourceFileHash} -> $currentFileHash; " +
-                      "forcing redownload with advertised size=$changedSize"
+                      "forcing redownload with advertised size=$resolvedSize"
                   }
-
-                  changedSize
                 }
               }
+
+              resolvedSize
             } else {
               fileSize
             }

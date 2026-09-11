@@ -59,16 +59,13 @@ class KoboProductClient(
         .addQueryParameter(
           "query",
           normalizedIsbn,
-        )
-        .addQueryParameter(
+        ).addQueryParameter(
           "fcmedia",
           "Book",
-        )
-        .addQueryParameter(
+        ).addQueryParameter(
           "pageNumber",
           "1",
-        )
-        .build()
+        ).build()
 
     return try {
       requestLock.withLock {
@@ -95,37 +92,29 @@ class KoboProductClient(
         .header(
           "User-Agent",
           userAgent,
-        )
-        .header(
+        ).header(
           "Accept",
           "text/html,application/xhtml+xml,application/xml;q=0.9," +
             "image/avif,image/webp,image/apng,*/*;q=0.8",
-        )
-        .header(
+        ).header(
           "Accept-Language",
           "en-GB,en;q=0.9",
-        )
-        .header(
+        ).header(
           "Upgrade-Insecure-Requests",
           "1",
-        )
-        .header(
+        ).header(
           "Sec-Fetch-Dest",
           "document",
-        )
-        .header(
+        ).header(
           "Sec-Fetch-Mode",
           "navigate",
-        )
-        .header(
+        ).header(
           "Sec-Fetch-Site",
           "none",
-        )
-        .header(
+        ).header(
           "Sec-Fetch-User",
           "?1",
-        )
-        .get()
+        ).get()
         .build()
 
     return client
@@ -138,7 +127,8 @@ class KoboProductClient(
             .orEmpty()
 
         if (
-          response.header("cf-mitigated")
+          response
+            .header("cf-mitigated")
             ?.equals(
               "challenge",
               ignoreCase = true,

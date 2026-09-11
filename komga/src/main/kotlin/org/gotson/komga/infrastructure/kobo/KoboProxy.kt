@@ -3,6 +3,7 @@ package org.gotson.komga.infrastructure.kobo
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.github.oshai.kotlinlogging.KotlinLogging
+import org.gotson.komga.domain.service.KoboProductResolver
 import org.gotson.komga.infrastructure.configuration.KomgaSettingsProvider
 import org.gotson.komga.infrastructure.kobo.KoboHeaders.X_KOBO_SYNCTOKEN
 import org.gotson.komga.infrastructure.web.getCurrentRequest
@@ -19,6 +20,8 @@ import org.springframework.web.client.RestClient
 import org.springframework.web.client.toEntity
 import org.springframework.web.server.ResponseStatusException
 import org.springframework.web.util.DefaultUriBuilderFactory
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.toJavaDuration
 
@@ -29,6 +32,8 @@ class KoboProxy(
   private val objectMapper: ObjectMapper,
   private val komgaSyncTokenGenerator: KomgaSyncTokenGenerator,
   private val komgaSettingsProvider: KomgaSettingsProvider,
+  private val koboProductResolver: KoboProductResolver,
+  private val koboProductResponseTranslator: KoboProductResponseTranslator,
 ) {
   private val koboApiClient: RestClient =
     RestClient
@@ -36,18 +41,50 @@ class KoboProxy(
       .uriBuilderFactory(
         DefaultUriBuilderFactory("https://storeapi.kobo.com")
           .apply {
-            this.encodingMode = DefaultUriBuilderFactory.EncodingMode.NONE
+            this.encodingMode =
+              DefaultUriBuilderFactory.EncodingMode.NONE
           },
       ).requestFactory(
-        ClientHttpRequestFactoryBuilder.reactor().build(
-          ClientHttpRequestFactorySettings
-            .defaults()
-            .withReadTimeout(1.minutes.toJavaDuration())
-            .withConnectTimeout(1.minutes.toJavaDuration()),
-        ),
+        ClientHttpRequestFactoryBuilder
+          .reactor()
+          .build(
+            ClientHttpRequestFactorySettings
+              .defaults()
+              .withReadTimeout(1.minutes.toJavaDuration())
+              .withConnectTimeout(1.minutes.toJavaDuration()),
+          ),
       ).build()
 
-  private val pathRegex = """/kobo/[-\w]*(.*)""".toRegex()
+  private val pathRegex =
+    """/kobo/[-\w]*(.*)""".toRegex()
+
+  /*
+   * Product endpoints where the Kobo device may send a Komga book ID.
+   *
+   * Examples:
+   *
+   * /v1/products/{ProductIds}/reviews
+   * /v1/products/{ProductIds}/related
+   * /v1/products/{ProductId}/recommendations
+   * /v1/products/{ProductIds}/nextread
+   *
+   * ProductIds may contain one ID or multiple comma-separated IDs.
+   */
+  private val productPathRegex =
+    Regex(
+      """^(/v1/products/)([^/]+)(/(?:reviews|related|recommendations|nextread))$""",
+      RegexOption.IGNORE_CASE,
+    )
+
+  /*
+   * /v1/user/reviews uses ProductIds as a query parameter instead of
+   * putting it in the path.
+   */
+  private val productIdsQueryRegex =
+    Regex(
+      """(^|&)(ProductIds)=([^&]*)""",
+      RegexOption.IGNORE_CASE,
+    )
 
   private val headersOutInclude =
     setOf(
@@ -63,85 +100,387 @@ class KoboProxy(
       X_KOBO_SYNCTOKEN,
     )
 
-  private fun isKoboHeader(headerName: String) = headerName.startsWith("x-kobo-", true)
+  private fun isKoboHeader(headerName: String) =
+    headerName.startsWith(
+      "x-kobo-",
+      true,
+    )
 
   fun isEnabled() = komgaSettingsProvider.koboProxy
 
   /**
    * Proxy the current request to the Kobo store, if enabled.
-   * If [includeSyncToken] is set, the raw sync token will be extracted from the current request and sent to the store.
-   * If a X_KOBO_SYNCTOKEN header is present in the response, the original Komga sync token will be updated with the
-   * raw Kobo sync token returned, and added to the response headers.
+   *
+   * If [includeSyncToken] is set, the raw sync token will be extracted
+   * from the current request and sent to the store.
+   *
+   * If a X_KOBO_SYNCTOKEN header is present in the response, the original
+   * Komga sync token will be updated with the raw Kobo sync token returned,
+   * and added to the response headers.
+   *
+   * For Kobo endpoints that operate on ProductIds, Komga book IDs are
+   * translated to their real Kobo ProductIds before the request is sent
+   * upstream.
    */
   fun proxyCurrentRequest(
     body: ByteArray? = null,
     includeSyncToken: Boolean = false,
   ): ResponseEntity<JsonNode> {
-    if (!komgaSettingsProvider.koboProxy) throw IllegalStateException("kobo proxying is disabled")
+    if (!komgaSettingsProvider.koboProxy) {
+      throw IllegalStateException(
+        "kobo proxying is disabled",
+      )
+    }
 
-    val request = getCurrentRequest()
-    val (path) = pathRegex.find(request.requestURI)?.destructured ?: throw IllegalStateException("Could not get path from current request")
+    val request =
+      getCurrentRequest()
+
+    val (path) =
+      pathRegex
+        .find(request.requestURI)
+        ?.destructured
+        ?: throw IllegalStateException(
+          "Could not get path from current request",
+        )
+
+    /*
+     * Cache translations only for this request.
+     *
+     * This prevents resolving the same ID more than once if Kobo includes
+     * it several times in the same request.
+     *
+     * We intentionally cache the fallback too. If resolveProductId()
+     * returns null, the original ID is kept.
+     */
+    val productIdTranslations =
+      mutableMapOf<String, String>()
+
+    val translatedPath =
+      translateProductIdsInPath(
+        path = path,
+        translationCache = productIdTranslations,
+      )
+
+    val translatedQuery =
+      translateProductIdsInQuery(
+        path = path,
+        query = request.queryString,
+        translationCache = productIdTranslations,
+      )
+
+    if (translatedPath != path) {
+      logger.debug {
+        "Translated Kobo proxy path: $path -> $translatedPath"
+      }
+    }
+
+    if (translatedQuery != request.queryString) {
+      logger.debug {
+        "Translated Kobo proxy query: ${request.queryString} -> $translatedQuery"
+      }
+    }
 
     val syncToken =
-      if (includeSyncToken)
-        komgaSyncTokenGenerator.fromRequestHeaders(request)
-      else
+      if (includeSyncToken) {
+        komgaSyncTokenGenerator.fromRequestHeaders(
+          request,
+        )
+      } else {
         null
+      }
 
     val response =
       koboApiClient
-        .method(HttpMethod.valueOf(request.method))
-        .uri { uriBuilder ->
+        .method(
+          HttpMethod.valueOf(
+            request.method,
+          ),
+        ).uri { uriBuilder ->
           uriBuilder
-            .path(path)
-            .query(request.queryString)
-            .build()
-            .also { logger.debug { "Proxy URL: $it" } }
+            .path(translatedPath)
+            .apply {
+              translatedQuery?.let { query(it) }
+            }.build()
+            .also {
+              logger.debug {
+                "Proxy URL: $it"
+              }
+            }
         }.headers { headersOut ->
           request.headerNames
             .toList()
-            .filterNot { headersOutExclude.contains(it, true) }
-            .filter { headersOutInclude.contains(it, true) || isKoboHeader(it) }
-            .forEach {
-              headersOut.addAll(it, request.getHeaders(it)?.toList() ?: emptyList())
+            .filterNot {
+              headersOutExclude.contains(
+                it,
+                true,
+              )
+            }.filter {
+              headersOutInclude.contains(
+                it,
+                true,
+              ) ||
+                isKoboHeader(it)
+            }.forEach {
+              headersOut.addAll(
+                it,
+                request
+                  .getHeaders(it)
+                  ?.toList()
+                  ?: emptyList(),
+              )
             }
+
           if (includeSyncToken) {
-            if (syncToken != null && syncToken.rawKoboSyncToken.isNotBlank()) {
-              headersOut.add(X_KOBO_SYNCTOKEN, syncToken.rawKoboSyncToken)
+            if (
+              syncToken != null &&
+              syncToken.rawKoboSyncToken.isNotBlank()
+            ) {
+              headersOut.add(
+                X_KOBO_SYNCTOKEN,
+                syncToken.rawKoboSyncToken,
+              )
             }
           }
-          logger.debug { "Headers out: $headersOut" }
-        }.apply { if (body != null) body(body) }
-        .retrieve()
-        .onStatus(HttpStatusCode::isError) { _, response ->
-          logger.debug { "Kobo response: ${response.statusCode}: ${response.body.bufferedReader().use { it.readText() }}" }
-          throw ResponseStatusException(response.statusCode, response.statusText)
+
+          logger.debug {
+            "Headers out: $headersOut"
+          }
+        }.apply {
+          if (body != null) {
+            body(body)
+          }
+        }.retrieve()
+        .onStatus(
+          HttpStatusCode::isError,
+        ) { _, response ->
+          logger.debug {
+            "Kobo response: ${response.statusCode}: ${
+              response.body
+                .bufferedReader()
+                .use {
+                  it.readText()
+                }
+            }"
+          }
+
+          throw ResponseStatusException(
+            response.statusCode,
+            response.statusText,
+          )
         }.toEntity<JsonNode>()
 
-    logger.debug { "Kobo response: $response" }
+    logger.debug {
+      "Kobo response: $response"
+    }
+
+    val responseBody =
+      response.body?.let {
+        koboProductResponseTranslator.translate(
+          path = path,
+          body = it,
+        )
+      }
 
     val headersToReturn =
       response.headers
-        .filterKeys { isKoboHeader(it) }
-        .toMutableMap()
+        .filterKeys {
+          isKoboHeader(it)
+        }.toMutableMap()
         .apply {
-          if (keys.contains(X_KOBO_SYNCTOKEN, true)) {
-            val koboSyncToken = this[X_KOBO_SYNCTOKEN]?.firstOrNull()
-            if (koboSyncToken != null && includeSyncToken && syncToken != null) {
-              val komgaSyncToken = syncToken.copy(rawKoboSyncToken = koboSyncToken)
-              this[X_KOBO_SYNCTOKEN] = listOf(komgaSyncTokenGenerator.toBase64(komgaSyncToken))
+          if (
+            keys.contains(
+              X_KOBO_SYNCTOKEN,
+              true,
+            )
+          ) {
+            val koboSyncToken =
+              this[X_KOBO_SYNCTOKEN]
+                ?.firstOrNull()
+
+            if (
+              koboSyncToken != null &&
+              includeSyncToken &&
+              syncToken != null
+            ) {
+              val komgaSyncToken =
+                syncToken.copy(
+                  rawKoboSyncToken =
+                  koboSyncToken,
+                )
+
+              this[X_KOBO_SYNCTOKEN] =
+                listOf(
+                  komgaSyncTokenGenerator
+                    .toBase64(
+                      komgaSyncToken,
+                    ),
+                )
             }
           }
         }
 
     return ResponseEntity(
-      response.body,
-      LinkedMultiValueMap(headersToReturn),
+      responseBody,
+      LinkedMultiValueMap(
+        headersToReturn,
+      ),
       response.statusCode,
     )
   }
 
-  val imageHostUrl = "https://cdn.kobo.com/book-images/{ImageId}/{Width}/{Height}/false/image.jpg"
+  /**
+   * Translate ProductIds embedded in supported product paths.
+   *
+   * An ID which belongs to a Komga book and resolves successfully becomes
+   * its real Kobo ProductId.
+   *
+   * An ID which cannot be resolved is preserved unchanged. This is
+   * important because requests may also contain genuine Kobo ProductIds,
+   * which must continue upstream untouched.
+   */
+  private fun translateProductIdsInPath(
+    path: String,
+    translationCache: MutableMap<String, String>,
+  ): String {
+    val match =
+      productPathRegex.matchEntire(path)
+        ?: return path
+
+    val prefix =
+      match.groupValues[1]
+
+    val productIds =
+      match.groupValues[2]
+
+    val suffix =
+      match.groupValues[3]
+
+    val translated =
+      translateProductIds(
+        productIds = decodeValue(productIds),
+        translationCache = translationCache,
+      )
+
+    return "$prefix$translated$suffix"
+  }
+
+  /**
+   * Translate ProductIds for:
+   *
+   * /v1/user/reviews?ProductIds=...
+   */
+  private fun translateProductIdsInQuery(
+    path: String,
+    query: String?,
+    translationCache: MutableMap<String, String>,
+  ): String? {
+    if (query == null) {
+      return null
+    }
+
+    if (
+      !path.equals(
+        "/v1/user/reviews",
+        ignoreCase = true,
+      )
+    ) {
+      return query
+    }
+
+    return productIdsQueryRegex.replace(
+      query,
+    ) { match ->
+      val separator =
+        match.groupValues[1]
+
+      val parameterName =
+        match.groupValues[2]
+
+      val rawProductIds =
+        match.groupValues[3]
+
+      val translated =
+        translateProductIds(
+          productIds =
+            decodeValue(
+              rawProductIds,
+            ),
+          translationCache =
+          translationCache,
+        )
+
+      "$separator$parameterName=$translated"
+    }
+  }
+
+  /**
+   * Translate one or more comma-separated Komga book IDs.
+   *
+   * Examples:
+   *
+   * abc
+   *
+   * becomes:
+   *
+   * 8201afa9-c23b-429b-a642-a4bcf1c8b638
+   *
+   * and:
+   *
+   * abc,def
+   *
+   * can become:
+   *
+   * 8201afa9-...,907a784e-...
+   */
+  private fun translateProductIds(
+    productIds: String,
+    translationCache: MutableMap<String, String>,
+  ): String =
+    productIds
+      .split(",")
+      .joinToString(",") { rawId ->
+        val id =
+          rawId.trim()
+
+        if (id.isBlank()) {
+          rawId
+        } else {
+          translationCache.getOrPut(
+            id,
+          ) {
+            val resolved =
+              koboProductResolver
+                .resolveProductId(id)
+
+            if (
+              resolved != null &&
+              resolved != id
+            ) {
+              logger.debug {
+                "Translated Komga book ID $id to Kobo ProductId $resolved"
+              }
+            }
+
+            resolved ?: id
+          }
+        }
+      }
+
+  /**
+   * ProductIds may arrive with commas URL encoded as %2C.
+   */
+  private fun decodeValue(
+    value: String,
+  ): String =
+    runCatching {
+      URLDecoder.decode(
+        value,
+        StandardCharsets.UTF_8,
+      )
+    }.getOrDefault(value)
+
+  val imageHostUrl =
+    "https://cdn.kobo.com/book-images/{ImageId}/{Width}/{Height}/false/image.jpg"
 
   val nativeKoboResources: JsonNode by lazy {
     objectMapper.readTree(

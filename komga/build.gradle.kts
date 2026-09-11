@@ -100,6 +100,11 @@ dependencies {
   implementation("net.grey-panther:natural-comparator:1.1")
   implementation("org.jsoup:jsoup:1.23.1")
 
+	// Kobo ISBN lookup
+  implementation(
+		"com.github.zhkl0228:impersonator-okhttp:1.0.13",
+	)
+
   implementation("net.coobird:thumbnailator:0.4.21")
   runtimeOnly("com.twelvemonkeys.imageio:imageio-jpeg:${libs.versions.twelvemonkeys.get()}")
   runtimeOnly("com.twelvemonkeys.imageio:imageio-tiff:${libs.versions.twelvemonkeys.get()}")

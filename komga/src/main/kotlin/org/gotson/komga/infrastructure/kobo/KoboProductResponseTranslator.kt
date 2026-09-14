@@ -11,19 +11,26 @@ private val logger = KotlinLogging.logger {}
 @Component
 class KoboProductResponseTranslator(
   private val koboProductResolver: KoboProductResolver,
+  private val koboLocalBookLookup: KoboLocalBookLookup,
 ) {
   fun translate(
     path: String,
     body: JsonNode,
   ): JsonNode {
     val normalizedPath =
-      path.lowercase()
+      path
+        .substringBefore("?")
+        .trimEnd('/')
+        .lowercase()
 
     return when {
+      normalizedPath == "/v1/products" ->
+        translateBookItems(body)
+
       normalizedPath.matches(
         Regex("""^/v1/products/[^/]+/recommendations$"""),
       ) ->
-        translateRecommendations(body)
+        translateBookItems(body)
 
       normalizedPath.matches(
         Regex("""^/v1/products/[^/]+/nextread$"""),
@@ -47,19 +54,38 @@ class KoboProductResponseTranslator(
   }
 
   /**
-   * Recommendations response:
+   * Product search and recommendations responses:
    *
    * {
    *   "Items": [
    *     {
    *       "Book": {
-   *         "Id": "<Kobo ProductId>"
+   *         "Id": "<Kobo ProductId>",
+   *         "CrossRevisionId": "...",
+   *         "WorkId": "...",
+   *         "RevisionId": "...",
+   *         "SeriesId": "...",
+   *         "ImageId": "...",
+   *         "ISBN": "..."
    *       }
    *     }
    *   ]
    * }
+   *
+   * If the ProductId already has a known Komga mapping, that mapping is
+   * used directly.
+   *
+   * If the ProductId is unknown, the Kobo ISBN is used as a fallback to
+   * locate exactly one corresponding Komga book.
+   *
+   * For matched Komga books, Id, CrossRevisionId, WorkId, and RevisionId
+   * are translated to the Komga book ID to match Komga's Kobo identity
+   * model.
+   *
+   * SeriesId, ImageId, ISBN, RelatedGroupId, and all other store metadata
+   * remain Kobo-native.
    */
-  private fun translateRecommendations(
+  private fun translateBookItems(
     body: JsonNode,
   ): JsonNode {
     val items =
@@ -77,12 +103,65 @@ class KoboProductResponseTranslator(
       val book =
         item.get("Book")
 
-      if (book is ObjectNode) {
-        translateTextField(
-          node = book,
-          fieldName = "Id",
-          cache = cache,
+      if (book !is ObjectNode) {
+        return@forEach
+      }
+
+      val productId =
+        book
+          .get("Id")
+          ?.takeIf { it.isTextual }
+          ?.asText()
+          ?.takeIf { it.isNotBlank() }
+          ?: return@forEach
+
+      val isbn =
+        normalizeIsbn(
+          book
+            .get("ISBN")
+            ?.takeIf { it.isTextual }
+            ?.asText(),
         )
+
+      val bookId =
+        resolveBookId(
+          productId = productId,
+          isbn = isbn,
+          cache = cache,
+        ) ?: return@forEach
+
+      if (bookId == productId) {
+        return@forEach
+      }
+
+      book.put(
+        "Id",
+        bookId,
+      )
+
+      if (book.get("CrossRevisionId")?.isTextual == true) {
+        book.put(
+          "CrossRevisionId",
+          bookId,
+        )
+      }
+
+      if (book.get("WorkId")?.isTextual == true) {
+        book.put(
+          "WorkId",
+          bookId,
+        )
+      }
+
+      if (book.get("RevisionId")?.isTextual == true) {
+        book.put(
+          "RevisionId",
+          bookId,
+        )
+      }
+
+      logger.debug {
+        "Translated Kobo book identity $productId to Komga book ID $bookId"
       }
     }
 
@@ -95,17 +174,30 @@ class KoboProductResponseTranslator(
    * {
    *   "<requested Kobo ProductId>": [
    *     {
-   *       "Id": "<Kobo ProductId>"
+   *       "Id": "<Kobo ProductId>",
+   *       "ISBN": "...",
+   *       "RevisionId": "...",
+   *       "CrossRevisionId": "...",
+   *       "WorkId": "..."
    *     }
    *   ]
    * }
    *
-   * Both the top-level key and returned book Id values need translation.
+   * The top-level key identifies the source book and needs translation
+   * from the native Kobo ProductId back to the Komga book ID.
+   *
+   * Returned books use an existing ProductId mapping where available,
+   * otherwise their ISBN is used to discover exactly one local Komga
+   * book.
+   *
+   * For matched books, Id, RevisionId, CrossRevisionId, and WorkId are
+   * translated to the Komga book ID. Other Kobo store metadata remains
+   * untouched.
    */
   private fun translateNextRead(
     body: JsonNode,
   ): JsonNode {
-    if (body !is ObjectNode) {
+    if (!body.isObject) {
       return body
     }
 
@@ -113,42 +205,89 @@ class KoboProductResponseTranslator(
       mutableMapOf<String, String?>()
 
     val translatedBody =
-      body.objectNode()
+      (body as ObjectNode).objectNode()
 
-    val fields =
-      body.fields()
-
-    while (fields.hasNext()) {
-      val entry =
-        fields.next()
-
-      val koboProductId =
+    body.properties().forEach { entry ->
+      val sourceProductId =
         entry.key
 
       val translatedKey =
         resolveBookId(
-          productId = koboProductId,
+          productId = sourceProductId,
           cache = cache,
-        ) ?: koboProductId
+        ) ?: sourceProductId
 
-      val value =
-        entry.value
+      val translatedItems =
+        entry.value.deepCopy<JsonNode>()
 
-      if (value.isArray) {
-        value.forEach { item ->
-          if (item is ObjectNode) {
-            translateTextField(
-              node = item,
-              fieldName = "Id",
-              cache = cache,
+      if (translatedItems.isArray) {
+        translatedItems.forEach { item ->
+          if (item !is ObjectNode) {
+            return@forEach
+          }
+
+          val productId =
+            item
+              .get("Id")
+              ?.takeIf { it.isTextual }
+              ?.asText()
+              ?.takeIf { it.isNotBlank() }
+              ?: return@forEach
+
+          val isbn =
+            normalizeIsbn(
+              item
+                .get("ISBN")
+                ?.takeIf { it.isTextual }
+                ?.asText(),
             )
+
+          val bookId =
+            resolveBookId(
+              productId = productId,
+              isbn = isbn,
+              cache = cache,
+            ) ?: return@forEach
+
+          if (bookId == productId) {
+            return@forEach
+          }
+
+          item.put(
+            "Id",
+            bookId,
+          )
+
+          if (item.get("RevisionId")?.isTextual == true) {
+            item.put(
+              "RevisionId",
+              bookId,
+            )
+          }
+
+          if (item.get("CrossRevisionId")?.isTextual == true) {
+            item.put(
+              "CrossRevisionId",
+              bookId,
+            )
+          }
+
+          if (item.get("WorkId")?.isTextual == true) {
+            item.put(
+              "WorkId",
+              bookId,
+            )
+          }
+
+          logger.debug {
+            "Translated Kobo nextread book identity $productId to Komga book ID $bookId"
           }
         }
       }
 
       translatedBody.set<JsonNode>(
         translatedKey,
-        value,
+        translatedItems,
       )
     }
 
@@ -205,12 +344,9 @@ class KoboProductResponseTranslator(
     val value =
       node
         .get(fieldName)
-        ?.takeIf {
-          it.isTextual
-        }?.asText()
-        ?.takeIf {
-          it.isNotBlank()
-        }
+        ?.takeIf { it.isTextual }
+        ?.asText()
+        ?.takeIf { it.isNotBlank() }
         ?: return
 
     val bookId =
@@ -224,13 +360,52 @@ class KoboProductResponseTranslator(
     }
 
     logger.debug {
-      "Translated Kobo response ProductId $value to Komga book ID $bookId"
+      "Translated Kobo response $fieldName $value to Komga book ID $bookId"
     }
 
     node.put(
       fieldName,
       bookId,
     )
+  }
+
+  private fun resolveBookId(
+    productId: String,
+    isbn: String?,
+    cache: MutableMap<String, String?>,
+  ): String? {
+    if (cache.containsKey(productId)) {
+      return cache[productId]
+    }
+
+    val mappedBookId =
+      koboProductResolver
+        .resolveBookId(productId)
+
+    if (mappedBookId != null) {
+      cache[productId] =
+        mappedBookId
+
+      return mappedBookId
+    }
+
+    val discoveredBookId =
+      isbn
+        ?.let {
+          koboLocalBookLookup
+            .findUniqueBookIdByIsbn(it)
+        }
+
+    if (discoveredBookId != null) {
+      logger.debug {
+        "Discovered Komga book ID $discoveredBookId from Kobo ProductId $productId via ISBN $isbn"
+      }
+    }
+
+    cache[productId] =
+      discoveredBookId
+
+    return discoveredBookId
   }
 
   private fun resolveBookId(
@@ -250,4 +425,11 @@ class KoboProductResponseTranslator(
 
     return bookId
   }
+
+  private fun normalizeIsbn(
+    value: String?,
+  ): String? =
+    value
+      ?.filter { it.isDigit() }
+      ?.takeIf { it.length == 13 }
 }

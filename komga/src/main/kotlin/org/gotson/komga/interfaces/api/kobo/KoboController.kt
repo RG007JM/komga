@@ -81,6 +81,7 @@ import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -162,6 +163,7 @@ class KoboController(
   private val koboProxy: KoboProxy,
   private val kepubConverter: KepubConverter,
   private val koboKepubSizeCacheRepository: KoboKepubSizeCacheRepository,
+  private val koboArchivedBookRepository: KoboArchivedBookRepository,
   private val syncPointLifecycle: SyncPointLifecycle,
   private val syncPointRepository: SyncPointRepository,
   private val komgaSyncTokenGenerator: KomgaSyncTokenGenerator,
@@ -360,28 +362,50 @@ class KoboController(
         val readProgress = readProgressRepository.findAllByBookIdsAndUserId((booksAdded.content + booksChanged.content + changedReadingState.content).map { it.bookId }, principal.user.id).associateBy { it.bookId }
         val readListsBooks = syncPointRepository.findBookIdsByReadListIds(toSyncPoint.id, (readListsAdded.content + readListsChanged.content).map { it.readListId }).groupBy { it.readListId }
 
+        val archivedBookIds =
+          koboArchivedBookRepository.findArchivedBookIds(principal.user.id)
+
+        // Refresh Book Metadata already makes the book appear in booksChanged.
+        // Treat an archived+changed book as a restore for this prototype.
+        val restoredBookIds =
+          booksChanged.content
+            .map { it.bookId }
+            .filter { it in archivedBookIds }
+            .toSet()
+
+        restoredBookIds.forEach { bookId ->
+          koboArchivedBookRepository.unarchive(principal.user.id, bookId)
+          logger.debug { "Restored archived Kobo book $bookId after Komga book metadata changed" }
+        }
+
+        val effectiveArchivedBookIds = archivedBookIds - restoredBookIds
+
         buildList {
           addAll(
-            booksAdded.content.map {
-              NewEntitlementDto(
-                BookEntitlementContainerDto(
-                  bookEntitlement = it.toBookEntitlementDto(false),
-                  bookMetadata = metadata[it.bookId]!!,
-                  readingState = readProgress[it.bookId]?.toDto() ?: getEmptyReadProgressForBook(it.bookId, it.createdDate),
-                ),
-              )
-            },
+            booksAdded.content
+              .filterNot { it.bookId in effectiveArchivedBookIds }
+              .map {
+                NewEntitlementDto(
+                  BookEntitlementContainerDto(
+                    bookEntitlement = it.toBookEntitlementDto(false),
+                    bookMetadata = metadata[it.bookId]!!,
+                    readingState = readProgress[it.bookId]?.toDto() ?: getEmptyReadProgressForBook(it.bookId, it.createdDate),
+                  ),
+                )
+              },
           )
           addAll(
-            booksChanged.content.map {
-              NewEntitlementDto(
-                BookEntitlementContainerDto(
-                  bookEntitlement = it.toBookEntitlementDto(false),
-                  bookMetadata = metadata[it.bookId]!!,
-                  readingState = readProgress[it.bookId]?.toDto() ?: getEmptyReadProgressForBook(it.bookId, it.createdDate),
-                ),
-              )
-            },
+            booksChanged.content
+              .filterNot { it.bookId in effectiveArchivedBookIds }
+              .map {
+                NewEntitlementDto(
+                  BookEntitlementContainerDto(
+                    bookEntitlement = it.toBookEntitlementDto(false),
+                    bookMetadata = metadata[it.bookId]!!,
+                    readingState = readProgress[it.bookId]?.toDto() ?: getEmptyReadProgressForBook(it.bookId, it.createdDate),
+                  ),
+                )
+              },
           )
           addAll(
             booksChanged.content.map {
@@ -398,6 +422,22 @@ class KoboController(
               )
             },
           )
+          // KOBO_ARCHIVE_V1
+          // Re-emit archived books until restored. A future version can put
+          // archive dirtiness into the Komga sync cursor instead.
+          addAll(
+            effectiveArchivedBookIds.mapNotNull { bookId ->
+              bookRepository.findByIdOrNull(bookId)?.let { book ->
+                ChangedEntitlementDto(
+                  BookEntitlementContainerDto(
+                    bookEntitlement = book.toBookEntitlementDto(true),
+                    bookMetadata = getMetadataForRemovedBook(bookId),
+                  ),
+                )
+              }
+            },
+          )
+
           addAll(
             // changed books are also passed as changed reading state because Kobo does not process ChangedEntitlement even if it contains a ReadingState
             (booksChanged.content + changedReadingState.content).mapNotNull { book ->
@@ -455,18 +495,39 @@ class KoboController(
         val readProgress = readProgressRepository.findAllByBookIdsAndUserId(books.content.map { it.bookId }, principal.user.id).associateBy { it.bookId }
         val readListsBooks = syncPointRepository.findBookIdsByReadListIds(toSyncPoint.id, readLists.content.map { it.readListId }).groupBy { it.readListId }
 
+        val archivedBookIds =
+          koboArchivedBookRepository.findArchivedBookIds(principal.user.id)
+
         buildList {
           addAll(
-            books.content.map {
-              NewEntitlementDto(
-                BookEntitlementContainerDto(
-                  bookEntitlement = it.toBookEntitlementDto(false),
-                  bookMetadata = metadata[it.bookId]!!,
-                  readingState = readProgress[it.bookId]?.toDto() ?: getEmptyReadProgressForBook(it.bookId, it.createdDate),
-                ),
-              )
-            },
+            books.content
+              .filterNot { it.bookId in archivedBookIds }
+              .map {
+                NewEntitlementDto(
+                  BookEntitlementContainerDto(
+                    bookEntitlement = it.toBookEntitlementDto(false),
+                    bookMetadata = metadata[it.bookId]!!,
+                    readingState = readProgress[it.bookId]?.toDto() ?: getEmptyReadProgressForBook(it.bookId, it.createdDate),
+                  ),
+                )
+              },
           )
+          // KOBO_ARCHIVE_V1
+          // Only emit archive state for archived books on this page, avoiding
+          // duplicates across full-sync pagination.
+          addAll(
+            books.content
+              .filter { it.bookId in archivedBookIds }
+              .map {
+                ChangedEntitlementDto(
+                  BookEntitlementContainerDto(
+                    bookEntitlement = it.toBookEntitlementDto(true),
+                    bookMetadata = metadata[it.bookId]!!,
+                  ),
+                )
+              },
+          )
+
           addAll(
             readLists.content.map {
               NewTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
@@ -532,6 +593,30 @@ class KoboController(
   /**
    * @return an array of [ReadingStateDto]
    */
+  @DeleteMapping("v1/library/{entitlementId}")
+  fun deleteEntitlement(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+    @PathVariable entitlementId: String,
+  ): ResponseEntity<*> {
+    val book =
+      bookRepository.findByIdOrNull(entitlementId)
+        ?: if (koboProxy.isEnabled())
+          return koboProxy.proxyCurrentRequest()
+        else
+          throw ResponseStatusException(HttpStatus.NOT_FOUND)
+
+    contentRestrictionChecker.checkContentRestrictionBook(principal.user, book)
+
+    koboArchivedBookRepository.archive(
+      userId = principal.user.id,
+      bookId = book.id,
+    )
+
+    logger.debug { "Archived Kobo book ${book.id} for user ${principal.user.id}" }
+
+    return ResponseEntity.noContent().build<Void>()
+  }
+
   @GetMapping("/v1/library/{bookId}/state")
   fun getState(
     @AuthenticationPrincipal principal: KomgaPrincipal,

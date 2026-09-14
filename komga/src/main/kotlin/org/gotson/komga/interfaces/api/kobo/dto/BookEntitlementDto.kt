@@ -2,7 +2,9 @@ package org.gotson.komga.interfaces.api.kobo.dto
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.annotation.JsonNaming
+import org.gotson.komga.domain.model.Book
 import org.gotson.komga.domain.model.SyncPoint
+import org.gotson.komga.language.toUTCZoned
 import java.time.ZoneId
 import java.time.ZonedDateTime
 
@@ -20,7 +22,7 @@ data class BookEntitlementDto(
    */
   val isRemoved: Boolean,
   val lastModified: ZonedDateTime,
-  val originCategory: String = "Imported",
+  val originCategory: String = "Purchased",
   val revisionId: String,
   val status: String = "Active",
 )
@@ -34,4 +36,17 @@ fun SyncPoint.Book.toBookEntitlementDto(isRemoved: Boolean) =
     id = bookId,
     isRemoved = isRemoved,
     lastModified = fileLastModified,
+  )
+
+// KOBO_ARCHIVE_V1
+fun Book.toBookEntitlementDto(isRemoved: Boolean) =
+  BookEntitlementDto(
+    activePeriod = ZonedDateTime.now(ZoneId.of("Z")).toPeriodDto(),
+    created = createdDate.toUTCZoned(),
+    crossRevisionId = id,
+    revisionId = id,
+    id = id,
+    originCategory = "Purchased",
+    isRemoved = isRemoved,
+    lastModified = fileLastModified.toUTCZoned(),
   )

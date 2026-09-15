@@ -1,6 +1,7 @@
 package org.gotson.komga.infrastructure.jooq.main
 
 import com.github.f4b6a3.tsid.TsidCreator
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.gotson.komga.domain.model.BookSearch
 import org.gotson.komga.domain.model.SearchContext
 import org.gotson.komga.domain.model.SyncPoint
@@ -27,6 +28,8 @@ import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 import java.time.ZoneId
 
+private val logger = KotlinLogging.logger {}
+
 @Component
 class SyncPointDao(
   dslRW: DSLContext,
@@ -46,6 +49,8 @@ class SyncPointDao(
   private val sprl = Tables.SYNC_POINT_READLIST
   private val sprlb = Tables.SYNC_POINT_READLIST_BOOK
   private val sprls = Tables.SYNC_POINT_READLIST_REMOVED_SYNCED
+  private val rl = Tables.READLIST
+  private val rlb = Tables.READLIST_BOOK
 
   @Transactional
   override fun create(
@@ -129,6 +134,66 @@ class SyncPointDao(
           .and(bt.SELECTED.isTrue)
           .where(condition),
       ).execute()
+
+    // Snapshot live ReadLists alongside books so Kobo collection deltas
+    // can be computed between SyncPoints.
+
+    val liveReadListCount =
+      dslRW.fetchCount(
+        dslRW.selectFrom(rl),
+      )
+
+    val readListsInserted =
+      dslRW
+        .insertInto(
+          sprl,
+          sprl.SYNC_POINT_ID,
+          sprl.READLIST_ID,
+          sprl.READLIST_NAME,
+          sprl.READLIST_CREATED_DATE,
+          sprl.READLIST_LAST_MODIFIED_DATE,
+        ).select(
+          dslRW
+            .select(
+              DSL.`val`(syncPointId),
+              rl.ID,
+              rl.NAME,
+              rl.CREATED_DATE,
+              rl.LAST_MODIFIED_DATE,
+            ).from(rl),
+        ).execute()
+
+    // Only snapshot memberships for books that are part of this Kobo
+    // SyncPoint. This prevents a collection from referring to books that
+    // were filtered out of the Kobo library.
+    val readListBooksInserted =
+      dslRW
+        .insertInto(
+          sprlb,
+          sprlb.SYNC_POINT_ID,
+          sprlb.READLIST_ID,
+          sprlb.BOOK_ID,
+        ).select(
+          dslRW
+            .select(
+              DSL.`val`(syncPointId),
+              rlb.READLIST_ID,
+              rlb.BOOK_ID,
+            ).from(rlb)
+            .join(spb)
+            .on(
+              spb.SYNC_POINT_ID
+                .eq(syncPointId)
+                .and(spb.BOOK_ID.eq(rlb.BOOK_ID)),
+            ),
+        ).execute()
+
+    logger.debug {
+      "Kobo ReadList snapshot: syncPoint=$syncPointId, " +
+        "live=$liveReadListCount, " +
+        "readListsInserted=$readListsInserted, " +
+        "membershipsInserted=$readListBooksInserted"
+    }
 
     return findByIdOrNull(syncPointId)!!
   }

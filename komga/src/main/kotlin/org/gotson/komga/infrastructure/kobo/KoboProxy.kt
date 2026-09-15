@@ -243,7 +243,7 @@ class KoboProxy(
           }
 
           logger.debug {
-            "Headers out: $headersOut"
+            "Headers out: ${headersOut.keys}"
           }
         }.apply {
           if (body != null) {

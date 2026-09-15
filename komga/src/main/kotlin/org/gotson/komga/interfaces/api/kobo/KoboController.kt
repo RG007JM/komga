@@ -11,19 +11,23 @@ import org.apache.commons.io.IOUtils
 import org.apache.commons.lang3.RandomStringUtils
 import org.gotson.komga.domain.model.Book
 import org.gotson.komga.domain.model.BookWithMedia
+import org.gotson.komga.domain.model.DuplicateNameException
 import org.gotson.komga.domain.model.KomgaSyncToken
 import org.gotson.komga.domain.model.MediaExtensionEpub
 import org.gotson.komga.domain.model.MediaType.EPUB
 import org.gotson.komga.domain.model.R2Device
 import org.gotson.komga.domain.model.R2Locator
 import org.gotson.komga.domain.model.R2Progression
+import org.gotson.komga.domain.model.ReadList
 import org.gotson.komga.domain.model.SyncPoint
 import org.gotson.komga.domain.persistence.BookRepository
 import org.gotson.komga.domain.persistence.MediaRepository
+import org.gotson.komga.domain.persistence.ReadListRepository
 import org.gotson.komga.domain.persistence.ReadProgressRepository
 import org.gotson.komga.domain.persistence.SyncPointRepository
 import org.gotson.komga.domain.persistence.ThumbnailBookRepository
 import org.gotson.komga.domain.service.BookLifecycle
+import org.gotson.komga.domain.service.ReadListLifecycle
 import org.gotson.komga.domain.service.SyncPointLifecycle
 import org.gotson.komga.infrastructure.configuration.KomgaProperties
 import org.gotson.komga.infrastructure.image.ImageConverter
@@ -34,6 +38,9 @@ import org.gotson.komga.infrastructure.kobo.KoboHeaders.X_KOBO_SYNC
 import org.gotson.komga.infrastructure.kobo.KoboHeaders.X_KOBO_SYNCTOKEN
 import org.gotson.komga.infrastructure.kobo.KoboHeaders.X_KOBO_USERKEY
 import org.gotson.komga.infrastructure.kobo.KoboProxy
+import org.gotson.komga.infrastructure.kobo.KoboRawStoreProxy
+import org.gotson.komga.infrastructure.kobo.KoboReadListMutationGuard
+import org.gotson.komga.infrastructure.kobo.KoboTagRequestTranslator
 import org.gotson.komga.infrastructure.kobo.KomgaSyncTokenGenerator
 import org.gotson.komga.infrastructure.security.KomgaPrincipal
 import org.gotson.komga.infrastructure.web.getCurrentRequest
@@ -161,6 +168,8 @@ private val logger = KotlinLogging.logger {}
 @RequestMapping(value = ["/kobo/{authToken}/"], produces = ["application/json; charset=utf-8"])
 class KoboController(
   private val koboProxy: KoboProxy,
+  private val koboRawStoreProxy: KoboRawStoreProxy,
+  private val koboTagRequestTranslator: KoboTagRequestTranslator,
   private val kepubConverter: KepubConverter,
   private val koboKepubSizeCacheRepository: KoboKepubSizeCacheRepository,
   private val koboArchivedBookRepository: KoboArchivedBookRepository,
@@ -173,6 +182,9 @@ class KoboController(
   private val commonBookController: CommonBookController,
   private val bookLifecycle: BookLifecycle,
   private val bookRepository: BookRepository,
+  private val readListRepository: ReadListRepository,
+  private val readListLifecycle: ReadListLifecycle,
+  private val koboReadListMutationGuard: KoboReadListMutationGuard,
   private val thumbnailBookRepository: ThumbnailBookRepository,
   private val readProgressRepository: ReadProgressRepository,
   private val imageConverter: ImageConverter,
@@ -360,7 +372,13 @@ class KoboController(
             .associateBy { it.entitlementId }
             .mapValues { it.value.withDownloadUrls(downloadUriBuilder) }
         val readProgress = readProgressRepository.findAllByBookIdsAndUserId((booksAdded.content + booksChanged.content + changedReadingState.content).map { it.bookId }, principal.user.id).associateBy { it.bookId }
-        val readListsBooks = syncPointRepository.findBookIdsByReadListIds(toSyncPoint.id, (readListsAdded.content + readListsChanged.content).map { it.readListId }).groupBy { it.readListId }
+        val readListsBooks =
+          syncPointRepository
+            .findBookIdsByReadListIds(
+              toSyncPoint.id,
+              (readListsAdded.content + readListsChanged.content)
+                .map { it.readListId },
+            ).groupBy { it.readListId }
 
         val archivedBookIds =
           koboArchivedBookRepository.findArchivedBookIds(principal.user.id)
@@ -847,6 +865,344 @@ class KoboController(
           poster.bytes
       ResponseEntity.ok(posterBytes)
     }
+
+  /**
+   * Kobo calls collections/shelves "tags".
+   *
+   * Komga already exposes Read Lists as Kobo UserTags in /v1/library/sync.
+   * These endpoints complete the reverse direction so collections created or
+   * edited on the Kobo can update the corresponding Komga Read List.
+   *
+   * Genuine Kobo-cloud tags are still delegated to the existing proxy when
+   * the tag ID is unknown to Komga. For tag creation, a request containing
+   * only non-Komga RevisionIds is likewise delegated to Kobo when proxying is
+   * enabled.
+   */
+  @PostMapping("v1/library/tags")
+  fun createKoboTag(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+    @RequestBody rawBody: ByteArray,
+  ): ResponseEntity<*> {
+    val body = objectMapper.readTree(rawBody)
+    val name = getKoboTagName(body)
+    val items = getKoboTagItems(body)
+    val revisionIds = getKoboTagRevisionIds(items)
+    val localBookIds = getLocalKoboTagBookIds(revisionIds)
+
+    // A collection containing only genuine Kobo-store books should remain a
+    // Kobo-cloud collection instead of becoming an empty Komga Read List.
+    if (revisionIds.isNotEmpty() && localBookIds.isEmpty()) {
+      return proxyHybridKoboTagRequest(
+        rawBody = rawBody,
+        translateItems = true,
+      )
+    }
+
+    requireKoboTagWriteAccess(principal)
+
+    val existing = readListRepository.findByNameOrNull(name)
+    val readList =
+      if (existing == null) {
+        addKoboReadList(
+          ReadList(
+            name = name,
+            ordered = false,
+            bookIds = indexKoboTagBooks(localBookIds),
+          ),
+        )
+      } else {
+        val mergedBookIds = (existing.bookIds.values + localBookIds).distinct()
+        val updated = existing.copy(bookIds = indexKoboTagBooks(mergedBookIds))
+        if (updated.bookIds != existing.bookIds) {
+          updateKoboReadList(updated)
+        }
+        updated
+      }
+
+    logIgnoredKoboTagItems(revisionIds, localBookIds)
+
+    // Kobo expects HTTP 201 and a top-level JSON string containing the
+    // canonical tag ID. Nickel then replaces its temporary Shelf.Id with it.
+    return ResponseEntity
+      .status(HttpStatus.CREATED)
+      .body(objectMapper.valueToTree<JsonNode>(readList.id))
+  }
+
+  @PutMapping("v1/library/tags/{tagId}")
+  fun renameKoboTag(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+    @PathVariable tagId: String,
+    @RequestBody rawBody: ByteArray,
+  ): ResponseEntity<*> {
+    // KOMGA-ONDECK is a synthetic SyncPoint tag, not a persisted/cloud tag.
+    if (tagId == "KOMGA-ONDECK") {
+      return ResponseEntity.ok().build<Void>()
+    }
+
+    val existing =
+      readListRepository.findByIdOrNull(tagId)
+        ?: return proxyHybridKoboTagRequest(
+          rawBody = rawBody,
+          translateItems = false,
+        )
+    requireKoboTagWriteAccess(principal)
+
+    val body = objectMapper.readTree(rawBody)
+    val name = getKoboTagName(body)
+    if (name != existing.name) {
+      updateKoboReadList(existing.copy(name = name))
+    }
+
+    return ResponseEntity.ok().build<Void>()
+  }
+
+  @RequestMapping(
+    value = ["v1/library/tags/{tagId}"],
+    method = [RequestMethod.DELETE],
+  )
+  fun deleteKoboTag(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+    @PathVariable tagId: String,
+    @RequestBody(required = false) rawBody: ByteArray?,
+  ): ResponseEntity<*> {
+    // KOMGA-ONDECK is a synthetic SyncPoint tag, not a persisted/cloud tag.
+    if (tagId == "KOMGA-ONDECK") {
+      return ResponseEntity.ok().build<Void>()
+    }
+
+    val existing =
+      readListRepository.findByIdOrNull(tagId)
+        ?: return proxyHybridKoboTagRequest(
+          rawBody = rawBody,
+          translateItems = false,
+        )
+    requireKoboTagWriteAccess(principal)
+
+    readListLifecycle.deleteReadList(existing)
+    return ResponseEntity.ok().build<Void>()
+  }
+
+  @PostMapping(
+    value = [
+      "v1/library/tags/{tagId}/items",
+      "v1/library/tags/{tagId}/Items",
+    ],
+  )
+  fun addKoboTagItems(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+    @PathVariable tagId: String,
+    @RequestHeader(value = "x-kobo-deviceid", required = false) deviceId: String?,
+    @RequestBody rawBody: ByteArray,
+  ): ResponseEntity<*> {
+    // KOMGA-ONDECK is a synthetic SyncPoint tag, not a persisted/cloud tag.
+    if (tagId == "KOMGA-ONDECK") {
+      return ResponseEntity.status(HttpStatus.CREATED).build<Void>()
+    }
+
+    val existing =
+      readListRepository.findByIdOrNull(tagId)
+        ?: return proxyHybridKoboTagRequest(
+          rawBody = rawBody,
+          translateItems = true,
+        )
+    requireKoboTagWriteAccess(principal)
+
+    val body = objectMapper.readTree(rawBody)
+    val items = getKoboTagItems(body)
+    val revisionIds = getKoboTagRevisionIds(items)
+    val localBookIds = getLocalKoboTagBookIds(revisionIds)
+
+    // Protect newer Komga membership changes from stale Kobo mutations.
+    val membershipDecision =
+      koboReadListMutationGuard.decide(
+        userId = principal.user.id,
+        deviceId = deviceId,
+        readListId = tagId,
+        liveBookIds = existing.bookIds.values.toSet(),
+        requestedBookIds = localBookIds,
+        operation = KoboReadListMutationGuard.Operation.ADD,
+      )
+
+    if (membershipDecision.ignoredBookIds.isNotEmpty()) {
+      logger.info {
+        "Ignoring stale Kobo add-to-tag mutation for $tagId, " +
+          "baseline=${membershipDecision.baselineSyncPointId}, " +
+          "bookIds=${membershipDecision.ignoredBookIds}"
+      }
+    }
+
+    val mergedBookIds =
+      (
+        existing.bookIds.values +
+          membershipDecision.acceptedBookIds
+      ).distinct()
+
+    if (mergedBookIds != existing.bookIds.values.toList()) {
+      updateKoboReadList(existing.copy(bookIds = indexKoboTagBooks(mergedBookIds)))
+    }
+
+    logIgnoredKoboTagItems(revisionIds, localBookIds)
+    return ResponseEntity.status(HttpStatus.CREATED).build<Void>()
+  }
+
+  @PostMapping(
+    value = [
+      "v1/library/tags/{tagId}/items/delete",
+      "v1/library/tags/{tagId}/Items/delete",
+    ],
+  )
+  fun removeKoboTagItems(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+    @PathVariable tagId: String,
+    @RequestHeader(value = "x-kobo-deviceid", required = false) deviceId: String?,
+    @RequestBody rawBody: ByteArray,
+  ): ResponseEntity<*> {
+    // KOMGA-ONDECK is a synthetic SyncPoint tag, not a persisted/cloud tag.
+    if (tagId == "KOMGA-ONDECK") {
+      return ResponseEntity.ok().build<Void>()
+    }
+
+    val existing =
+      readListRepository.findByIdOrNull(tagId)
+        ?: return proxyHybridKoboTagRequest(
+          rawBody = rawBody,
+          translateItems = true,
+        )
+    requireKoboTagWriteAccess(principal)
+
+    val body = objectMapper.readTree(rawBody)
+    val items = getKoboTagItems(body)
+    val revisionIds = getKoboTagRevisionIds(items)
+    val localBookIds = getLocalKoboTagBookIds(revisionIds)
+
+    // Protect newer Komga membership changes from stale Kobo mutations.
+    val membershipDecision =
+      koboReadListMutationGuard.decide(
+        userId = principal.user.id,
+        deviceId = deviceId,
+        readListId = tagId,
+        liveBookIds = existing.bookIds.values.toSet(),
+        requestedBookIds = localBookIds,
+        operation = KoboReadListMutationGuard.Operation.REMOVE,
+      )
+
+    if (membershipDecision.ignoredBookIds.isNotEmpty()) {
+      logger.info {
+        "Ignoring stale Kobo remove-from-tag mutation for $tagId, " +
+          "baseline=${membershipDecision.baselineSyncPointId}, " +
+          "bookIds=${membershipDecision.ignoredBookIds}"
+      }
+    }
+
+    val toRemove = membershipDecision.acceptedBookIds.toSet()
+    val remainingBookIds = existing.bookIds.values.filterNot { it in toRemove }
+
+    if (remainingBookIds != existing.bookIds.values.toList()) {
+      updateKoboReadList(existing.copy(bookIds = indexKoboTagBooks(remainingBookIds)))
+    }
+
+    logIgnoredKoboTagItems(revisionIds, localBookIds)
+    return ResponseEntity.ok().build<Void>()
+  }
+
+  private fun proxyHybridKoboTagRequest(
+    rawBody: ByteArray?,
+    translateItems: Boolean,
+  ): ResponseEntity<*> {
+    if (!koboProxy.isEnabled()) {
+      return catchAll(rawBody)
+    }
+
+    val body =
+      if (translateItems) {
+        koboTagRequestTranslator.translate(rawBody)
+      } else {
+        rawBody
+      }
+
+    return koboRawStoreProxy.proxyCurrentRequest(
+      body = body,
+    )
+  }
+
+  private fun requireKoboTagWriteAccess(principal: KomgaPrincipal) {
+    // Normal Komga Read List mutations are ADMIN-only. Keep the Kobo path
+    // consistent so an ordinary API key cannot mutate server-wide Read Lists.
+    if (!principal.user.isAdmin) {
+      throw ResponseStatusException(HttpStatus.FORBIDDEN)
+    }
+  }
+
+  private fun getKoboTagName(body: JsonNode): String {
+    val name = body.get("Name")?.takeIf { it.isTextual }?.asText()
+    if (name.isNullOrBlank()) {
+      throw ResponseStatusException(
+        HttpStatus.BAD_REQUEST,
+        "Malformed Kobo tag request: missing or empty Name",
+      )
+    }
+    return name
+  }
+
+  private fun getKoboTagItems(body: JsonNode): JsonNode =
+    body.get("Items")?.takeIf { it.isArray }
+      ?: throw ResponseStatusException(
+        HttpStatus.BAD_REQUEST,
+        "Malformed Kobo tag request: missing Items array",
+      )
+
+  private fun getKoboTagRevisionIds(items: JsonNode): List<String> =
+    items.mapNotNull { item ->
+      if (item.get("Type")?.asText() != "ProductRevisionTagItem") {
+        null
+      } else {
+        item
+          .get("RevisionId")
+          ?.takeIf { it.isTextual }
+          ?.asText()
+          ?.takeIf { it.isNotBlank() }
+      }
+    }
+
+  private fun getLocalKoboTagBookIds(revisionIds: Collection<String>): List<String> =
+    revisionIds
+      .filter { bookRepository.existsById(it) }
+      .distinct()
+
+  private fun indexKoboTagBooks(bookIds: Collection<String>) =
+    bookIds
+      .distinct()
+      .mapIndexed { index, bookId -> index to bookId }
+      .toMap()
+      .toSortedMap()
+
+  private fun addKoboReadList(readList: ReadList): ReadList =
+    try {
+      readListLifecycle.addReadList(readList)
+    } catch (e: DuplicateNameException) {
+      throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message)
+    }
+
+  private fun updateKoboReadList(readList: ReadList) {
+    try {
+      readListLifecycle.updateReadList(readList)
+    } catch (e: DuplicateNameException) {
+      throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message)
+    }
+  }
+
+  private fun logIgnoredKoboTagItems(
+    revisionIds: Collection<String>,
+    localBookIds: Collection<String>,
+  ) {
+    val local = localBookIds.toSet()
+    val ignored = revisionIds.filterNot { it in local }
+    if (ignored.isNotEmpty()) {
+      logger.debug {
+        "Ignoring ${ignored.size} Kobo tag item(s) that do not correspond to Komga book IDs"
+      }
+    }
+  }
 
   @RequestMapping(
     value = ["{*path}"],

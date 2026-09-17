@@ -469,19 +469,25 @@ class KoboController(
             },
           )
           addAll(
-            readListsAdded.content.map {
-              NewTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
-            },
+            readListsAdded.content
+              .filterNot { it.readListId == SyncPoint.ReadList.ON_DECK_ID }
+              .map {
+                NewTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
+              },
           )
           addAll(
-            readListsChanged.content.map {
-              ChangedTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
-            },
+            readListsChanged.content
+              .filterNot { it.readListId == SyncPoint.ReadList.ON_DECK_ID }
+              .map {
+                ChangedTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
+              },
           )
           addAll(
-            readListsRemoved.content.map {
-              DeletedTagDto(it.toWrappedTagDto())
-            },
+            readListsRemoved.content
+              .filterNot { it.readListId == SyncPoint.ReadList.ON_DECK_ID }
+              .map {
+                DeletedTagDto(it.toWrappedTagDto())
+              },
           )
         }
       } else {
@@ -547,9 +553,11 @@ class KoboController(
           )
 
           addAll(
-            readLists.content.map {
-              NewTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
-            },
+            readLists.content
+              .filterNot { it.readListId == SyncPoint.ReadList.ON_DECK_ID }
+              .map {
+                NewTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
+              },
           )
         }
       }

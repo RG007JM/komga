@@ -81,6 +81,7 @@ class KoboProductResolverTest {
     val bookId = "book-1"
     val isbn = "9781974753246"
     val productId = "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+    val seriesId = "4b64f394-81ca-59b8-96c0-57790e01ecc7"
 
     every {
       bookMetadataRepository.findByIdOrNull(bookId)
@@ -103,7 +104,11 @@ class KoboProductResolverTest {
 
     every {
       productClient.findProductByIsbn(isbn)
-    } returns KoboProductLookupResult.Found(productId)
+    } returns
+      KoboProductLookupResult.Found(
+        productId = productId,
+        seriesId = seriesId,
+      )
 
     val result = resolver.resolveProductId(bookId)
 
@@ -115,7 +120,62 @@ class KoboProductResolverTest {
           it.bookId == bookId &&
             it.isbn == isbn &&
             it.productId == productId &&
-            it.status == KoboProductMappingStatus.FOUND
+            it.observedKoboSeriesId == seriesId &&
+            it.status == KoboProductMappingStatus.FOUND &&
+            it.seriesCheckedAt != null &&
+            it.seriesCheckedAt == it.checkedAt
+        },
+      )
+    }
+  }
+
+  @Test
+  fun `found ISBN without series persists checked null series observation`() {
+    val bookId = "book-1"
+    val isbn = "9781974755998"
+    val productId = "6852e6c6-96d3-4000-9851-c4fb8d2cbaa4"
+
+    every {
+      bookMetadataRepository.findByIdOrNull(bookId)
+    } returns
+      BookMetadata(
+        title = "Test Book",
+        number = "16",
+        numberSort = 16F,
+        bookId = bookId,
+        isbn = isbn,
+      )
+
+    every {
+      mappingRepository.findByBookId(bookId)
+    } returns null
+
+    every {
+      mappingRepository.findByIsbn(isbn)
+    } returns emptyList()
+
+    every {
+      productClient.findProductByIsbn(isbn)
+    } returns
+      KoboProductLookupResult.Found(
+        productId = productId,
+        seriesId = null,
+      )
+
+    val result = resolver.resolveProductId(bookId)
+
+    assertThat(result).isEqualTo(productId)
+
+    verify(exactly = 1) {
+      mappingRepository.save(
+        match {
+          it.bookId == bookId &&
+            it.isbn == isbn &&
+            it.productId == productId &&
+            it.observedKoboSeriesId == null &&
+            it.status == KoboProductMappingStatus.FOUND &&
+            it.seriesCheckedAt != null &&
+            it.seriesCheckedAt == it.checkedAt
         },
       )
     }

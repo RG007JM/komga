@@ -6,6 +6,8 @@
 
 [![Translation status](https://hosted.weblate.org/widgets/komga/-/webui/svg-badge.svg)](https://hosted.weblate.org/engage/komga/)
 
+## This is a fork to bring extended Kobo Sync features to Komga in a "proof-of-concept". These features may all be implemented. All of the changes are tested, but this specific fork is Vibecoded with GPT Sol 5.6.
+
 # ![app icon](./.github/readme-images/app-icon.png) Komga
 
 Komga is a media server for your comics, mangas, BDs, magazines and eBooks.

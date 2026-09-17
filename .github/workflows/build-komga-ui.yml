@@ -1,0 +1,48 @@
+﻿name: Build Komga UIs
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: "Komga branch, tag, or commit to build"
+        required: true
+        default: "master"
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout requested Komga version
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_ref }}
+
+      - name: Legacy WebUI - setup
+        uses: ./.github/actions/setup-web
+        with:
+          working-directory: komga-webui
+
+      - name: Legacy WebUI - build
+        working-directory: komga-webui
+        run: npm run build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+
+      - name: NextUI - setup
+        uses: ./.github/actions/setup-web
+        with:
+          working-directory: next-ui
+
+      - name: NextUI - build
+        working-directory: next-ui
+        run: npm run build:with-i18n
+
+      - name: Upload compiled UIs
+        uses: actions/upload-artifact@v7
+        with:
+          name: komga-ui-dist
+          path: |
+            komga-webui/dist
+            next-ui/dist

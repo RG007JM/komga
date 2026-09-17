@@ -36,17 +36,12 @@ class KoboProductResolver(
       return null
     }
 
-    if (existing != null && existing.isbn == isbn) {
-      when (existing.status) {
-        KoboProductMappingStatus.FOUND ->
-          return existing.productId
-
-        KoboProductMappingStatus.NOT_FOUND -> {
-          if (!isNotFoundExpired(existing)) {
-            return null
-          }
-        }
-      }
+    if (
+      existing != null &&
+      existing.isbn == isbn &&
+      existing.status == KoboProductMappingStatus.FOUND
+    ) {
+      return existing.productId
     }
 
     if (existing != null && existing.isbn != isbn) {
@@ -55,27 +50,51 @@ class KoboProductResolver(
       }
     }
 
-    val reusable =
+    val reusableMappings =
       koboProductMappingRepository
         .findByIsbn(isbn)
-        .firstOrNull { mapping ->
-          when (mapping.status) {
-            KoboProductMappingStatus.FOUND ->
-              mapping.productId != null
 
-            KoboProductMappingStatus.NOT_FOUND ->
-              !isNotFoundExpired(mapping)
-          }
+    val reusableFound =
+      reusableMappings
+        .firstOrNull { mapping ->
+          mapping.status == KoboProductMappingStatus.FOUND &&
+            mapping.productId != null
         }
 
-    if (reusable != null) {
+    if (reusableFound != null) {
       koboProductMappingRepository.save(
-        reusable.copy(
+        reusableFound.copy(
           bookId = bookId,
         ),
       )
 
-      return reusable.productId
+      return reusableFound.productId
+    }
+
+    if (
+      existing != null &&
+      existing.isbn == isbn &&
+      existing.status == KoboProductMappingStatus.NOT_FOUND &&
+      !isNotFoundExpired(existing)
+    ) {
+      return null
+    }
+
+    val reusableNotFound =
+      reusableMappings
+        .firstOrNull { mapping ->
+          mapping.status == KoboProductMappingStatus.NOT_FOUND &&
+            !isNotFoundExpired(mapping)
+        }
+
+    if (reusableNotFound != null) {
+      koboProductMappingRepository.save(
+        reusableNotFound.copy(
+          bookId = bookId,
+        ),
+      )
+
+      return null
     }
 
     return when (

@@ -341,4 +341,67 @@ class KoboProductResolverTest {
       mappingRepository.save(any())
     }
   }
+
+  @Test
+  fun `cached found mapping wins over fresh not found mapping for same ISBN`() {
+    val bookId = "book-1"
+    val isbn = "9781974753246"
+    val productId = "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+
+    every {
+      bookMetadataRepository.findByIdOrNull(bookId)
+    } returns
+      BookMetadata(
+        title = "Test Book",
+        number = "1",
+        numberSort = 1F,
+        bookId = bookId,
+        isbn = isbn,
+      )
+
+    val notFound =
+      KoboProductMapping(
+        bookId = bookId,
+        isbn = isbn,
+        productId = null,
+        status = KoboProductMappingStatus.NOT_FOUND,
+        checkedAt = LocalDateTime.now(),
+      )
+
+    val found =
+      KoboProductMapping(
+        bookId = "book-2",
+        isbn = isbn,
+        productId = productId,
+        status = KoboProductMappingStatus.FOUND,
+        checkedAt = LocalDateTime.now().minusDays(1),
+      )
+
+    every {
+      mappingRepository.findByBookId(bookId)
+    } returns notFound
+
+    every {
+      mappingRepository.findByIsbn(isbn)
+    } returns listOf(notFound, found)
+
+    val result = resolver.resolveProductId(bookId)
+
+    assertThat(result).isEqualTo(productId)
+
+    verify(exactly = 0) {
+      productClient.findProductByIsbn(any())
+    }
+
+    verify(exactly = 1) {
+      mappingRepository.save(
+        match {
+          it.bookId == bookId &&
+            it.isbn == isbn &&
+            it.productId == productId &&
+            it.status == KoboProductMappingStatus.FOUND
+        },
+      )
+    }
+  }
 }

@@ -29,11 +29,13 @@ private val logger = KotlinLogging.logger {}
 
 @Component
 class KoboProxy(
+  private val koboOutboundRequestGuard: KoboOutboundRequestGuard,
   private val objectMapper: ObjectMapper,
   private val komgaSyncTokenGenerator: KomgaSyncTokenGenerator,
   private val komgaSettingsProvider: KomgaSettingsProvider,
   private val koboProductResolver: KoboProductResolver,
   private val koboProductResponseTranslator: KoboProductResponseTranslator,
+  private val koboSeriesSearchQueryTranslator: KoboSeriesSearchQueryTranslator,
 ) {
   private val koboApiClient: RestClient =
     RestClient
@@ -53,6 +55,8 @@ class KoboProxy(
               .withReadTimeout(1.minutes.toJavaDuration())
               .withConnectTimeout(1.minutes.toJavaDuration()),
           ),
+      ).requestInterceptor(
+        koboOutboundRequestGuard,
       ).build()
 
   private val pathRegex =
@@ -164,7 +168,7 @@ class KoboProxy(
     val translatedQuery =
       translateProductIdsInQuery(
         path = path,
-        query = request.queryString,
+        query = koboSeriesSearchQueryTranslator.translate(request.queryString),
         translationCache = productIdTranslations,
       )
 
@@ -174,9 +178,9 @@ class KoboProxy(
       }
     }
 
-    if (translatedQuery != request.queryString) {
+    if (translatedQuery != koboSeriesSearchQueryTranslator.translate(request.queryString)) {
       logger.debug {
-        "Translated Kobo proxy query: ${request.queryString} -> $translatedQuery"
+        "Translated Kobo proxy query: ${koboSeriesSearchQueryTranslator.translate(request.queryString)} -> $translatedQuery"
       }
     }
 

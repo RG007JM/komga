@@ -45,19 +45,25 @@ class KoboProductMappingDao(
         k.BOOK_ID,
         k.ISBN,
         k.PRODUCT_ID,
+        k.OBSERVED_KOBO_SERIES_ID,
         k.STATUS,
         k.CHECKED_AT,
+        k.SERIES_CHECKED_AT,
       ).values(
         mapping.bookId,
         mapping.isbn,
         mapping.productId,
+        mapping.observedKoboSeriesId,
         mapping.status.name,
         mapping.checkedAt,
+        mapping.seriesCheckedAt,
       ).onDuplicateKeyUpdate()
       .set(k.ISBN, mapping.isbn)
       .set(k.PRODUCT_ID, mapping.productId)
+      .set(k.OBSERVED_KOBO_SERIES_ID, mapping.observedKoboSeriesId)
       .set(k.STATUS, mapping.status.name)
       .set(k.CHECKED_AT, mapping.checkedAt)
+      .set(k.SERIES_CHECKED_AT, mapping.seriesCheckedAt)
       .execute()
   }
 
@@ -73,7 +79,9 @@ class KoboProductMappingDao(
       bookId = bookId,
       isbn = isbn,
       productId = productId,
+      observedKoboSeriesId = observedKoboSeriesId,
       status = KoboProductMappingStatus.valueOf(status),
       checkedAt = checkedAt,
+      seriesCheckedAt = seriesCheckedAt,
     )
 }

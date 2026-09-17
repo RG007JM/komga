@@ -102,13 +102,17 @@ class KoboProductResolver(
         koboProductClient.findProductByIsbn(isbn)
     ) {
       is KoboProductLookupResult.Found -> {
+        val checkedAt = LocalDateTime.now()
+
         koboProductMappingRepository.save(
           KoboProductMapping(
             bookId = bookId,
             isbn = isbn,
             productId = result.productId,
+            observedKoboSeriesId = result.seriesId,
             status = KoboProductMappingStatus.FOUND,
-            checkedAt = LocalDateTime.now(),
+            checkedAt = checkedAt,
+            seriesCheckedAt = checkedAt,
           ),
         )
 

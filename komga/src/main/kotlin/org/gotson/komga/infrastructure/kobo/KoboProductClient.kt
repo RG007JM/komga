@@ -6,10 +6,7 @@ import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClientFactory
 import okhttp3.Request
-import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
 import org.springframework.stereotype.Component
-import java.util.UUID
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
 
@@ -38,6 +35,11 @@ class KoboProductClient(
     OkHttpClientFactory
       .create(impersonator)
       .newHttpClient()
+
+  private val pageParser =
+    KoboProductPageParser(
+      objectMapper,
+    )
 
   fun findProductByIsbn(
     isbn: String,
@@ -157,26 +159,17 @@ class KoboProductClient(
           )
         }
 
-        val document =
-          Jsoup.parse(
-            body,
-            response.request.url.toString(),
-          )
-
-        val productId =
-          extractProductId(document)
-            ?: return@use KoboProductLookupResult.NotFound
-
-        if (!pageMatchesIsbn(
-            document = document,
+        val identity =
+          pageParser.parse(
+            html = body,
+            baseUrl = response.request.url.toString(),
             isbn = isbn,
           )
-        ) {
-          return@use KoboProductLookupResult.NotFound
-        }
+            ?: return@use KoboProductLookupResult.NotFound
 
         KoboProductLookupResult.Found(
-          productId,
+          productId = identity.productId,
+          seriesId = identity.seriesId,
         )
       }
   }
@@ -196,54 +189,6 @@ class KoboProductClient(
 
     lastRequestAt =
       System.currentTimeMillis()
-  }
-
-  private fun extractProductId(
-    document: Document,
-  ): String? {
-    val element =
-      document.selectFirst(
-        ".item-primary-metadata.book-primary-metadata[data-track-info]",
-      )
-        ?: return null
-
-    val trackInfo =
-      element.attr(
-        "data-track-info",
-      )
-
-    val productId =
-      runCatching {
-        objectMapper
-          .readTree(trackInfo)
-          .path("productId")
-          .asText()
-      }.getOrNull()
-        ?.takeIf {
-          it.isNotBlank()
-        }
-        ?: return null
-
-    return productId.takeIf {
-      runCatching {
-        UUID.fromString(it)
-      }.isSuccess
-    }
-  }
-
-  private fun pageMatchesIsbn(
-    document: Document,
-    isbn: String,
-  ): Boolean {
-    val normalizedDocument =
-      document
-        .html()
-        .replace("-", "")
-        .replace(" ", "")
-
-    return normalizedDocument.contains(
-      isbn,
-    )
   }
 
   private fun String.isCloudflareChallengePage(): Boolean {

@@ -7,6 +7,8 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.gotson.komga.domain.service.KoboProductResolver
+import org.gotson.komga.interfaces.api.kobo.dto.KoboBookMetadataDto
+import org.gotson.komga.interfaces.api.kobo.persistence.KoboDtoRepository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -20,10 +22,14 @@ class KoboProductResponseTranslatorTest {
   private val koboLocalBookLookup =
     mockk<KoboLocalBookLookup>()
 
+  private val koboDtoRepository =
+    mockk<KoboDtoRepository>()
+
   private val translator =
     KoboProductResponseTranslator(
       koboProductResolver = resolver,
       koboLocalBookLookup = koboLocalBookLookup,
+      koboDtoRepository = koboDtoRepository,
     )
 
   @BeforeEach
@@ -31,7 +37,19 @@ class KoboProductResponseTranslatorTest {
     clearMocks(
       resolver,
       koboLocalBookLookup,
+      koboDtoRepository,
     )
+    every {
+      koboDtoRepository.findBookMetadataByIds(any())
+    } answers {
+      firstArg<Collection<String>>()
+        .map { bookId ->
+          localMetadata(
+            bookId = bookId,
+            coverImageId = "cover-$bookId",
+          )
+        }
+    }
   }
 
   @Test
@@ -103,7 +121,7 @@ class KoboProductResponseTranslatorTest {
     assertThat(
       result["Items"][0]["Book"]["ImageId"].asText(),
     ).isEqualTo(
-      "original-image-id",
+      "cover-komga-book-6",
     )
 
     assertThat(
@@ -212,13 +230,13 @@ class KoboProductResponseTranslatorTest {
     assertThat(
       book.path("SeriesId").asText(),
     ).isEqualTo(
-      "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+      "series-komga-assassination-classroom-1",
     )
 
     assertThat(
       book.path("ImageId").asText(),
     ).isEqualTo(
-      "d05b2324-4b83-487f-83d4-8fce0e17389b",
+      "cover-komga-assassination-classroom-1",
     )
 
     verify(exactly = 1) {
@@ -385,7 +403,7 @@ class KoboProductResponseTranslatorTest {
     assertThat(
       book["ImageId"].asText(),
     ).isEqualTo(
-      "6a77a4da-ca2b-424d-b3d6-f67cb54eca08",
+      "cover-komga-next-book",
     )
 
     verify(exactly = 1) {
@@ -398,23 +416,38 @@ class KoboProductResponseTranslatorTest {
   }
 
   @Test
-  fun `product reviews translates ProductId only`() {
+  fun `product reviews translates matching CrossRevisionId and ReviewSummary`() {
+    val productId = "b996d901-4a00-4783-8476-8494252d3415"
+    val crossRevisionId = "173aa35d-7533-3879-a143-f023e62316db"
+    val bookId = "komga-book-id"
+
     every {
-      resolver.resolveBookId(
-        "b996d901-4a00-4783-8476-8494252d3415",
-      )
-    } returns "komga-book-id"
+      resolver.resolveBookId(productId)
+    } returns bookId
 
     val body =
       objectMapper.readTree(
         """
         {
+          "ReviewSummary": {
+            "$crossRevisionId": {
+              "AvgRating": 4.9,
+              "OpinionCount": 53,
+              "NumberOfReviews": 5
+            }
+          },
           "Items": [
             {
-              "RevisionId": "b996d901-4a00-4783-8476-8494252d3415",
-              "ProductId": "b996d901-4a00-4783-8476-8494252d3415",
-              "CrossRevisionId": "173aa35d-7533-3879-a143-f023e62316db",
-              "Title": "Review"
+              "RevisionId": "$productId",
+              "ProductId": "$productId",
+              "CrossRevisionId": "$crossRevisionId",
+              "Title": "Review A"
+            },
+            {
+              "RevisionId": "$productId",
+              "ProductId": "$productId",
+              "CrossRevisionId": "$crossRevisionId",
+              "Title": "Review B"
             }
           ]
         }
@@ -423,31 +456,63 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
-        path =
-          "/v1/products/komga-book-id/reviews",
+        path = "/v1/products/$bookId/reviews",
         body = body,
       )
 
-    val review =
-      result["Items"][0]
+    assertThat(result["Items"][0]["ProductId"].asText()).isEqualTo(bookId)
+    assertThat(result["Items"][0]["CrossRevisionId"].asText()).isEqualTo(bookId)
+    assertThat(result["Items"][0]["RevisionId"].asText()).isEqualTo(bookId)
+    assertThat(result["Items"][1]["CrossRevisionId"].asText()).isEqualTo(bookId)
+    assertThat(result["ReviewSummary"].has(bookId)).isTrue()
+    assertThat(result["ReviewSummary"].has(crossRevisionId)).isFalse()
+    assertThat(result["ReviewSummary"][bookId]["OpinionCount"].asInt()).isEqualTo(53)
+  }
 
-    assertThat(
-      review["ProductId"].asText(),
-    ).isEqualTo(
-      "komga-book-id",
-    )
+  @Test
+  fun `product reviews keeps CrossRevisionId when summary identity does not match`() {
+    val productId = "b996d901-4a00-4783-8476-8494252d3415"
+    val reviewCrossRevisionId = "173aa35d-7533-3879-a143-f023e62316db"
+    val summaryCrossRevisionId = "different-cross-revision"
+    val bookId = "komga-book-id"
 
-    assertThat(
-      review["RevisionId"].asText(),
-    ).isEqualTo(
-      "b996d901-4a00-4783-8476-8494252d3415",
-    )
+    every {
+      resolver.resolveBookId(productId)
+    } returns bookId
 
-    assertThat(
-      review["CrossRevisionId"].asText(),
-    ).isEqualTo(
-      "173aa35d-7533-3879-a143-f023e62316db",
-    )
+    val body =
+      objectMapper.readTree(
+        """
+        {
+          "ReviewSummary": {
+            "$summaryCrossRevisionId": {
+              "AvgRating": 4.9,
+              "OpinionCount": 53
+            }
+          },
+          "Items": [
+            {
+              "RevisionId": "$productId",
+              "ProductId": "$productId",
+              "CrossRevisionId": "$reviewCrossRevisionId"
+            }
+          ]
+        }
+        """.trimIndent(),
+      )
+
+    val result =
+      translator.translate(
+        path = "/v1/products/$bookId/reviews",
+        body = body,
+      )
+
+    assertThat(result["Items"][0]["ProductId"].asText()).isEqualTo(bookId)
+    assertThat(result["Items"][0]["CrossRevisionId"].asText())
+      .isEqualTo(reviewCrossRevisionId)
+    assertThat(result["Items"][0]["RevisionId"].asText()).isEqualTo(bookId)
+    assertThat(result["ReviewSummary"].has(summaryCrossRevisionId)).isTrue()
+    assertThat(result["ReviewSummary"].has(bookId)).isFalse()
   }
 
   @Test
@@ -565,20 +630,24 @@ class KoboProductResponseTranslatorTest {
     assertThat(
       book.path("SeriesId").asText(),
     ).isEqualTo(
-      "original-series-id",
+      "series-0KOMGA-FRIEREN-ANTHOLOGY",
     )
 
     assertThat(
       book.path("ImageId").asText(),
     ).isEqualTo(
-      "d2e5f054-ea39-41fb-8af9-6e3c87d1837f",
+      "cover-0KOMGA-FRIEREN-ANTHOLOGY",
     )
 
     assertThat(
-      book.path("RelatedGroupId").asText(),
+      book.path("Description").asText(),
     ).isEqualTo(
-      "original-related-group-id",
+      "description-0KOMGA-FRIEREN-ANTHOLOGY",
     )
+
+    assertThat(
+      book.has("RelatedGroupId"),
+    ).isFalse()
 
     assertThat(
       book.path("ISBN").asText(),
@@ -599,5 +668,48 @@ class KoboProductResponseTranslatorTest {
     verify(exactly = 0) {
       koboLocalBookLookup.findUniqueBookIdByIsbn(any())
     }
+  }
+
+  private fun localMetadata(
+    bookId: String,
+    coverImageId: String,
+  ): KoboBookMetadataDto {
+    val metadata =
+      mockk<KoboBookMetadataDto>()
+
+    val series =
+      mockk<org.gotson.komga.interfaces.api.kobo.dto.KoboSeriesDto>(
+        relaxed = true,
+      )
+
+    every {
+      metadata.entitlementId
+    } returns bookId
+
+    every {
+      metadata.coverImageId
+    } returns coverImageId
+
+    every {
+      metadata.description
+    } returns "description-$bookId"
+
+    every {
+      metadata.series
+    } returns series
+
+    every {
+      series.id
+    } returns "series-$bookId"
+
+    every {
+      series.name
+    } returns "Series $bookId"
+
+    every {
+      series.number
+    } returns "1"
+
+    return metadata
   }
 }

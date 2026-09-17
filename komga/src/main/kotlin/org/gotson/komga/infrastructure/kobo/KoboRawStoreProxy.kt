@@ -23,7 +23,9 @@ import kotlin.time.toJavaDuration
 private val logger = KotlinLogging.logger {}
 
 @Component
-class KoboRawStoreProxy {
+class KoboRawStoreProxy(
+  private val koboOutboundRequestGuard: KoboOutboundRequestGuard,
+) {
   private val koboApiClient: RestClient =
     RestClient
       .builder()
@@ -39,6 +41,8 @@ class KoboRawStoreProxy {
             .withReadTimeout(1.minutes.toJavaDuration())
             .withConnectTimeout(1.minutes.toJavaDuration()),
         ),
+      ).requestInterceptor(
+        koboOutboundRequestGuard,
       ).build()
 
   private val pathRegex = "/kobo/[-\\w]*(.*)".toRegex()

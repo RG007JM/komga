@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
 import org.gotson.komga.domain.persistence.BookRepository
 import org.gotson.komga.domain.service.KoboProductResolver
-import org.gotson.komga.infrastructure.kobo.KoboSeriesIdResolver
 import org.gotson.komga.interfaces.api.kobo.dto.KoboBookMetadataDto
 import org.gotson.komga.interfaces.api.kobo.persistence.KoboDtoRepository
 import org.springframework.stereotype.Component
@@ -30,7 +29,6 @@ class KoboLocalStoreResponseBuilder(
   private val koboDtoRepository: KoboDtoRepository,
   private val koboProductResolver: KoboProductResolver,
   private val dataSource: DataSource,
-  private val koboSeriesIdResolver: KoboSeriesIdResolver,
 ) {
   fun isLocalBook(bookId: String): Boolean = bookRepository.existsById(bookId)
 
@@ -202,17 +200,6 @@ class KoboLocalStoreResponseBuilder(
       (upstreamBook as? ObjectNode)?.deepCopy()
         ?: objectMapper.createObjectNode()
 
-    target
-      .get("SeriesId")
-      ?.takeIf { it.isTextual }
-      ?.asText()
-      ?.takeIf { it.isNotBlank() }
-      ?.let { koboSeriesId ->
-        koboSeriesIdResolver.rememberForBook(
-          bookId = bookId,
-          koboSeriesId = koboSeriesId,
-        )
-      }
     val local = metadataNode(metadata)
 
     // Komga identity model.

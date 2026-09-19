@@ -9,6 +9,8 @@ interface KoboProductMappingRepository {
 
   fun findByProductId(productId: String): Collection<KoboProductMapping>
 
+  fun findByBookIds(bookIds: Collection<String>): Collection<KoboProductMapping>
+
   fun save(mapping: KoboProductMapping)
 
   fun deleteByBookId(bookId: String)

@@ -290,7 +290,10 @@ class KoboController(
     // find the ongoing sync point, else create one
     val toSyncPoint =
       getSyncPointVerified(syncTokenReceived.ongoingSyncPointId, principal.user.id)
-        ?: syncPointLifecycle.createSyncPoint(principal.user, principal.apiKey?.id, null) // for now we sync all libraries
+        ?: syncPointLifecycle.createSyncPoint(principal.user, principal.apiKey?.id, null).also {
+          // Freeze this user's archive state for the duration of the paginated sync.
+          koboArchivedBookRepository.snapshotArchiveState(it.id, principal.user.id)
+        } // for now we sync all libraries
 
     // find the last successful sync, if any
     val fromSyncPoint = getSyncPointVerified(syncTokenReceived.lastSuccessfulSyncPointId, principal.user.id)
@@ -383,14 +386,21 @@ class KoboController(
         val archivedBookIds =
           koboArchivedBookRepository.findArchivedBookIds(principal.user.id)
 
-        // Only an explicit admin metadata-refresh request restores archive state.
-        // Automatic metadata changes must not silently unarchive Kobo books.
-        val effectiveArchivedBookIds = archivedBookIds
+        // Only an explicit metadata-refresh request restores archive state.
+        // Archive deltas are paged using the same item budget as Komga's sync changes.
+        val archivePage =
+          koboArchivedBookRepository.findPendingArchiveChanges(
+            fromSyncPoint.id,
+            toSyncPoint.id,
+            maxRemainingCount,
+          )
+        shouldContinueSync = shouldContinueSync || archivePage.hasMore
+        koboArchivedBookRepository.markArchiveChangesSynced(toSyncPoint.id, archivePage.bookIds)
 
         buildList {
           addAll(
             booksAdded.content
-              .filterNot { it.bookId in effectiveArchivedBookIds }
+              .filterNot { it.bookId in archivedBookIds }
               .map {
                 NewEntitlementDto(
                   BookEntitlementContainerDto(
@@ -403,7 +413,7 @@ class KoboController(
           )
           addAll(
             booksChanged.content
-              .filterNot { it.bookId in effectiveArchivedBookIds }
+              .filterNot { it.bookId in archivedBookIds }
               .map {
                 NewEntitlementDto(
                   BookEntitlementContainerDto(
@@ -429,11 +439,8 @@ class KoboController(
               )
             },
           )
-          // KOBO_ARCHIVE_V1
-          // Re-emit archived books until restored. A future version can put
-          // archive dirtiness into the Komga sync cursor instead.
           addAll(
-            effectiveArchivedBookIds.mapNotNull { bookId ->
+            archivePage.bookIds.mapNotNull { bookId ->
               bookRepository.findByIdOrNull(bookId)?.let { book ->
                 ChangedEntitlementDto(
                   BookEntitlementContainerDto(

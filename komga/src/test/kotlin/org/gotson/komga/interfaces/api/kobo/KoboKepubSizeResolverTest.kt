@@ -1,6 +1,7 @@
 package org.gotson.komga.interfaces.api.kobo
 
 import org.assertj.core.api.Assertions.assertThat
+import org.gotson.komga.domain.persistence.KoboKepubSizeCacheRepository
 import org.junit.jupiter.api.Test
 
 class KoboKepubSizeResolverTest {

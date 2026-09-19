@@ -8,6 +8,7 @@ import org.gotson.komga.jooq.main.Tables
 import org.jooq.DSLContext
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Component
+import java.time.LocalDateTime
 
 @Component
 class KoboProductMappingDao(
@@ -46,6 +47,40 @@ class KoboProductMappingDao(
       .where(k.BOOK_ID.`in`(bookIds))
       .fetch()
       .map { it.toDomain() }
+  }
+
+  override fun findSeriesReconciliationCandidates(
+    olderThan: LocalDateTime,
+    limit: Int,
+  ): Collection<KoboProductMapping> {
+    if (limit <= 0) return emptyList()
+
+    val b = Tables.BOOK
+    val sm = Tables.KOBO_SERIES_MAPPING
+
+    // Only books already positively identified on Kobo may have their SeriesId refreshed.
+    // No external network calls are performed by this query.
+    val dueBookIds =
+      dslRO
+        .select(k.BOOK_ID)
+        .from(k)
+        .join(b)
+        .on(b.ID.eq(k.BOOK_ID))
+        .leftJoin(sm)
+        .on(sm.SERIES_ID.eq(b.SERIES_ID))
+        .where(k.STATUS.eq(KoboProductMappingStatus.FOUND.name))
+        .and(k.PRODUCT_ID.isNotNull)
+        .and(b.DELETED_DATE.isNull)
+        .and(k.SERIES_CHECKED_AT.isNull.or(k.SERIES_CHECKED_AT.le(olderThan)))
+        .and(
+          sm.KOBO_SERIES_ID.isNull
+            .or(k.OBSERVED_KOBO_SERIES_ID.isNull)
+            .or(k.OBSERVED_KOBO_SERIES_ID.ne(sm.KOBO_SERIES_ID)),
+        ).orderBy(k.SERIES_CHECKED_AT.asc(), k.BOOK_ID.asc())
+        .limit(limit)
+        .fetch(k.BOOK_ID)
+
+    return findByBookIds(dueBookIds)
   }
 
   override fun save(mapping: KoboProductMapping) {

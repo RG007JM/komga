@@ -6,6 +6,7 @@ import io.mockk.verify
 import io.mockk.verifyOrder
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.gotson.komga.domain.persistence.BookMetadataRepository
+import org.gotson.komga.domain.persistence.KoboArchivedBookRepository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 

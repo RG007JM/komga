@@ -1,6 +1,10 @@
 package org.gotson.komga.interfaces.api.kobo
 
 import org.assertj.core.api.Assertions.assertThat
+import org.gotson.komga.domain.persistence.KoboArchivedBookRepository
+import org.gotson.komga.infrastructure.jooq.main.KoboArchivedBookDao
+import org.jooq.SQLDialect
+import org.jooq.impl.DSL
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
@@ -57,7 +61,8 @@ class KoboArchivedBookRepositoryTest {
       }
     }
 
-    repository = KoboArchivedBookRepository(dataSource)
+    val dsl = DSL.using(dataSource, SQLDialect.SQLITE)
+    repository = KoboArchivedBookDao(dsl, dsl)
   }
 
   @Test

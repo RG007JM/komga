@@ -125,8 +125,10 @@ class KepubConverter(
 
     if (destinationDir != null) require(destinationDir.isDirectory()) { "Destination directory does not exist: $destinationDir" }
 
-    // kepubify will only convert when the destination name has the .kepub.epub extension, so we have to force it
-    val destinationPath = (destinationDir ?: tmpDir).resolve(epub.nameWithoutExtension + ".kepub.epub")
+    // A distinct temporary output is required for every conversion: two books may share a
+    // filename, and a source-hash change must not overwrite a still-cached older conversion.
+    // Keep the deterministic filename for callers that supply their own destination directory.
+    val destinationPath = destinationPathFor(epub, destinationDir)
     destinationPath.deleteIfExists()
 
     val command =
@@ -166,4 +168,11 @@ class KepubConverter(
 
     return destinationPath
   }
+
+  internal fun destinationPathFor(
+    epub: Path,
+    destinationDir: Path?,
+  ): Path =
+    destinationDir?.resolve(epub.nameWithoutExtension + ".kepub.epub")
+      ?: Files.createTempFile(tmpDir, "komga-kepub-", ".kepub.epub")
 }

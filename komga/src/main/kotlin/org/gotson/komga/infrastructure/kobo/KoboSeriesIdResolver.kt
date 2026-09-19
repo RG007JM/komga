@@ -6,6 +6,7 @@ import org.gotson.komga.domain.model.KoboProductMappingStatus
 import org.gotson.komga.domain.persistence.BookMetadataRepository
 import org.gotson.komga.domain.persistence.BookRepository
 import org.gotson.komga.domain.persistence.KoboProductMappingRepository
+import org.gotson.komga.domain.persistence.KoboSeriesMappingRepository
 import org.springframework.stereotype.Component
 
 private val logger = KotlinLogging.logger {}

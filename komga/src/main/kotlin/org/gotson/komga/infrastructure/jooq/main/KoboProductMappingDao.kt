@@ -51,6 +51,7 @@ class KoboProductMappingDao(
 
   override fun findSeriesReconciliationCandidates(
     olderThan: LocalDateTime,
+    failedBefore: LocalDateTime,
     limit: Int,
   ): Collection<KoboProductMapping> {
     if (limit <= 0) return emptyList()
@@ -78,11 +79,14 @@ class KoboProductMappingDao(
         .and(b.ONESHOT.isFalse)
         .and(s.ONESHOT.isFalse)
         .and(k.SERIES_CHECKED_AT.isNull.or(k.SERIES_CHECKED_AT.le(olderThan)))
+        .and(k.SERIES_LOOKUP_FAILED_AT.isNull.or(k.SERIES_LOOKUP_FAILED_AT.le(failedBefore)))
         .and(
           sm.KOBO_SERIES_ID.isNull
             .or(k.OBSERVED_KOBO_SERIES_ID.isNull)
             .or(k.OBSERVED_KOBO_SERIES_ID.ne(sm.KOBO_SERIES_ID)),
-        ).orderBy(k.SERIES_CHECKED_AT.asc(), k.BOOK_ID.asc())
+        )
+        // Candidates never attempted take precedence; a retryable failure goes to the back.
+        .orderBy(k.SERIES_LOOKUP_FAILED_AT.asc().nullsFirst(), k.SERIES_CHECKED_AT.asc(), k.BOOK_ID.asc())
         .limit(limit)
         .fetch(k.BOOK_ID)
 
@@ -100,6 +104,7 @@ class KoboProductMappingDao(
         k.STATUS,
         k.CHECKED_AT,
         k.SERIES_CHECKED_AT,
+        k.SERIES_LOOKUP_FAILED_AT,
       ).values(
         mapping.bookId,
         mapping.isbn,
@@ -108,6 +113,7 @@ class KoboProductMappingDao(
         mapping.status.name,
         mapping.checkedAt,
         mapping.seriesCheckedAt,
+        mapping.seriesLookupFailedAt,
       ).onDuplicateKeyUpdate()
       .set(k.ISBN, mapping.isbn)
       .set(k.PRODUCT_ID, mapping.productId)
@@ -115,6 +121,7 @@ class KoboProductMappingDao(
       .set(k.STATUS, mapping.status.name)
       .set(k.CHECKED_AT, mapping.checkedAt)
       .set(k.SERIES_CHECKED_AT, mapping.seriesCheckedAt)
+      .set(k.SERIES_LOOKUP_FAILED_AT, mapping.seriesLookupFailedAt)
       .execute()
   }
 
@@ -134,5 +141,6 @@ class KoboProductMappingDao(
       status = KoboProductMappingStatus.valueOf(status),
       checkedAt = checkedAt,
       seriesCheckedAt = seriesCheckedAt,
+      seriesLookupFailedAt = seriesLookupFailedAt,
     )
 }

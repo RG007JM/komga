@@ -38,6 +38,7 @@ class KoboSeriesObservationReconcilerTest {
     status: KoboProductMappingStatus = KoboProductMappingStatus.FOUND,
     mappedProductId: String? = productId,
     checkedAt: LocalDateTime? = LocalDateTime.now().minusDays(31),
+    failedAt: LocalDateTime? = null,
   ) = KoboProductMapping(
     bookId = "book-16",
     isbn = isbn,
@@ -46,6 +47,7 @@ class KoboSeriesObservationReconcilerTest {
     status = status,
     checkedAt = LocalDateTime.now().minusDays(60),
     seriesCheckedAt = checkedAt,
+    seriesLookupFailedAt = failedAt,
   )
 
   private fun prepare(
@@ -53,7 +55,7 @@ class KoboSeriesObservationReconcilerTest {
     effective: String? = majorityId,
     bookIsbn: String = isbn,
   ) {
-    every { mappings.findSeriesReconciliationCandidates(any(), any()) } returns listOf(mapping)
+    every { mappings.findSeriesReconciliationCandidates(any(), any(), any()) } returns listOf(mapping)
     every { mappings.findByBookId(mapping.bookId) } returns mapping
     every { metadata.findByIdOrNull(mapping.bookId) } returns
       BookMetadata(title = "Spy x Family Vol. 16", number = "16", numberSort = 16F, bookId = mapping.bookId, isbn = bookIsbn)
@@ -74,7 +76,7 @@ class KoboSeriesObservationReconcilerTest {
         match {
           it.bookId == original.bookId && it.productId == productId && it.isbn == isbn &&
             it.checkedAt == original.checkedAt && it.observedKoboSeriesId == majorityId &&
-            it.seriesCheckedAt != original.seriesCheckedAt
+            it.seriesCheckedAt != original.seriesCheckedAt && it.seriesLookupFailedAt == null
         },
       )
     }
@@ -120,7 +122,7 @@ class KoboSeriesObservationReconcilerTest {
   }
 
   @Test
-  fun `website failure retains identity and backs off`() {
+  fun `website failure retains identity and records short retry without completing series check`() {
     val original = mapping(seriesId = null)
     prepare(original)
     every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Failed(IllegalStateException("offline"))
@@ -128,7 +130,42 @@ class KoboSeriesObservationReconcilerTest {
     reconciler.reconcileDueBatch()
 
     verify(exactly = 1) {
-      mappings.save(match { it.productId == productId && it.observedKoboSeriesId == null && it.seriesCheckedAt != original.seriesCheckedAt })
+      mappings.save(
+        match {
+          it.productId == productId && it.observedKoboSeriesId == null &&
+            it.seriesCheckedAt == original.seriesCheckedAt &&
+            it.seriesLookupFailedAt != null && it.seriesLookupFailedAt.isAfter(LocalDateTime.now().minusMinutes(1))
+        },
+      )
+    }
+  }
+
+  @Test
+  fun `recently failed lookup is not retried even if a stale candidate was returned`() {
+    val original = mapping(seriesId = null, failedAt = LocalDateTime.now().minusHours(2))
+    prepare(original)
+
+    reconciler.reconcileDueBatch()
+
+    verify(exactly = 0) { client.findProductByIsbn(any()) }
+    verify(exactly = 0) { mappings.save(any()) }
+  }
+
+  @Test
+  fun `successful lookup clears a previous failure marker`() {
+    val original = mapping(seriesId = null, failedAt = LocalDateTime.now().minusDays(2))
+    prepare(original)
+    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found(productId, majorityId)
+
+    reconciler.reconcileDueBatch()
+
+    verify(exactly = 1) {
+      mappings.save(
+        match {
+          it.productId == original.productId && it.seriesLookupFailedAt == null &&
+            it.seriesCheckedAt != original.seriesCheckedAt && it.observedKoboSeriesId == majorityId
+        },
+      )
     }
   }
 
@@ -203,7 +240,7 @@ class KoboSeriesObservationReconcilerTest {
   fun `two local copies of one ISBN share a single website request in a batch`() {
     val first = mapping(seriesId = null)
     val second = first.copy(bookId = "book-16-duplicate")
-    every { mappings.findSeriesReconciliationCandidates(any(), any()) } returns listOf(first, second)
+    every { mappings.findSeriesReconciliationCandidates(any(), any(), any()) } returns listOf(first, second)
     every { mappings.findByBookId(first.bookId) } returns first
     every { mappings.findByBookId(second.bookId) } returns second
     every { metadata.findByIdOrNull(any()) } answers {
@@ -222,7 +259,7 @@ class KoboSeriesObservationReconcilerTest {
 
   @Test
   fun `no candidates results in no website traffic`() {
-    every { mappings.findSeriesReconciliationCandidates(any(), any()) } returns emptyList()
+    every { mappings.findSeriesReconciliationCandidates(any(), any(), any()) } returns emptyList()
 
     reconciler.reconcileDueBatch()
 

@@ -56,6 +56,7 @@ class KoboProductMappingDao(
     if (limit <= 0) return emptyList()
 
     val b = Tables.BOOK
+    val s = Tables.SERIES
     val sm = Tables.KOBO_SERIES_MAPPING
 
     // Only books already positively identified on Kobo may have their SeriesId refreshed.
@@ -66,11 +67,16 @@ class KoboProductMappingDao(
         .from(k)
         .join(b)
         .on(b.ID.eq(k.BOOK_ID))
+        .join(s)
+        .on(s.ID.eq(b.SERIES_ID))
         .leftJoin(sm)
         .on(sm.SERIES_ID.eq(b.SERIES_ID))
         .where(k.STATUS.eq(KoboProductMappingStatus.FOUND.name))
         .and(k.PRODUCT_ID.isNotNull)
         .and(b.DELETED_DATE.isNull)
+        .and(s.DELETED_DATE.isNull)
+        .and(b.ONESHOT.isFalse)
+        .and(s.ONESHOT.isFalse)
         .and(k.SERIES_CHECKED_AT.isNull.or(k.SERIES_CHECKED_AT.le(olderThan)))
         .and(
           sm.KOBO_SERIES_ID.isNull

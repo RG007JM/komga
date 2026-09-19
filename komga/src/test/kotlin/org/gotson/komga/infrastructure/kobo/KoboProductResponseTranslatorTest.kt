@@ -53,6 +53,41 @@ class KoboProductResponseTranslatorTest {
   }
 
   @Test
+  fun `ambiguous local ProductId and ISBN leave the upstream recommendation untouched`() {
+    val productId = "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+    val isbn = "9781974753246"
+
+    every { resolver.resolveBookId(productId) } returns null
+    every { koboLocalBookLookup.findUniqueBookIdByIsbn(isbn) } returns null
+
+    val upstream =
+      objectMapper.readTree(
+        """
+        {
+          "Items": [
+            {
+              "Book": {
+                "Id": "$productId",
+                "ISBN": "$isbn",
+                "CrossRevisionId": "upstream-cross-revision",
+                "WorkId": "upstream-work-id",
+                "SeriesId": "upstream-series-id",
+                "ImageId": "upstream-image-id"
+              }
+            }
+          ]
+        }
+        """.trimIndent(),
+      )
+    val expected = upstream.deepCopy<com.fasterxml.jackson.databind.JsonNode>()
+
+    val result = translator.translate("/v1/products", upstream)
+
+    assertThat(result).isEqualTo(expected)
+    verify(exactly = 0) { koboDtoRepository.findBookMetadataByIds(any()) }
+  }
+
+  @Test
   fun `recommendations translates mapped book identity to Komga book IDs`() {
     every {
       resolver.resolveBookId(

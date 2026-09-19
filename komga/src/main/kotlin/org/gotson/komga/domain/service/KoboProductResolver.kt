@@ -147,8 +147,8 @@ class KoboProductResolver(
    * Reverse a real Kobo ProductId back to a local Komga book ID.
    *
    * Only mappings that are still consistent with the book's current ISBN
-   * are returned. This prevents a stale mapping from surviving a manual
-   * ISBN change.
+   * are considered. If multiple local books have the same ProductId, there
+   * is no unambiguous reverse identity and the caller keeps the Kobo ID.
    */
   fun resolveBookId(productId: String): String? {
     val mappings =
@@ -160,6 +160,8 @@ class KoboProductResolver(
         }.sortedBy {
           it.bookId
         }
+
+    val validBookIds = mutableSetOf<String>()
 
     for (mapping in mappings) {
       val metadata =
@@ -190,10 +192,16 @@ class KoboProductResolver(
         continue
       }
 
-      return mapping.bookId
+      validBookIds += mapping.bookId
     }
 
-    return null
+    if (validBookIds.size > 1) {
+      logger.debug {
+        "Kobo ProductId $productId has ${validBookIds.size} valid local book mappings; not choosing an arbitrary book"
+      }
+    }
+
+    return validBookIds.singleOrNull()
   }
 
   private fun normalizeIsbn(value: String): String? {

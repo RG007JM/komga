@@ -39,6 +39,15 @@ class BookMetadataDao(
 
   override fun findAllByIds(bookIds: Collection<String>): Collection<BookMetadata> = dslRO.find(bookIds)
 
+  override fun findUniqueBookIdByIsbn(isbn: String): String? =
+    dslRO
+      .select(d.BOOK_ID)
+      .from(d)
+      .where(d.ISBN.eq(isbn))
+      .limit(2)
+      .fetch(d.BOOK_ID)
+      .singleOrNull()
+
   private fun DSLContext.find(
     bookIds: Collection<String>,
   ) = this

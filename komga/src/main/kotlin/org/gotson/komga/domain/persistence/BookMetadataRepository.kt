@@ -9,6 +9,9 @@ interface BookMetadataRepository {
 
   fun findAllByIds(bookIds: Collection<String>): Collection<BookMetadata>
 
+  /** Returns the local book ID only when the ISBN has exactly one match. */
+  fun findUniqueBookIdByIsbn(isbn: String): String?
+
   fun insert(metadata: BookMetadata)
 
   fun insert(metadatas: Collection<BookMetadata>)

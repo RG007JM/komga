@@ -57,6 +57,44 @@ class BookMetadataDaoTest(
   }
 
   @Test
+  fun `ISBN lookup returns only an exact unique match`() {
+    val isbn = "9781974753246"
+    bookMetadataDao.insert(
+      BookMetadata(
+        title = "Book",
+        number = "1",
+        numberSort = 1F,
+        bookId = book.id,
+        isbn = isbn,
+      ),
+    )
+
+    assertThat(bookMetadataDao.findUniqueBookIdByIsbn(isbn)).isEqualTo(book.id)
+    assertThat(bookMetadataDao.findUniqueBookIdByIsbn("9781974755998")).isNull()
+  }
+
+  @Test
+  fun `ISBN lookup rejects duplicate local books`() {
+    val isbn = "9781974753246"
+    val duplicateBook = makeBook("Duplicate Book")
+    bookRepository.insert(duplicateBook.copy(libraryId = library.id, seriesId = series.id))
+
+    try {
+      bookMetadataDao.insert(
+        listOf(
+          BookMetadata(title = "Book", number = "1", numberSort = 1F, bookId = book.id, isbn = isbn),
+          BookMetadata(title = "Duplicate", number = "2", numberSort = 2F, bookId = duplicateBook.id, isbn = isbn),
+        ),
+      )
+
+      assertThat(bookMetadataDao.findUniqueBookIdByIsbn(isbn)).isNull()
+    } finally {
+      bookMetadataDao.delete(duplicateBook.id)
+      bookRepository.delete(duplicateBook.id)
+    }
+  }
+
+  @Test
   fun `given a metadata when inserting then it is persisted`() {
     val now = LocalDateTime.now()
     val metadata =

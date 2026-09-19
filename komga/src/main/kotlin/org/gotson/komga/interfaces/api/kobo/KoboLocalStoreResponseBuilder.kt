@@ -9,7 +9,6 @@ import org.gotson.komga.domain.service.KoboProductResolver
 import org.gotson.komga.interfaces.api.kobo.dto.KoboBookMetadataDto
 import org.gotson.komga.interfaces.api.kobo.persistence.KoboDtoRepository
 import org.springframework.stereotype.Component
-import javax.sql.DataSource
 
 private const val LOCAL_PRICE_CURRENCY = "EUR"
 private const val LOCAL_PRICE_AMOUNT = 1.0
@@ -28,26 +27,10 @@ class KoboLocalStoreResponseBuilder(
   private val bookRepository: BookRepository,
   private val koboDtoRepository: KoboDtoRepository,
   private val koboProductResolver: KoboProductResolver,
-  private val dataSource: DataSource,
 ) {
   fun isLocalBook(bookId: String): Boolean = bookRepository.existsById(bookId)
 
-  fun localSeriesBookIds(seriesId: String): List<String> =
-    dataSource.connection.use { connection ->
-      connection
-        .prepareStatement(
-          "SELECT ID FROM BOOK WHERE SERIES_ID = ?",
-        ).use { statement ->
-          statement.setString(1, seriesId)
-          statement.executeQuery().use { resultSet ->
-            buildList {
-              while (resultSet.next()) {
-                add(resultSet.getString(1))
-              }
-            }
-          }
-        }
-    }
+  fun localSeriesBookIds(seriesId: String): List<String> = bookRepository.findAllIdsBySeriesId(seriesId).toList()
 
   fun buildBookDetails(
     bookId: String,

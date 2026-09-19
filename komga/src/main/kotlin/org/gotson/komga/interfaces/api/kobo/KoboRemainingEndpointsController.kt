@@ -60,7 +60,7 @@ class KoboRemainingEndpointsController(
 
     val productId = koboProductResolver.resolveProductId(bookId)
     val upstream =
-      productId?.let {
+      productId?.takeIf { koboRawStoreProxy.isEnabled() }?.let {
         try {
           koboRawStoreProxy.proxyCurrentRequest(
             overridePath = "/v1/products/books/$it/",
@@ -118,7 +118,7 @@ class KoboRemainingEndpointsController(
 
     val koboSeriesId = koboSeriesIdResolver.resolveSeriesId(seriesId)
     val upstream =
-      koboSeriesId?.let {
+      koboSeriesId?.takeIf { koboRawStoreProxy.isEnabled() }?.let {
         try {
           koboRawStoreProxy.proxyCurrentRequest(
             overridePath = "/v1/products/books/series/$it",
@@ -188,7 +188,7 @@ class KoboRemainingEndpointsController(
       requestedIds.filterNot(koboLocalStoreResponseBuilder::isLocalBook)
 
     val upstream =
-      if (koboOnlyIds.isEmpty()) {
+      if (koboOnlyIds.isEmpty() || !koboRawStoreProxy.isEnabled()) {
         null
       } else {
         koboRawStoreProxy.proxyCurrentRequest(

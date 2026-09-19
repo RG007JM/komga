@@ -25,6 +25,7 @@ class KoboRemainingEndpointsController(
   private val koboRawStoreProxy: KoboRawStoreProxy,
   private val koboProductResolver: KoboProductResolver,
   private val koboSeriesIdResolver: KoboSeriesIdResolver,
+  private val koboSeriesProductDiscovery: org.gotson.komga.infrastructure.kobo.KoboSeriesProductDiscovery,
   private val koboLocalStoreResponseBuilder: KoboLocalStoreResponseBuilder,
 ) {
   @GetMapping(
@@ -116,6 +117,9 @@ class KoboRemainingEndpointsController(
           null
         }
       }
+
+    // Only consume the response from this device-initiated proxy request.
+    koboSeriesProductDiscovery.learn(localBookIds, upstream?.body)
 
     val body =
       koboLocalStoreResponseBuilder.buildSeries(

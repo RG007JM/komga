@@ -10,6 +10,8 @@ data class KoboProductMapping(
   val status: KoboProductMappingStatus,
   val checkedAt: LocalDateTime,
   val seriesCheckedAt: LocalDateTime? = null,
+  /** Last transient website lookup failure; does not count as a completed series check. */
+  val seriesLookupFailedAt: LocalDateTime? = null,
 )
 
 enum class KoboProductMappingStatus {

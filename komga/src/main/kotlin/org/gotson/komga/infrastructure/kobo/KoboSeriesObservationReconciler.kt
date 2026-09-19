@@ -21,14 +21,16 @@ class KoboSeriesObservationReconciler(
   private val productClient: KoboProductClient,
 ) {
   fun reconcileDueBatch() {
-    val olderThan = LocalDateTime.now().minusDays(RETRY_DAYS)
-    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, BATCH_SIZE)
+    val now = LocalDateTime.now()
+    val olderThan = now.minusDays(RETRY_DAYS)
+    val failedBefore = now.minusHours(FAILURE_RETRY_HOURS)
+    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, BATCH_SIZE)
     // Multiple local files with the same ISBN should share one website search per batch.
     val resultsByIsbn = mutableMapOf<String, KoboProductLookupResult>()
 
     candidates.forEach { candidate ->
       try {
-        reconcile(candidate, olderThan, resultsByIsbn)
+        reconcile(candidate, olderThan, failedBefore, resultsByIsbn)
       } catch (e: Exception) {
         logger.warn(e) { "Could not reconcile Kobo SeriesId for book ${candidate.bookId}" }
       }
@@ -38,6 +40,7 @@ class KoboSeriesObservationReconciler(
   private fun reconcile(
     candidate: KoboProductMapping,
     olderThan: LocalDateTime,
+    failedBefore: LocalDateTime,
     resultsByIsbn: MutableMap<String, KoboProductLookupResult>,
   ) {
     // The candidate may have changed while it was waiting in the scheduled batch.
@@ -45,6 +48,7 @@ class KoboSeriesObservationReconciler(
     if (current.status != KoboProductMappingStatus.FOUND || current.productId.isNullOrBlank()) return
     if (current.isbn != candidate.isbn || current.productId != candidate.productId) return
     if (current.seriesCheckedAt?.isAfter(olderThan) == true) return
+    if (current.seriesLookupFailedAt?.isAfter(failedBefore) == true) return
 
     val metadata = bookMetadataRepository.findByIdOrNull(current.bookId)
     val currentIsbn = metadata?.isbn?.filter(Char::isDigit)?.takeIf { it.length == 13 }
@@ -77,7 +81,7 @@ class KoboSeriesObservationReconciler(
           logger.warn {
             "Ignoring Kobo SeriesId refresh for book ${current.bookId}: ISBN ${current.isbn} returned a different ProductId"
           }
-          mappingRepository.save(current.copy(seriesCheckedAt = attemptAt))
+          mappingRepository.save(current.copy(seriesCheckedAt = attemptAt, seriesLookupFailedAt = null))
           return
         }
 
@@ -85,6 +89,7 @@ class KoboSeriesObservationReconciler(
           current.copy(
             observedKoboSeriesId = result.seriesId,
             seriesCheckedAt = attemptAt,
+            seriesLookupFailedAt = null,
           ),
         )
         // Recalculate the mapping from the accepted book observation; never use last-writer-wins.
@@ -95,18 +100,21 @@ class KoboSeriesObservationReconciler(
 
       KoboProductLookupResult.NotFound -> {
         // A missing public page cannot erase an established ProductId/SeriesId.
-        mappingRepository.save(current.copy(seriesCheckedAt = attemptAt))
+        mappingRepository.save(current.copy(seriesCheckedAt = attemptAt, seriesLookupFailedAt = null))
       }
 
       is KoboProductLookupResult.Failed -> {
         logger.debug(result.cause) { "Kobo SeriesId refresh unavailable for book ${current.bookId}" }
-        mappingRepository.save(current.copy(seriesCheckedAt = attemptAt))
+        // A transport/challenge failure did not produce an observation. Retry sooner
+        // without pretending that the previous series check completed successfully.
+        mappingRepository.save(current.copy(seriesLookupFailedAt = attemptAt))
       }
     }
   }
 
   private companion object {
     const val RETRY_DAYS = 30L
+    const val FAILURE_RETRY_HOURS = 24L
     const val BATCH_SIZE = 8
   }
 }

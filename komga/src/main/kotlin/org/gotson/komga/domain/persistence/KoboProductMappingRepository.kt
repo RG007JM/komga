@@ -15,6 +15,7 @@ interface KoboProductMappingRepository {
   /** A small, due-only batch; a cached FOUND ProductId is required. */
   fun findSeriesReconciliationCandidates(
     olderThan: LocalDateTime,
+    failedBefore: LocalDateTime,
     limit: Int,
   ): Collection<KoboProductMapping>
 

@@ -29,6 +29,7 @@ class KoboProductReconciliationCandidatesDaoTest(
   private val createdBookIds = mutableListOf<String>()
   private val createdSeriesIds = mutableListOf<String>()
   private val olderThan = LocalDateTime.now().minusDays(30)
+  private val failedBefore = LocalDateTime.now().minusDays(1)
 
   @BeforeAll
   fun setup() {
@@ -66,7 +67,7 @@ class KoboProductReconciliationCandidatesDaoTest(
         seriesCheckedAt = olderThan.minusDays(1),
       )
 
-    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, 1)
+    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, 1)
 
     assertThat(candidates.map { it.bookId }).containsExactly(eligibleBookId)
   }
@@ -77,7 +78,7 @@ class KoboProductReconciliationCandidatesDaoTest(
     val oneShotId = newMappedBook("One-shot", seriesId, bookOneshot = true)
     val regularId = newMappedBook("Regular volume", seriesId)
 
-    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, 8)
+    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, 8)
 
     assertThat(candidates.map { it.bookId }).contains(regularId).doesNotContain(oneShotId)
   }
@@ -87,9 +88,60 @@ class KoboProductReconciliationCandidatesDaoTest(
     val seriesId = newSeries("New series")
     val bookId = newMappedBook("Volume 1", seriesId, seriesCheckedAt = null)
 
-    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, 1)
+    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, 1)
 
     assertThat(candidates.map { it.bookId }).containsExactly(bookId)
+  }
+
+  @Test
+  fun `completed series lookup keeps the normal thirty day interval`() {
+    val seriesId = newSeries("Completed check")
+    newMappedBook(
+      name = "Recently completed",
+      seriesId = seriesId,
+      seriesCheckedAt = LocalDateTime.now().minusDays(2),
+      seriesLookupFailedAt = failedBefore.minusHours(1).withNano(0),
+    )
+
+    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, 8)
+
+    assertThat(candidates).isEmpty()
+  }
+
+  @Test
+  fun `recent website failures do not fill the batch ahead of eligible books`() {
+    val seriesId = newSeries("Retry queue")
+    repeat(9) { index ->
+      newMappedBook(
+        name = "Failed $index",
+        seriesId = seriesId,
+        seriesCheckedAt = null,
+        seriesLookupFailedAt = LocalDateTime.now().minusHours(2),
+      )
+    }
+    val eligibleId = newMappedBook("Eligible", seriesId, seriesCheckedAt = null)
+
+    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, 1)
+
+    assertThat(candidates.map { it.bookId }).containsExactly(eligibleId)
+  }
+
+  @Test
+  fun `transient failure becomes eligible after short retry interval`() {
+    val seriesId = newSeries("Retry after failure")
+    val bookId =
+      newMappedBook(
+        name = "Due again",
+        seriesId = seriesId,
+        seriesCheckedAt = null,
+        seriesLookupFailedAt = failedBefore.minusHours(1).withNano(0),
+      )
+
+    val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, 8)
+
+    assertThat(candidates.map { it.bookId }).contains(bookId)
+    val persisted = mappingRepository.findByBookId(bookId)
+    assertThat(persisted?.seriesLookupFailedAt).isEqualTo(failedBefore.minusHours(1).withNano(0))
   }
 
   private fun newSeries(
@@ -107,6 +159,7 @@ class KoboProductReconciliationCandidatesDaoTest(
     seriesId: String,
     bookOneshot: Boolean = false,
     seriesCheckedAt: LocalDateTime? = olderThan.minusDays(1),
+    seriesLookupFailedAt: LocalDateTime? = null,
   ): String {
     val book =
       makeBook(name, libraryId = library.id, seriesId = seriesId).copy(oneshot = bookOneshot)
@@ -120,6 +173,7 @@ class KoboProductReconciliationCandidatesDaoTest(
         status = KoboProductMappingStatus.FOUND,
         checkedAt = olderThan.minusDays(30),
         seriesCheckedAt = seriesCheckedAt,
+        seriesLookupFailedAt = seriesLookupFailedAt,
       ),
     )
     return book.id

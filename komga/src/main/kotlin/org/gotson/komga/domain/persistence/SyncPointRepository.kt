@@ -92,6 +92,12 @@ interface SyncPointRepository {
     readListIds: Collection<String>,
   ): List<SyncPoint.ReadList.Book>
 
+  /** User-scoped Kobo Store members frozen with this SyncPoint, never Komga ReadList books. */
+  fun findExternalRevisionIdsByReadListIds(
+    syncPointId: String,
+    readListIds: Collection<String>,
+  ): Map<String, List<String>>
+
   fun markBooksSynced(
     syncPointId: String,
     forRemovedBooks: Boolean,

@@ -22,6 +22,7 @@ import org.gotson.komga.domain.model.ReadList
 import org.gotson.komga.domain.model.SyncPoint
 import org.gotson.komga.domain.persistence.BookRepository
 import org.gotson.komga.domain.persistence.KoboArchivedBookRepository
+import org.gotson.komga.domain.persistence.KoboExternalCollectionMemberRepository
 import org.gotson.komga.domain.persistence.KoboKepubSizeCacheRepository
 import org.gotson.komga.domain.persistence.MediaRepository
 import org.gotson.komga.domain.persistence.ReadListRepository
@@ -118,6 +119,8 @@ import kotlin.io.path.exists
 import kotlin.io.path.nameWithoutExtension
 
 private val logger = KotlinLogging.logger {}
+private val koboExternalRevisionId =
+  Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 
 /**
  * The following documentation is coming from the awesome work from [Calibre-web](https://github.com/gotson/calibre-web/blob/14b578dd3a15bd371102d5b9828da830e59b4557/cps/kobo_auth.py).
@@ -187,6 +190,7 @@ class KoboController(
   private val readListRepository: ReadListRepository,
   private val readListLifecycle: ReadListLifecycle,
   private val koboReadListMutationGuard: KoboReadListMutationGuard,
+  private val koboExternalCollectionMemberRepository: KoboExternalCollectionMemberRepository,
   private val thumbnailBookRepository: ThumbnailBookRepository,
   private val readProgressRepository: ReadProgressRepository,
   private val imageConverter: ImageConverter,
@@ -385,6 +389,12 @@ class KoboController(
                 .map { it.readListId },
             ).groupBy { it.readListId }
 
+        val externalTagItems =
+          syncPointRepository.findExternalRevisionIdsByReadListIds(
+            syncPointId = toSyncPoint.id,
+            readListIds = (readListsAdded.content + readListsChanged.content).map { it.readListId },
+          )
+
         val archivedBookIds =
           koboArchivedBookRepository.findArchivedBookIds(principal.user.id)
 
@@ -470,14 +480,24 @@ class KoboController(
             readListsAdded.content
               .filterNot { it.readListId == SyncPoint.ReadList.ON_DECK_ID }
               .map {
-                NewTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
+                NewTagDto(
+                  it.toWrappedTagDto(
+                    readListsBooks[it.readListId].orEmpty().map { b -> TagItemDto(b.bookId) } +
+                      externalTagItems[it.readListId].orEmpty().map { revisionId -> TagItemDto(revisionId) },
+                  ),
+                )
               },
           )
           addAll(
             readListsChanged.content
               .filterNot { it.readListId == SyncPoint.ReadList.ON_DECK_ID }
               .map {
-                ChangedTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
+                ChangedTagDto(
+                  it.toWrappedTagDto(
+                    readListsBooks[it.readListId].orEmpty().map { b -> TagItemDto(b.bookId) } +
+                      externalTagItems[it.readListId].orEmpty().map { revisionId -> TagItemDto(revisionId) },
+                  ),
+                )
               },
           )
           addAll(
@@ -517,6 +537,12 @@ class KoboController(
         val readProgress = readProgressRepository.findAllByBookIdsAndUserId(books.content.map { it.bookId }, principal.user.id).associateBy { it.bookId }
         val readListsBooks = syncPointRepository.findBookIdsByReadListIds(toSyncPoint.id, readLists.content.map { it.readListId }).groupBy { it.readListId }
 
+        val externalTagItems =
+          syncPointRepository.findExternalRevisionIdsByReadListIds(
+            syncPointId = toSyncPoint.id,
+            readListIds = readLists.content.map { it.readListId },
+          )
+
         val archivedBookIds =
           koboArchivedBookRepository.findArchivedBookIds(principal.user.id)
 
@@ -554,7 +580,12 @@ class KoboController(
             readLists.content
               .filterNot { it.readListId == SyncPoint.ReadList.ON_DECK_ID }
               .map {
-                NewTagDto(it.toWrappedTagDto(readListsBooks[it.readListId]?.map { b -> TagItemDto(b.bookId) }))
+                NewTagDto(
+                  it.toWrappedTagDto(
+                    readListsBooks[it.readListId].orEmpty().map { b -> TagItemDto(b.bookId) } +
+                      externalTagItems[it.readListId].orEmpty().map { revisionId -> TagItemDto(revisionId) },
+                  ),
+                )
               },
           )
         }
@@ -929,7 +960,11 @@ class KoboController(
         updated
       }
 
-    logIgnoredKoboTagItems(revisionIds, localBookIds)
+    koboExternalCollectionMemberRepository.add(
+      userId = principal.user.id,
+      readListId = readList.id,
+      revisionIds = getExternalKoboTagRevisionIds(revisionIds, localBookIds),
+    )
 
     // Kobo expects HTTP 201 and a top-level JSON string containing the
     // canonical tag ID. Nickel then replaces its temporary Shelf.Id with it.
@@ -1051,7 +1086,11 @@ class KoboController(
       updateKoboReadList(existing.copy(bookIds = indexKoboTagBooks(mergedBookIds)))
     }
 
-    logIgnoredKoboTagItems(revisionIds, localBookIds)
+    koboExternalCollectionMemberRepository.add(
+      userId = principal.user.id,
+      readListId = tagId,
+      revisionIds = getExternalKoboTagRevisionIds(revisionIds, localBookIds),
+    )
     return ResponseEntity.status(HttpStatus.CREATED).build<Void>()
   }
 
@@ -1111,7 +1150,11 @@ class KoboController(
       updateKoboReadList(existing.copy(bookIds = indexKoboTagBooks(remainingBookIds)))
     }
 
-    logIgnoredKoboTagItems(revisionIds, localBookIds)
+    koboExternalCollectionMemberRepository.remove(
+      userId = principal.user.id,
+      readListId = tagId,
+      revisionIds = getExternalKoboTagRevisionIds(revisionIds, localBookIds),
+    )
     return ResponseEntity.ok().build<Void>()
   }
 
@@ -1179,6 +1222,22 @@ class KoboController(
       .filter { bookRepository.existsById(it) }
       .distinct()
 
+  // Kobo-owned members are opaque per-user collection state, not Komga ReadList books.
+  // Restrict this channel to canonical Kobo UUIDs: never persist an unknown Komga
+  // book ID, URL, session token, or arbitrary request string as a collection member.
+  private fun getExternalKoboTagRevisionIds(
+    revisionIds: Collection<String>,
+    localBookIds: Collection<String>,
+  ): List<String> {
+    val localIds = localBookIds.toSet()
+    return revisionIds
+      .asSequence()
+      .filterNot { it in localIds }
+      .filter { koboExternalRevisionId.matches(it) }
+      .distinct()
+      .toList()
+  }
+
   private fun indexKoboTagBooks(bookIds: Collection<String>) =
     bookIds
       .distinct()
@@ -1198,19 +1257,6 @@ class KoboController(
       readListLifecycle.updateReadList(readList)
     } catch (e: DuplicateNameException) {
       throw ResponseStatusException(HttpStatus.BAD_REQUEST, e.message)
-    }
-  }
-
-  private fun logIgnoredKoboTagItems(
-    revisionIds: Collection<String>,
-    localBookIds: Collection<String>,
-  ) {
-    val local = localBookIds.toSet()
-    val ignored = revisionIds.filterNot { it in local }
-    if (ignored.isNotEmpty()) {
-      logger.debug {
-        "Ignoring ${ignored.size} Kobo tag item(s) that do not correspond to Komga book IDs"
-      }
     }
   }
 

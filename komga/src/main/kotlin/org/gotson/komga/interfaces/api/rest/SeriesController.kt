@@ -52,6 +52,7 @@ import org.gotson.komga.infrastructure.security.KomgaPrincipal
 import org.gotson.komga.infrastructure.web.Authors
 import org.gotson.komga.infrastructure.web.DelimitedPair
 import org.gotson.komga.interfaces.api.ContentRestrictionChecker
+import org.gotson.komga.interfaces.api.kobo.KoboArchiveRestoreService
 import org.gotson.komga.interfaces.api.persistence.BookDtoRepository
 import org.gotson.komga.interfaces.api.persistence.ReadProgressDtoRepository
 import org.gotson.komga.interfaces.api.persistence.SeriesDtoRepository
@@ -105,6 +106,7 @@ private val logger = KotlinLogging.logger {}
 @RequestMapping("api", produces = [MediaType.APPLICATION_JSON_VALUE])
 class SeriesController(
   private val taskEmitter: TaskEmitter,
+  private val koboArchiveRestoreService: KoboArchiveRestoreService,
   private val seriesRepository: SeriesRepository,
   private val seriesLifecycle: SeriesLifecycle,
   private val seriesMetadataRepository: SeriesMetadataRepository,
@@ -662,9 +664,11 @@ class SeriesController(
   @PreAuthorize("hasRole('ADMIN')")
   @ResponseStatus(HttpStatus.ACCEPTED)
   fun seriesRefreshMetadata(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable seriesId: String,
   ) {
     val books = bookRepository.findAllBySeriesId(seriesId)
+    koboArchiveRestoreService.restoreOnExplicitMetadataRefresh(principal.user.id, books.map { it.id })
     taskEmitter.refreshBookMetadata(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshBookLocalArtwork(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshSeriesLocalArtwork(seriesId, priority = HIGH_PRIORITY)

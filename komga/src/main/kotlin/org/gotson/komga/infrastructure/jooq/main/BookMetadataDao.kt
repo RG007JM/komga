@@ -131,6 +131,13 @@ class BookMetadataDao(
     }
   }
 
+  override fun touchLastModifiedDate(bookId: String): Boolean =
+    dslRW
+      .update(d)
+      .set(d.LAST_MODIFIED_DATE, LocalDateTime.now(ZoneId.of("Z")))
+      .where(d.BOOK_ID.eq(bookId))
+      .execute() > 0
+
   @Transactional
   override fun update(metadata: BookMetadata) {
     updateMetadata(metadata)

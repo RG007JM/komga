@@ -383,20 +383,9 @@ class KoboController(
         val archivedBookIds =
           koboArchivedBookRepository.findArchivedBookIds(principal.user.id)
 
-        // Refresh Book Metadata already makes the book appear in booksChanged.
-        // Treat an archived+changed book as a restore for this prototype.
-        val restoredBookIds =
-          booksChanged.content
-            .map { it.bookId }
-            .filter { it in archivedBookIds }
-            .toSet()
-
-        restoredBookIds.forEach { bookId ->
-          koboArchivedBookRepository.unarchive(principal.user.id, bookId)
-          logger.debug { "Restored archived Kobo book $bookId after Komga book metadata changed" }
-        }
-
-        val effectiveArchivedBookIds = archivedBookIds - restoredBookIds
+        // Only an explicit admin metadata-refresh request restores archive state.
+        // Automatic metadata changes must not silently unarchive Kobo books.
+        val effectiveArchivedBookIds = archivedBookIds
 
         buildList {
           addAll(

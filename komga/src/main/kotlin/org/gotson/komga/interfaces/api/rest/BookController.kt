@@ -51,6 +51,7 @@ import org.gotson.komga.interfaces.api.dto.MEDIATYPE_POSITION_LIST_JSON_VALUE
 import org.gotson.komga.interfaces.api.dto.MEDIATYPE_WEBPUB_JSON_VALUE
 import org.gotson.komga.interfaces.api.dto.WPPublicationDto
 import org.gotson.komga.interfaces.api.getBookLastModified
+import org.gotson.komga.interfaces.api.kobo.KoboArchiveRestoreService
 import org.gotson.komga.interfaces.api.persistence.BookDtoRepository
 import org.gotson.komga.interfaces.api.rest.dto.BookDto
 import org.gotson.komga.interfaces.api.rest.dto.BookImportBatchDto
@@ -116,6 +117,7 @@ class BookController(
   private val webPubGenerator: WebPubGenerator,
   private val contentRestrictionChecker: ContentRestrictionChecker,
   private val commonBookController: CommonBookController,
+  private val koboArchiveRestoreService: KoboArchiveRestoreService,
 ) {
   @Deprecated("use /v1/books/list instead")
   @PageableAsQueryParam
@@ -640,9 +642,11 @@ class BookController(
   @PreAuthorize("hasRole('ADMIN')")
   @ResponseStatus(HttpStatus.ACCEPTED)
   fun bookRefreshMetadata(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable bookId: String,
   ) {
     bookRepository.findByIdOrNull(bookId)?.let { book ->
+      koboArchiveRestoreService.restoreOnExplicitMetadataRefresh(principal.user.id, listOf(book.id))
       taskEmitter.refreshBookMetadata(book, priority = HIGH_PRIORITY)
       taskEmitter.refreshBookLocalArtwork(book, priority = HIGH_PRIORITY)
     } ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)

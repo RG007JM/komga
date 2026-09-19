@@ -48,6 +48,8 @@ class SyncPointDao(
   private val spbs = Tables.SYNC_POINT_BOOK_REMOVED_SYNCED
   private val sprl = Tables.SYNC_POINT_READLIST
   private val sprlb = Tables.SYNC_POINT_READLIST_BOOK
+  private val spre = Tables.SYNC_POINT_EXTERNAL_COLLECTION_MEMBER
+  private val externalMembers = Tables.KOBO_EXTERNAL_COLLECTION_MEMBER
   private val sprls = Tables.SYNC_POINT_READLIST_REMOVED_SYNCED
   private val rl = Tables.READLIST
   private val rlb = Tables.READLIST_BOOK
@@ -187,6 +189,21 @@ class SyncPointDao(
                 .and(spb.BOOK_ID.eq(rlb.BOOK_ID)),
             ),
         ).execute()
+
+    // Freeze only this user's external membership into the same SyncPoint as
+    // the ReadLists. Changes in another device's membership can then be compared
+    // without mutating the shared ReadList or exposing another user's Kobo IDs.
+    dslRW
+      .insertInto(spre, spre.SYNC_POINT_ID, spre.READLIST_ID, spre.REVISION_ID)
+      .select(
+        dslRW
+          .select(DSL.`val`(syncPointId), externalMembers.READLIST_ID, externalMembers.REVISION_ID)
+          .from(externalMembers)
+          .join(sprl)
+          .on(sprl.READLIST_ID.eq(externalMembers.READLIST_ID))
+          .and(sprl.SYNC_POINT_ID.eq(syncPointId))
+          .where(externalMembers.USER_ID.eq(context.userId)),
+      ).execute()
 
     logger.debug {
       "Kobo ReadList snapshot: syncPoint=$syncPointId, " +
@@ -436,6 +453,49 @@ class SyncPointDao(
     pageable: Pageable,
   ): Page<SyncPoint.ReadList> {
     val from = sprl.`as`("from")
+    val currentExternal = spre.`as`("current_external")
+    val previousExternal = spre.`as`("previous_external")
+
+    // A ReadList's metadata may be unchanged while the requesting user adds
+    // or removes a Kobo Store-owned member. Compare actual snapshot sets in
+    // both directions, including removal of the last external member.
+    val externalAdded =
+      DSL.exists(
+        dslRO
+          .selectOne()
+          .from(currentExternal)
+          .where(currentExternal.SYNC_POINT_ID.eq(toSyncPointId))
+          .and(currentExternal.READLIST_ID.eq(sprl.READLIST_ID))
+          .and(
+            DSL.notExists(
+              dslRO
+                .selectOne()
+                .from(previousExternal)
+                .where(previousExternal.SYNC_POINT_ID.eq(fromSyncPointId))
+                .and(previousExternal.READLIST_ID.eq(currentExternal.READLIST_ID))
+                .and(previousExternal.REVISION_ID.eq(currentExternal.REVISION_ID)),
+            ),
+          ),
+      )
+    val externalRemoved =
+      DSL.exists(
+        dslRO
+          .selectOne()
+          .from(previousExternal)
+          .where(previousExternal.SYNC_POINT_ID.eq(fromSyncPointId))
+          .and(previousExternal.READLIST_ID.eq(sprl.READLIST_ID))
+          .and(
+            DSL.notExists(
+              dslRO
+                .selectOne()
+                .from(currentExternal)
+                .where(currentExternal.SYNC_POINT_ID.eq(toSyncPointId))
+                .and(currentExternal.READLIST_ID.eq(previousExternal.READLIST_ID))
+                .and(currentExternal.REVISION_ID.eq(previousExternal.REVISION_ID)),
+            ),
+          ),
+      )
+
     val query =
       dslRO
         .select(*sprl.fields())
@@ -448,7 +508,9 @@ class SyncPointDao(
         .and(
           sprl.READLIST_LAST_MODIFIED_DATE
             .ne(from.READLIST_LAST_MODIFIED_DATE)
-            .or(sprl.READLIST_NAME.ne(from.READLIST_NAME)),
+            .or(sprl.READLIST_NAME.ne(from.READLIST_NAME))
+            .or(externalAdded)
+            .or(externalRemoved),
         )
 
     return dslRO.queryToPageReadList(query, pageable)
@@ -523,6 +585,21 @@ class SyncPointDao(
       .fetchInto(sprlb)
       .map { SyncPoint.ReadList.Book(it.syncPointId, it.readlistId, it.bookId) }
 
+  override fun findExternalRevisionIdsByReadListIds(
+    syncPointId: String,
+    readListIds: Collection<String>,
+  ): Map<String, List<String>> {
+    if (readListIds.isEmpty()) return emptyMap()
+    return dslRO
+      .select(spre.READLIST_ID, spre.REVISION_ID)
+      .from(spre)
+      .where(spre.SYNC_POINT_ID.eq(syncPointId))
+      .and(spre.READLIST_ID.`in`(readListIds))
+      .orderBy(spre.READLIST_ID, spre.REVISION_ID)
+      .fetch()
+      .groupBy({ it.value1() }, { it.value2() })
+  }
+
   override fun markBooksSynced(
     syncPointId: String,
     forRemovedBooks: Boolean,
@@ -588,6 +665,7 @@ class SyncPointDao(
 
   private fun DSLContext.deleteSubEntities(condition: SelectConditionStep<Record1<String>>) {
     this.deleteFrom(sprls).where(sprls.SYNC_POINT_ID.`in`(condition)).execute()
+    this.deleteFrom(spre).where(spre.SYNC_POINT_ID.`in`(condition)).execute()
     this.deleteFrom(sprlb).where(sprlb.SYNC_POINT_ID.`in`(condition)).execute()
     this.deleteFrom(sprl).where(sprl.SYNC_POINT_ID.`in`(condition)).execute()
     this.deleteFrom(spbs).where(spbs.SYNC_POINT_ID.`in`(condition)).execute()
@@ -595,6 +673,7 @@ class SyncPointDao(
   }
 
   override fun deleteOne(syncPointId: String) {
+    dslRW.deleteFrom(spre).where(spre.SYNC_POINT_ID.eq(syncPointId)).execute()
     dslRW.deleteFrom(sprls).where(sprls.SYNC_POINT_ID.eq(syncPointId)).execute()
     dslRW.deleteFrom(sprlb).where(sprlb.SYNC_POINT_ID.eq(syncPointId)).execute()
     dslRW.deleteFrom(sprl).where(sprl.SYNC_POINT_ID.eq(syncPointId)).execute()
@@ -604,6 +683,7 @@ class SyncPointDao(
   }
 
   override fun deleteAll() {
+    dslRW.deleteFrom(spre).execute()
     dslRW.deleteFrom(sprls).execute()
     dslRW.deleteFrom(sprlb).execute()
     dslRW.deleteFrom(sprl).execute()

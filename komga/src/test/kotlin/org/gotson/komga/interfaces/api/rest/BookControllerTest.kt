@@ -24,6 +24,7 @@ import org.gotson.komga.domain.service.KomgaUserLifecycle
 import org.gotson.komga.domain.service.LibraryLifecycle
 import org.gotson.komga.domain.service.SeriesLifecycle
 import org.gotson.komga.infrastructure.security.KomgaPrincipal
+import org.gotson.komga.interfaces.api.kobo.KoboArchivedBookRepository
 import org.hamcrest.Matchers.containsString
 import org.hamcrest.core.IsNull
 import org.junit.jupiter.api.AfterAll
@@ -45,6 +46,7 @@ import org.springframework.test.web.servlet.MockMvcResultMatchersDsl
 import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.patch
+import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import java.net.URLEncoder
@@ -68,6 +70,7 @@ class BookControllerTest(
   @Autowired private val userRepository: KomgaUserRepository,
   @Autowired private val userLifecycle: KomgaUserLifecycle,
   @Autowired private val mockMvc: MockMvc,
+  @Autowired private val koboArchivedBookRepository: KoboArchivedBookRepository,
 ) {
   private val library = makeLibrary(id = "1")
   private val user = KomgaUser("user@example.org", "", id = "1")
@@ -93,6 +96,22 @@ class BookControllerTest(
   @AfterEach
   fun `clear repository`() {
     seriesLifecycle.deleteMany(seriesRepository.findAll())
+  }
+
+  @Test
+  @WithMockCustomUser(roles = ["ADMIN"], id = "1")
+  fun `manual book metadata refresh restores only requesting user's Kobo archive`() {
+    val series = seriesLifecycle.createSeries(makeSeries(name = "restore-series", libraryId = library.id))
+    val book = makeBook("restore-book", libraryId = library.id)
+    seriesLifecycle.addBooks(series, listOf(book))
+
+    koboArchivedBookRepository.archive("1", book.id)
+    koboArchivedBookRepository.archive("2", book.id)
+
+    mockMvc.post("/api/v1/books/${book.id}/metadata/refresh").andExpect { status { isAccepted() } }
+
+    assertThat(koboArchivedBookRepository.isArchived("1", book.id)).isFalse()
+    assertThat(koboArchivedBookRepository.isArchived("2", book.id)).isTrue()
   }
 
   @Nested

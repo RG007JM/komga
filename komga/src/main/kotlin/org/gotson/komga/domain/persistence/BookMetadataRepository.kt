@@ -15,6 +15,9 @@ interface BookMetadataRepository {
 
   fun update(metadata: BookMetadata)
 
+  /** Mark a book as changed for incremental sync without modifying its metadata fields. */
+  fun touchLastModifiedDate(bookId: String): Boolean
+
   fun update(metadatas: Collection<BookMetadata>)
 
   fun delete(bookId: String)

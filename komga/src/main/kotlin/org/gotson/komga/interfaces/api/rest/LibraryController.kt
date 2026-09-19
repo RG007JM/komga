@@ -21,6 +21,7 @@ import org.gotson.komga.domain.service.LibraryLifecycle
 import org.gotson.komga.infrastructure.openapi.OpenApiConfiguration
 import org.gotson.komga.infrastructure.security.KomgaPrincipal
 import org.gotson.komga.infrastructure.web.filePathToUrl
+import org.gotson.komga.interfaces.api.kobo.KoboArchiveRestoreService
 import org.gotson.komga.interfaces.api.rest.dto.LibraryCreationDto
 import org.gotson.komga.interfaces.api.rest.dto.LibraryDto
 import org.gotson.komga.interfaces.api.rest.dto.LibraryUpdateDto
@@ -50,6 +51,7 @@ import java.io.FileNotFoundException
 @Tag(name = OpenApiConfiguration.TagNames.LIBRARIES)
 class LibraryController(
   private val taskEmitter: TaskEmitter,
+  private val koboArchiveRestoreService: KoboArchiveRestoreService,
   private val libraryLifecycle: LibraryLifecycle,
   private val libraryRepository: LibraryRepository,
   private val bookRepository: BookRepository,
@@ -258,6 +260,7 @@ class LibraryController(
   @ResponseStatus(HttpStatus.ACCEPTED)
   @Operation(summary = "Refresh metadata for a library")
   fun libraryRefreshMetadata(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable libraryId: String,
   ) {
     val books =
@@ -267,6 +270,7 @@ class LibraryController(
           SearchContext.empty(),
           Pageable.unpaged(),
         ).content
+    koboArchiveRestoreService.restoreOnExplicitMetadataRefresh(principal.user.id, books.map { it.id })
     taskEmitter.refreshBookMetadata(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshBookLocalArtwork(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshSeriesLocalArtwork(seriesRepository.findAllIdsByLibraryId(libraryId), priority = HIGH_PRIORITY)

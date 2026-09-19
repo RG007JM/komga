@@ -6,6 +6,7 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import org.gotson.komga.domain.service.KoboProductResolver
 import org.gotson.komga.infrastructure.configuration.KomgaSettingsProvider
 import org.gotson.komga.infrastructure.kobo.KoboHeaders.X_KOBO_SYNCTOKEN
+import org.gotson.komga.infrastructure.security.KomgaPrincipal
 import org.gotson.komga.infrastructure.web.getCurrentRequest
 import org.gotson.komga.language.contains
 import org.springframework.boot.http.client.ClientHttpRequestFactoryBuilder
@@ -14,6 +15,7 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.web.client.RestClient
@@ -277,11 +279,15 @@ class KoboProxy(
       "Kobo response: $response"
     }
 
+    val authenticatedUser =
+      (SecurityContextHolder.getContext().authentication?.principal as? KomgaPrincipal)?.user
+
     val responseBody =
       response.body?.let {
         koboProductResponseTranslator.translate(
           path = path,
           body = it,
+          user = authenticatedUser,
         )
       }
 

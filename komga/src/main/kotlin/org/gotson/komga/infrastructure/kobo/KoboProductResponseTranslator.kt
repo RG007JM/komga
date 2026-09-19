@@ -5,9 +5,12 @@ package org.gotson.komga.infrastructure.kobo
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.github.oshai.kotlinlogging.KotlinLogging
+import org.gotson.komga.domain.model.KomgaUser
 import org.gotson.komga.domain.service.KoboProductResolver
+import org.gotson.komga.interfaces.api.ContentRestrictionChecker
 import org.gotson.komga.interfaces.api.kobo.persistence.KoboDtoRepository
 import org.springframework.stereotype.Component
+import org.springframework.web.server.ResponseStatusException
 
 private val logger = KotlinLogging.logger {}
 
@@ -16,11 +19,16 @@ class KoboProductResponseTranslator(
   private val koboProductResolver: KoboProductResolver,
   private val koboLocalBookLookup: KoboLocalBookLookup,
   private val koboDtoRepository: KoboDtoRepository,
+  private val contentRestrictionChecker: ContentRestrictionChecker,
 ) {
   fun translate(
     path: String,
     body: JsonNode,
+    user: KomgaUser?,
   ): JsonNode {
+    // Never enrich a Kobo response without an authenticated Komga user.
+    if (user == null) return body
+
     val normalizedPath =
       path
         .substringBefore("?")
@@ -29,22 +37,22 @@ class KoboProductResponseTranslator(
 
     return when {
       normalizedPath == "/v1/products" ->
-        translateBookItems(body)
+        translateBookItems(body, user)
 
       normalizedPath.matches(
         Regex("""^/v1/products/[^/]+/recommendations$"""),
       ) ->
-        translateBookItems(body)
+        translateBookItems(body, user)
 
       normalizedPath.matches(
         Regex("""^/v1/products/[^/]+/nextread$"""),
       ) ->
-        translateNextRead(body)
+        translateNextRead(body, user)
 
       normalizedPath.matches(
         Regex("""^/v1/products/[^/]+/reviews$"""),
       ) ->
-        translateProductReviewsWithLocalCrossRevision(body)
+        translateProductReviewsWithLocalCrossRevision(body, user)
 
       /*
        * We deliberately do not rewrite /related yet.
@@ -92,6 +100,7 @@ class KoboProductResponseTranslator(
    */
   private fun translateBookItems(
     body: JsonNode,
+    user: KomgaUser,
   ): JsonNode {
     val booksNeedingLocalCovers =
       mutableListOf<Pair<ObjectNode, String>>()
@@ -131,6 +140,7 @@ class KoboProductResponseTranslator(
 
       val bookId =
         resolveBookId(
+          user = user,
           productId = productId,
           isbn = isbn,
           cache = cache,
@@ -209,6 +219,7 @@ class KoboProductResponseTranslator(
    */
   private fun translateNextRead(
     body: JsonNode,
+    user: KomgaUser,
   ): JsonNode {
     val booksNeedingLocalCovers =
       mutableListOf<Pair<ObjectNode, String>>()
@@ -227,6 +238,7 @@ class KoboProductResponseTranslator(
 
       val translatedKey =
         resolveBookId(
+          user = user,
           productId = sourceProductId,
           cache = cache,
         ) ?: sourceProductId
@@ -258,6 +270,7 @@ class KoboProductResponseTranslator(
 
           val bookId =
             resolveBookId(
+              user = user,
               productId = productId,
               isbn = isbn,
               cache = cache,
@@ -331,6 +344,7 @@ class KoboProductResponseTranslator(
    */
   private fun translateReviews(
     body: JsonNode,
+    user: KomgaUser,
   ): JsonNode {
     val items =
       body.get("Items")
@@ -346,6 +360,7 @@ class KoboProductResponseTranslator(
     items.forEach { item ->
       if (item is ObjectNode) {
         translateTextField(
+          user = user,
           node = item,
           fieldName = "ProductId",
           cache = cache,
@@ -357,6 +372,7 @@ class KoboProductResponseTranslator(
   }
 
   private fun translateTextField(
+    user: KomgaUser,
     node: ObjectNode,
     fieldName: String,
     cache: MutableMap<String, String?>,
@@ -371,6 +387,7 @@ class KoboProductResponseTranslator(
 
     val bookId =
       resolveBookId(
+        user = user,
         productId = value,
         cache = cache,
       ) ?: return
@@ -474,6 +491,7 @@ class KoboProductResponseTranslator(
   }
 
   private fun resolveBookId(
+    user: KomgaUser,
     productId: String,
     isbn: String?,
     cache: MutableMap<String, String?>,
@@ -487,10 +505,9 @@ class KoboProductResponseTranslator(
         .resolveBookId(productId)
 
     if (mappedBookId != null) {
-      cache[productId] =
-        mappedBookId
-
-      return mappedBookId
+      val allowedBookId = mappedBookId.takeIf { isAllowed(user, it) }
+      cache[productId] = allowedBookId
+      return allowedBookId
     }
 
     val discoveredBookId =
@@ -500,19 +517,13 @@ class KoboProductResponseTranslator(
             .findUniqueBookIdByIsbn(it)
         }
 
-    if (discoveredBookId != null) {
-      logger.debug {
-        "Discovered Komga book ID $discoveredBookId from Kobo ProductId $productId via ISBN $isbn"
-      }
-    }
-
-    cache[productId] =
-      discoveredBookId
-
-    return discoveredBookId
+    val allowedBookId = discoveredBookId?.takeIf { isAllowed(user, it) }
+    cache[productId] = allowedBookId
+    return allowedBookId
   }
 
   private fun resolveBookId(
+    user: KomgaUser,
     productId: String,
     cache: MutableMap<String, String?>,
   ): String? {
@@ -524,11 +535,23 @@ class KoboProductResponseTranslator(
       koboProductResolver
         .resolveBookId(productId)
 
-    cache[productId] =
-      bookId
-
-    return bookId
+    val allowedBookId = bookId?.takeIf { isAllowed(user, it) }
+    cache[productId] = allowedBookId
+    return allowedBookId
   }
+
+  private fun isAllowed(
+    user: KomgaUser,
+    bookId: String,
+  ): Boolean =
+    try {
+      contentRestrictionChecker.checkContentRestrictionBook(user, bookId)
+      true
+    } catch (_: ResponseStatusException) {
+      // A Kobo Store product is still a Kobo product; never reveal a
+      // restricted local identity or metadata in its place.
+      false
+    }
 
   private fun normalizeIsbn(
     value: String?,
@@ -547,6 +570,7 @@ class KoboProductResponseTranslator(
    */
   private fun translateProductReviewsWithLocalCrossRevision(
     body: JsonNode,
+    user: KomgaUser,
   ): JsonNode {
     if (body !is ObjectNode) {
       return body
@@ -605,6 +629,7 @@ class KoboProductResponseTranslator(
 
       val bookId =
         resolveBookId(
+          user = user,
           productId = productId,
           cache = cache,
         ) ?: return@forEach

@@ -647,7 +647,7 @@ class BookController(
   ) {
     bookRepository.findByIdOrNull(bookId)?.let { book ->
       koboArchiveRestoreService.restoreOnExplicitMetadataRefresh(principal.user.id, listOf(book.id))
-      taskEmitter.refreshBookMetadata(book, priority = HIGH_PRIORITY)
+      taskEmitter.refreshBookMetadataAndKoboIdentity(book, priority = HIGH_PRIORITY)
       taskEmitter.refreshBookLocalArtwork(book, priority = HIGH_PRIORITY)
     } ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
   }

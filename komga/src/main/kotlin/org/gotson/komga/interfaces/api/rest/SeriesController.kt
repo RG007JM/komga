@@ -669,7 +669,7 @@ class SeriesController(
   ) {
     val books = bookRepository.findAllBySeriesId(seriesId)
     koboArchiveRestoreService.restoreOnExplicitMetadataRefresh(principal.user.id, books.map { it.id })
-    taskEmitter.refreshBookMetadata(books, priority = HIGH_PRIORITY)
+    taskEmitter.refreshBookMetadataAndKoboIdentity(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshBookLocalArtwork(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshSeriesLocalArtwork(seriesId, priority = HIGH_PRIORITY)
   }

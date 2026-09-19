@@ -1,12 +1,16 @@
 package org.gotson.komga.infrastructure.kobo
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import io.mockk.Runs
 import io.mockk.clearMocks
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
+import org.gotson.komga.domain.model.KomgaUser
 import org.gotson.komga.domain.service.KoboProductResolver
+import org.gotson.komga.interfaces.api.ContentRestrictionChecker
 import org.gotson.komga.interfaces.api.kobo.dto.KoboBookMetadataDto
 import org.gotson.komga.interfaces.api.kobo.persistence.KoboDtoRepository
 import org.junit.jupiter.api.BeforeEach
@@ -25,11 +29,16 @@ class KoboProductResponseTranslatorTest {
   private val koboDtoRepository =
     mockk<KoboDtoRepository>()
 
+  private val user = KomgaUser(email = "test@example.com", password = "test-password")
+
+  private val contentRestrictionChecker = mockk<ContentRestrictionChecker>()
+
   private val translator =
     KoboProductResponseTranslator(
       koboProductResolver = resolver,
       koboLocalBookLookup = koboLocalBookLookup,
       koboDtoRepository = koboDtoRepository,
+      contentRestrictionChecker = contentRestrictionChecker,
     )
 
   @BeforeEach
@@ -38,7 +47,9 @@ class KoboProductResponseTranslatorTest {
       resolver,
       koboLocalBookLookup,
       koboDtoRepository,
+      contentRestrictionChecker,
     )
+    every { contentRestrictionChecker.checkContentRestrictionBook(user, any<String>()) } just Runs
     every {
       koboDtoRepository.findBookMetadataByIds(any())
     } answers {
@@ -81,7 +92,7 @@ class KoboProductResponseTranslatorTest {
       )
     val expected = upstream.deepCopy<com.fasterxml.jackson.databind.JsonNode>()
 
-    val result = translator.translate("/v1/products", upstream)
+    val result = translator.translate("/v1/products", upstream, user)
 
     assertThat(result).isEqualTo(expected)
     verify(exactly = 0) { koboDtoRepository.findBookMetadataByIds(any()) }
@@ -130,6 +141,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path =
           "/v1/products/b996d901-4a00-4783-8476-8494252d3415/recommendations",
         body = body,
@@ -221,6 +233,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path =
           "/v1/products/source-product-id/recommendations?page_index=0&page_size=100",
         body = body,
@@ -318,6 +331,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path =
           "/v1/products/source-product-id/recommendations",
         body = body,
@@ -398,6 +412,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path =
           "/v1/products/$sourceKomgaBookId/nextread",
         body = body,
@@ -491,6 +506,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path = "/v1/products/$bookId/reviews",
         body = body,
       )
@@ -538,6 +554,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path = "/v1/products/$bookId/reviews",
         body = body,
       )
@@ -567,6 +584,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path = "/v1/user/reviews",
         body = body,
       )
@@ -627,6 +645,7 @@ class KoboProductResponseTranslatorTest {
 
     val result =
       translator.translate(
+        user = user,
         path =
           "/v1/products?q=frieren%20anthology&Filters=%7BLanguage:it%7D&page_index=0&page_size=200&TypesToInclude=book",
         body = body,

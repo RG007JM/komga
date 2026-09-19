@@ -91,4 +91,29 @@ class KepubConverterTest(
     // then
     assertThat(result).isNull()
   }
+
+  @Test
+  fun `default conversion outputs do not overwrite each other for books with the same filename`(
+    @TempDir dir: Path,
+  ) {
+    val epub = dir.resolve("book.epub")
+    val first = kepubConverter.destinationPathFor(epub, null)
+    val second = kepubConverter.destinationPathFor(epub, null)
+    try {
+      assertThat(first).isNotEqualTo(second)
+      assertThat(first.fileName.toString()).endsWith(".kepub.epub")
+      assertThat(second.fileName.toString()).endsWith(".kepub.epub")
+    } finally {
+      Files.deleteIfExists(first)
+      Files.deleteIfExists(second)
+    }
+  }
+
+  @Test
+  fun `explicit conversion destination keeps the source filename`(
+    @TempDir dir: Path,
+  ) {
+    assertThat(kepubConverter.destinationPathFor(dir.resolve("book.epub"), dir))
+      .isEqualTo(dir.resolve("book.kepub.epub"))
+  }
 }

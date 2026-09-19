@@ -770,9 +770,9 @@ class KoboController(
       bookRepository.findByIdOrNull(bookId)?.let { book ->
         contentRestrictionChecker.checkContentRestrictionBook(principal.user, book)
 
-        // check cache
-        val cacheKey = book.computeCacheKey()
-        var kepubPath = cachedKepub.getIfPresent(cacheKey)?.let { if (it.exists()) it else null }
+        // An absent source hash is not sufficient to prove a conversion is current.
+        val cacheKey = book.koboKepubCacheKey()
+        var kepubPath = cacheKey?.let { cachedKepub.getIfPresent(it) }?.let { if (it.exists()) it else null }
 
         if (kepubPath == null) {
           // convert
@@ -780,7 +780,7 @@ class KoboController(
             kepubConverter.convertEpubToKepub(BookWithMedia(book, mediaRepository.findById(bookId)))
               ?: throw ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Kepub conversion failed")
           converted.toFile().deleteOnExit()
-          cachedKepub.put(cacheKey, converted)
+          if (cacheKey != null) cachedKepub.put(cacheKey, converted)
           kepubPath = converted
         } else {
           logger.debug { "Found kepub in cache" }
@@ -804,14 +804,20 @@ class KoboController(
           }
         }
 				
+        // Unhashed sources are never cached; release their unique temporary conversion after streaming.
+        val temporaryKepub = if (cacheKey == null) kepubPath else null
         try {
           with(FileSystemResource(kepubPath)) {
             if (!exists()) throw FileNotFoundException(path)
             val stream =
               StreamingResponseBody { os: OutputStream ->
-                this.inputStream.use {
-                  IOUtils.copyLarge(it, os, ByteArray(8192))
-                  os.close()
+                try {
+                  this.inputStream.use {
+                    IOUtils.copyLarge(it, os, ByteArray(8192))
+                    os.close()
+                  }
+                } finally {
+                  temporaryKepub?.deleteIfExists()
                 }
               }
             return ResponseEntity
@@ -837,8 +843,6 @@ class KoboController(
       return commonBookController.getBookFileInternal(principal, bookId)
     }
   }
-
-  private fun Book.computeCacheKey() = "$id-$fileLastModified"
 
   @GetMapping(
     value = [

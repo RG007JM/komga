@@ -108,18 +108,31 @@ internal class KoboProductPageParser(
       }.firstOrNull()
   }
 
+  private companion object {
+    // Kobo product pages use localized labels; never search the raw HTML for
+    // an unqualified 13-digit string.
+    val BOOK_ID_PATTERN =
+      Regex(
+        """(?:ID del libro|Book ID|ISBN)\s*[:：]?\s*((?:\d[\s-]?){12}\d)(?!\d)""",
+        RegexOption.IGNORE_CASE,
+      )
+  }
+
   private fun pageMatchesIsbn(
     document: Document,
     isbn: String,
   ): Boolean {
-    val normalizedDocument =
-      document
-        .html()
-        .replace("-", "")
-        .replace(" ", "")
+    // Only explicit, visible book-ID fields count as identity evidence. An ISBN
+    // in a recommendation, a link, or a tracking attribute does not identify
+    // the main product. If multiple different book IDs are displayed, do not
+    // guess which one belongs to the primary product.
+    val displayedBookIds =
+      BOOK_ID_PATTERN
+        .findAll(document.body().text())
+        .map { match -> match.groupValues[1].filter(Char::isDigit) }
+        .distinct()
+        .toList()
 
-    return normalizedDocument.contains(
-      isbn,
-    )
+    return displayedBookIds.size == 1 && displayedBookIds.single() == isbn
   }
 }

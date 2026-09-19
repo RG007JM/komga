@@ -464,4 +464,101 @@ class KoboProductResolverTest {
       )
     }
   }
+
+  @Test
+  fun `reverse lookup returns the only valid local book`() {
+    val productId = "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+    val isbn = "9781974753246"
+    val mapping =
+      KoboProductMapping(
+        bookId = "book-1",
+        isbn = isbn,
+        productId = productId,
+        status = KoboProductMappingStatus.FOUND,
+        checkedAt = LocalDateTime.now(),
+      )
+
+    every { mappingRepository.findByProductId(productId) } returns listOf(mapping)
+    every { bookMetadataRepository.findByIdOrNull("book-1") } returns
+      BookMetadata(
+        title = "Test Book",
+        number = "1",
+        numberSort = 1F,
+        bookId = "book-1",
+        isbn = isbn,
+      )
+
+    assertThat(resolver.resolveBookId(productId)).isEqualTo("book-1")
+    verify(exactly = 0) { mappingRepository.deleteByBookId(any()) }
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
+  }
+
+  @Test
+  fun `reverse lookup does not choose between two valid books sharing a Kobo ProductId`() {
+    val productId = "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+    val isbn = "9781974753246"
+    val mappings =
+      listOf("book-a", "book-b").map { bookId ->
+        KoboProductMapping(
+          bookId = bookId,
+          isbn = isbn,
+          productId = productId,
+          status = KoboProductMappingStatus.FOUND,
+          checkedAt = LocalDateTime.now(),
+        )
+      }
+
+    every { mappingRepository.findByProductId(productId) } returns mappings
+    mappings.forEach { mapping ->
+      every { bookMetadataRepository.findByIdOrNull(mapping.bookId) } returns
+        BookMetadata(
+          title = "Test Book",
+          number = "1",
+          numberSort = 1F,
+          bookId = mapping.bookId,
+          isbn = isbn,
+        )
+    }
+
+    assertThat(resolver.resolveBookId(productId)).isNull()
+    verify(exactly = 0) { mappingRepository.deleteByBookId(any()) }
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
+  }
+
+  @Test
+  fun `reverse lookup discards a stale mapping before checking for ambiguity`() {
+    val productId = "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+    val isbn = "9781974753246"
+    val stale =
+      KoboProductMapping(
+        bookId = "book-a",
+        isbn = isbn,
+        productId = productId,
+        status = KoboProductMappingStatus.FOUND,
+        checkedAt = LocalDateTime.now(),
+      )
+    val valid = stale.copy(bookId = "book-b")
+
+    every { mappingRepository.findByProductId(productId) } returns listOf(stale, valid)
+    every { bookMetadataRepository.findByIdOrNull("book-a") } returns
+      BookMetadata(
+        title = "Changed ISBN",
+        number = "1",
+        numberSort = 1F,
+        bookId = "book-a",
+        isbn = "9781974755998",
+      )
+    every { bookMetadataRepository.findByIdOrNull("book-b") } returns
+      BookMetadata(
+        title = "Test Book",
+        number = "1",
+        numberSort = 1F,
+        bookId = "book-b",
+        isbn = isbn,
+      )
+
+    assertThat(resolver.resolveBookId(productId)).isEqualTo("book-b")
+    verify(exactly = 1) { mappingRepository.deleteByBookId("book-a") }
+    verify(exactly = 0) { mappingRepository.deleteByBookId("book-b") }
+  }
 }

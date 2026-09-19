@@ -15,6 +15,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 private val logger = KotlinLogging.logger {}
@@ -105,6 +106,8 @@ class KoboRemainingEndpointsController(
   fun getSeries(
     @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable seriesId: String,
+    @RequestParam(name = "PageSize", defaultValue = "100") pageSize: Int,
+    @RequestParam(name = "PageIndex", defaultValue = "0") pageIndex: Int,
   ): ResponseEntity<JsonNode> {
     val localBookIds = koboLocalStoreResponseBuilder.localSeriesBookIds(seriesId)
     if (localBookIds.isEmpty()) {
@@ -135,6 +138,8 @@ class KoboRemainingEndpointsController(
       koboLocalStoreResponseBuilder.buildSeries(
         seriesId = seriesId,
         upstreamSeries = upstream?.body,
+        pageSize = pageSize,
+        pageIndex = pageIndex,
       ) ?: throw org.springframework.web.server.ResponseStatusException(
         org.springframework.http.HttpStatus.NOT_FOUND,
       )

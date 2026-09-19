@@ -47,6 +47,8 @@ class KoboLocalStoreResponseBuilder(
   fun buildSeries(
     seriesId: String,
     upstreamSeries: JsonNode?,
+    pageSize: Int = 100,
+    pageIndex: Int = 0,
   ): JsonNode? {
     val bookIds = localSeriesBookIds(seriesId)
     if (bookIds.isEmpty()) return null
@@ -83,8 +85,22 @@ class KoboLocalStoreResponseBuilder(
       (upstreamSeries as? ObjectNode)?.deepCopy()
         ?: objectMapper.createObjectNode()
 
+    val itemsPerPage = pageSize.takeIf { it > 0 } ?: 100
+    val currentPageIndex = pageIndex.coerceAtLeast(0)
+    val totalItemCount = orderedMetadata.size
+    val totalPageCount =
+      totalItemCount / itemsPerPage +
+        if (totalItemCount % itemsPerPage == 0) 0 else 1
+    val firstItemIndex = currentPageIndex.toLong() * itemsPerPage
+    val pageMetadata =
+      if (firstItemIndex >= totalItemCount) {
+        emptyList()
+      } else {
+        orderedMetadata.drop(firstItemIndex.toInt()).take(itemsPerPage)
+      }
+
     val items = objectMapper.createArrayNode()
-    orderedMetadata.forEach { metadata ->
+    pageMetadata.forEach { metadata ->
       val bookId = metadata.entitlementId
       val productId = koboProductResolver.resolveProductId(bookId)
       val upstreamBook = productId?.let(upstreamBooksByProductId::get)
@@ -101,15 +117,12 @@ class KoboLocalStoreResponseBuilder(
       items.add(wrapped)
     }
 
-    result.put("CurrentPageIndex", 0)
+    result.put("CurrentPageIndex", currentPageIndex)
+    result.put("ItemsPerPage", itemsPerPage)
     result.put("ItemCount", items.size())
     result.set<JsonNode>("Items", items)
-    result.put("TotalItemCount", items.size())
-    result.put("TotalPageCount", if (items.size() == 0) 0 else 1)
-
-    if (!result.has("ItemsPerPage")) {
-      result.put("ItemsPerPage", 100)
-    }
+    result.put("TotalItemCount", totalItemCount)
+    result.put("TotalPageCount", totalPageCount)
 
     if (!result.has("Filters")) {
       val filters = objectMapper.createObjectNode()

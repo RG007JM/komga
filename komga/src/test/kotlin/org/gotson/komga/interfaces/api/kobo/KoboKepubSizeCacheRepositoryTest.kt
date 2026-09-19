@@ -1,6 +1,10 @@
 package org.gotson.komga.interfaces.api.kobo
 
 import org.assertj.core.api.Assertions.assertThat
+import org.gotson.komga.domain.persistence.KoboKepubSizeCacheRepository
+import org.gotson.komga.infrastructure.jooq.main.KoboKepubSizeCacheDao
+import org.jooq.SQLDialect
+import org.jooq.impl.DSL
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
@@ -55,10 +59,38 @@ class KoboKepubSizeCacheRepositoryTest {
       }
     }
 
-    repository =
-      KoboKepubSizeCacheRepository(
-        dataSource,
-      )
+    val dsl = DSL.using(dataSource, SQLDialect.SQLITE)
+    repository = KoboKepubSizeCacheDao(dsl, dsl)
+  }
+
+  @Test
+  fun `unknown book has no kepub size cache entry`() {
+    assertThat(repository.findByBookId("missing-book")).isNull()
+  }
+
+  @Test
+  fun `keeps independent cached entries per book`() {
+    insertBook("book-1")
+    insertBook("book-2")
+
+    repository.upsert("book-1", "hash-a", 12_345L)
+    repository.upsert("book-2", "hash-b", 67_890L)
+
+    assertThat(repository.findByBookId("book-1"))
+      .isEqualTo(KoboKepubSizeCacheRepository.Entry("hash-a", 12_345L))
+    assertThat(repository.findByBookId("book-2"))
+      .isEqualTo(KoboKepubSizeCacheRepository.Entry("hash-b", 67_890L))
+  }
+
+  @Test
+  fun `preserves cached size larger than Int max value`() {
+    insertBook("book-1")
+    val largeSize = Int.MAX_VALUE.toLong() + 42L
+
+    repository.upsert("book-1", "hash-large", largeSize)
+
+    assertThat(repository.findByBookId("book-1"))
+      .isEqualTo(KoboKepubSizeCacheRepository.Entry("hash-large", largeSize))
   }
 
   @Test

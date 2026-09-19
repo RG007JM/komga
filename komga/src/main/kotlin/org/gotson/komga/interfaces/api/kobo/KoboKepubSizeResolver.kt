@@ -1,5 +1,7 @@
 package org.gotson.komga.interfaces.api.kobo
 
+import org.gotson.komga.domain.persistence.KoboKepubSizeCacheRepository
+
 internal object KoboKepubSizeResolver {
   fun advertisedSize(
     sourceFileSize: Long,

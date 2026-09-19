@@ -11,6 +11,7 @@ import org.gotson.komga.domain.model.KoboProductMappingStatus
 import org.gotson.komga.domain.persistence.BookMetadataRepository
 import org.gotson.komga.domain.persistence.BookRepository
 import org.gotson.komga.domain.persistence.KoboProductMappingRepository
+import org.gotson.komga.domain.persistence.KoboSeriesMappingRepository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.time.LocalDateTime

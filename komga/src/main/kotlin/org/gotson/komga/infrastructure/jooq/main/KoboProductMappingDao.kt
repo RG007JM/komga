@@ -38,6 +38,16 @@ class KoboProductMappingDao(
       .fetch()
       .map { it.toDomain() }
 
+  override fun findByBookIds(bookIds: Collection<String>): Collection<KoboProductMapping> {
+    if (bookIds.isEmpty()) return emptyList()
+
+    return dslRO
+      .selectFrom(k)
+      .where(k.BOOK_ID.`in`(bookIds))
+      .fetch()
+      .map { it.toDomain() }
+  }
+
   override fun save(mapping: KoboProductMapping) {
     dslRW
       .insertInto(

@@ -25,8 +25,8 @@ class KoboSeriesMappingRepository(
         }
     }
 
-  fun upsertForBook(
-    bookId: String,
+  fun upsert(
+    seriesId: String,
     koboSeriesId: String,
   ): Boolean =
     dataSource.connection.use { connection ->
@@ -34,17 +34,13 @@ class KoboSeriesMappingRepository(
         .prepareStatement(
           """
           INSERT INTO KOBO_SERIES_MAPPING (SERIES_ID, KOBO_SERIES_ID)
-          SELECT SERIES_ID, ?
-          FROM BOOK
-          WHERE ID = ?
-            AND SERIES_ID IS NOT NULL
-            AND SERIES_ID <> ''
+          VALUES (?, ?)
           ON CONFLICT(SERIES_ID) DO UPDATE SET
             KOBO_SERIES_ID = excluded.KOBO_SERIES_ID
           """.trimIndent(),
         ).use { statement ->
-          statement.setString(1, koboSeriesId)
-          statement.setString(2, bookId)
+          statement.setString(1, seriesId)
+          statement.setString(2, koboSeriesId)
           statement.executeUpdate() > 0
         }
     }

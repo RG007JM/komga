@@ -271,7 +271,7 @@ class LibraryController(
           Pageable.unpaged(),
         ).content
     koboArchiveRestoreService.restoreOnExplicitMetadataRefresh(principal.user.id, books.map { it.id })
-    taskEmitter.refreshBookMetadata(books, priority = HIGH_PRIORITY)
+    taskEmitter.refreshBookMetadataAndKoboIdentity(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshBookLocalArtwork(books, priority = HIGH_PRIORITY)
     taskEmitter.refreshSeriesLocalArtwork(seriesRepository.findAllIdsByLibraryId(libraryId), priority = HIGH_PRIORITY)
   }

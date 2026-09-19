@@ -11,11 +11,13 @@ import org.gotson.komga.domain.service.BookImporter
 import org.gotson.komga.domain.service.BookLifecycle
 import org.gotson.komga.domain.service.BookMetadataLifecycle
 import org.gotson.komga.domain.service.BookPageEditor
+import org.gotson.komga.domain.service.KoboProductResolver
 import org.gotson.komga.domain.service.LibraryContentLifecycle
 import org.gotson.komga.domain.service.LocalArtworkLifecycle
 import org.gotson.komga.domain.service.PageHashLifecycle
 import org.gotson.komga.domain.service.SeriesLifecycle
 import org.gotson.komga.domain.service.SeriesMetadataLifecycle
+import org.gotson.komga.infrastructure.kobo.KoboSeriesIdResolver
 import org.gotson.komga.infrastructure.search.SearchIndexLifecycle
 import org.gotson.komga.interfaces.scheduler.METER_TASKS_EXECUTION
 import org.gotson.komga.interfaces.scheduler.METER_TASKS_FAILURE
@@ -43,6 +45,8 @@ class TaskHandler(
   private val bookPageEditor: BookPageEditor,
   private val searchIndexLifecycle: SearchIndexLifecycle,
   private val pageHashLifecycle: PageHashLifecycle,
+  private val koboProductResolver: KoboProductResolver,
+  private val koboSeriesIdResolver: KoboSeriesIdResolver,
   private val meterRegistry: MeterRegistry,
 ) {
   fun handleTask(task: Task) {
@@ -97,6 +101,17 @@ class TaskHandler(
           is Task.RefreshBookMetadata ->
             bookRepository.findByIdOrNull(task.bookId)?.let { book ->
               bookMetadataLifecycle.refreshMetadata(book, task.capabilities)
+              taskEmitter.refreshSeriesMetadata(book.seriesId, priority = task.priority - 1)
+            } ?: logger.warn { "Cannot execute task $task: Book does not exist" }
+
+          is Task.RefreshBookMetadataAndKoboIdentity ->
+            bookRepository.findByIdOrNull(task.bookId)?.let { book ->
+              // Read the ISBN after the local metadata task, never before it.
+              bookMetadataLifecycle.refreshMetadata(book, task.capabilities)
+              if (koboProductResolver.refreshKoboIdentity(book.id)) {
+                // A new observed SeriesId is evidence, not a replacement for Komga series membership.
+                koboSeriesIdResolver.resolveSeriesId(book.seriesId)
+              }
               taskEmitter.refreshSeriesMetadata(book.seriesId, priority = task.priority - 1)
             } ?: logger.warn { "Cannot execute task $task: Book does not exist" }
 

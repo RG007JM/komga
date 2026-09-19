@@ -93,6 +93,18 @@ sealed class Task(
     override fun toString(): String = "RefreshBookMetadata(bookId='$bookId', capabilities=$capabilities, priority='$priority')"
   }
 
+  /** User-triggered metadata refresh. Its own task ID keeps automatic refreshes from replacing the intent. */
+  class RefreshBookMetadataAndKoboIdentity(
+    val bookId: String,
+    val capabilities: Set<BookMetadataPatchCapability>,
+    priority: Int = DEFAULT_PRIORITY,
+    groupId: String,
+  ) : Task(priority, groupId) {
+    override val uniqueId = "REFRESH_BOOK_METADATA_AND_KOBO_IDENTITY_$bookId"
+
+    override fun toString(): String = "RefreshBookMetadataAndKoboIdentity(bookId='$bookId', priority='$priority')"
+  }
+
   class HashBook(
     val bookId: String,
     priority: Int = DEFAULT_PRIORITY,

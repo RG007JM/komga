@@ -144,6 +144,71 @@ class KoboProductResolver(
   }
 
   /**
+   * Revalidate only after an explicitly requested metadata refresh. Unlike normal resolution,
+   * this bypasses the positive and negative ISBN caches, and may replace a found ProductId.
+   * Failed/absent website results never erase an established identity.
+   * Returns true only when fresh evidence was successfully persisted.
+   */
+  fun refreshKoboIdentity(bookId: String): Boolean {
+    val metadata = bookMetadataRepository.findByIdOrNull(bookId) ?: return false
+    val isbn = normalizeIsbn(metadata.isbn)
+    val before = koboProductMappingRepository.findByBookId(bookId)
+
+    if (isbn == null) {
+      if (before != null) koboProductMappingRepository.deleteByBookId(bookId)
+      return false
+    }
+
+    val result = koboProductClient.findProductByIsbn(isbn)
+
+    // Do not write a result obtained for an ISBN/mapping that changed while the website was queried.
+    val latestIsbn = bookMetadataRepository.findByIdOrNull(bookId)?.isbn?.let(::normalizeIsbn)
+    if (latestIsbn != isbn || koboProductMappingRepository.findByBookId(bookId) != before) return false
+
+    return when (result) {
+      is KoboProductLookupResult.Found -> {
+        val checkedAt = LocalDateTime.now()
+        koboProductMappingRepository.save(
+          KoboProductMapping(
+            bookId = bookId,
+            isbn = isbn,
+            productId = result.productId,
+            observedKoboSeriesId = result.seriesId,
+            status = KoboProductMappingStatus.FOUND,
+            checkedAt = checkedAt,
+            seriesCheckedAt = checkedAt,
+          ),
+        )
+        if (before?.productId != null && before.productId != result.productId) {
+          logger.info { "Explicit Kobo identity refresh changed ProductId for book $bookId" }
+        }
+        true
+      }
+
+      KoboProductLookupResult.NotFound -> {
+        // A temporary absence cannot erase a known positive mapping.
+        if (before?.status != KoboProductMappingStatus.FOUND) {
+          koboProductMappingRepository.save(
+            KoboProductMapping(
+              bookId = bookId,
+              isbn = isbn,
+              productId = null,
+              status = KoboProductMappingStatus.NOT_FOUND,
+              checkedAt = LocalDateTime.now(),
+            ),
+          )
+        }
+        false
+      }
+
+      is KoboProductLookupResult.Failed -> {
+        logger.warn(result.cause) { "Explicit Kobo identity refresh failed for book $bookId" }
+        false
+      }
+    }
+  }
+
+  /**
    * Reverse a real Kobo ProductId back to a local Komga book ID.
    *
    * Only mappings that are still consistent with the book's current ISBN

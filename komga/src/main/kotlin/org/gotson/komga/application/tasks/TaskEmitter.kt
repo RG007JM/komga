@@ -192,6 +192,23 @@ class TaskEmitter(
       .let { submitTasks(it) }
   }
 
+  /** Queue a user-requested metadata refresh followed by Kobo identity revalidation. */
+  fun refreshBookMetadataAndKoboIdentity(
+    book: Book,
+    priority: Int = DEFAULT_PRIORITY,
+  ) {
+    submitTask(Task.RefreshBookMetadataAndKoboIdentity(book.id, BookMetadataPatchCapability.entries.toSet(), priority, book.seriesId))
+  }
+
+  fun refreshBookMetadataAndKoboIdentity(
+    books: Collection<Book>,
+    priority: Int = DEFAULT_PRIORITY,
+  ) {
+    books
+      .map { Task.RefreshBookMetadataAndKoboIdentity(it.id, BookMetadataPatchCapability.entries.toSet(), priority, it.seriesId) }
+      .let { submitTasks(it) }
+  }
+
   fun refreshSeriesMetadata(
     seriesId: String,
     priority: Int = DEFAULT_PRIORITY,

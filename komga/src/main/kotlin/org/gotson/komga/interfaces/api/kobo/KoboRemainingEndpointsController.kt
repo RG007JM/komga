@@ -8,7 +8,10 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import org.gotson.komga.domain.service.KoboProductResolver
 import org.gotson.komga.infrastructure.kobo.KoboRawStoreProxy
 import org.gotson.komga.infrastructure.kobo.KoboSeriesIdResolver
+import org.gotson.komga.infrastructure.security.KomgaPrincipal
+import org.gotson.komga.interfaces.api.ContentRestrictionChecker
 import org.springframework.http.ResponseEntity
+import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -27,6 +30,7 @@ class KoboRemainingEndpointsController(
   private val koboSeriesIdResolver: KoboSeriesIdResolver,
   private val koboSeriesProductDiscovery: org.gotson.komga.infrastructure.kobo.KoboSeriesProductDiscovery,
   private val koboLocalStoreResponseBuilder: KoboLocalStoreResponseBuilder,
+  private val contentRestrictionChecker: ContentRestrictionChecker,
 ) {
   @GetMapping(
     value = [
@@ -35,6 +39,7 @@ class KoboRemainingEndpointsController(
     ],
   )
   fun getBookDetails(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable bookId: String,
   ): ResponseEntity<JsonNode> {
     // Spring can route these static Store paths through {bookId} depending on
@@ -49,6 +54,8 @@ class KoboRemainingEndpointsController(
     if (!koboLocalStoreResponseBuilder.isLocalBook(bookId)) {
       return koboRawStoreProxy.proxyCurrentRequest()
     }
+
+    contentRestrictionChecker.checkContentRestrictionBook(principal.user, bookId)
 
     val productId = koboProductResolver.resolveProductId(bookId)
     val upstream =
@@ -96,12 +103,15 @@ class KoboRemainingEndpointsController(
 
   @GetMapping("/v1/products/books/series/{seriesId}")
   fun getSeries(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable seriesId: String,
   ): ResponseEntity<JsonNode> {
     val localBookIds = koboLocalStoreResponseBuilder.localSeriesBookIds(seriesId)
     if (localBookIds.isEmpty()) {
       return koboRawStoreProxy.proxyCurrentRequest()
     }
+
+    contentRestrictionChecker.checkContentRestrictionSeries(principal.user, seriesId)
 
     val koboSeriesId = koboSeriesIdResolver.resolveSeriesId(seriesId)
     val upstream =
@@ -152,6 +162,7 @@ class KoboRemainingEndpointsController(
 
   @GetMapping("/v1/products/{productIds}/prices")
   fun getPrices(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable productIds: String,
   ): ResponseEntity<JsonNode> {
     val requestedIds =
@@ -163,6 +174,10 @@ class KoboRemainingEndpointsController(
     if (requestedIds.none(koboLocalStoreResponseBuilder::isLocalBook)) {
       return koboRawStoreProxy.proxyCurrentRequest()
     }
+
+    requestedIds
+      .filter(koboLocalStoreResponseBuilder::isLocalBook)
+      .forEach { contentRestrictionChecker.checkContentRestrictionBook(principal.user, it) }
 
     val koboOnlyIds =
       requestedIds.filterNot(koboLocalStoreResponseBuilder::isLocalBook)

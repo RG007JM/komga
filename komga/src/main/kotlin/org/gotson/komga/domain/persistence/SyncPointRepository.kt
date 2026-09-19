@@ -82,6 +82,11 @@ interface SyncPointRepository {
     pageable: Pageable,
   ): Page<SyncPoint.ReadList>
 
+  fun findLatestReadListSnapshot(
+    userId: String,
+    readListId: String,
+  ): SyncPoint.ReadListSnapshot?
+
   fun findBookIdsByReadListIds(
     syncPointId: String,
     readListIds: Collection<String>,

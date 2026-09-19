@@ -1,8 +1,8 @@
 package org.gotson.komga.infrastructure.kobo
 
+import org.gotson.komga.domain.persistence.SyncPointRepository
 import org.springframework.stereotype.Component
 import java.util.concurrent.ConcurrentHashMap
-import javax.sql.DataSource
 
 /**
  * Protects a Komga ReadList from stale Kobo tag-item commands.
@@ -14,7 +14,7 @@ import javax.sql.DataSource
  */
 @Component
 class KoboReadListMutationGuard(
-  private val dataSource: DataSource,
+  private val syncPointRepository: SyncPointRepository,
 ) {
   enum class Operation {
     ADD,
@@ -47,7 +47,7 @@ class KoboReadListMutationGuard(
     }
 
     val snapshot =
-      findLatestSnapshot(userId, readListId)
+      syncPointRepository.findLatestReadListSnapshot(userId, readListId)
         ?: return Decision(requested, emptyList(), null)
 
     return tracker.decide(
@@ -63,59 +63,6 @@ class KoboReadListMutationGuard(
   }
 
   private fun normalizeDeviceId(deviceId: String?): String = deviceId?.takeIf { it.isNotBlank() } ?: UNKNOWN_DEVICE
-
-  private fun findLatestSnapshot(
-    userId: String,
-    readListId: String,
-  ): Snapshot? {
-    dataSource.connection.use { connection ->
-      val syncPointId =
-        connection
-          .prepareStatement(
-            """
-            SELECT sprl.SYNC_POINT_ID
-            FROM SYNC_POINT_READLIST sprl
-            JOIN SYNC_POINT sp ON sp.ID = sprl.SYNC_POINT_ID
-            WHERE sprl.READLIST_ID = ?
-              AND sp.USER_ID = ?
-            ORDER BY sp.CREATED_DATE DESC
-            LIMIT 1
-            """.trimIndent(),
-          ).use { statement ->
-            statement.setString(1, readListId)
-            statement.setString(2, userId)
-            statement.executeQuery().use { resultSet ->
-              if (!resultSet.next()) return null
-              resultSet.getString("SYNC_POINT_ID")
-            }
-          }
-
-      val bookIds = linkedSetOf<String>()
-      connection
-        .prepareStatement(
-          """
-          SELECT BOOK_ID
-          FROM SYNC_POINT_READLIST_BOOK
-          WHERE SYNC_POINT_ID = ?
-            AND READLIST_ID = ?
-          ORDER BY BOOK_ID
-          """.trimIndent(),
-        ).use { statement ->
-          statement.setString(1, syncPointId)
-          statement.setString(2, readListId)
-          statement.executeQuery().use { resultSet ->
-            while (resultSet.next()) bookIds += resultSet.getString("BOOK_ID")
-          }
-        }
-
-      return Snapshot(syncPointId, bookIds)
-    }
-  }
-
-  private data class Snapshot(
-    val syncPointId: String,
-    val bookIds: Set<String>,
-  )
 
   private companion object {
     const val UNKNOWN_DEVICE = "<unknown-device>"

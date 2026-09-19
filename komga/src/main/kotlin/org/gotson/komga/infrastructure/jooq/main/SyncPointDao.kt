@@ -481,6 +481,36 @@ class SyncPointDao(
     return dslRO.queryToPageReadList(query, pageable)
   }
 
+  override fun findLatestReadListSnapshot(
+    userId: String,
+    readListId: String,
+  ): SyncPoint.ReadListSnapshot? {
+    val syncPointId =
+      dslRO
+        .select(sprl.SYNC_POINT_ID)
+        .from(sprl)
+        .join(sp)
+        .on(sp.ID.eq(sprl.SYNC_POINT_ID))
+        .where(sprl.READLIST_ID.eq(readListId))
+        .and(sp.USER_ID.eq(userId))
+        .orderBy(sp.CREATED_DATE.desc())
+        .limit(1)
+        .fetchOne(sprl.SYNC_POINT_ID)
+        ?: return null
+
+    val bookIds =
+      dslRO
+        .select(sprlb.BOOK_ID)
+        .from(sprlb)
+        .where(sprlb.SYNC_POINT_ID.eq(syncPointId))
+        .and(sprlb.READLIST_ID.eq(readListId))
+        .orderBy(sprlb.BOOK_ID)
+        .fetch(sprlb.BOOK_ID)
+        .toCollection(linkedSetOf())
+
+    return SyncPoint.ReadListSnapshot(syncPointId, bookIds)
+  }
+
   override fun findBookIdsByReadListIds(
     syncPointId: String,
     readListIds: Collection<String>,

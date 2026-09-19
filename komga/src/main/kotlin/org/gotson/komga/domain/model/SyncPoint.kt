@@ -21,6 +21,11 @@ data class SyncPoint(
     val synced: Boolean,
   )
 
+  data class ReadListSnapshot(
+    val syncPointId: String,
+    val bookIds: Set<String>,
+  )
+
   data class ReadList(
     val syncPointId: String,
     val readListId: String,

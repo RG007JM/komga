@@ -1,6 +1,7 @@
 package org.gotson.komga.interfaces.api.kobo
 
 import org.gotson.komga.domain.persistence.BookMetadataRepository
+import org.gotson.komga.domain.persistence.KoboArchivedBookRepository
 import org.springframework.stereotype.Service
 
 /** The administrator's explicit metadata-refresh action also restores their archived Kobo books. */

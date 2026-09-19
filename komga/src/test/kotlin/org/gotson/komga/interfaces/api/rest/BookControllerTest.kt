@@ -14,6 +14,7 @@ import org.gotson.komga.domain.model.makeLibrary
 import org.gotson.komga.domain.model.makeSeries
 import org.gotson.komga.domain.persistence.BookMetadataRepository
 import org.gotson.komga.domain.persistence.BookRepository
+import org.gotson.komga.domain.persistence.KoboArchivedBookRepository
 import org.gotson.komga.domain.persistence.KomgaUserRepository
 import org.gotson.komga.domain.persistence.LibraryRepository
 import org.gotson.komga.domain.persistence.MediaRepository
@@ -24,7 +25,6 @@ import org.gotson.komga.domain.service.KomgaUserLifecycle
 import org.gotson.komga.domain.service.LibraryLifecycle
 import org.gotson.komga.domain.service.SeriesLifecycle
 import org.gotson.komga.infrastructure.security.KomgaPrincipal
-import org.gotson.komga.interfaces.api.kobo.KoboArchivedBookRepository
 import org.hamcrest.Matchers.containsString
 import org.hamcrest.core.IsNull
 import org.junit.jupiter.api.AfterAll

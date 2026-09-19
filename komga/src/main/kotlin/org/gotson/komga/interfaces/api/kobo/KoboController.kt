@@ -21,6 +21,7 @@ import org.gotson.komga.domain.model.R2Progression
 import org.gotson.komga.domain.model.ReadList
 import org.gotson.komga.domain.model.SyncPoint
 import org.gotson.komga.domain.persistence.BookRepository
+import org.gotson.komga.domain.persistence.KoboArchivedBookRepository
 import org.gotson.komga.domain.persistence.MediaRepository
 import org.gotson.komga.domain.persistence.ReadListRepository
 import org.gotson.komga.domain.persistence.ReadProgressRepository

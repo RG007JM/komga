@@ -2,7 +2,9 @@
 package org.gotson.komga.infrastructure.kobo
 
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.ObjectMapper
 import io.github.oshai.kotlinlogging.KotlinLogging
+import org.gotson.komga.infrastructure.configuration.KomgaSettingsProvider
 import org.gotson.komga.infrastructure.kobo.KoboHeaders.X_KOBO_SYNCTOKEN
 import org.gotson.komga.infrastructure.web.getCurrentRequest
 import org.springframework.boot.http.client.ClientHttpRequestFactoryBuilder
@@ -25,6 +27,8 @@ private val logger = KotlinLogging.logger {}
 @Component
 class KoboRawStoreProxy(
   private val koboOutboundRequestGuard: KoboOutboundRequestGuard,
+  private val komgaSettingsProvider: KomgaSettingsProvider,
+  private val objectMapper: ObjectMapper,
 ) {
   private val koboApiClient: RestClient =
     RestClient
@@ -80,10 +84,18 @@ class KoboRawStoreProxy(
    *
    * No Komga response identity translation is applied here.
    */
+  fun isEnabled(): Boolean = komgaSettingsProvider.koboProxy
+
   fun proxyCurrentRequest(
     body: ByteArray? = null,
     overridePath: String? = null,
   ): ResponseEntity<JsonNode> {
+    // Match KoboController.catchAll() when Store proxying is disabled.
+    // Check before inspecting the servlet request or contacting Kobo.
+    if (!isEnabled()) {
+      return ResponseEntity.ok<JsonNode>(objectMapper.createObjectNode())
+    }
+
     val request = getCurrentRequest()
 
     val originalPath =

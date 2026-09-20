@@ -20,9 +20,20 @@ class KoboLookupIsbnTest {
 
   @Test
   fun `rejects checksum errors opaque book IDs and malformed metadata`() {
-    listOf(null, "", " ", "9781974702014", "9780000000001", "978197470201",
-      "97819747020150", "4972000027092", "0-306-40615-3", "9781974702015extra",
-      "isbn:9781974702015", "9781974702015/9781974701193").forEach { value ->
+    listOf(
+      null,
+      "",
+      " ",
+      "9781974702014",
+      "9780000000001",
+      "978197470201",
+      "97819747020150",
+      "4972000027092",
+      "0-306-40615-3",
+      "9781974702015extra",
+      "isbn:9781974702015",
+      "9781974702015/9781974701193",
+    ).forEach { value ->
       assertThat(KoboLookupIsbn.normalize(value)).describedAs("input = $value").isNull()
     }
   }

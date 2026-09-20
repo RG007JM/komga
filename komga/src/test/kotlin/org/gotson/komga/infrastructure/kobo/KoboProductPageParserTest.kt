@@ -126,7 +126,7 @@ class KoboProductPageParserTest {
   }
 
   @Test
-  fun `ignores conflicting labeled ISBN in an unrelated recommendation` () {
+  fun `ignores conflicting labeled ISBN in an unrelated recommendation`() {
     val html =
       """
       <html>
@@ -241,5 +241,4 @@ class KoboProductPageParserTest {
       <input type="hidden" name="rat" id="ratItemId" value="fa183d0f-6794-4e38-b57d-3ebd6cbaeb2c">"""
     assertThat(parser.parse(html, "https://www.kobo.com/ww/en/ebook/book", isbn)).isNull()
   }
-
 }

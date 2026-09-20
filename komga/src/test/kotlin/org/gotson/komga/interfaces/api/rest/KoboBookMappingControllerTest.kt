@@ -1,17 +1,17 @@
 package org.gotson.komga.interfaces.api.rest
 
 import io.mockk.every
-import io.mockk.verify
 import io.mockk.mockk
+import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.gotson.komga.domain.model.KoboProductMapping
+import org.gotson.komga.domain.model.KoboProductMappingStatus
 import org.gotson.komga.domain.model.KomgaUser
 import org.gotson.komga.domain.persistence.KoboProductMappingRepository
 import org.gotson.komga.infrastructure.kobo.KoboLookupDiagnostics
 import org.gotson.komga.infrastructure.security.KomgaPrincipal
 import org.gotson.komga.interfaces.api.ContentRestrictionChecker
 import org.gotson.komga.interfaces.api.persistence.BookDtoRepository
-import org.gotson.komga.domain.model.KoboProductMappingStatus
 import org.gotson.komga.interfaces.api.rest.dto.BookDto
 import org.gotson.komga.interfaces.api.rest.dto.BookMetadataDto
 import org.junit.jupiter.api.Test
@@ -62,21 +62,26 @@ class KoboBookMappingControllerTest {
     assertThat(snapshot.recentWebsiteAttempt?.outcome).isEqualTo("INCONCLUSIVE")
     verify(exactly = 1) { restrictions.checkContentRestrictionBook(user, book) }
     verify(exactly = 1) { mappings.findByBookId("book-1") }
-    val method = KoboBookMappingController::class.java.getDeclaredMethod(
-      "getIdentityDiagnostic", KomgaPrincipal::class.java, String::class.java,
-    )
+    val method =
+      KoboBookMappingController::class.java.getDeclaredMethod(
+        "getIdentityDiagnostic",
+        KomgaPrincipal::class.java,
+        String::class.java,
+      )
     assertThat(method.getAnnotation(PreAuthorize::class.java)?.value).isEqualTo("hasRole('ADMIN')")
   }
 
   @Test
   fun `ISBN checksum validity not only thirteen digit length controls mapping validity`() {
-    val invalidBook = mockk<BookDto> {
-      every { id } returns "invalid"
-      every { metadata } returns mockk<BookMetadataDto> {
-        every { title } returns "Invalid"
-        every { isbn } returns "9781974702014"
+    val invalidBook =
+      mockk<BookDto> {
+        every { id } returns "invalid"
+        every { metadata } returns
+          mockk<BookMetadataDto> {
+            every { title } returns "Invalid"
+            every { isbn } returns "9781974702014"
+          }
       }
-    }
     assertThat(invalidBook.toKoboMappingDto(null).state).isEqualTo(KoboBookMappingState.NO_VALID_ISBN)
   }
 

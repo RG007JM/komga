@@ -5,8 +5,8 @@ import org.gotson.komga.domain.model.KoboProductMapping
 import org.gotson.komga.domain.model.KoboProductMappingStatus
 import org.gotson.komga.domain.persistence.BookMetadataRepository
 import org.gotson.komga.domain.persistence.KoboProductMappingRepository
-import org.gotson.komga.infrastructure.kobo.KoboProductClient
 import org.gotson.komga.infrastructure.kobo.KoboLookupIsbn
+import org.gotson.komga.infrastructure.kobo.KoboProductClient
 import org.gotson.komga.infrastructure.kobo.KoboProductLookupResult
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
@@ -55,14 +55,17 @@ class KoboProductResolver(
       koboProductMappingRepository
         .findByIsbn(isbn)
 
-    val foundMappings = reusableMappings.filter { mapping ->
-      mapping.status == KoboProductMappingStatus.FOUND && mapping.productId != null
-    }
-    val reusableFound = foundMappings.takeIf { mappings ->
-      mappings.mapNotNull { it.productId }.distinct().size == 1
-    }?.firstOrNull { mapping ->
-      mapping.bookId != bookId && koboProductClient.canShareMapping(bookId, mapping.bookId)
-    }
+    val foundMappings =
+      reusableMappings.filter { mapping ->
+        mapping.status == KoboProductMappingStatus.FOUND && mapping.productId != null
+      }
+    val reusableFound =
+      foundMappings
+        .takeIf { mappings ->
+          mappings.mapNotNull { it.productId }.distinct().size == 1
+        }?.firstOrNull { mapping ->
+          mapping.bookId != bookId && koboProductClient.canShareMapping(bookId, mapping.bookId)
+        }
 
     if (reusableFound != null) {
       if (!isCurrent(bookId, isbn, existing)) return null
@@ -149,17 +152,21 @@ class KoboProductResolver(
     }
 
     val reusableMappings = koboProductMappingRepository.findByIsbn(isbn)
-    val foundMappings = reusableMappings.filter {
-      it.status == KoboProductMappingStatus.FOUND && it.productId != null
-    }
-    val reusableFound = foundMappings.takeIf { mappings ->
-      mappings.mapNotNull { it.productId }.distinct().size == 1
-    }?.firstOrNull { it.bookId != bookId && koboProductClient.canShareMapping(bookId, it.bookId) }
+    val foundMappings =
+      reusableMappings.filter {
+        it.status == KoboProductMappingStatus.FOUND && it.productId != null
+      }
+    val reusableFound =
+      foundMappings
+        .takeIf { mappings ->
+          mappings.mapNotNull { it.productId }.distinct().size == 1
+        }?.firstOrNull { it.bookId != bookId && koboProductClient.canShareMapping(bookId, it.bookId) }
 
     if (reusableFound != null) {
       if (bookMetadataRepository.findByIdOrNull(bookId)?.isbn?.let(::normalizeIsbn) != isbn ||
         koboProductMappingRepository.findByBookId(bookId) != before
-      ) return false
+      )
+        return false
       koboProductMappingRepository.save(reusableFound.copy(bookId = bookId))
       return true
     }
@@ -278,7 +285,11 @@ class KoboProductResolver(
     return validBookIds.singleOrNull()
   }
 
-  private fun isCurrent(bookId: String, isbn: String, mapping: KoboProductMapping?): Boolean =
+  private fun isCurrent(
+    bookId: String,
+    isbn: String,
+    mapping: KoboProductMapping?,
+  ): Boolean =
     normalizeIsbn(bookMetadataRepository.findByIdOrNull(bookId)?.isbn.orEmpty()) == isbn &&
       koboProductMappingRepository.findByBookId(bookId) == mapping
 

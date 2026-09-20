@@ -13,12 +13,17 @@ data class KoboLookupAttempt(
 
 @Component
 class KoboLookupDiagnostics {
-  private val recent = object : LinkedHashMap<String, KoboLookupAttempt>(128, 0.75f, true) {
-    override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, KoboLookupAttempt>?) = size > 256
-  }
+  private val recent =
+    object : LinkedHashMap<String, KoboLookupAttempt>(128, 0.75f, true) {
+      override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, KoboLookupAttempt>?) = size > 256
+    }
 
   @Synchronized
-  fun record(isbn: String, outcome: String, matchedStorefront: String? = null) {
+  fun record(
+    isbn: String,
+    outcome: String,
+    matchedStorefront: String? = null,
+  ) {
     recent[isbn] = KoboLookupAttempt(isbn, outcome, matchedStorefront, Instant.now())
   }
 

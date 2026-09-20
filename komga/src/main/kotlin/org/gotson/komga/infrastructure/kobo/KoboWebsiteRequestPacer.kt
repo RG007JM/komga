@@ -8,7 +8,10 @@ internal class KoboWebsiteRequestPacer(
   private val clock: () -> Long = System::nanoTime,
   private val pause: (Long) -> Unit = Thread::sleep,
 ) {
-  private class HostSlot(var nextNanos: Long? = null)
+  private class HostSlot(
+    var nextNanos: Long? = null,
+  )
+
   private val slots = java.util.concurrent.ConcurrentHashMap<String, HostSlot>()
 
   fun awaitTurn(host: String) {

@@ -31,6 +31,7 @@ class KoboSeriesObservationReconcilerTest {
   @BeforeEach
   fun resetMocks() {
     clearMocks(mappings, metadata, books, seriesIds, client)
+    every { client.refreshKnownProduct(any(), any()) } returns null
   }
 
   private fun mapping(
@@ -64,10 +65,19 @@ class KoboSeriesObservationReconcilerTest {
   }
 
   @Test
+  fun `invalid ISBN removes stale observation without any outbound lookup`() {
+    val old = mapping()
+    prepare(old, bookIsbn = "4972000027092")
+    reconciler.reconcileDueBatch()
+    verify(exactly = 1) { mappings.deleteByBookId(old.bookId) }
+    verify(exactly = 0) { client.findProductByIsbn(any()) }
+  }
+
+  @Test
   fun `matching product id updates missing observed series without touching product identity`() {
     val original = mapping(seriesId = null)
     prepare(original)
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found(productId, majorityId)
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Found(productId, majorityId)
 
     reconciler.reconcileDueBatch()
 
@@ -80,7 +90,7 @@ class KoboSeriesObservationReconcilerTest {
         },
       )
     }
-    verify(exactly = 1) { client.findProductByIsbn(isbn) }
+    verify(exactly = 1) { client.findProductForBook(isbn, any()) }
     verify(exactly = 2) { seriesIds.resolveSeriesId("komga-spy-series") }
   }
 
@@ -88,7 +98,7 @@ class KoboSeriesObservationReconcilerTest {
   fun `unexpected product id never changes identity or observed series`() {
     val original = mapping(seriesId = otherId)
     prepare(original)
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found("new-product-id", majorityId)
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Found("new-product-id", majorityId)
 
     reconciler.reconcileDueBatch()
 
@@ -96,7 +106,8 @@ class KoboSeriesObservationReconcilerTest {
       mappings.save(
         match {
           it.productId == productId && it.observedKoboSeriesId == otherId &&
-            it.checkedAt == original.checkedAt && it.seriesCheckedAt != original.seriesCheckedAt
+            it.checkedAt == original.checkedAt && it.seriesCheckedAt == original.seriesCheckedAt &&
+            it.seriesLookupFailedAt != null
         },
       )
     }
@@ -107,7 +118,7 @@ class KoboSeriesObservationReconcilerTest {
   fun `not found retains established identity and backs off`() {
     val original = mapping(seriesId = otherId)
     prepare(original)
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.NotFound
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.NotFound
 
     reconciler.reconcileDueBatch()
 
@@ -125,7 +136,7 @@ class KoboSeriesObservationReconcilerTest {
   fun `website failure retains identity and records short retry without completing series check`() {
     val original = mapping(seriesId = null)
     prepare(original)
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Failed(IllegalStateException("offline"))
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Failed(IllegalStateException("offline"))
 
     reconciler.reconcileDueBatch()
 
@@ -155,7 +166,7 @@ class KoboSeriesObservationReconcilerTest {
   fun `successful lookup clears a previous failure marker`() {
     val original = mapping(seriesId = null, failedAt = LocalDateTime.now().minusDays(2))
     prepare(original)
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found(productId, majorityId)
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Found(productId, majorityId)
 
     reconciler.reconcileDueBatch()
 
@@ -214,7 +225,7 @@ class KoboSeriesObservationReconcilerTest {
   fun `existing cached product with no series check is eligible for first reconciliation`() {
     val original = mapping(seriesId = null, checkedAt = null)
     prepare(original)
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found(productId, null)
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Found(productId, null)
 
     reconciler.reconcileDueBatch()
 
@@ -229,7 +240,7 @@ class KoboSeriesObservationReconcilerTest {
     prepare(original)
     every { mappings.findByBookId(original.bookId) } returnsMany
       listOf(original, original.copy(productId = "replacement"))
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found(productId, majorityId)
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Found(productId, majorityId)
 
     reconciler.reconcileDueBatch()
 
@@ -249,12 +260,77 @@ class KoboSeriesObservationReconcilerTest {
     }
     every { books.getSeriesIdOrNull(any()) } returns "komga-spy-series"
     every { seriesIds.resolveSeriesId("komga-spy-series") } returns majorityId
-    every { client.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found(productId, majorityId)
+    every { client.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Found(productId, majorityId)
 
     reconciler.reconcileDueBatch()
 
-    verify(exactly = 1) { client.findProductByIsbn(isbn) }
+    verify(exactly = 1) { client.findProductForBook(isbn, any()) }
     verify(exactly = 2) { mappings.save(any()) }
+  }
+
+  @Test
+  fun `same ISBN with two established Product IDs must refresh each primary book independently`() {
+    val first = mapping(seriesId = null)
+    val second = first.copy(bookId = "book-second", productId = "second-product")
+    every { mappings.findSeriesReconciliationCandidates(any(), any(), any()) } returns listOf(first, second)
+    every { mappings.findByBookId(first.bookId) } returns first
+    every { mappings.findByBookId(second.bookId) } returns second
+    every { metadata.findByIdOrNull(any()) } answers {
+      val id = firstArg<String>()
+      BookMetadata(title = id, number = "16", numberSort = 16F, bookId = id, isbn = isbn)
+    }
+    every { books.getSeriesIdOrNull(any()) } returns "komga-spy-series"
+    every { seriesIds.resolveSeriesId("komga-spy-series") } returns majorityId
+    every { client.findProductForBook(isbn, first.bookId) } returns KoboProductLookupResult.Found(productId, majorityId)
+    every { client.findProductForBook(isbn, second.bookId) } returns KoboProductLookupResult.Found(second.productId!!, majorityId)
+
+    reconciler.reconcileDueBatch()
+
+    verify(exactly = 1) { client.findProductForBook(isbn, first.bookId) }
+    verify(exactly = 1) { client.findProductForBook(isbn, second.bookId) }
+    verify(exactly = 2) { mappings.save(any()) }
+  }
+
+  @Test
+  fun `known product URL avoids restarting worldwide ISBN discovery`() {
+    val original = mapping(seriesId = null)
+    prepare(original)
+    every { client.refreshKnownProduct(isbn, productId) } returns KoboProductLookupResult.Found(productId, majorityId)
+
+    reconciler.reconcileDueBatch()
+
+    verify(exactly = 1) { client.refreshKnownProduct(isbn, productId) }
+    verify(exactly = 0) { client.findProductByIsbn(any()) }
+    verify(exactly = 1) { mappings.save(match { it.observedKoboSeriesId == majorityId }) }
+  }
+
+  @Test
+  fun `page temporarily lacking series metadata retains the previous observed series`() {
+    val original = mapping(seriesId = otherId)
+    prepare(original)
+    every { client.refreshKnownProduct(isbn, productId) } returns KoboProductLookupResult.Found(productId, null)
+
+    reconciler.reconcileDueBatch()
+
+    verify(exactly = 1) {
+      mappings.save(match { it.observedKoboSeriesId == otherId && it.seriesCheckedAt != original.seriesCheckedAt })
+    }
+    verify(exactly = 0) { client.findProductByIsbn(any()) }
+  }
+
+  @Test
+  fun `failed known page verification preserves established identity without global retries`() {
+    val original = mapping(seriesId = otherId)
+    prepare(original)
+    every { client.refreshKnownProduct(isbn, productId) } returns KoboProductLookupResult.Failed(IllegalStateException("blocked"))
+
+    reconciler.reconcileDueBatch()
+
+    verify(exactly = 1) {
+      mappings.save(match { it.productId == productId && it.observedKoboSeriesId == otherId &&
+        it.seriesCheckedAt == original.seriesCheckedAt && it.seriesLookupFailedAt != null })
+    }
+    verify(exactly = 0) { client.findProductByIsbn(any()) }
   }
 
   @Test

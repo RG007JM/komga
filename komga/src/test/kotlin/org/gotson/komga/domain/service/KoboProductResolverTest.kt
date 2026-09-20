@@ -35,10 +35,40 @@ class KoboProductResolverTest {
       mappingRepository,
       productClient,
     )
+    every { productClient.canShareMapping(any(), any()) } returns true
   }
 
   @Test
-  fun `explicit refresh replaces a found ProductId for unchanged ISBN`() {
+  fun `invalid ISBN rejects website lookup and clears a stale positive mapping`() {
+    val bookId = "book-invalid"
+    val invalidIsbn = "4972000027092" // Kobo's opaque Book ID is not an ISBN.
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Test", number = "1", numberSort = 1F, isbn = invalidIsbn)
+    every { mappingRepository.findByBookId(bookId) } returns
+      KoboProductMapping(bookId = bookId, isbn = invalidIsbn, productId = "old-product",
+        status = KoboProductMappingStatus.FOUND, checkedAt = LocalDateTime.now())
+
+    assertThat(resolver.resolveProductId(bookId)).isNull()
+    verify(exactly = 1) { mappingRepository.deleteByBookId(bookId) }
+    verify(exactly = 0) { mappingRepository.findByIsbn(any()) }
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
+    verify(exactly = 0) { mappingRepository.save(any()) }
+  }
+
+  @Test
+  fun `invalid ISBN on metadata refresh must not start a website lookup`() {
+    val bookId = "book-invalid"
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Test", number = "1", numberSort = 1F, isbn = "9781974702014")
+    every { mappingRepository.findByBookId(bookId) } returns null
+
+    assertThat(resolver.refreshKoboIdentity(bookId)).isFalse()
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
+    verify(exactly = 0) { mappingRepository.save(any()) }
+  }
+
+  @Test
+  fun `explicit metadata refresh retains an already found ProductId for unchanged ISBN`() {
     val bookId = "book-1"
     val isbn = "9781974753246"
     val old =
@@ -59,23 +89,9 @@ class KoboProductResolverTest {
         isbn = isbn,
       )
     every { mappingRepository.findByBookId(bookId) } returns old
-    every { productClient.findProductByIsbn(isbn) } returns
-      KoboProductLookupResult.Found(productId = "new-product", seriesId = "new-series")
-
-    assertThat(resolver.refreshKoboIdentity(bookId)).isTrue()
-    verify(exactly = 1) { productClient.findProductByIsbn(isbn) }
-    verify(exactly = 1) {
-      mappingRepository.save(
-        match {
-          it.bookId == bookId &&
-            it.isbn == isbn &&
-            it.productId == "new-product" &&
-            it.observedKoboSeriesId == "new-series" &&
-            it.status == KoboProductMappingStatus.FOUND &&
-            it.seriesCheckedAt == it.checkedAt
-        },
-      )
-    }
+    assertThat(resolver.refreshKoboIdentity(bookId)).isFalse()
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
+    verify(exactly = 0) { mappingRepository.save(any()) }
   }
 
   @Test
@@ -99,18 +115,19 @@ class KoboProductResolverTest {
         isbn = newIsbn,
       )
     every { mappingRepository.findByBookId(bookId) } returns old
-    every { productClient.findProductByIsbn(newIsbn) } returns
+    every { mappingRepository.findByIsbn(newIsbn) } returns emptyList()
+    every { productClient.findProductForBook(newIsbn, any()) } returns
       KoboProductLookupResult.Found(productId = "new-product")
 
     assertThat(resolver.refreshKoboIdentity(bookId)).isTrue()
     verify(exactly = 1) {
       mappingRepository.save(match { it.bookId == bookId && it.isbn == newIsbn && it.productId == "new-product" })
     }
-    verify(exactly = 0) { productClient.findProductByIsbn(old.isbn) }
+    verify(exactly = 0) { productClient.findProductForBook(old.isbn, any()) }
   }
 
   @Test
-  fun `explicit refresh does not erase found mapping on not found`() {
+  fun `explicit refresh skips website even if website would now return not found for unchanged ISBN`() {
     val bookId = "book-1"
     val isbn = "9781974753246"
     val old =
@@ -130,9 +147,8 @@ class KoboProductResolverTest {
         isbn = isbn,
       )
     every { mappingRepository.findByBookId(bookId) } returns old
-    every { productClient.findProductByIsbn(isbn) } returns KoboProductLookupResult.NotFound
-
     assertThat(resolver.refreshKoboIdentity(bookId)).isFalse()
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
     verify(exactly = 0) { mappingRepository.save(any()) }
     verify(exactly = 0) { mappingRepository.deleteByBookId(any()) }
   }
@@ -140,11 +156,11 @@ class KoboProductResolverTest {
   @Test
   fun `explicit refresh ignores a website result if ISBN changes during request`() {
     val bookId = "book-1"
-    val isbn = "9781974753246"
+    val isbn = "9781974755998"
     val old =
       KoboProductMapping(
         bookId = bookId,
-        isbn = isbn,
+        isbn = "9781974753246",
         productId = "old-product",
         status = KoboProductMappingStatus.FOUND,
         checkedAt = LocalDateTime.now(),
@@ -152,13 +168,134 @@ class KoboProductResolverTest {
     every { bookMetadataRepository.findByIdOrNull(bookId) } returnsMany
       listOf(
         BookMetadata(bookId = bookId, title = "Test", number = "13", numberSort = 13F, isbn = isbn),
-        BookMetadata(bookId = bookId, title = "Test", number = "13", numberSort = 13F, isbn = "9781974755998"),
+        BookMetadata(bookId = bookId, title = "Test", number = "13", numberSort = 13F, isbn = "9781974756339"),
       )
     every { mappingRepository.findByBookId(bookId) } returns old
-    every { productClient.findProductByIsbn(isbn) } returns KoboProductLookupResult.Found("new-product")
+    every { mappingRepository.findByIsbn(isbn) } returns emptyList()
+    every { productClient.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Found("new-product")
 
     assertThat(resolver.refreshKoboIdentity(bookId)).isFalse()
     verify(exactly = 0) { mappingRepository.save(any()) }
+  }
+
+  @Test
+  fun `changed ISBN reuses a valid Kobo ProductId from another book without a website request`() {
+    val bookId = "book-1"
+    val newIsbn = "9781974755998"
+    val old = KoboProductMapping(
+      bookId = bookId,
+      isbn = "9781974753246",
+      productId = "old-product",
+      status = KoboProductMappingStatus.FOUND,
+      checkedAt = LocalDateTime.now(),
+    )
+    val reusable = old.copy(bookId = "book-2", isbn = newIsbn, productId = "new-product")
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Test", number = "16", numberSort = 16F, isbn = newIsbn)
+    every { mappingRepository.findByBookId(bookId) } returns old
+    every { mappingRepository.findByIsbn(newIsbn) } returns listOf(reusable)
+
+    assertThat(resolver.refreshKoboIdentity(bookId)).isTrue()
+    verify(exactly = 1) { mappingRepository.save(reusable.copy(bookId = bookId)) }
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
+  }
+
+  @Test
+  fun `same ISBN from a different storefront policy must be resolved for the requesting book`() {
+    val bookId = "italian-book"
+    val isbn = "9781974755998"
+    val foreign = KoboProductMapping(bookId = "foreign-book", isbn = isbn, productId = "foreign-product",
+      status = KoboProductMappingStatus.FOUND, checkedAt = LocalDateTime.now())
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Italian", number = "1", numberSort = 1F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns null
+    every { mappingRepository.findByIsbn(isbn) } returns listOf(foreign)
+    every { productClient.canShareMapping(bookId, foreign.bookId) } returns false
+    every { productClient.findProductForBook(isbn, bookId) } returns KoboProductLookupResult.Found("italian-product")
+
+    assertThat(resolver.resolveProductId(bookId)).isEqualTo("italian-product")
+    verify(exactly = 1) { productClient.findProductForBook(isbn, bookId) }
+    verify(exactly = 1) { mappingRepository.save(match { it.bookId == bookId && it.productId == "italian-product" }) }
+  }
+
+  @Test
+  fun `different known Product IDs for one ISBN cannot be reused arbitrarily`() {
+    val bookId = "book-conflict"
+    val isbn = "9781974755998"
+    val first = KoboProductMapping(bookId = "first", isbn = isbn, productId = "product-a",
+      status = KoboProductMappingStatus.FOUND, checkedAt = LocalDateTime.now())
+    val second = first.copy(bookId = "second", productId = "product-b")
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Conflict", number = "1", numberSort = 1F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns null
+    every { mappingRepository.findByIsbn(isbn) } returns listOf(first, second)
+    every { productClient.findProductForBook(isbn, bookId) } returns KoboProductLookupResult.Found("product-b")
+
+    assertThat(resolver.resolveProductId(bookId)).isEqualTo("product-b")
+    verify(exactly = 1) { productClient.findProductForBook(isbn, bookId) }
+    verify(exactly = 1) { mappingRepository.save(match { it.bookId == bookId && it.productId == "product-b" }) }
+  }
+
+  @Test
+  fun `another books negative ISBN mapping does not suppress a region specific lookup`() {
+    val bookId = "book-in-italy"
+    val isbn = "9781974755998"
+    val negative = KoboProductMapping(bookId = "book-in-uk", isbn = isbn, productId = null,
+      status = KoboProductMappingStatus.NOT_FOUND, checkedAt = LocalDateTime.now())
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Italian edition", number = "1", numberSort = 1F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns null
+    every { mappingRepository.findByIsbn(isbn) } returns listOf(negative)
+    every { productClient.findProductForBook(isbn, bookId) } returns KoboProductLookupResult.Found("italian-product")
+
+    assertThat(resolver.resolveProductId(bookId)).isEqualTo("italian-product")
+    verify(exactly = 1) { productClient.findProductForBook(isbn, bookId) }
+  }
+
+  @Test
+  fun `unchanged ISBN with a fresh negative mapping does not query Kobo again`() {
+    val bookId = "book-1"
+    val isbn = "9781974755998"
+    val notFound = KoboProductMapping(
+      bookId = bookId,
+      isbn = isbn,
+      productId = null,
+      status = KoboProductMappingStatus.NOT_FOUND,
+      checkedAt = LocalDateTime.now(),
+    )
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Test", number = "16", numberSort = 16F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns notFound
+    every { mappingRepository.findByIsbn(isbn) } returns listOf(notFound)
+
+    assertThat(resolver.refreshKoboIdentity(bookId)).isFalse()
+    verify(exactly = 0) { mappingRepository.save(any()) }
+    verify(exactly = 0) { productClient.findProductByIsbn(any()) }
+  }
+
+  @Test
+  fun `changed ISBN does not retain old identity if lookup for new ISBN returns not found`() {
+    val bookId = "book-1"
+    val newIsbn = "9781974755998"
+    val old = KoboProductMapping(
+      bookId = bookId,
+      isbn = "9781974753246",
+      productId = "old-product",
+      status = KoboProductMappingStatus.FOUND,
+      checkedAt = LocalDateTime.now(),
+    )
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Test", number = "16", numberSort = 16F, isbn = newIsbn)
+    every { mappingRepository.findByBookId(bookId) } returns old
+    every { mappingRepository.findByIsbn(newIsbn) } returns emptyList()
+    every { productClient.findProductForBook(newIsbn, any()) } returns KoboProductLookupResult.NotFound
+
+    assertThat(resolver.refreshKoboIdentity(bookId)).isFalse()
+    verify(exactly = 1) {
+      mappingRepository.save(match { it.bookId == bookId && it.isbn == newIsbn &&
+        it.status == KoboProductMappingStatus.NOT_FOUND && it.productId == null })
+    }
+    verify(exactly = 0) { productClient.findProductForBook(old.isbn, any()) }
   }
 
   @Test
@@ -252,7 +389,7 @@ class KoboProductResolverTest {
     } returns emptyList()
 
     every {
-      productClient.findProductByIsbn(isbn)
+      productClient.findProductForBook(isbn, any())
     } returns
       KoboProductLookupResult.Found(
         productId = productId,
@@ -304,7 +441,7 @@ class KoboProductResolverTest {
     } returns emptyList()
 
     every {
-      productClient.findProductByIsbn(isbn)
+      productClient.findProductForBook(isbn, any())
     } returns
       KoboProductLookupResult.Found(
         productId = productId,
@@ -407,7 +544,7 @@ class KoboProductResolverTest {
   fun `ISBN change ignores stale mapping and resolves new ISBN`() {
     val bookId = "book-1"
 
-    val oldIsbn = "9781111111111"
+    val oldIsbn = "9781974701193"
     val newIsbn = "9781974753246"
 
     val oldProductId = "11111111-1111-1111-1111-111111111111"
@@ -440,7 +577,7 @@ class KoboProductResolverTest {
     } returns emptyList()
 
     every {
-      productClient.findProductByIsbn(newIsbn)
+      productClient.findProductForBook(newIsbn, any())
     } returns KoboProductLookupResult.Found(newProductId)
 
     val result = resolver.resolveProductId(bookId)
@@ -448,11 +585,11 @@ class KoboProductResolverTest {
     assertThat(result).isEqualTo(newProductId)
 
     verify(exactly = 0) {
-      productClient.findProductByIsbn(oldIsbn)
+      productClient.findProductForBook(oldIsbn, any())
     }
 
     verify(exactly = 1) {
-      productClient.findProductByIsbn(newIsbn)
+      productClient.findProductForBook(newIsbn, any())
     }
 
     verify(exactly = 1) {
@@ -492,7 +629,7 @@ class KoboProductResolverTest {
     } returns emptyList()
 
     every {
-      productClient.findProductByIsbn(isbn)
+      productClient.findProductForBook(isbn, any())
     } returns KoboProductLookupResult.NotFound
 
     val result = resolver.resolveProductId(bookId)
@@ -536,7 +673,7 @@ class KoboProductResolverTest {
     } returns emptyList()
 
     every {
-      productClient.findProductByIsbn(isbn)
+      productClient.findProductForBook(isbn, any())
     } returns
       KoboProductLookupResult.Failed(
         IllegalStateException("Kobo unavailable"),
@@ -612,6 +749,79 @@ class KoboProductResolverTest {
         },
       )
     }
+  }
+
+  @Test
+  fun `temporary website failure cannot overwrite a prior valid identity while ISBN changes`() {
+    val bookId = "book-change-failure"
+    val previous = KoboProductMapping(bookId, "9781974753246", "old-product", "old-series",
+      KoboProductMappingStatus.FOUND, LocalDateTime.now().minusDays(4))
+    val changed = "9781974755998"
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "New edition", number = "1", numberSort = 1F, isbn = changed)
+    every { mappingRepository.findByBookId(bookId) } returns previous
+    every { mappingRepository.findByIsbn(changed) } returns emptyList()
+    every { productClient.findProductForBook(changed, any()) } returns
+      KoboProductLookupResult.Failed(IllegalStateException("HTTP 429"))
+
+    assertThat(resolver.resolveProductId(bookId)).isNull()
+    assertThat(resolver.refreshKoboIdentity(bookId)).isFalse()
+    verify(exactly = 0) { mappingRepository.save(any()) }
+    verify(exactly = 0) { productClient.findProductForBook(previous.isbn, any()) }
+    // The previous row can remain for inspection but must not be presented as valid for the new ISBN.
+    verify(exactly = 0) { mappingRepository.deleteByBookId(bookId) }
+  }
+
+  @Test
+  fun `changing to a new ISBN with missing series never copies the old series ID`() {
+    val bookId = "book-change-series"
+    val previous = KoboProductMapping(bookId, "9781974753246", "old-product", "old-series",
+      KoboProductMappingStatus.FOUND, LocalDateTime.now().minusDays(4))
+    val changed = "9781974755998"
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "New edition", number = "2", numberSort = 2F, isbn = changed)
+    every { mappingRepository.findByBookId(bookId) } returns previous
+    every { mappingRepository.findByIsbn(changed) } returns emptyList()
+    every { productClient.findProductForBook(changed, any()) } returns KoboProductLookupResult.Found("new-product", null)
+
+    assertThat(resolver.resolveProductId(bookId)).isEqualTo("new-product")
+    verify(exactly = 1) { mappingRepository.save(match {
+      it.isbn == changed && it.productId == "new-product" && it.observedKoboSeriesId == null &&
+        it.status == KoboProductMappingStatus.FOUND
+    }) }
+  }
+
+  @Test
+  fun `normal resolution discards a completed website result if the ISBN changes in flight`() {
+    val bookId = "book-in-flight"
+    val requested = "9781974755998"
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returnsMany listOf(
+      BookMetadata(bookId = bookId, title = "One", number = "1", numberSort = 1F, isbn = requested),
+      BookMetadata(bookId = bookId, title = "Two", number = "2", numberSort = 2F, isbn = "9781974753246"),
+    )
+    every { mappingRepository.findByBookId(bookId) } returns null
+    every { mappingRepository.findByIsbn(requested) } returns emptyList()
+    every { productClient.findProductForBook(requested, any()) } returns KoboProductLookupResult.Found("stale-product", "stale-series")
+
+    assertThat(resolver.resolveProductId(bookId)).isNull()
+    verify(exactly = 0) { mappingRepository.save(any()) }
+  }
+
+  @Test
+  fun `failed lookup of an unknown ISBN never creates a negative mapping`() {
+    val bookId = "book-incomplete"
+    val isbn = "9781974755998"
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Test", number = "1", numberSort = 1F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns null
+    every { mappingRepository.findByIsbn(isbn) } returns emptyList()
+    every { productClient.findProductForBook(isbn, any()) } returns KoboProductLookupResult.Failed(
+      IllegalStateException("unknown HTML or request budget"),
+    )
+
+    assertThat(resolver.resolveProductId(bookId)).isNull()
+    verify(exactly = 0) { mappingRepository.save(any()) }
+    verify(exactly = 1) { productClient.findProductForBook(isbn, any()) }
   }
 
   @Test

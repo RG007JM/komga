@@ -105,6 +105,7 @@ class KoboProductMappingDao(
         k.CHECKED_AT,
         k.SERIES_CHECKED_AT,
         k.SERIES_LOOKUP_FAILED_AT,
+        k.LOOKUP_POLICY,
       ).values(
         mapping.bookId,
         mapping.isbn,
@@ -114,6 +115,7 @@ class KoboProductMappingDao(
         mapping.checkedAt,
         mapping.seriesCheckedAt,
         mapping.seriesLookupFailedAt,
+        mapping.lookupPolicy,
       ).onDuplicateKeyUpdate()
       .set(k.ISBN, mapping.isbn)
       .set(k.PRODUCT_ID, mapping.productId)
@@ -122,6 +124,7 @@ class KoboProductMappingDao(
       .set(k.CHECKED_AT, mapping.checkedAt)
       .set(k.SERIES_CHECKED_AT, mapping.seriesCheckedAt)
       .set(k.SERIES_LOOKUP_FAILED_AT, mapping.seriesLookupFailedAt)
+      .set(k.LOOKUP_POLICY, mapping.lookupPolicy)
       .execute()
   }
 
@@ -142,5 +145,6 @@ class KoboProductMappingDao(
       checkedAt = checkedAt,
       seriesCheckedAt = seriesCheckedAt,
       seriesLookupFailedAt = seriesLookupFailedAt,
+      lookupPolicy = lookupPolicy,
     )
 }

@@ -2,8 +2,6 @@ package org.gotson.komga.infrastructure.kobo
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.zhkl0228.impersonator.ImpersonatorFactory
-import okhttp3.Cookie
-import okhttp3.CookieJar
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClientFactory
 import okhttp3.Request
@@ -31,7 +29,7 @@ class KoboProductClient(
   private val diagnostics: KoboLookupDiagnostics,
 ) {
   // Keep only request STARTS spaced per host; no lock around a whole 47-storefront lookup.
-  private val requestPacer = KoboWebsiteRequestPacer(1_500L)
+  private val requestPacer = KoboWebsiteRequestPacer(1_000L)
   private val outboundSlots = Semaphore(2, true)
   private val inFlight = KoboIsbnSingleFlight<KoboProductLookupResult>()
   private val verifiedPages =
@@ -39,43 +37,19 @@ class KoboProductClient(
       override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, Triple<String, String, HttpUrl>>?) = size > 256
     }
 
-  // Keep Komga's existing browser fingerprint rather than replacing it with a plain Java HTTP client.
-  // cloudscraper in the reference Python probe also maintains a browser session; no guarantee is made
-  // that these client properties solve a Cloudflare JavaScript challenge.
+  // Preserve the original working 1.27.0-2 HTTP client and navigation headers.
+  // Custom cookie persistence caused OkHttp to parse website cookies and load publicsuffixes.gz
+  // in the packaged application. Storefront routing must not alter this HTTP transport.
   private val impersonator = ImpersonatorFactory.macChrome()
   private val userAgent =
     impersonator.javaClass
       .getMethod("getUserAgent")
       .invoke(impersonator)
       .toString()
-  private val cookies =
-    object : CookieJar {
-      private val stored = mutableListOf<Cookie>()
-
-      override fun saveFromResponse(
-        url: HttpUrl,
-        cookies: List<Cookie>,
-      ) {
-        synchronized(stored) {
-          stored.removeAll { existing -> cookies.any { it.name == existing.name && it.domain == existing.domain && it.path == existing.path } }
-          stored.addAll(cookies)
-        }
-      }
-
-      override fun loadForRequest(url: HttpUrl): List<Cookie> =
-        synchronized(stored) {
-          stored.removeAll { it.expiresAt <= System.currentTimeMillis() }
-          stored.filter { it.matches(url) }
-        }
-    }
   private val client =
     OkHttpClientFactory
       .create(impersonator)
       .newHttpClient()
-      .newBuilder()
-      .cookieJar(cookies)
-      .followRedirects(true)
-      .build()
   private val pageParser = KoboProductPageParser(objectMapper)
   private val knownProductCheck = KoboKnownProductPageCheck(::getPage, pageParser)
   private val japaneseEditionBridge =
@@ -105,6 +79,18 @@ class KoboProductClient(
   /** For callers without a Komga book context, use the documented Worldwide/GB default. */
   fun findProductByIsbn(isbn: String): KoboProductLookupResult = findWithLocale(isbn, null)
 
+  /** The 1.27.0-2 GB search: one original-format request, no global walk on a device thread. */
+  fun findProductInOriginalStorefront(isbn: String): KoboProductLookupResult {
+    val normalized =
+      KoboLookupIsbn.normalize(isbn)
+        ?: return KoboProductLookupResult.Failed(IllegalArgumentException("Not a valid ISBN-10 or ISBN-13"))
+    return try {
+      inFlight.run("$normalized|gb/en-one-response") { websiteSearch.find(normalized, null, preferredOnly = true) }
+    } catch (e: Exception) {
+      KoboProductLookupResult.Failed(e)
+    }
+  }
+
   internal fun localeForBook(bookId: String): String? =
     bookRepository
       .getSeriesIdOrNull(bookId)
@@ -118,6 +104,9 @@ class KoboProductClient(
   ): Boolean =
     KoboWebsiteStorefronts.plan(localeForBook(leftBookId)) ==
       KoboWebsiteStorefronts.plan(localeForBook(rightBookId))
+
+  /** Negative results are valid only for the exact route and edition-bridge plan used. */
+  fun lookupPolicy(bookId: String): String = KoboWebsiteStorefronts.plan(localeForBook(bookId)).joinToString(",")
 
   private fun findWithLocale(
     isbn: String,
@@ -193,7 +182,7 @@ class KoboProductClient(
           .Builder()
           .url(url)
           .header("User-Agent", userAgent)
-          .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
+          .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8")
           .header("Accept-Language", "en-GB,en;q=0.9")
           .header("Upgrade-Insecure-Requests", "1")
           .header("Sec-Fetch-Dest", "document")

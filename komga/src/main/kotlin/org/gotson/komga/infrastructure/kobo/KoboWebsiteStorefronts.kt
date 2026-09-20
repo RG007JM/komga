@@ -70,6 +70,8 @@ internal object KoboWebsiteStorefronts {
         ?.replace('_', '-')
         ?.lowercase()
         ?.let { it == "ja" || it.startsWith("ja-") } == true
+    // Device traffic probes GB via the original one-request path first. The full
+    // background/global policy retains its existing worldwide/locale storefront order.
     val first = listOfNotNull("ww/en", second(locale), "gb/en".takeIf { japanese }).distinct()
     return if (japanese) first else first + all.filterNot { it in first }
   }

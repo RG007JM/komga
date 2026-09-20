@@ -460,7 +460,7 @@ class KoboProxy(
           ) {
             val resolved =
               koboProductResolver
-                .resolveProductId(id)
+                .resolveProductIdForDevice(id)
 
             if (
               resolved != null &&

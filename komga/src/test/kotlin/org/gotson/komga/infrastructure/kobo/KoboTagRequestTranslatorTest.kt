@@ -32,7 +32,7 @@ class KoboTagRequestTranslatorTest {
   @Test
   fun `translates local RevisionId to Kobo ProductId`() {
     every {
-      resolver.resolveProductId("0RLOCALBOOK")
+      resolver.resolveProductIdForDevice("0RLOCALBOOK")
     } returns "8201afa9-c23b-429b-a642-a4bcf1c8b638"
 
     val result =
@@ -70,14 +70,14 @@ class KoboTagRequestTranslatorTest {
     )
 
     verify(exactly = 1) {
-      resolver.resolveProductId("0RLOCALBOOK")
+      resolver.resolveProductIdForDevice("0RLOCALBOOK")
     }
   }
 
   @Test
   fun `leaves unmapped RevisionId unchanged`() {
     every {
-      resolver.resolveProductId("already-kobo-or-unmapped")
+      resolver.resolveProductIdForDevice("already-kobo-or-unmapped")
     } returns null
 
     val original =
@@ -100,7 +100,7 @@ class KoboTagRequestTranslatorTest {
       .isEqualTo(original)
 
     verify(exactly = 1) {
-      resolver.resolveProductId("already-kobo-or-unmapped")
+      resolver.resolveProductIdForDevice("already-kobo-or-unmapped")
     }
   }
 
@@ -120,7 +120,7 @@ class KoboTagRequestTranslatorTest {
       .isEqualTo(original)
 
     verify(exactly = 0) {
-      resolver.resolveProductId(any())
+      resolver.resolveProductIdForDevice(any())
     }
   }
 }

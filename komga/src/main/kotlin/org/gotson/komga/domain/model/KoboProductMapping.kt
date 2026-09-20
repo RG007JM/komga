@@ -12,6 +12,8 @@ data class KoboProductMapping(
   val seriesCheckedAt: LocalDateTime? = null,
   /** Last transient website lookup failure; does not count as a completed series check. */
   val seriesLookupFailedAt: LocalDateTime? = null,
+  /** Storefront order and edition-bridge policy used for a negative result; null = legacy/unknown. */
+  val lookupPolicy: String? = null,
 )
 
 enum class KoboProductMappingStatus {

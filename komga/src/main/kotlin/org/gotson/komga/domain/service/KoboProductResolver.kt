@@ -1,6 +1,7 @@
 package org.gotson.komga.domain.service
 
 import io.github.oshai.kotlinlogging.KotlinLogging
+import jakarta.annotation.PreDestroy
 import org.gotson.komga.domain.model.KoboProductMapping
 import org.gotson.komga.domain.model.KoboProductMappingStatus
 import org.gotson.komga.domain.persistence.BookMetadataRepository
@@ -10,6 +11,10 @@ import org.gotson.komga.infrastructure.kobo.KoboProductClient
 import org.gotson.komga.infrastructure.kobo.KoboProductLookupResult
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
+import java.util.concurrent.ArrayBlockingQueue
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.ThreadPoolExecutor
+import java.util.concurrent.TimeUnit
 
 private val logger = KotlinLogging.logger {}
 
@@ -19,7 +24,52 @@ class KoboProductResolver(
   private val koboProductMappingRepository: KoboProductMappingRepository,
   private val koboProductClient: KoboProductClient,
 ) {
-  fun resolveProductId(bookId: String): String? {
+  // No device request is allowed to walk all 47 storefronts. The bounded daemon worker
+  // completes a miss in the background and subsequent requests use the durable mapping.
+  private val pendingLookups = ConcurrentHashMap.newKeySet<String>()
+  private val lookupExecutor =
+    ThreadPoolExecutor(
+      1,
+      1,
+      0L,
+      TimeUnit.MILLISECONDS,
+      ArrayBlockingQueue<Runnable>(32),
+      { task -> Thread(task, "komga-kobo-identity").apply { isDaemon = true } },
+      ThreadPoolExecutor.AbortPolicy(),
+    )
+
+  @PreDestroy
+  fun stopPendingLookups() {
+    lookupExecutor.shutdownNow()
+  }
+
+  /** Uses the original GB search request only, then queues a bounded full global lookup on a miss. */
+  fun resolveProductIdForDevice(bookId: String): String? = resolveProductIdInternal(bookId, preferredOnly = true)
+
+  fun resolveProductId(bookId: String): String? = resolveProductIdInternal(bookId, preferredOnly = false)
+
+  private fun scheduleGlobalLookup(bookId: String) {
+    if (!pendingLookups.add(bookId)) return
+    try {
+      lookupExecutor.execute {
+        try {
+          resolveProductId(bookId)
+        } catch (e: Exception) {
+          logger.warn(e) { "Background Kobo identity lookup failed for book $bookId" }
+        } finally {
+          pendingLookups.remove(bookId)
+        }
+      }
+    } catch (e: java.util.concurrent.RejectedExecutionException) {
+      pendingLookups.remove(bookId)
+      logger.debug { "Kobo identity lookup queue is full; a later device request can retry $bookId" }
+    }
+  }
+
+  private fun resolveProductIdInternal(
+    bookId: String,
+    preferredOnly: Boolean,
+  ): String? {
     val metadata =
       bookMetadataRepository.findByIdOrNull(bookId)
         ?: return null
@@ -77,17 +127,24 @@ class KoboProductResolver(
       existing != null &&
       existing.isbn == isbn &&
       existing.status == KoboProductMappingStatus.NOT_FOUND &&
+      existing.lookupPolicy != null &&
+      existing.lookupPolicy == koboProductClient.lookupPolicy(bookId) &&
       !isNotFoundExpired(existing)
     ) {
       return null
     }
 
-    // NOT_FOUND records have no persisted storefront/lookup-policy provenance.
-    // Do not copy one book's negative result into another book's mapping.
+    // Never copy a negative to another book: the ISBN alone doesn't attest its lookup policy.
+    if (preferredOnly && pendingLookups.contains(bookId)) return null
 
-    val result = koboProductClient.findProductForBook(isbn, bookId)
+    val lookupPolicy = koboProductClient.lookupPolicy(bookId)
+    val result =
+      if (preferredOnly)
+        koboProductClient.findProductInOriginalStorefront(isbn)
+      else
+        koboProductClient.findProductForBook(isbn, bookId)
     // A refresh or file scan may have changed this book while its website request ran.
-    if (!isCurrent(bookId, isbn, existing)) return null
+    if (!isCurrent(bookId, isbn, existing) || koboProductClient.lookupPolicy(bookId) != lookupPolicy) return null
     return when (result) {
       is KoboProductLookupResult.Found -> {
         val checkedAt = LocalDateTime.now()
@@ -108,6 +165,10 @@ class KoboProductResolver(
       }
 
       KoboProductLookupResult.NotFound -> {
+        if (preferredOnly) {
+          scheduleGlobalLookup(bookId)
+          return null
+        }
         koboProductMappingRepository.save(
           KoboProductMapping(
             bookId = bookId,
@@ -115,6 +176,7 @@ class KoboProductResolver(
             productId = null,
             status = KoboProductMappingStatus.NOT_FOUND,
             checkedAt = LocalDateTime.now(),
+            lookupPolicy = lookupPolicy,
           ),
         )
 
@@ -171,17 +233,24 @@ class KoboProductResolver(
       return true
     }
 
-    if (before?.isbn == isbn && before.status == KoboProductMappingStatus.NOT_FOUND && !isNotFoundExpired(before)) {
+    if (before?.isbn == isbn && before.status == KoboProductMappingStatus.NOT_FOUND &&
+      before.lookupPolicy != null && before.lookupPolicy == koboProductClient.lookupPolicy(bookId) &&
+      !isNotFoundExpired(before)
+    ) {
       return false
     }
 
     // Do not reuse a negative cache entry belonging to another book/lookup policy.
 
+    val lookupPolicy = koboProductClient.lookupPolicy(bookId)
     val result = koboProductClient.findProductForBook(isbn, bookId)
 
     // Do not write a result obtained for an ISBN/mapping that changed while the website was queried.
     val latestIsbn = bookMetadataRepository.findByIdOrNull(bookId)?.isbn?.let(::normalizeIsbn)
-    if (latestIsbn != isbn || koboProductMappingRepository.findByBookId(bookId) != before) return false
+    if (latestIsbn != isbn || koboProductMappingRepository.findByBookId(bookId) != before ||
+      koboProductClient.lookupPolicy(bookId) != lookupPolicy
+    )
+      return false
 
     return when (result) {
       is KoboProductLookupResult.Found -> {
@@ -212,6 +281,7 @@ class KoboProductResolver(
             productId = null,
             status = KoboProductMappingStatus.NOT_FOUND,
             checkedAt = LocalDateTime.now(),
+            lookupPolicy = lookupPolicy,
           ),
         )
         false

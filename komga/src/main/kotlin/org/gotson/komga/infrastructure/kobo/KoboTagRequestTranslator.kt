@@ -54,7 +54,7 @@ class KoboTagRequestTranslator(
           ?: return@forEach
 
       val productId =
-        koboProductResolver.resolveProductId(revisionId)
+        koboProductResolver.resolveProductIdForDevice(revisionId)
           ?: return@forEach
 
       if (productId == revisionId) {

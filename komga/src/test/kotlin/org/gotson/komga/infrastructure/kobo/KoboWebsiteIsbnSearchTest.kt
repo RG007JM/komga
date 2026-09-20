@@ -74,7 +74,91 @@ class KoboWebsiteIsbnSearchTest {
     assertThat(search.find(isbn, "it-IT")).isEqualTo(KoboProductLookupResult.Found(product, series))
     assertThat(calls).hasSize(1)
     assertThat(calls.single().queryParameter("query")).isEqualTo(isbn)
-    assertThat(calls.single().queryParameter("pagenumber")).isEqualTo("1")
+    assertThat(calls.single().queryParameter("fcmedia")).isEqualTo("Book")
+    assertThat(calls.single().queryParameter("pageNumber")).isEqualTo("1")
+    assertThat(calls.single().queryParameter("pagenumber")).isNull()
+  }
+
+  @Test
+  fun `device lookup makes exactly the previous GB request and does not walk other stores`() {
+    val calls = mutableListOf<HttpUrl>()
+    val search =
+      KoboWebsiteIsbnSearch({ url ->
+        calls += url
+        KoboWebsitePage(url, "<h2 data-testid='no-result'>No results</h2>")
+      }, parser)
+
+    assertThat(search.find(isbn, "it-IT", preferredOnly = true)).isEqualTo(KoboProductLookupResult.NotFound)
+    assertThat(calls.map { it.toString() }).containsExactly(
+      "https://www.kobo.com/gb/en/search?query=$isbn&fcmedia=Book&pageNumber=1",
+    )
+  }
+
+  @Test
+  fun `unavailable worldwide route does not prevent a match in the chosen locale`() {
+    val calls = mutableListOf<String>()
+    val search =
+      KoboWebsiteIsbnSearch({ url ->
+        calls += url.encodedPath
+        if (url.encodedPath == "/ww/en/search") throw KoboWebsiteHttpException(404)
+        KoboWebsitePage("https://www.kobo.com/it/it/ebook/correct".toHttpUrl(), page("it/it"))
+      }, parser)
+    assertThat(search.find(isbn, "it-IT")).isEqualTo(KoboProductLookupResult.Found(product, series))
+    assertThat(calls).containsExactly("/ww/en/search", "/it/it/search")
+  }
+
+  @Test
+  fun `unavailable GB route in the device fast path is only a scoped miss`() {
+    val calls = mutableListOf<String>()
+    val search =
+      KoboWebsiteIsbnSearch({ url ->
+        calls += url.encodedPath
+        throw KoboWebsiteHttpException(404)
+      }, parser)
+    assertThat(search.find(isbn, "it", preferredOnly = true)).isEqualTo(KoboProductLookupResult.NotFound)
+    assertThat(calls).containsExactly("/gb/en/search")
+  }
+
+  @Test
+  fun `pagination recognizes the original pageNumber spelling and sends its media filter on page two`() {
+    val calls = mutableListOf<HttpUrl>()
+    val search =
+      KoboWebsiteIsbnSearch({ url ->
+        calls += url
+        when {
+          url.encodedPath == "/ww/en/search" && url.queryParameter("pageNumber") == "1" ->
+            KoboWebsitePage(
+              url,
+              "<main><a href='/ww/en/ebook/wrong'>Wrong</a>" +
+                "<a href='/ww/en/search?query=$isbn&fcmedia=Book&pageNumber=2'>Next</a></main>",
+            )
+          url.encodedPath == "/ww/en/ebook/wrong" ->
+            KoboWebsitePage(url, page("ww/en", bookIsbn = "9781974701193"))
+          url.encodedPath == "/ww/en/search" && url.queryParameter("pageNumber") == "2" ->
+            KoboWebsitePage("https://www.kobo.com/ww/en/ebook/right".toHttpUrl(), page("ww/en"))
+          else -> error("Unexpected request: $url")
+        }
+      }, parser)
+    assertThat(search.find(isbn, "it-IT")).isEqualTo(KoboProductLookupResult.Found(product, series))
+    assertThat(calls.filter { it.encodedPath == "/ww/en/search" }.map { it.queryParameter("pageNumber") })
+      .containsExactly("1", "2")
+    assertThat(calls.filter { it.encodedPath == "/ww/en/search" }.map { it.queryParameter("fcmedia") })
+      .containsExactly("Book", "Book")
+  }
+
+  @Test
+  fun `device lookup accepts only a verified primary ISBN from the original response`() {
+    val calls = mutableListOf<HttpUrl>()
+    val search =
+      KoboWebsiteIsbnSearch({ url ->
+        calls += url
+        KoboWebsitePage("https://www.kobo.com/gb/en/ebook/correct?sId=private".toHttpUrl(), page("gb/en"))
+      }, parser)
+
+    assertThat(search.find(isbn, "ja-JP", preferredOnly = true)).isEqualTo(KoboProductLookupResult.Found(product, series))
+    assertThat(calls.map { it.toString() }).containsExactly(
+      "https://www.kobo.com/gb/en/search?query=$isbn&fcmedia=Book&pageNumber=1",
+    )
   }
 
   @Test

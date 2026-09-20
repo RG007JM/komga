@@ -58,7 +58,7 @@ class KoboRemainingEndpointsController(
 
     contentRestrictionChecker.checkContentRestrictionBook(principal.user, bookId)
 
-    val productId = koboProductResolver.resolveProductId(bookId)
+    val productId = koboProductResolver.resolveProductIdForDevice(bookId)
     val upstream =
       productId?.takeIf { koboRawStoreProxy.isEnabled() }?.let {
         try {

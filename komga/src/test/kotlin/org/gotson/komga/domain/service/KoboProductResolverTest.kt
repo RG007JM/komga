@@ -12,10 +12,15 @@ import org.gotson.komga.domain.persistence.BookMetadataRepository
 import org.gotson.komga.domain.persistence.KoboProductMappingRepository
 import org.gotson.komga.infrastructure.kobo.KoboProductClient
 import org.gotson.komga.infrastructure.kobo.KoboProductLookupResult
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import java.time.LocalDateTime
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
+@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 class KoboProductResolverTest {
   private val bookMetadataRepository = mockk<BookMetadataRepository>()
   private val mappingRepository = mockk<KoboProductMappingRepository>(relaxed = true)
@@ -36,6 +41,80 @@ class KoboProductResolverTest {
       productClient,
     )
     every { productClient.canShareMapping(any(), any()) } returns true
+    every { productClient.lookupPolicy(any()) } returns "worldwide,locale"
+  }
+
+  @AfterEach
+  fun stopLookupWorker() {
+    resolver.stopPendingLookups()
+  }
+
+  @Test
+  fun `changing the storefront policy invalidates a fresh negative without changing ISBN`() {
+    val bookId = "book-language-changed"
+    val isbn = "9781974755998"
+    val old =
+      KoboProductMapping(
+        bookId,
+        isbn,
+        null,
+        status = KoboProductMappingStatus.NOT_FOUND,
+        checkedAt = LocalDateTime.now(),
+        lookupPolicy = "old-language-plan",
+      )
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Book", number = "1", numberSort = 1F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns old
+    every { mappingRepository.findByIsbn(isbn) } returns listOf(old)
+    every { productClient.findProductForBook(isbn, bookId) } returns KoboProductLookupResult.Found("new-product")
+
+    assertThat(resolver.resolveProductId(bookId)).isEqualTo("new-product")
+    verify(exactly = 1) { productClient.findProductForBook(isbn, bookId) }
+  }
+
+  @Test
+  fun `device lookup first probes GB and queues full search only after a miss`() {
+    val bookId = "book-fast-miss"
+    val isbn = "9781974755998"
+    val backgroundStarted = CountDownLatch(1)
+    val allowBackgroundToFinish = CountDownLatch(1)
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Book", number = "1", numberSort = 1F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns null
+    every { mappingRepository.findByIsbn(isbn) } returns emptyList()
+    every { productClient.findProductInOriginalStorefront(isbn) } returns KoboProductLookupResult.NotFound
+    every { productClient.findProductForBook(isbn, bookId) } answers {
+      backgroundStarted.countDown()
+      check(allowBackgroundToFinish.await(15, TimeUnit.SECONDS)) {
+        "Device lookup assertions did not release the background worker"
+      }
+      KoboProductLookupResult.NotFound
+    }
+
+    try {
+      assertThat(resolver.resolveProductIdForDevice(bookId)).isNull()
+      assertThat(backgroundStarted.await(15, TimeUnit.SECONDS))
+        .describedAs("The global lookup must be queued after a GB miss")
+        .isTrue()
+      verify(exactly = 1) { productClient.findProductInOriginalStorefront(isbn) }
+      verify(exactly = 1) { productClient.findProductForBook(isbn, bookId) }
+    } finally {
+      allowBackgroundToFinish.countDown()
+    }
+  }
+
+  @Test
+  fun `device lookup immediately returns a verified original-store identity`() {
+    val bookId = "book-fast-found"
+    val isbn = "9781974755998"
+    every { bookMetadataRepository.findByIdOrNull(bookId) } returns
+      BookMetadata(bookId = bookId, title = "Book", number = "1", numberSort = 1F, isbn = isbn)
+    every { mappingRepository.findByBookId(bookId) } returns null
+    every { mappingRepository.findByIsbn(isbn) } returns emptyList()
+    every { productClient.findProductInOriginalStorefront(isbn) } returns KoboProductLookupResult.Found("gb-product")
+
+    assertThat(resolver.resolveProductIdForDevice(bookId)).isEqualTo("gb-product")
+    verify(exactly = 0) { productClient.findProductForBook(any(), any()) }
   }
 
   @Test
@@ -287,6 +366,7 @@ class KoboProductResolverTest {
         productId = null,
         status = KoboProductMappingStatus.NOT_FOUND,
         checkedAt = LocalDateTime.now(),
+        lookupPolicy = "worldwide,locale",
       )
     every { bookMetadataRepository.findByIdOrNull(bookId) } returns
       BookMetadata(bookId = bookId, title = "Test", number = "16", numberSort = 16F, isbn = isbn)
@@ -559,6 +639,7 @@ class KoboProductResolverTest {
         productId = null,
         status = KoboProductMappingStatus.NOT_FOUND,
         checkedAt = LocalDateTime.now(),
+        lookupPolicy = "worldwide,locale",
       )
 
     val result = resolver.resolveProductId(bookId)

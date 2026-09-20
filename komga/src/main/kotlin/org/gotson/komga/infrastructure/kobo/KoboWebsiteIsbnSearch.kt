@@ -9,16 +9,18 @@ internal data class KoboWebsitePage(
   val html: String,
 )
 
-/** Network-free orchestration. Production injects the browser-impersonating, cookie-preserving client. */
+/** Network-free orchestration. Production injects the original browser-impersonating client. */
 internal class KoboWebsiteIsbnSearch(
   private val fetch: (HttpUrl) -> KoboWebsitePage,
   private val parser: KoboProductPageParser,
   private val afterJapaneseMiss: (String) -> KoboProductLookupResult? = { null },
   private val onVerified: (isbn: String, productId: String, url: HttpUrl) -> Unit = { _, _, _ -> },
 ) {
+  /** A device request may probe only the original GB response; all-store fallback runs off-thread. */
   fun find(
     identifier: String,
     locale: String?,
+    preferredOnly: Boolean = false,
   ): KoboProductLookupResult {
     val isbn =
       KoboLookupIsbn.normalize(identifier)
@@ -31,7 +33,7 @@ internal class KoboWebsiteIsbnSearch(
         ?.replace('_', '-')
         ?.lowercase()
         ?.let { it == "ja" || it.startsWith("ja-") } == true
-    for (store in KoboWebsiteStorefronts.plan(locale)) {
+    for (store in if (preferredOnly) listOf("gb/en") else KoboWebsiteStorefronts.plan(locale)) {
       var storefrontIncomplete = false
       for (page in 1..MAX_PAGES) {
         if (requests >= MAX_REQUESTS) return KoboProductLookupResult.Failed(IllegalStateException("Kobo website lookup request budget exhausted"))
@@ -40,11 +42,36 @@ internal class KoboWebsiteIsbnSearch(
             .toHttpUrl()
             .newBuilder()
             .addQueryParameter("query", isbn)
-            .addQueryParameter("pagenumber", page.toString())
+            // The previously working request used BOTH the media filter and this exact
+            // pageNumber spelling; changing them together with the global routing was a regression.
+            .addQueryParameter("fcmedia", "Book")
+            .addQueryParameter("pageNumber", page.toString())
             .build()
         requests++
-        val search = fetch(url)
+        val search =
+          try {
+            fetch(url)
+          } catch (e: KoboWebsiteHttpException) {
+            // A storefront route may be unavailable in this country or become obsolete.
+            // Try the next storefront, but do NOT turn a failed route into a durable negative.
+            if (e.statusCode !in setOf(404, 410)) throw e
+            if (preferredOnly) return KoboProductLookupResult.NotFound // a scoped miss; full scan is queued by the caller
+            inconclusive = true
+            storefrontIncomplete = true
+            break
+          }
         val direct = productUrl(search.url)
+        if (preferredOnly) {
+          // Preserve the old one-response behavior. Even if Kobo redirects from GB to
+          // another locale, only an ISBN-verified primary product is accepted.
+          parser.parse(search.html, (direct ?: search.url).toString(), isbn)?.let { identity ->
+            // Only an actual /ebook/ URL may be reused as a verified product-page URL.
+            if (direct != null) onVerified(isbn, identity.productId, direct)
+            return KoboProductLookupResult.Found(identity.productId, identity.seriesId)
+          }
+          // A miss in ONE store is not a global NOT_FOUND and is never persisted by the caller.
+          return KoboProductLookupResult.NotFound
+        }
         if (direct == null && !isSearchPage(search.url, store)) {
           inconclusive = true
           storefrontIncomplete = true
@@ -83,7 +110,15 @@ internal class KoboWebsiteIsbnSearch(
         for (candidate in candidates.take(MAX_CANDIDATES)) {
           if (requests >= MAX_REQUESTS) return KoboProductLookupResult.Failed(IllegalStateException("Kobo website lookup request budget exhausted"))
           requests++
-          val detail = fetch(candidate)
+          val detail =
+            try {
+              fetch(candidate)
+            } catch (e: KoboWebsiteHttpException) {
+              if (e.statusCode !in setOf(404, 410)) throw e
+              inconclusive = true
+              storefrontIncomplete = true
+              continue
+            }
           val resolved = productUrl(detail.url)
           if (resolved == null || storeFor(resolved) != store) {
             inconclusive = true
@@ -111,7 +146,9 @@ internal class KoboWebsiteIsbnSearch(
           root.select("a[href]").any { link ->
             val next = search.url.resolve(link.attr("href"))
             next?.encodedPath?.endsWith("/search") == true &&
-              (next.queryParameter("pagenumber") ?: next.queryParameter("page"))?.toIntOrNull()?.let { it > page } == true
+              (next.queryParameter("pageNumber") ?: next.queryParameter("pagenumber") ?: next.queryParameter("page"))
+                ?.toIntOrNull()
+                ?.let { it > page } == true
           }
         if (!more) break
         if (page == MAX_PAGES) {

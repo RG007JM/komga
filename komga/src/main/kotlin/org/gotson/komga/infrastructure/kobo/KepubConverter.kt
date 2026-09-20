@@ -147,26 +147,44 @@ class KepubConverter(
         return null
       }
 
-    if (!process.waitFor(10, TimeUnit.SECONDS)) {
-      logger.error { "Kepub conversion timeout. Command: ${command.joinToString(" ")}" }
-      return null
-    }
+    var successful = false
+    try {
+      if (!process.waitFor(10, TimeUnit.SECONDS)) {
+        logger.error { "Kepub conversion timeout. Command: ${command.joinToString(" ")}" }
+        return null
+      }
 
-    if (process.exitValue() != 0) {
-      val error = process.errorReader().useLines { it.joinToString(" ") }
-      logger.error { "Kepub conversion failed. Command: ${command.joinToString(" ")}. Error: $error" }
-      return null
-    }
-    logger.debug {
-      "kepubify output: " + process.inputReader().useLines { it.joinToString("\n") }
-    }
+      if (process.exitValue() != 0) {
+        val error = process.errorReader().useLines { it.joinToString(" ") }
+        logger.error { "Kepub conversion failed. Command: ${command.joinToString(" ")}. Error: $error" }
+        return null
+      }
+      logger.debug {
+        "kepubify output: " + process.inputReader().useLines { it.joinToString("\n") }
+      }
 
-    if (!destinationPath.exists()) {
-      logger.error { "Converted file not found: $destinationPath" }
-      return null
-    }
+      if (!destinationPath.exists()) {
+        logger.error { "Converted file not found: $destinationPath" }
+        return null
+      }
 
-    return destinationPath
+      successful = true
+      return destinationPath
+    } finally {
+      if (!successful) {
+        // In particular, a timed-out child must not keep writing a file after we return null.
+        if (process.isAlive) {
+          process.destroyForcibly()
+          try {
+            process.waitFor(1, TimeUnit.SECONDS)
+          } catch (e: InterruptedException) {
+            Thread.currentThread().interrupt()
+          }
+        }
+        runCatching { destinationPath.deleteIfExists() }
+          .onFailure { logger.warn(it) { "Could not clean up failed KEPUB conversion: $destinationPath" } }
+      }
+    }
   }
 
   internal fun destinationPathFor(

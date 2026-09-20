@@ -102,7 +102,7 @@ class KoboLocalStoreResponseBuilder(
     val items = objectMapper.createArrayNode()
     pageMetadata.forEach { metadata ->
       val bookId = metadata.entitlementId
-      val productId = koboProductResolver.resolveProductId(bookId)
+      val productId = koboProductResolver.resolveProductIdForDevice(bookId)
       val upstreamBook = productId?.let(upstreamBooksByProductId::get)
 
       val wrapped = objectMapper.createObjectNode()

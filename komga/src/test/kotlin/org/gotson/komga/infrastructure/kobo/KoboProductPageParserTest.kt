@@ -126,7 +126,7 @@ class KoboProductPageParserTest {
   }
 
   @Test
-  fun `rejects conflicting labeled ISBNs rather than using page order`() {
+  fun `ignores conflicting labeled ISBN in an unrelated recommendation` () {
     val html =
       """
       <html>
@@ -144,7 +144,8 @@ class KoboProductPageParserTest {
     val baseUrl = "https://www.kobo.com/it/it/ebook/frieren-oltre-la-fine-del-viaggio-vol-1"
 
     assertThat(parser.parse(html, baseUrl, "9781974755998")).isNull()
-    assertThat(parser.parse(html, baseUrl, "9788834923627")).isNull()
+    assertThat(parser.parse(html, baseUrl, "9788834923627"))
+      .isEqualTo(KoboProductPageIdentity("cf59cd34-5e8f-4f52-bd89-7aef25ca82a9", null))
   }
 
   @Test
@@ -217,4 +218,28 @@ class KoboProductPageParserTest {
 
     assertThat(result).isNull()
   }
+
+  @Test
+  fun `modern Next Flight primary rat and embedded series are accepted`() {
+    val product = "fa183d0f-6794-4e38-b57d-3ebd6cbaeb2c"
+    val series = "708f4ca7-757f-56cb-afa9-39ecd9ebaf1b"
+    val isbn = "9781974702015"
+    val payload = """self.__next_f.push([1,"itemDetails":{\"productId\":\"$product\",\"metadata\":{\"isbn\":\"$isbn\",\"series\":{\"id\":\"$series\"}}]")"""
+    val html = """<ul><li class="flex flex-row">ISBN: $isbn</li></ul>
+      <input type="hidden" name="rat" id="ratItemId" value="$product">
+      <script>$payload</script>
+      <section class="recommendations"><input id="fakeId" value="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"></section>"""
+    assertThat(parser.parse(html, "https://www.kobo.com/ww/en/ebook/book", isbn))
+      .isEqualTo(KoboProductPageIdentity(product, series))
+  }
+
+  @Test
+  fun `ambiguous modern primary rat input is rejected`() {
+    val isbn = "9781974702015"
+    val html = """<li class="flex flex-row">ISBN: $isbn</li>
+      <input type="hidden" name="rat" id="ratItemId" value="fa183d0f-6794-4e38-b57d-3ebd6cbaeb2c">
+      <input type="hidden" name="rat" id="ratItemId" value="fa183d0f-6794-4e38-b57d-3ebd6cbaeb2c">"""
+    assertThat(parser.parse(html, "https://www.kobo.com/ww/en/ebook/book", isbn)).isNull()
+  }
+
 }

@@ -25,12 +25,13 @@ class KoboSeriesObservationReconciler(
     val olderThan = now.minusDays(RETRY_DAYS)
     val failedBefore = now.minusHours(FAILURE_RETRY_HOURS)
     val candidates = mappingRepository.findSeriesReconciliationCandidates(olderThan, failedBefore, BATCH_SIZE)
-    // Multiple local files with the same ISBN should share one website search per batch.
-    val resultsByIsbn = mutableMapOf<String, KoboProductLookupResult>()
+    // A storefront may issue different Product IDs for the same ISBN. Never share
+    // a series observation across two established but different product identities.
+    val resultsByIdentity = mutableMapOf<Pair<String, String>, KoboProductLookupResult>()
 
     candidates.forEach { candidate ->
       try {
-        reconcile(candidate, olderThan, failedBefore, resultsByIsbn)
+        reconcile(candidate, olderThan, failedBefore, resultsByIdentity)
       } catch (e: Exception) {
         logger.warn(e) { "Could not reconcile Kobo SeriesId for book ${candidate.bookId}" }
       }
@@ -41,7 +42,7 @@ class KoboSeriesObservationReconciler(
     candidate: KoboProductMapping,
     olderThan: LocalDateTime,
     failedBefore: LocalDateTime,
-    resultsByIsbn: MutableMap<String, KoboProductLookupResult>,
+    resultsByIdentity: MutableMap<Pair<String, String>, KoboProductLookupResult>,
   ) {
     // The candidate may have changed while it was waiting in the scheduled batch.
     val current = mappingRepository.findByBookId(candidate.bookId) ?: return
@@ -51,7 +52,7 @@ class KoboSeriesObservationReconciler(
     if (current.seriesLookupFailedAt?.isAfter(failedBefore) == true) return
 
     val metadata = bookMetadataRepository.findByIdOrNull(current.bookId)
-    val currentIsbn = metadata?.isbn?.filter(Char::isDigit)?.takeIf { it.length == 13 }
+    val currentIsbn = KoboLookupIsbn.normalize(metadata?.isbn)
     if (currentIsbn != current.isbn) {
       // Stale mappings cannot participate in consensus or repeatedly occupy batch slots.
       mappingRepository.deleteByBookId(current.bookId)
@@ -63,15 +64,16 @@ class KoboSeriesObservationReconciler(
     if (effectiveSeriesId != null && current.observedKoboSeriesId == effectiveSeriesId) return
 
     val result =
-      resultsByIsbn.getOrPut(current.isbn) {
-        productClient.findProductByIsbn(current.isbn)
+      resultsByIdentity.getOrPut(current.isbn to current.productId) {
+        productClient.refreshKnownProduct(current.isbn, current.productId)
+          ?: productClient.findProductForBook(current.isbn, current.bookId)
       }
 
     // A concurrent ISBN/identity refresh must not be overwritten by an older website result.
     val latest = mappingRepository.findByBookId(current.bookId) ?: return
     if (latest != current) return
     val latestIsbn =
-      bookMetadataRepository.findByIdOrNull(current.bookId)?.isbn?.filter(Char::isDigit)
+      KoboLookupIsbn.normalize(bookMetadataRepository.findByIdOrNull(current.bookId)?.isbn)
     if (latestIsbn != current.isbn) return
 
     val attemptAt = LocalDateTime.now()
@@ -81,19 +83,20 @@ class KoboSeriesObservationReconciler(
           logger.warn {
             "Ignoring Kobo SeriesId refresh for book ${current.bookId}: ISBN ${current.isbn} returned a different ProductId"
           }
-          mappingRepository.save(current.copy(seriesCheckedAt = attemptAt, seriesLookupFailedAt = null))
+          // This is not a completed observation of the expected product: retry later.
+          mappingRepository.save(current.copy(seriesLookupFailedAt = attemptAt))
           return
         }
 
         mappingRepository.save(
           current.copy(
-            observedKoboSeriesId = result.seriesId,
+            observedKoboSeriesId = result.seriesId ?: current.observedKoboSeriesId,
             seriesCheckedAt = attemptAt,
             seriesLookupFailedAt = null,
           ),
         )
         // Recalculate the mapping from the accepted book observation; never use last-writer-wins.
-        if (result.seriesId != current.observedKoboSeriesId) {
+        if (result.seriesId != null && result.seriesId != current.observedKoboSeriesId) {
           seriesIdResolver.resolveSeriesId(komgaSeriesId)
         }
       }

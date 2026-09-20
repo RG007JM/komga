@@ -6,6 +6,9 @@ import org.gotson.komga.domain.model.KoboProductMapping
 import org.gotson.komga.domain.model.KoboProductMappingStatus
 import org.gotson.komga.domain.model.SearchContext
 import org.gotson.komga.domain.persistence.KoboProductMappingRepository
+import org.gotson.komga.infrastructure.kobo.KoboLookupAttempt
+import org.gotson.komga.infrastructure.kobo.KoboLookupDiagnostics
+import org.gotson.komga.infrastructure.kobo.KoboLookupIsbn
 import org.gotson.komga.infrastructure.openapi.OpenApiConfiguration
 import org.gotson.komga.infrastructure.openapi.PageableWithoutSortAsQueryParam
 import org.gotson.komga.infrastructure.security.KomgaPrincipal
@@ -32,6 +35,7 @@ class KoboBookMappingController(
   private val bookDtoRepository: BookDtoRepository,
   private val mappingRepository: KoboProductMappingRepository,
   private val contentRestrictionChecker: ContentRestrictionChecker,
+  private val diagnostics: KoboLookupDiagnostics,
 ) {
   @Operation(summary = "List cached Kobo ProductId mappings", tags = [OpenApiConfiguration.TagNames.BOOKS])
   @PageableWithoutSortAsQueryParam
@@ -59,7 +63,35 @@ class KoboBookMappingController(
     contentRestrictionChecker.checkContentRestrictionBook(principal.user, book)
     return book.toKoboMappingDto(mappingRepository.findByBookId(bookId))
   }
+
+  /** Read-only, admin-only diagnostics. This endpoint NEVER starts a Kobo website request. */
+  @Operation(summary = "Inspect cached Kobo book identity and recent website lookup", tags = [OpenApiConfiguration.TagNames.BOOKS])
+  @PreAuthorize("hasRole('ADMIN')")
+  @GetMapping("{bookId}/kobo-identity-diagnostic")
+  fun getIdentityDiagnostic(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+    @PathVariable bookId: String,
+  ): KoboIdentityDiagnosticDto {
+    val book = bookDtoRepository.findByIdOrNull(bookId, principal.user.id)
+      ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+    contentRestrictionChecker.checkContentRestrictionBook(principal.user, book)
+    val mapping = mappingRepository.findByBookId(bookId)
+    val isbn = KoboLookupIsbn.normalize(book.metadata.isbn)
+    return KoboIdentityDiagnosticDto(
+      book.toKoboMappingDto(mapping),
+      mapping?.seriesCheckedAt,
+      mapping?.seriesLookupFailedAt,
+      diagnostics.latest(isbn),
+    )
+  }
 }
+
+data class KoboIdentityDiagnosticDto(
+  val mapping: KoboBookMappingDto,
+  val seriesCheckedAt: LocalDateTime?,
+  val seriesLookupFailedAt: LocalDateTime?,
+  val recentWebsiteAttempt: KoboLookupAttempt?,
+)
 
 enum class KoboBookMappingState {
   MAPPED,
@@ -82,7 +114,7 @@ data class KoboBookMappingDto(
 )
 
 internal fun BookDto.toKoboMappingDto(mapping: KoboProductMapping?): KoboBookMappingDto {
-  val currentIsbn = metadata.isbn.filter(Char::isDigit).takeIf { it.length == 13 }
+  val currentIsbn = KoboLookupIsbn.normalize(metadata.isbn)
   val isCurrent = currentIsbn != null && currentIsbn == mapping?.isbn
   val mapped = isCurrent && mapping?.status == KoboProductMappingStatus.FOUND && !mapping?.productId.isNullOrBlank()
   val state =

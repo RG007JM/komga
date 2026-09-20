@@ -8,12 +8,17 @@ internal class KoboKnownProductPageCheck(
   private val parser: KoboProductPageParser,
 ) {
   /** Null means the old slug was removed and a full ISBN rediscovery may be attempted. */
-  fun check(isbn: String, productId: String, url: HttpUrl): KoboProductLookupResult? =
+  fun check(
+    isbn: String,
+    productId: String,
+    url: HttpUrl,
+  ): KoboProductLookupResult? =
     try {
       val page = fetch(url)
       val segments = page.url.pathSegments
       if (page.url.scheme != "https" || page.url.host !in setOf("www.kobo.com", "kobo.com") ||
-        segments.size != 4 || segments[2] != "ebook") {
+        segments.size != 4 || segments[2] != "ebook"
+      ) {
         KoboProductLookupResult.Failed(IllegalStateException("Kobo known product URL no longer returned an ebook page"))
       } else {
         val observed = parser.parse(page.html, page.url.toString(), isbn)

@@ -72,8 +72,9 @@ class KoboBookMappingController(
     @AuthenticationPrincipal principal: KomgaPrincipal,
     @PathVariable bookId: String,
   ): KoboIdentityDiagnosticDto {
-    val book = bookDtoRepository.findByIdOrNull(bookId, principal.user.id)
-      ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+    val book =
+      bookDtoRepository.findByIdOrNull(bookId, principal.user.id)
+        ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
     contentRestrictionChecker.checkContentRestrictionBook(principal.user, book)
     val mapping = mappingRepository.findByBookId(bookId)
     val isbn = KoboLookupIsbn.normalize(book.metadata.isbn)

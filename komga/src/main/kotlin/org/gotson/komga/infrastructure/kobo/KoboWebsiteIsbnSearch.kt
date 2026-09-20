@@ -16,18 +16,32 @@ internal class KoboWebsiteIsbnSearch(
   private val afterJapaneseMiss: (String) -> KoboProductLookupResult? = { null },
   private val onVerified: (isbn: String, productId: String, url: HttpUrl) -> Unit = { _, _, _ -> },
 ) {
-  fun find(identifier: String, locale: String?): KoboProductLookupResult {
-    val isbn = KoboLookupIsbn.normalize(identifier)
-      ?: return KoboProductLookupResult.Failed(IllegalArgumentException("Not a valid ISBN-10 or ISBN-13"))
+  fun find(
+    identifier: String,
+    locale: String?,
+  ): KoboProductLookupResult {
+    val isbn =
+      KoboLookupIsbn.normalize(identifier)
+        ?: return KoboProductLookupResult.Failed(IllegalArgumentException("Not a valid ISBN-10 or ISBN-13"))
     var inconclusive = false
     var requests = 0
-    val japanese = locale?.trim()?.replace('_', '-')?.lowercase()?.let { it == "ja" || it.startsWith("ja-") } == true
+    val japanese =
+      locale
+        ?.trim()
+        ?.replace('_', '-')
+        ?.lowercase()
+        ?.let { it == "ja" || it.startsWith("ja-") } == true
     for (store in KoboWebsiteStorefronts.plan(locale)) {
       var storefrontIncomplete = false
       for (page in 1..MAX_PAGES) {
         if (requests >= MAX_REQUESTS) return KoboProductLookupResult.Failed(IllegalStateException("Kobo website lookup request budget exhausted"))
-        val url = "https://www.kobo.com/$store/search".toHttpUrl().newBuilder()
-          .addQueryParameter("query", isbn).addQueryParameter("pagenumber", page.toString()).build()
+        val url =
+          "https://www.kobo.com/$store/search"
+            .toHttpUrl()
+            .newBuilder()
+            .addQueryParameter("query", isbn)
+            .addQueryParameter("pagenumber", page.toString())
+            .build()
         requests++
         val search = fetch(url)
         val direct = productUrl(search.url)
@@ -54,9 +68,12 @@ internal class KoboWebsiteIsbnSearch(
         val document = Jsoup.parse(search.html, search.url.toString())
         if (document.selectFirst("[data-testid=no-result]") != null) break
         val root = document.selectFirst("main") ?: document.body()
-        val candidates = root.select("a[href*=/ebook/]").mapNotNull { element ->
-          productUrl(search.url.resolve(element.attr("href")) ?: return@mapNotNull null)
-        }.distinct()
+        val candidates =
+          root
+            .select("a[href*=/ebook/]")
+            .mapNotNull { element ->
+              productUrl(search.url.resolve(element.attr("href")) ?: return@mapNotNull null)
+            }.distinct()
         if (candidates.isEmpty()) {
           if (EMPTY_TEXT.any { it.containsMatchIn(root.text().lowercase()) }) break
           inconclusive = true // An unfamiliar search layout is NOT a verified no-result page.
@@ -90,11 +107,12 @@ internal class KoboWebsiteIsbnSearch(
           storefrontIncomplete = true
           break
         }
-        val more = root.select("a[href]").any { link ->
-          val next = search.url.resolve(link.attr("href"))
-          next?.encodedPath?.endsWith("/search") == true &&
-            (next.queryParameter("pagenumber") ?: next.queryParameter("page"))?.toIntOrNull()?.let { it > page } == true
-        }
+        val more =
+          root.select("a[href]").any { link ->
+            val next = search.url.resolve(link.attr("href"))
+            next?.encodedPath?.endsWith("/search") == true &&
+              (next.queryParameter("pagenumber") ?: next.queryParameter("page"))?.toIntOrNull()?.let { it > page } == true
+          }
         if (!more) break
         if (page == MAX_PAGES) {
           inconclusive = true
@@ -114,33 +132,51 @@ internal class KoboWebsiteIsbnSearch(
         }
       }
     }
-    return if (inconclusive) KoboProductLookupResult.Failed(IllegalStateException("Kobo ISBN search was inconclusive in at least one storefront"))
-    else KoboProductLookupResult.NotFound
+    return if (inconclusive)
+      KoboProductLookupResult.Failed(IllegalStateException("Kobo ISBN search was inconclusive in at least one storefront"))
+    else
+      KoboProductLookupResult.NotFound
   }
 
-  private fun isSearchPage(url: HttpUrl, store: String) =
-    url.host in KOBO_HOSTS && url.encodedPath.trimEnd('/').lowercase() == "/$store/search"
+  private fun isSearchPage(
+    url: HttpUrl,
+    store: String,
+  ) = url.host in KOBO_HOSTS && url.encodedPath.trimEnd('/').lowercase() == "/$store/search"
 
-  private fun storeFor(url: HttpUrl): String = url.pathSegments.take(2).joinToString("/").lowercase()
+  private fun storeFor(url: HttpUrl): String =
+    url.pathSegments
+      .take(2)
+      .joinToString("/")
+      .lowercase()
 
   private fun productUrl(url: HttpUrl): HttpUrl? {
     val segments = url.pathSegments.dropLastWhile(String::isEmpty)
     if (url.scheme != "https" || url.host !in KOBO_HOSTS || segments.size != 4 ||
       segments[2] != "ebook" || segments[3].isBlank() || segments[3] in listOf(".", "..") ||
       url.encodedPathSegments.lastOrNull()?.contains("%2f", ignoreCase = true) == true ||
-      segments.take(2).any { !it.matches(Regex("[a-z]{2}")) }) return null
+      segments.take(2).any { !it.matches(Regex("[a-z]{2}")) }
+    )
+      return null
     // Discard sId, ssId and every other query value before reusing a product URL.
-    return url.newBuilder().encodedPath(url.encodedPath.trimEnd('/')).query(null).fragment(null).build()
+    return url
+      .newBuilder()
+      .encodedPath(url.encodedPath.trimEnd('/'))
+      .query(null)
+      .fragment(null)
+      .build()
   }
 
   private companion object {
     val KOBO_HOSTS = setOf("www.kobo.com", "kobo.com")
-    val EMPTY_TEXT = listOf(
-      Regex("\\b(?:0|zero)\\s+(?:search\\s+)?results\\b"),
-      Regex("\\bno\\s+(?:search\\s+)?results\\b"),
-      Regex("\\baucun\\s+r[ée]sultat\\b"), Regex("\\bnessun\\s+risultat\\b"),
-      Regex("\\bsin\\s+resultados\\b"), Regex("\\bkeine\\s+ergebnisse\\b"),
-    )
+    val EMPTY_TEXT =
+      listOf(
+        Regex("\\b(?:0|zero)\\s+(?:search\\s+)?results\\b"),
+        Regex("\\bno\\s+(?:search\\s+)?results\\b"),
+        Regex("\\baucun\\s+r[ée]sultat\\b"),
+        Regex("\\bnessun\\s+risultat\\b"),
+        Regex("\\bsin\\s+resultados\\b"),
+        Regex("\\bkeine\\s+ergebnisse\\b"),
+      )
     const val MAX_PAGES = 2
     const val MAX_CANDIDATES = 10
     const val MAX_REQUESTS = 300

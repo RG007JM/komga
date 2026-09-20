@@ -7,7 +7,10 @@ import java.util.concurrent.ConcurrentHashMap
 internal class KoboIsbnSingleFlight<T> {
   private val running = ConcurrentHashMap<String, CompletableFuture<T>>()
 
-  fun run(isbn: String, lookup: () -> T): T {
+  fun run(
+    isbn: String,
+    lookup: () -> T,
+  ): T {
     val mine = CompletableFuture<T>()
     val current = running.putIfAbsent(isbn, mine)
     if (current != null) return current.join()

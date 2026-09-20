@@ -327,8 +327,12 @@ class KoboSeriesObservationReconcilerTest {
     reconciler.reconcileDueBatch()
 
     verify(exactly = 1) {
-      mappings.save(match { it.productId == productId && it.observedKoboSeriesId == otherId &&
-        it.seriesCheckedAt == original.seriesCheckedAt && it.seriesLookupFailedAt != null })
+      mappings.save(
+        match {
+          it.productId == productId && it.observedKoboSeriesId == otherId &&
+            it.seriesCheckedAt == original.seriesCheckedAt && it.seriesLookupFailedAt != null
+        },
+      )
     }
     verify(exactly = 0) { client.findProductByIsbn(any()) }
   }

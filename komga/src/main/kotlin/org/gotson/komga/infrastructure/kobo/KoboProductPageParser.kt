@@ -16,7 +16,11 @@ internal data class KoboProductPageIdentity(
 internal class KoboProductPageParser(
   private val objectMapper: ObjectMapper,
 ) {
-  fun parse(html: String, baseUrl: String, isbn: String): KoboProductPageIdentity? {
+  fun parse(
+    html: String,
+    baseUrl: String,
+    isbn: String,
+  ): KoboProductPageIdentity? {
     val document = Jsoup.parse(html, baseUrl)
     val bookIds = mutableSetOf<String>()
     document.select(".bookitem-secondary-metadata li, li.flex.flex-row").filterNot(::nonPrimary).forEach { li ->
@@ -34,12 +38,17 @@ internal class KoboProductPageParser(
     // of a visible detail row. Multiple competing Book/Product objects are rejected.
     if (bookIds.isEmpty()) {
       document.select("script[type=application/ld+json]").filterNot(::nonPrimary).forEach { script ->
-        val json = runCatching { objectMapper.readTree(script.data()) }.getOrNull()
-          ?: return@forEach
+        val json =
+          runCatching { objectMapper.readTree(script.data()) }.getOrNull()
+            ?: return@forEach
         val entries = if (json.isArray) json.toList() else listOf(json)
         entries.forEach { entry ->
           if (entry.path("@type").asText() in setOf("Book", "Product")) {
-            entry.path("isbn").asText().takeIf(BOOK_NUMBER::matches)?.let(bookIds::add)
+            entry
+              .path("isbn")
+              .asText()
+              .takeIf(BOOK_NUMBER::matches)
+              ?.let(bookIds::add)
           }
         }
       }
@@ -51,23 +60,31 @@ internal class KoboProductPageParser(
     if (bookIds.size != 1 || bookIds.single() != isbn) return null
 
     val primaryIds = mutableSetOf<String>()
-    document.select(".item-primary-metadata.book-primary-metadata[data-track-info]")
-      .filterNot(::nonPrimary).forEach { element ->
+    document
+      .select(".item-primary-metadata.book-primary-metadata[data-track-info]")
+      .filterNot(::nonPrimary)
+      .forEach { element ->
         runCatching { objectMapper.readTree(element.attr("data-track-info")).path("productId").asText() }
-          .getOrNull()?.let(::uuid)?.let(primaryIds::add)
+          .getOrNull()
+          ?.let(::uuid)
+          ?.let(primaryIds::add)
       }
     val rat = document.select("input#ratItemId")
     if (rat.isNotEmpty()) {
       if (rat.size != 1 || nonPrimary(rat.single()) ||
-        rat.single().attr("type") != "hidden" || rat.single().attr("name") != "rat") return null
+        rat.single().attr("type") != "hidden" || rat.single().attr("name") != "rat"
+      )
+        return null
       uuid(rat.single().attr("value"))?.let(primaryIds::add) ?: return null
     }
     if (primaryIds.isEmpty()) scriptIdentity?.first?.let(primaryIds::add)
     if (primaryIds.size != 1) return null
 
     val seriesIds = mutableSetOf<String>()
-    document.select(".books-in-series a[href], a.view-all[href*=seriesId]")
-      .filterNot(::nonPrimary).forEach { a ->
+    document
+      .select(".books-in-series a[href], a.view-all[href*=seriesId]")
+      .filterNot(::nonPrimary)
+      .forEach { a ->
         val url = a.attr("href").toHttpUrlOrNull() ?: document.location().toHttpUrlOrNull()?.resolve(a.attr("href"))
         url?.queryParameter("seriesId")?.let(::uuid)?.let(seriesIds::add)
       }
@@ -77,27 +94,42 @@ internal class KoboProductPageParser(
   }
 
   /** An absent primary identifier is inconclusive, even when the search result contains a link. */
-  fun primaryIdentifierMissing(html: String, baseUrl: String): Boolean {
+  fun primaryIdentifierMissing(
+    html: String,
+    baseUrl: String,
+  ): Boolean {
     val document = Jsoup.parse(html, baseUrl)
-    if (document.select(".bookitem-secondary-metadata li, li.flex.flex-row")
-        .filterNot(::nonPrimary).any { BOOK_NUMBER.containsMatchIn(it.text()) }) return false
+    if (document
+        .select(".bookitem-secondary-metadata li, li.flex.flex-row")
+        .filterNot(::nonPrimary)
+        .any { BOOK_NUMBER.containsMatchIn(it.text()) }
+    )
+      return false
     val primary = document.body().clone()
     primary.select(".recommendations, [class*=recommend], [id*=recommend], .carousel, .related, .series-item, .book-card, .bookcard, .search-result, .also-bought, .upsell, .slider, script, style").remove()
     if (LABELLED_BOOK_ID.containsMatchIn(primary.text())) return false
     if (document.select("script[type=application/ld+json]").filterNot(::nonPrimary).any { script ->
         val json = runCatching { objectMapper.readTree(script.data()) }.getOrNull()
-        val entries = when {
-          json == null -> emptyList()
-          json.isArray -> json.toList()
-          else -> listOf(json)
+        val entries =
+          when {
+            json == null -> emptyList()
+            json.isArray -> json.toList()
+            else -> listOf(json)
+          }
+        entries.any { entry ->
+          entry.path("@type").asText() in setOf("Book", "Product") &&
+            BOOK_NUMBER.matches(entry.path("isbn").asText())
         }
-        entries.any { entry -> entry.path("@type").asText() in setOf("Book", "Product") &&
-          BOOK_NUMBER.matches(entry.path("isbn").asText()) }
-      }) return false
+      }
+    )
+      return false
     return true
   }
 
-  private fun extractEmbeddedPrimary(document: Document, isbn: String): Pair<String?, String?>? {
+  private fun extractEmbeddedPrimary(
+    document: Document,
+    isbn: String,
+  ): Pair<String?, String?>? {
     // Next Flight HTML serializes itemDetails beside metadata.isbn. Never scan the
     // whole script for the first ProductId: unrelated seriesItems contain other IDs.
     val productPattern = Regex("""["\\]productId["\\]\s*:\s*["\\]($UUID_REGEX)["\\]""", RegexOption.IGNORE_CASE)
@@ -112,17 +144,27 @@ internal class KoboProductPageParser(
         val before = normalized.substring(maxOf(0, found.range.first - 1800), found.range.first)
         val anchor = before.lastIndexOf("itemDetails")
         if (anchor < 0 || before.substring(anchor).contains("seriesItems")) return@forEach
-        val product = productPattern.findAll(before.substring(anchor)).lastOrNull()?.groupValues?.get(1)?.let(::uuid)
+        val product =
+          productPattern
+            .findAll(before.substring(anchor))
+            .lastOrNull()
+            ?.groupValues
+            ?.get(1)
+            ?.let(::uuid)
         val after = normalized.substring(found.range.last + 1, minOf(normalized.length, found.range.last + 1500))
-        val series = seriesPattern.find(after)?.groupValues?.get(1)?.let(::uuid)
+        val series =
+          seriesPattern
+            .find(after)
+            ?.groupValues
+            ?.get(1)
+            ?.let(::uuid)
         if (product != null) results += product to series
       }
     }
     return results.singleOrNull()
   }
 
-  private fun uuid(raw: String): String? =
-    raw.takeIf { UUID_PATTERN.matches(it) && runCatching { UUID.fromString(it) }.isSuccess }?.lowercase()
+  private fun uuid(raw: String): String? = raw.takeIf { UUID_PATTERN.matches(it) && runCatching { UUID.fromString(it) }.isSuccess }?.lowercase()
 
   private fun nonPrimary(node: Element): Boolean =
     node.parents().plus(node).any { ancestor ->

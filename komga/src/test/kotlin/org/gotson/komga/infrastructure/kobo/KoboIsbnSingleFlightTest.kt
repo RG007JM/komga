@@ -16,23 +16,25 @@ class KoboIsbnSingleFlightTest {
     val calls = AtomicInteger()
     val pool = Executors.newFixedThreadPool(2)
     try {
-      val one = pool.submit<String> {
-        flight.run("9781974702015") {
-          calls.incrementAndGet()
-          started.countDown()
-          check(release.await(3, TimeUnit.SECONDS))
-          "verified-product"
+      val one =
+        pool.submit<String> {
+          flight.run("9781974702015") {
+            calls.incrementAndGet()
+            started.countDown()
+            check(release.await(3, TimeUnit.SECONDS))
+            "verified-product"
+          }
         }
-      }
       assertThat(started.await(3, TimeUnit.SECONDS)).isTrue()
       val followerReady = CountDownLatch(1)
-      val two = pool.submit<String> {
-        followerReady.countDown()
-        flight.run("9781974702015") {
-          calls.incrementAndGet()
-          "must-not-run"
+      val two =
+        pool.submit<String> {
+          followerReady.countDown()
+          flight.run("9781974702015") {
+            calls.incrementAndGet()
+            "must-not-run"
+          }
         }
-      }
       assertThat(followerReady.await(3, TimeUnit.SECONDS)).isTrue()
       // The leader is blocked until after the follower begins its run; allow thread scheduling.
       Thread.sleep(30)

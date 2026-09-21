@@ -58,9 +58,10 @@ internal class KoboJapaneseEditionBridge(
           null
         }
 
+      val scan = if (candidate == null) findVerifiedEdition(searchDocument, isbn, search, directPrint) else null
       val edition =
-        candidate ?: findVerifiedEdition(searchDocument, isbn, search, directPrint)
-          ?: return failed("Rakuten print/ebook edition association could not be verified")
+        candidate ?: scan?.edition
+          ?: return failed("Rakuten print/ebook edition association could not be verified: ${scan?.summary.orEmpty()}")
       verifyKoboJapan(isbn, edition.bookId)
     } catch (e: Exception) {
       KoboProductLookupResult.Failed(e)
@@ -110,7 +111,7 @@ internal class KoboJapaneseEditionBridge(
     isbn: String,
     preloadedSearch: KoboWebsitePage,
     directPrint: HttpUrl?,
-  ): RakutenEdition? {
+  ): EditionScan {
     val prints =
       if (directPrint != null)
         listOf(directPrint)
@@ -121,10 +122,15 @@ internal class KoboJapaneseEditionBridge(
           .distinct()
           .take(MAX_PRINT_CANDIDATES)
     val verified = mutableListOf<RakutenEdition>()
+    var primaryIsbnMatches = 0
+    var ebookCandidates = 0
+    var parsedEbooks = 0
+    var matchingTitles = 0
     for (printUrl in prints) {
       val paper = if (printUrl == directPrint) preloadedSearch else fetchRakuten(printUrl, "rb")
       val source = Jsoup.parse(paper.html, paper.url.toString())
       if (primaryPrintIsbn(source) != isbn) continue
+      primaryIsbnMatches++
       val sourceMetadata = metadata(source)
       val primaryLinks = editionLinks(source)
       // The original ISBN search card can contain the explicit counterpart link even
@@ -143,10 +149,27 @@ internal class KoboJapaneseEditionBridge(
           sourceMetadata.title.isNotEmpty() -> catalogueLinks(sourceMetadata.title)
           else -> emptyList()
         }
-      if (links.size > MAX_EBOOK_CANDIDATES) return null // Cannot exclude another plausible edition.
+      // Rakuten print pages can contain several linked digital volumes.  A link is
+      // only a candidate, not a match: inspect every bounded candidate and accept
+      // a result only if exactly one ebook matches the verified print edition.
+      // Reject larger lists instead of arbitrarily accepting the first match.
+      if (links.size > MAX_LINKED_RAKUTEN_EBOOK_CANDIDATES) {
+        throw IllegalStateException(
+          "Rakuten print page has ${links.size} ebook candidates, exceeding the safe scan limit $MAX_LINKED_RAKUTEN_EBOOK_CANDIDATES",
+        )
+      }
+      ebookCandidates += links.size
       for (ebookUrl in links) {
         val ebook = readEbook(fetchRakuten(ebookUrl, "rk")) ?: continue
-        if (sourceMetadata.title.isNotEmpty() && sourceMetadata.title != ebook.metadata.title) continue
+        parsedEbooks++
+        // A missing title does not invalidate an explicitly linked ebook whose print ISBN was verified.
+        // Still reject conflicting titles and title-less catalogue-search (unpaired) candidates.
+        if (sourceMetadata.title.isNotEmpty() && ebook.metadata.title.isNotEmpty() &&
+          sourceMetadata.title != ebook.metadata.title
+        )
+          continue
+        if (ebook.metadata.title.isEmpty() && !direct) continue
+        matchingTitles++
         if (sourceMetadata.publisher.isNotEmpty() && ebook.metadata.publisher.isNotEmpty() &&
           sourceMetadata.publisher != ebook.metadata.publisher
         )
@@ -162,7 +185,13 @@ internal class KoboJapaneseEditionBridge(
       }
     }
     // Do not arbitrarily pick an ISBN search candidate, an ebook edition, or a volume.
-    return verified.distinctBy { it.bookId }.singleOrNull()
+    val unique = verified.distinctBy { it.bookId }
+    return EditionScan(
+      unique.singleOrNull(),
+      "printCandidates=${prints.size}, verifiedPrimaryIsbns=$primaryIsbnMatches, " +
+        "ebookCandidates=$ebookCandidates, parsedEbooks=$parsedEbooks, matchingTitles=$matchingTitles, " +
+        "verifiedEditions=${unique.size}",
+    )
   }
 
   private fun editionLinks(source: Document): List<HttpUrl> =
@@ -208,7 +237,9 @@ internal class KoboJapaneseEditionBridge(
         .map { it.attr("content").trim() }
         .filter { BOOK_ID.matches(it) }
         .toSet()
-    if (ids.size > 1) return null
+    if (ids.size > 1) {
+      return null
+    }
     val id =
       ids.singleOrNull() ?: run {
         val primary = primaryInfo(document)
@@ -229,33 +260,40 @@ internal class KoboJapaneseEditionBridge(
             value?.takeIf { label == "item number" && BOOK_ID.matches(it) }
           }
       }
-    if (id == null || !BOOK_ID.matches(id)) return null
+    if (id == null || !BOOK_ID.matches(id)) {
+      return null
+    }
     val info = metadata(document)
-    if (info.title.isEmpty()) return null
     return Ebook(id, info)
   }
 
   private fun primaryPrintIsbn(document: Document): String? {
-    val ids = mutableSetOf<String>()
+    // Prefer the product's OWN displayed ISBN over page-wide structured data.
+    // Rakuten can include ISBNs for related titles in JSON-LD and recommendations;
+    // combining them with the primary ISBN makes singleOrNull() reject a valid book.
+    val primary = primaryInfo(document)
+    val visibleIds = mutableSetOf<String>()
+    primary.select("dt").filter { it.text().trim().equals("ISBN", ignoreCase = true) }.forEach { label ->
+      KoboLookupIsbn.normalize(label.nextElementSibling()?.text())?.let(visibleIds::add)
+    }
+    PRINT_ISBN_LABEL.findAll(primary.text()).forEach { match ->
+      KoboLookupIsbn.normalize(match.groupValues[1])?.let(visibleIds::add)
+    }
+    if (visibleIds.isNotEmpty()) return visibleIds.singleOrNull()
+
+    val fallbackIds = mutableSetOf<String>()
     document
       .select("[itemprop=isbn], meta[name=isbn], meta[property='book:isbn'], meta[property='books:isbn']")
       .filterNot(::inUnrelated)
       .forEach { node ->
-        KoboLookupIsbn.normalize(node.attr("content").ifBlank { node.text() })?.let(ids::add)
+        KoboLookupIsbn.normalize(node.attr("content").ifBlank { node.text() })?.let(fallbackIds::add)
       }
     document.select("script[type=application/ld+json]").forEach { script ->
       Regex("\"isbn\"\\s*:\\s*\"([\\d-]{10,18})\"").findAll(script.data()).forEach { match ->
-        KoboLookupIsbn.normalize(match.groupValues[1])?.let(ids::add)
+        KoboLookupIsbn.normalize(match.groupValues[1])?.let(fallbackIds::add)
       }
     }
-    val primary = primaryInfo(document)
-    primary.select("dt").filter { it.text().trim().equals("ISBN", ignoreCase = true) }.forEach { label ->
-      KoboLookupIsbn.normalize(label.nextElementSibling()?.text())?.let(ids::add)
-    }
-    PRINT_ISBN_LABEL.findAll(primary.text()).forEach { match ->
-      KoboLookupIsbn.normalize(match.groupValues[1])?.let(ids::add)
-    }
-    return ids.singleOrNull()
+    return fallbackIds.singleOrNull()
   }
 
   private fun metadata(document: Document): Bibliography {
@@ -462,6 +500,11 @@ internal class KoboJapaneseEditionBridge(
     val primaryPrintVerified: Boolean,
   )
 
+  private data class EditionScan(
+    val edition: RakutenEdition?,
+    val summary: String,
+  )
+
   private companion object {
     val RAKUTEN_SEARCH = "https://books.rakuten.co.jp/search".toHttpUrl()
     val KOBO_JAPAN_SEARCH = "https://www.kobo.com/jp/ja/search".toHttpUrl()
@@ -480,5 +523,6 @@ internal class KoboJapaneseEditionBridge(
     const val MAX_REQUESTS = 12
     const val MAX_PRINT_CANDIDATES = 8
     const val MAX_EBOOK_CANDIDATES = 3
+    const val MAX_LINKED_RAKUTEN_EBOOK_CANDIDATES = 8
   }
 }

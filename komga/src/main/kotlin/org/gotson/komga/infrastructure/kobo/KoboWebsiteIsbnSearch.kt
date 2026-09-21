@@ -34,7 +34,6 @@ internal class KoboWebsiteIsbnSearch(
         ?.lowercase()
         ?.let { it == "ja" || it.startsWith("ja-") } == true
     for (store in if (preferredOnly) listOf("gb/en") else KoboWebsiteStorefronts.plan(locale)) {
-      var storefrontIncomplete = false
       for (page in 1..MAX_PAGES) {
         if (requests >= MAX_REQUESTS) return KoboProductLookupResult.Failed(IllegalStateException("Kobo website lookup request budget exhausted"))
         val url =
@@ -57,7 +56,6 @@ internal class KoboWebsiteIsbnSearch(
             if (e.statusCode !in setOf(404, 410)) throw e
             if (preferredOnly) return KoboProductLookupResult.NotFound // a scoped miss; full scan is queued by the caller
             inconclusive = true
-            storefrontIncomplete = true
             break
           }
         val direct = productUrl(search.url)
@@ -74,13 +72,11 @@ internal class KoboWebsiteIsbnSearch(
         }
         if (direct == null && !isSearchPage(search.url, store)) {
           inconclusive = true
-          storefrontIncomplete = true
           break // A search redirected to another storefront is not a result in this one.
         }
         if (direct != null) {
           if (storeFor(direct) != store) {
             inconclusive = true
-            storefrontIncomplete = true
             break
           }
           parser.parse(search.html, direct.toString(), isbn)?.let { identity ->
@@ -88,7 +84,6 @@ internal class KoboWebsiteIsbnSearch(
             return KoboProductLookupResult.Found(identity.productId, identity.seriesId)
           }
           inconclusive = true // Main-book fields missing/mismatched; never cache a negative.
-          storefrontIncomplete = true
           break
         }
 
@@ -104,7 +99,6 @@ internal class KoboWebsiteIsbnSearch(
         if (candidates.isEmpty()) {
           if (EMPTY_TEXT.any { it.containsMatchIn(root.text().lowercase()) }) break
           inconclusive = true // An unfamiliar search layout is NOT a verified no-result page.
-          storefrontIncomplete = true
           break
         }
         for (candidate in candidates.take(MAX_CANDIDATES)) {
@@ -116,13 +110,11 @@ internal class KoboWebsiteIsbnSearch(
             } catch (e: KoboWebsiteHttpException) {
               if (e.statusCode !in setOf(404, 410)) throw e
               inconclusive = true
-              storefrontIncomplete = true
               continue
             }
           val resolved = productUrl(detail.url)
           if (resolved == null || storeFor(resolved) != store) {
             inconclusive = true
-            storefrontIncomplete = true
             continue
           }
           parser.parse(detail.html, resolved.toString(), isbn)?.let { identity ->
@@ -133,13 +125,11 @@ internal class KoboWebsiteIsbnSearch(
           // is inconclusive. Do not use arbitrary identifiers in recommendations as evidence.
           if (parser.primaryIdentifierMissing(detail.html, resolved.toString()) || detail.html.contains(isbn)) {
             inconclusive = true
-            storefrontIncomplete = true
           }
           // A wrong candidate is not an error in itself; other candidates may match.
         }
         if (candidates.size > MAX_CANDIDATES) {
           inconclusive = true
-          storefrontIncomplete = true
           break
         }
         val more =
@@ -153,18 +143,16 @@ internal class KoboWebsiteIsbnSearch(
         if (!more) break
         if (page == MAX_PAGES) {
           inconclusive = true
-          storefrontIncomplete = true
         }
       }
       // Rakuten is invoked only after a completed Japan lookup failed to verify the print ISBN.
       // A challenge, unknown layout or truncated result list is not evidence of absence.
-      if (japanese && store == "jp/ja" && !storefrontIncomplete) {
+      if (japanese && store == "jp/ja") {
         when (val bridged = afterJapaneseMiss(isbn)) {
           is KoboProductLookupResult.Found -> return bridged
-          is KoboProductLookupResult.Failed -> {
-            if (bridged.cause is KoboWebsiteBlockedException) return bridged
-            inconclusive = true
-          }
+          // The Japanese Rakuten step is the final fallback. Preserve its concrete
+          // failure reason rather than replacing it with a generic storefront error.
+          is KoboProductLookupResult.Failed -> return bridged
           else -> Unit
         }
       }

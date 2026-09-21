@@ -6,6 +6,7 @@ package org.gotson.komga.interfaces.api.kobo
 import com.fasterxml.jackson.databind.JsonNode
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.gotson.komga.domain.service.KoboProductResolver
+import org.gotson.komga.infrastructure.kobo.KoboDeviceSeriesObserver
 import org.gotson.komga.infrastructure.kobo.KoboRawStoreProxy
 import org.gotson.komga.infrastructure.kobo.KoboSeriesIdResolver
 import org.gotson.komga.infrastructure.security.KomgaPrincipal
@@ -29,6 +30,7 @@ class KoboRemainingEndpointsController(
   private val koboRawStoreProxy: KoboRawStoreProxy,
   private val koboProductResolver: KoboProductResolver,
   private val koboSeriesIdResolver: KoboSeriesIdResolver,
+  private val koboDeviceSeriesObserver: KoboDeviceSeriesObserver,
   private val koboSeriesProductDiscovery: org.gotson.komga.infrastructure.kobo.KoboSeriesProductDiscovery,
   private val koboLocalStoreResponseBuilder: KoboLocalStoreResponseBuilder,
   private val contentRestrictionChecker: ContentRestrictionChecker,
@@ -53,7 +55,9 @@ class KoboRemainingEndpointsController(
     }
 
     if (!koboLocalStoreResponseBuilder.isLocalBook(bookId)) {
-      return koboRawStoreProxy.proxyCurrentRequest()
+      val upstream = koboRawStoreProxy.proxyCurrentRequest()
+      observeBookDetails(bookId, upstream.body, principal)
+      return upstream
     }
 
     contentRestrictionChecker.checkContentRestrictionBook(principal.user, bookId)
@@ -72,6 +76,8 @@ class KoboRemainingEndpointsController(
           null
         }
       }
+
+    if (productId != null) observeBookDetails(productId, upstream?.body, principal, bookId)
 
     val body =
       koboLocalStoreResponseBuilder.buildBookDetails(
@@ -111,7 +117,9 @@ class KoboRemainingEndpointsController(
   ): ResponseEntity<JsonNode> {
     val localBookIds = koboLocalStoreResponseBuilder.localSeriesBookIds(seriesId)
     if (localBookIds.isEmpty()) {
-      return koboRawStoreProxy.proxyCurrentRequest()
+      val upstream = koboRawStoreProxy.proxyCurrentRequest()
+      observeSeries(seriesId, upstream.body, principal)
+      return upstream
     }
 
     contentRestrictionChecker.checkContentRestrictionSeries(principal.user, seriesId)
@@ -133,6 +141,7 @@ class KoboRemainingEndpointsController(
 
     // Only consume the response from this device-initiated proxy request.
     koboSeriesProductDiscovery.learn(localBookIds, upstream?.body)
+    observeSeries(koboSeriesId, upstream?.body, principal)
 
     val body =
       koboLocalStoreResponseBuilder.buildSeries(
@@ -162,6 +171,35 @@ class KoboRemainingEndpointsController(
         .body(body)
     } else {
       ResponseEntity.ok(body)
+    }
+  }
+
+  private fun observeBookDetails(
+    productId: String,
+    upstream: JsonNode?,
+    principal: KomgaPrincipal,
+    localBookId: String? = null,
+  ) {
+    try {
+      koboDeviceSeriesObserver.observeBookDetails(productId, upstream, localBookId) { bookId ->
+        runCatching { contentRestrictionChecker.checkContentRestrictionBook(principal.user, bookId) }.isSuccess
+      }
+    } catch (e: Exception) {
+      logger.debug(e) { "Could not observe device BookDetails SeriesId" }
+    }
+  }
+
+  private fun observeSeries(
+    seriesId: String?,
+    upstream: JsonNode?,
+    principal: KomgaPrincipal,
+  ) {
+    try {
+      koboDeviceSeriesObserver.observeSeriesResponse(seriesId, upstream) { bookId ->
+        runCatching { contentRestrictionChecker.checkContentRestrictionBook(principal.user, bookId) }.isSuccess
+      }
+    } catch (e: Exception) {
+      logger.debug(e) { "Could not observe device Series response SeriesId" }
     }
   }
 

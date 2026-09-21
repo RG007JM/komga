@@ -118,7 +118,7 @@ class KoboJapaneseEditionBridgeTest {
   }
 
   @Test
-  fun `inconclusive Japanese search does not launch Rakuten bridge or cache a negative`() {
+  fun `inconclusive Japanese search invokes Rakuten bridge without caching a negative`() {
     var bridgeCalls = 0
     val search =
       KoboWebsiteIsbnSearch({ url ->
@@ -131,7 +131,7 @@ class KoboJapaneseEditionBridgeTest {
         KoboProductLookupResult.NotFound
       })
     assertThat(search.find(isbn, "ja-JP")).isInstanceOf(KoboProductLookupResult.Failed::class.java)
-    assertThat(bridgeCalls).isZero()
+    assertThat(bridgeCalls).isEqualTo(1)
   }
 
   @Test
@@ -388,6 +388,106 @@ class KoboJapaneseEditionBridgeTest {
       }, parser)
     assertThat(bridge.find(isbn)).isInstanceOf(KoboProductLookupResult.Failed::class.java)
     assertThat(requests.size).isLessThanOrEqualTo(12)
+    assertThat(requests.none { it.host == "www.kobo.com" }).isTrue()
+  }
+
+  @Test
+  fun `six digital links on a verified print page do not hide the matching edition`() {
+    val unrelatedUrls =
+      (1..5).map { "https://books.rakuten.co.jp/rk/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa$it/" }
+    val print =
+      """
+      <h1>かぐや様を語りたい 4</h1>
+      <div id='itemDetail'>ISBN： $isbn
+        ${unrelatedUrls.joinToString(" ") { "<a href='$it'>電子書籍版</a>" }}
+        <a href='$ebookUrl'>楽天Kobo 電子書籍版</a>
+      </div>
+      <script type='application/ld+json'>{"isbn":"9784088911793"}</script>
+      """.trimIndent()
+    val requested = mutableListOf<String>()
+    val bridge =
+      KoboJapaneseEditionBridge({ url ->
+        requested += url.toString()
+        when {
+          url.encodedPath == "/search" -> page(url.toString(), "<a href='$printUrl'>Print</a>")
+          url.encodedPath.startsWith("/rb/") -> page(printUrl, print)
+          url.toString() == ebookUrl -> page(ebookUrl, rakutenEbook())
+          url.encodedPath.startsWith("/rk/") -> page(url.toString(), rakutenEbook(title = "別の作品 1", id = "4330000000000"))
+          url.encodedPath == "/jp/ja/search" -> page(koboUrl, koboEbook())
+          else -> error("Unexpected request $url")
+        }
+      }, parser)
+
+    assertThat(bridge.find(isbn)).isEqualTo(KoboProductLookupResult.Found(productId, seriesId))
+    assertThat(requested.count { "/rk/" in it }).isEqualTo(6)
+    assertThat(requested.last()).contains("/jp/ja/search?query=$ebookId")
+  }
+
+  @Test
+  fun `ebook with verified primary ID and no h1 is accepted only via the explicit print-edition link`() {
+    val requests = mutableListOf<HttpUrl>()
+    val bridge =
+      KoboJapaneseEditionBridge({ url ->
+        requests += url
+        when {
+          url.host == "books.rakuten.co.jp" && url.encodedPath == "/search" ->
+            page(url.toString(), "<a href='$printUrl'>Print product</a>")
+          url.encodedPath == "/rb/16594407/" ->
+            page(
+              printUrl,
+              """
+              <h1>かぐや様を語りたい 4</h1>
+              <div id='itemDetail'>ISBN： $isbn
+                <a href='$ebookUrl'>楽天Kobo 電子書籍版</a>
+              </div>
+              """.trimIndent(),
+            )
+          url.encodedPath == "/rk/f947c5a0ffeb32f3ae80b2214b14922a/" ->
+            page(
+              ebookUrl,
+              """
+              <html><head><meta property='books:isbn' content='$ebookId'></head>
+              <body><div id='productDetailedDescription'><li class='productInfo'>
+                <span class='category'>商品番号</span><span class='categoryValue'>$ebookId</span>
+              </li></div></body></html>
+              """.trimIndent(),
+            )
+          url.encodedPath == "/jp/ja/search" && url.queryParameter("query") == ebookId ->
+            page(koboUrl, koboEbook(series = null))
+          else -> error("Unexpected request $url")
+        }
+      }, parser)
+
+    assertThat(bridge.find(isbn)).isEqualTo(KoboProductLookupResult.Found(productId, null))
+    assertThat(requests.map { it.encodedPath }).containsExactly(
+      "/search",
+      "/rb/16594407/",
+      "/rk/f947c5a0ffeb32f3ae80b2214b14922a/",
+      "/jp/ja/search",
+    )
+    assertThat(requests.last().queryParameter("query")).isEqualTo(ebookId)
+  }
+
+  @Test
+  fun `title-less catalogue ebook without explicit print edition link is rejected`() {
+    val requests = mutableListOf<HttpUrl>()
+    val bridge =
+      KoboJapaneseEditionBridge({ url ->
+        requests += url
+        when {
+          url.encodedPath == "/search" && url.queryParameter("g") == "000" ->
+            page(url.toString(), "<a href='$printUrl'>Print product</a>")
+          url.encodedPath == "/rb/16594407/" ->
+            page(printUrl, "<h1>かぐや様を語りたい 4</h1><div id='itemDetail'>ISBN： $isbn</div>")
+          url.encodedPath == "/search" && url.queryParameter("g") == "101" ->
+            page(url.toString(), "<a href='$ebookUrl'>かぐや様を語りたい 4</a>")
+          url.encodedPath == "/rk/f947c5a0ffeb32f3ae80b2214b14922a/" ->
+            page(ebookUrl, "<meta property='books:isbn' content='$ebookId'>")
+          else -> error("An unpaired title-less ebook must not reach Kobo: $url")
+        }
+      }, parser)
+
+    assertThat(bridge.find(isbn)).isInstanceOf(KoboProductLookupResult.Failed::class.java)
     assertThat(requests.none { it.host == "www.kobo.com" }).isTrue()
   }
 }

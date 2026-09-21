@@ -3,6 +3,7 @@ package org.gotson.komga.infrastructure.kobo
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.zhkl0228.impersonator.ImpersonatorFactory
 import okhttp3.HttpUrl
+import okhttp3.OkHttpClient
 import okhttp3.OkHttpClientFactory
 import okhttp3.Request
 import org.gotson.komga.domain.persistence.BookRepository
@@ -50,6 +51,12 @@ class KoboProductClient(
     OkHttpClientFactory
       .create(impersonator)
       .newHttpClient()
+
+  // The browser-impersonating transport uses Bouncy Castle TLS. Rakuten Books rejects
+  // that handshake on some hosts (fatal illegal_parameter/47); a plain OkHttp client
+  // uses the JVM's normal TLS stack. Keep the original impersonating client for Kobo.
+  // Neither client installs a persistent cookie jar.
+  private val rakutenClient = OkHttpClient.Builder().build()
   private val pageParser = KoboProductPageParser(objectMapper)
   private val knownProductCheck = KoboKnownProductPageCheck(::getPage, pageParser)
   private val japaneseEditionBridge =
@@ -191,7 +198,8 @@ class KoboProductClient(
           .header("Sec-Fetch-User", "?1")
           .get()
           .build()
-      return client.newCall(request).execute().use { response ->
+      val transport = if (url.host == "books.rakuten.co.jp") rakutenClient else client
+      return transport.newCall(request).execute().use { response ->
         if (response.header("cf-mitigated")?.equals("challenge", ignoreCase = true) == true ||
           response.code == 403 || response.code == 429
         ) {

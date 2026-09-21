@@ -16,6 +16,8 @@ import org.gotson.komga.interfaces.api.ContentRestrictionChecker
 import org.gotson.komga.interfaces.api.persistence.BookDtoRepository
 import org.gotson.komga.interfaces.api.rest.dto.BookDto
 import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageImpl
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -24,6 +26,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
 import java.time.LocalDateTime
@@ -37,17 +40,73 @@ class KoboBookMappingController(
   private val contentRestrictionChecker: ContentRestrictionChecker,
   private val diagnostics: KoboLookupDiagnostics,
 ) {
-  @Operation(summary = "List cached Kobo ProductId mappings", tags = [OpenApiConfiguration.TagNames.BOOKS])
+  /** Inspect existing mappings only. A state-filtered request scans all accessible books so
+   * totalElements is the count of matching books BEFORE pagination, not the current page size.
+   */
+  @Operation(summary = "List cached Kobo ProductId mappings, optionally filtered by state", tags = [OpenApiConfiguration.TagNames.BOOKS])
   @PageableWithoutSortAsQueryParam
   @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("kobo-mappings")
   fun listMappings(
     @AuthenticationPrincipal principal: KomgaPrincipal,
     @Parameter(hidden = true) page: Pageable,
+    @RequestParam(required = false) state: KoboBookMappingState? = null,
   ): Page<KoboBookMappingDto> {
-    val books = bookDtoRepository.findAll(SearchContext(principal.user), page)
-    val mappings = mappingRepository.findByBookIds(books.content.map { it.id }).associateBy { it.bookId }
-    return books.map { it.toKoboMappingDto(mappings[it.id]) }
+    val context = SearchContext(principal.user)
+    if (state == null) {
+      val books = bookDtoRepository.findAll(context, page)
+      val mappings = mappingRepository.findByBookIds(books.content.map { it.id }).associateBy { it.bookId }
+      return books.map { it.toKoboMappingDto(mappings[it.id]) }
+    }
+
+    val matching = ArrayList<KoboBookMappingDto>(page.pageSize)
+    val start = page.offset
+    val end = if (Long.MAX_VALUE - start < page.pageSize) Long.MAX_VALUE else start + page.pageSize
+    var totalMatches = 0L
+    forEachMapping(context) { mapping ->
+      if (mapping.state == state) {
+        if (totalMatches >= start && totalMatches < end) matching.add(mapping)
+        totalMatches++
+      }
+    }
+    return PageImpl(matching, page, totalMatches)
+  }
+
+  /** Count all accessible books once, grouped by the same state used by the list endpoint. */
+  @Operation(summary = "Count cached Kobo mappings by state", tags = [OpenApiConfiguration.TagNames.BOOKS])
+  @PreAuthorize("hasRole('ADMIN')")
+  @GetMapping("kobo-mappings/counts")
+  fun countMappings(
+    @AuthenticationPrincipal principal: KomgaPrincipal,
+  ): KoboBookMappingCountsDto {
+    val counts = KoboBookMappingState.entries.associateWith { 0L }.toMutableMap()
+    var total = 0L
+    forEachMapping(SearchContext(principal.user)) { mapping ->
+      counts[mapping.state] = counts.getValue(mapping.state) + 1
+      total++
+    }
+    return KoboBookMappingCountsDto(total, counts)
+  }
+
+  /** Batch the read to avoid loading the entire library into memory. The source repository
+   * applies the authenticated user's content restrictions on each page.
+   */
+  private fun forEachMapping(
+    context: SearchContext,
+    visit: (KoboBookMappingDto) -> Unit,
+  ) {
+    var batchNumber = 0
+    do {
+      val batch = bookDtoRepository.findAll(context, PageRequest.of(batchNumber, MAPPING_SCAN_BATCH_SIZE))
+      if (batch.isEmpty) break
+      val mappings = mappingRepository.findByBookIds(batch.content.map { it.id }).associateBy { it.bookId }
+      batch.content.forEach { book -> visit(book.toKoboMappingDto(mappings[book.id])) }
+      batchNumber++
+    } while (batch.hasNext())
+  }
+
+  companion object {
+    private const val MAPPING_SCAN_BATCH_SIZE = 250
   }
 
   @Operation(summary = "Get cached Kobo ProductId mapping for a book", tags = [OpenApiConfiguration.TagNames.BOOKS])
@@ -86,6 +145,11 @@ class KoboBookMappingController(
     )
   }
 }
+
+data class KoboBookMappingCountsDto(
+  val totalBooks: Long,
+  val byState: Map<KoboBookMappingState, Long>,
+)
 
 data class KoboIdentityDiagnosticDto(
   val mapping: KoboBookMappingDto,

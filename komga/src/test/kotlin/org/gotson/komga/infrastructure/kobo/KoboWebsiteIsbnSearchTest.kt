@@ -34,7 +34,7 @@ class KoboWebsiteIsbnSearchTest {
     assertThat(stores).hasSize(47)
     assertThat(stores.distinct()).hasSize(47)
     assertThat(stores.take(2)).containsExactly("ww/en", "it/it")
-    assertThat(KoboWebsiteStorefronts.plan("ja-JP")).containsExactly("ww/en", "jp/ja", "gb/en")
+    assertThat(KoboWebsiteStorefronts.plan("ja-JP")).containsExactly("ww/en", "jp/ja")
   }
 
   @Test
@@ -218,7 +218,7 @@ class KoboWebsiteIsbnSearchTest {
         KoboWebsitePage(url, "<main>Unrecognized search layout</main>")
       }, parser)
     assertThat(lookup.find(isbn, "ja-JP")).isInstanceOf(KoboProductLookupResult.Failed::class.java)
-    assertThat(calls).containsExactly("/ww/en/search", "/jp/ja/search", "/gb/en/search")
+    assertThat(calls).containsExactly("/ww/en/search", "/jp/ja/search")
   }
 
   @Test
@@ -230,7 +230,7 @@ class KoboWebsiteIsbnSearchTest {
         KoboWebsitePage(url, "<h2 data-testid='no-result'>找不到結果</h2>")
       }, parser)
     assertThat(lookup.find(isbn, "ja-JP")).isEqualTo(KoboProductLookupResult.NotFound)
-    assertThat(calls).containsExactly("/ww/en/search", "/jp/ja/search", "/gb/en/search")
+    assertThat(calls).containsExactly("/ww/en/search", "/jp/ja/search")
   }
 
   @Test
@@ -245,7 +245,7 @@ class KoboWebsiteIsbnSearchTest {
           KoboWebsitePage(url, "<h2 data-testid='no-result'>No</h2>")
       }, parser)
     assertThat(lookup.find(isbn, "ja-JP")).isInstanceOf(KoboProductLookupResult.Failed::class.java)
-    assertThat(calls).containsExactly("/ww/en/search", "/jp/ja/search", "/gb/en/search")
+    assertThat(calls).containsExactly("/ww/en/search", "/jp/ja/search")
   }
 
   @Test
@@ -358,5 +358,33 @@ class KoboWebsiteIsbnSearchTest {
         }
       }, parser)
     assertThat(lookup.find(isbn, "ja-JP")).isInstanceOf(KoboProductLookupResult.Failed::class.java)
+  }
+
+  @Test
+  fun `non Japanese global scan may visit jp storefront without invoking Rakuten bridge`() {
+    val stores = mutableListOf<String>()
+    val search =
+      KoboWebsiteIsbnSearch({ url ->
+        stores += url.pathSegments.take(2).joinToString("/")
+        KoboWebsitePage(url, "<main><h2 data-testid='no-result'>No results</h2></main>")
+      }, parser, afterJapaneseMiss = { error("The Rakuten bridge is Japanese-language only") })
+
+    assertThat(search.find(isbn, "en-US")).isEqualTo(KoboProductLookupResult.NotFound)
+    assertThat(stores.first()).isEqualTo("ww/en")
+    assertThat(stores).contains("jp/ja")
+  }
+
+  @Test
+  fun `Japanese final bridge failure retains the concrete reason`() {
+    val search =
+      KoboWebsiteIsbnSearch({ url ->
+        KoboWebsitePage(url, "<main><h2 data-testid='no-result'>No results</h2></main>")
+      }, parser, afterJapaneseMiss = {
+        KoboProductLookupResult.Failed(IllegalStateException("Rakuten verifiedPrimaryIsbns=0"))
+      })
+
+    val result = search.find(isbn, "ja-JP")
+    assertThat(result).isInstanceOf(KoboProductLookupResult.Failed::class.java)
+    assertThat((result as KoboProductLookupResult.Failed).cause.message).contains("verifiedPrimaryIsbns=0")
   }
 }

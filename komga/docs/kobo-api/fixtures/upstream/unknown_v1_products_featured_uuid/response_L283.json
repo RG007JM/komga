@@ -1,0 +1,276 @@
+{
+  "Items": [
+    {
+      "Audiobook": {
+        "Duration": 19699,
+        "TotalBytes": 157602232,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Cory Doctorow,Cory Doctorow",
+        "WorkId": "ddcde401-ade9-358f-a220-cde45f377c1c",
+        "Subtitle": "How to Think About Artificial Intelligence—Before It's Too Late",
+        "IsFree": false,
+        "ISBN": "9781250472007",
+        "PublicationDate": "2026-06-23T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Cory Doctorow",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Cory Doctorow",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "ddcde401-ade9-358f-a220-cde45f377c1c",
+        "Title": "The Reverse Centaur's Guide to Life After AI",
+        "Description": "<p><strong>A short, provocative guide to what's good, bad, and stupid about AI and the discourse around AI, by the author of <em>Enshittification</em>.</strong> This program is read by the a… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "e64015c8-16d4-4162-bba6-984235195688",
+        "PublisherName": "Macmillan Audio",
+        "Rating": 5,
+        "TotalRating": 1,
+        "Slug": "the-reverse-centaur-s-guide-to-life-after-ai-1",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 20.52
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 8800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "199ba7f4-0e94-96f8-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-06-23T00:00:00.0000000Z"
+        },
+        "Id": "4e498e0d-b577-4b26-888a-14199528f96c"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 32580,
+        "TotalBytes": 260664958,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Madeline Cash,Christine Lakin",
+        "WorkId": "2cc89b85-911e-39e3-9053-716d890ef5fb",
+        "Subtitle": "A Novel",
+        "IsFree": false,
+        "ISBN": "9781250435958",
+        "PublicationDate": "2026-01-13T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Christine Lakin",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Madeline Cash",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "2cc89b85-911e-39e3-9053-716d890ef5fb",
+        "Title": "Lost Lambs",
+        "Description": "<p><strong>\"Christine Lakin's reading is terrific. Her narration is wonderfully deadpan...and her characterization is pure ear candy. Lakin grants each character complexity and humanity...\" … [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "271b4716-fc27-4f6f-bb49-53aa6e9f2991",
+        "PublisherName": "Macmillan Audio",
+        "Rating": 4.25,
+        "TotalRating": 4,
+        "Slug": "lost-lambs-1",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 24.09
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 10400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "e4ec77eb-fa27-5a1f-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-01-13T00:00:00.0000000Z"
+        },
+        "Id": "4f32528f-a491-4297-bf2b-5421199d1749"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 32583,
+        "TotalBytes": 260683317,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Madeline Cash,Christine Lakin",
+        "WorkId": "26d6f81a-4b5d-3f16-9187-c05d7e9fb3cd",
+        "Subtitle": "The Sunday Times Bestseller – 2026’s standout debut, a funny, sharp, dysfunctional-family novel",
+        "IsFree": false,
+        "ISBN": "9781529970395",
+        "PublicationDate": "2026-02-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Christine Lakin",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Madeline Cash",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "26d6f81a-4b5d-3f16-9187-c05d7e9fb3cd",
+        "Title": "Lost Lambs",
+        "Description": "<p><strong>Brought to you by Penguin.</strong></p><p><strong>Think your family is dysfunctional? Meet the Flynns.</strong></p><p>For the three Flynn daughters, it’s been disastrous since the… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "acc8b2b6-1a16-42cb-95a7-1df1667a2301",
+        "PublisherName": "Transworld",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "lost-lambs-4",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 16.13
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 7200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "4abef1c2-807e-5269-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-02-05T00:00:00.0000000Z"
+        },
+        "Id": "c8e4fa67-4679-40a3-b1ad-cc649cd37c74"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 33807,
+        "TotalBytes": 270476026,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Kate Folk,Kristen Sieh",
+        "WorkId": "ecf8d638-f2cf-38dc-aaa5-2f58fdbe8aa1",
+        "Subtitle": "'Truly original, deeply weird' - Daily Telegraph",
+        "IsFree": false,
+        "ISBN": "9781529372694",
+        "PublicationDate": "2025-04-08T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kristen Sieh",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Kate Folk",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "ecf8d638-f2cf-38dc-aaa5-2f58fdbe8aa1",
+        "Title": "Sky Daddy",
+        "Description": "<p>A BOOK OF THE YEAR IN <em>TIME</em>, <em>VOX</em>, AND <em>VULTURE</em></p><p>'Batty and brilliant'<br /><em><strong>THE TIMES</strong></em></p><p>'Truly original . . . deeply weird, deep… [TRUNCATED 302 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "efce7785-519f-4190-954a-166f54147c5f",
+        "PublisherName": "Hodder & Stoughton",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "sky-daddy-4",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 28.56
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 12000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "fce91969-ece7-3a87-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-04-08T00:00:00.0000000Z"
+        },
+        "Id": "9be80921-0ccc-49bd-9c5f-0b84faed190b"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 50,
+  "TotalItemCount": 198,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

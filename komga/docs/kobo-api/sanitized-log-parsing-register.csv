@@ -1,0 +1,39 @@
+device_line,method,device_http_status,device_url,original_parser_error,family,header_line,thread
+2516,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJHXHZRM?ExcludeOwned=false&PageSize=100,Unterminated string starting at,series,2497,0x2756800
+2869,GET,200,/kobo/{token}/v1/products/books/series/0RDTATKG1HM0V?ExcludeOwned=false&PageSize=100,Expecting ':' delimiter,series,2850,0x2756800
+3727,GET,200,/kobo/{token}/v1/products/books/series/0RKGS49PPFETD?ExcludeOwned=false&PageSize=100,Expecting value,series,3708,0x2756800
+4791,GET,200,/kobo/{token}/v1/products/books/series/0RDTATKF5HM5A?ExcludeOwned=false&PageSize=100,"Expecting ',' delimiter",series,4772,0x2756800
+5632,GET,200,/kobo/{token}/v1/products/books/series/0RDTATKG1HM0V?ExcludeOwned=false&PageSize=100,Expecting ':' delimiter,series,5613,0x2756800
+18498,GET,200,/kobo/{token}/v1/products/42ed6d94-1f32-4df9-9d97-023335a4eb9c/recommendations?page_index=0&page_size=5,Unterminated string starting at,recommendations,18479,0x2756800
+18914,GET,200,/kobo/{token}/v1/products/0RDTATJQNHSQ0/recommendations?page_index=0&page_size=5,"Expecting ',' delimiter",recommendations,18895,0x2756800
+19294,GET,200,/kobo/{token}/v1/products/cb4922b2-7577-4fa6-878a-d19d1891322a/recommendations?page_index=0&page_size=5,Unterminated string starting at,recommendations,19275,0x2756800
+19650,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJHXHZRM?ExcludeOwned=false&PageSize=100,Unterminated string starting at,series,19631,0x2756800
+19698,GET,200,/kobo/{token}/v1/products/books/series/0RDTATKG1HM0V?ExcludeOwned=false&PageSize=100,Expecting ':' delimiter,series,19679,0x2756800
+19857,GET,200,"/kobo/{token}/v1/products/featured/81844d90-8f90-40b0-98e4-f0cb6c3534e7?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook",Unterminated string starting at,featured,19838,0x2756800
+19969,GET,200,"/kobo/{token}/v1/products/featured/5f08e984-b1c0-c28e-aab3-08dc44f596cd?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook",Expecting value,featured,19950,0x2756800
+20025,GET,200,"/kobo/{token}/v1/products/featured/fc521346-a71d-c639-329e-08dabb85e7c5?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook",Unterminated string starting at,featured,20006,0x2756800
+20081,GET,200,"/kobo/{token}/v1/products/featured/d037e29d-052a-c92d-da3c-08dabc0dd8ed?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook",Unterminated string starting at,featured,20062,0x2756800
+20137,GET,200,"/kobo/{token}/v1/products/featured/0bd27bb0-0159-c3b8-3cd0-08dabc0e6802?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook","Expecting ',' delimiter",featured,20118,0x2756800
+20193,GET,200,"/kobo/{token}/v1/products/featured/7c088551-070f-ccdf-1740-08dabc0eb416?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook","Expecting ',' delimiter",featured,20174,0x2756800
+20249,GET,200,"/kobo/{token}/v1/products/featured/4db8e924-6cf8-c7a3-e468-08dabc0ffed4?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook","Expecting ',' delimiter",featured,20230,0x2756800
+20471,GET,200,"/kobo/{token}/v1/products/featured/47218d05-b1e0-cf64-c055-08d84aa5aa4b?page_index=0&page_size=4&Filters=%7B%7D&TypesToInclude=book,audiobook","Expecting ',' delimiter",featured,20452,0x2756800
+25146,GET,200,"/kobo/{token}/v1/products/featured/81844d90-8f90-40b0-98e4-f0cb6c3534e7?page_index=0&page_size=3&Filters=%7B%7D&TypesToInclude=book,audiobook",Unterminated string starting at,featured,25127,0x2756800
+25792,GET,200,/kobo/{token}/v1/products/42ed6d94-1f32-4df9-9d97-023335a4eb9c/nextread,Unterminated string starting at,nextread,25773,0x2756800
+30505,GET,200,/kobo/{token}/v1/products/0RDTATKHXHPS9/reviews?PageSize=50&SortBy=MostLikedFirst,"Expecting ',' delimiter",reviews,30486,0x1d88380
+31214,GET,200,"/kobo/{token}/v1/products?q=0RDTATKG1HM0V&Filters=%7B%7D&page_index=0&page_size=200&TypesToInclude=book,audiobook",Unterminated string starting at,search,31195,0x1d88380
+31588,GET,200,/kobo/{token}/v1/products/books/series/0RE3XW0WTEPX6?ExcludeOwned=false&PageSize=100,Unterminated string starting at,series,31569,0x2032868
+33069,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJHXHZRM?ExcludeOwned=false&PageSize=100,Unterminated string starting at,series,33050,0x2468018
+33584,GET,200,/kobo/{token}/v1/products/42ed6d94-1f32-4df9-9d97-023335a4eb9c/nextread,Unterminated string starting at,nextread,33565,0x2468018
+33821,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJ4DHY6Z?ExcludeOwned=false&PageSize=100,"Expecting ',' delimiter",series,33802,0x2722080
+35603,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJHXHZRM?ExcludeOwned=false&PageSize=100,Unterminated string starting at,series,35584,0x223a2e0
+35651,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJ4DHY6Z?ExcludeOwned=false&PageSize=100,"Expecting ',' delimiter",series,35632,0x223a2e0
+36139,GET,200,/kobo/{token}/v1/products/42ed6d94-1f32-4df9-9d97-023335a4eb9c/nextread,Unterminated string starting at,nextread,36120,0x223a2e0
+37150,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJHXHZRM?ExcludeOwned=false&PageSize=100,Unterminated string starting at,series,37131,0x39606e0
+37198,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJ4DHY6Z?ExcludeOwned=false&PageSize=100,"Expecting ',' delimiter",series,37179,0x39606e0
+37686,GET,200,/kobo/{token}/v1/products/42ed6d94-1f32-4df9-9d97-023335a4eb9c/nextread,Unterminated string starting at,nextread,37667,0x39606e0
+38719,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJHXHZRM?ExcludeOwned=false&PageSize=100,Unterminated string starting at,series,38700,0x2cfd168
+38767,GET,200,/kobo/{token}/v1/products/books/series/0RDTATJ4DHY6Z?ExcludeOwned=false&PageSize=100,"Expecting ',' delimiter",series,38748,0x2cfd168
+39255,GET,200,/kobo/{token}/v1/products/42ed6d94-1f32-4df9-9d97-023335a4eb9c/nextread,Unterminated string starting at,nextread,39236,0x2cfd168
+41976,GET,200,/kobo/{token}/v1/products/92329c27-e655-4caf-aa15-54f1354ae9d3/recommendations?page_index=0&page_size=100,Unterminated string starting at,recommendations,41957,0x3918f48
+45274,GET,200,"/kobo/{token}/v1/products?q=frieren&Filters=%7BLanguage:en%7D&page_index=0&page_size=200&TypesToInclude=book,audiobook",Unterminated string starting at,search,45255,0x1d88380
+45630,GET,200,"/kobo/{token}/v1/products?q=frieren&Filters=%7BLanguage:en%7D&page_index=0&page_size=200&TypesToInclude=book,audiobook",Unterminated string starting at,search,45611,0x1d88380

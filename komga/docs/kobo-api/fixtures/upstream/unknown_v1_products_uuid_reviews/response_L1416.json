@@ -1,0 +1,32 @@
+{
+  "ReviewSummary": {
+    "b8dc5f22-1050-333f-aebf-4b3b5000d1e4": {
+      "AvgRating": 4.75,
+      "OpinionCount": 16,
+      "RatingHistogram": {
+        "5": 12,
+        "4": 4
+      },
+      "NumberOfReviews": 1
+    }
+  },
+  "Items": [
+    {
+      "Id": "Book-b8dc5f22-1050-333f-aebf-4b3b5000d1e4-yQOV9wdevs55AvIhXPV3TRr63dXBGTOT7uBu4Wms=",
+      "RevisionId": "92329c27-e655-4caf-aa15-54f1354ae9d3",
+      "ProductId": "92329c27-e655-4caf-aa15-54f1354ae9d3",
+      "CrossRevisionId": "b8dc5f22-1050-333f-aebf-4b3b5000d1e4",
+      "PublicationId": "00000000-0000-0000-0000-000000000000",
+      "Title": "Mon avis",
+      "Body": "[REDACTED_PERSONAL_REVIEW]",
+      "AuthorDisplayName": "[REDACTED_PERSONAL_REVIEW]",
+      "Rating": 4,
+      "CreationDate": "2024-01-29T15:31:09.9314987-05:00",
+      "Likes": 3,
+      "Dislikes": 0,
+      "ModerationStatus": "Approved"
+    }
+  ],
+  "TotalPageCount": 1,
+  "CurrentPageIndex": 1
+}

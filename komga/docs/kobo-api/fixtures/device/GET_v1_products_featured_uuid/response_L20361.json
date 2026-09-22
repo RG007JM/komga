@@ -1,0 +1,304 @@
+{
+  "CurrentPageIndex": 0,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "ItemCount": 4,
+  "Items": [
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Samantha Brentmoor",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jason Clarke",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Devney Perry",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Devney Perry,Samantha Brentmoor,Jason Clarke",
+        "CrossRevisionId": "1a3277ee-3648-3afb-9682-8c9a57506d79",
+        "Description": "<p><strong>Now in development as a feature film with Amazon MGM Studios, with <em>John Wick</em> screenwriter Derek Kolstad attached to write the script!</strong></p><p><strong><em>Shield of… [TRUNCATED 310 chars; original string value]",
+        "Duration": 71504,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9798331924867",
+        "Id": "b0358ef9-1ac6-4fc9-9ee1-c88c5199e3da",
+        "ImageId": "b381e31c-77e1-4383-b046-dba404ea635c",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2025-05-06T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 11600,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 27.66
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2025-05-06T00:00:00.0000000Z",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 4,
+        "RelatedGroupId": "57a6cab8-78b3-b8e2-0000-000000000000",
+        "SeriesId": "a4a43771-dd4f-5211-9668-165b941e20bd",
+        "SeriesName": "Shield of Sparrows",
+        "SeriesSlug": "shield-of-sparrows",
+        "Slug": "shield-of-sparrows-1",
+        "Title": "Shield of Sparrows",
+        "TotalBytes": 572075224,
+        "TotalRating": 14,
+        "WorkId": "1a3277ee-3648-3afb-9682-8c9a57506d79"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Simon Vance",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Mark Dawson",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Mark Dawson,Simon Vance",
+        "CrossRevisionId": "bee1a629-a2cd-33e1-86d3-d5f5706c8248",
+        "Description": "<p><strong>Four murders. Two detectives. One mystifying crime.</strong></p><p>On Christmas Eve, DCI Mackenzie Jones is called to a shooting at a remote farmhouse. Ralph Mallender believes hi… [TRUNCATED 308 chars; original string value]",
+        "Duration": 35831,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781705228548",
+        "Id": "40022698-c35e-4224-b00f-92b584ac1ce1",
+        "ImageId": "10742dcb-e881-4131-804d-639e5c444b17",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2020-05-19T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 9600,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 22.31
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2020-05-19T00:00:00.0000000Z",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 4.37037,
+        "RelatedGroupId": "8f141198-c50b-b54e-0000-000000000000",
+        "SeriesId": "c0b97b98-1654-59cd-ac69-b25ff1e51c29",
+        "SeriesName": "Atticus Priest",
+        "SeriesSlug": "atticus-priest",
+        "Slug": "the-house-in-the-woods-3",
+        "Title": "The House in the Woods",
+        "TotalBytes": 286646436,
+        "TotalRating": 27,
+        "WorkId": "bee1a629-a2cd-33e1-86d3-d5f5706c8248"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Winston James",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Alyx Monroe",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Love Belvin",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Love Belvin,Winston James,Alyx Monroe",
+        "CrossRevisionId": "5d15bddc-45e3-3932-bc9f-b66884b8949a",
+        "Description": "<p>He's an Oxonian, licensed therapist, and man of faith, preparing to take over the largest Pentecostal church in New York.</p><p>She's an around-the-way girl from Harlem, struggling with t… [TRUNCATED 250 chars; original string value]",
+        "Duration": 44386,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9798855597240",
+        "Id": "4cb4e549-8a0d-4344-8605-2abcf92f0881",
+        "ImageId": "f3090613-6f2f-459c-a80e-bf906c85d456",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2025-05-20T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 10000,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 23.2
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2025-05-20T00:00:00.0000000Z",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 5,
+        "RelatedGroupId": "3a10dff2-c6e0-e164-0000-000000000000",
+        "SeriesId": "7a52044f-65d3-5151-9077-1fca3cd770a3",
+        "SeriesName": "Love Unaccounted",
+        "SeriesSlug": "love-unaccounted",
+        "Slug": "in-covenant-with-ezra",
+        "Title": "In Covenant with Ezra",
+        "TotalBytes": 355095525,
+        "TotalRating": 1,
+        "WorkId": "5d15bddc-45e3-3932-bc9f-b66884b8949a"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Paul Woodson",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Keira Montclair",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Keira Montclair,Paul Woodson",
+        "CrossRevisionId": "76e36c3b-1d3b-3cc0-9778-f4d99c7ebbf3",
+        "Description": "<p><strong>First in a beloved multi-generational saga of two Scottish clans that spans over forty books.</strong></p><p>An abused woman. A fierce Highlander. Is he strong enough to battle th… [TRUNCATED 307 chars; original string value]",
+        "Duration": 31534,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9798331960247",
+        "Id": "9e3b958e-5952-4dd2-b4bf-483c4422f863",
+        "ImageId": "c03000db-ee57-46da-812d-05057705c1e5",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2025-06-10T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 8400,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 18.74
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2025-06-10T00:00:00.0000000Z",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 0,
+        "RelatedGroupId": "973f547d-aea0-9767-0000-000000000000",
+        "SeriesId": "e167df78-d0ed-5c19-92d1-d323d643b29b",
+        "SeriesName": "Clan Grant",
+        "SeriesSlug": "clan-grant",
+        "Slug": "rescued-by-a-highlander-4",
+        "Title": "Rescued by a Highlander",
+        "TotalBytes": 252292209,
+        "TotalRating": 0,
+        "WorkId": "76e36c3b-1d3b-3cc0-9778-f4d99c7ebbf3"
+      }
+    }
+  ],
+  "ItemsPerPage": 4,
+  "TotalItemCount": 169,
+  "TotalPageCount": 43,
+  "VersionCode": 2
+}

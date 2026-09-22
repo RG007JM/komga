@@ -1,0 +1,267 @@
+{
+  "CurrentPageIndex": 0,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "ItemCount": 4,
+  "Items": [
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Brian Alan Hill",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "David Scott Hay",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "David Scott Hay,Brian Alan Hill",
+        "CrossRevisionId": "d184f5f2-7d27-3845-b820-9c360ec5653e",
+        "Description": "<p>**GOODREADS #1 HORROR TO READ IN 2026!!</p><p>A riveting, epic novel about a man who mustjourney across an unforgiving landscape in order to oseek redemption by doing the most unholy thin… [TRUNCATED 306 chars; original string value]",
+        "Duration": 25200,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": false,
+        "ISBN": "9798347213979",
+        "Id": "0c31fda9-8540-457e-92c2-175605322ac3",
+        "ImageId": "06fc6121-1945-482f-8f4f-5dd53da8ab62",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": true,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-10-20T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "Price": {
+          "Currency": "EUR",
+          "Price": 21.41
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-10-20T00:00:00.0000000Z",
+        "PublisherName": "Simon Maverick",
+        "Rating": 0,
+        "RelatedGroupId": "56548c9a-87d0-07f5-0000-000000000000",
+        "Slug": "the-butcher-of-nazareth",
+        "Title": "The Butcher of Nazareth",
+        "TotalBytes": 0,
+        "TotalRating": 0,
+        "WorkId": "d184f5f2-7d27-3845-b820-9c360ec5653e"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Neil Newbon",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "T. Kingfisher",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "T. Kingfisher,Neil Newbon",
+        "CrossRevisionId": "92c3d0d1-2562-31c5-806e-d113b9c29f3f",
+        "Description": "<p><strong>Narrated by Neil NewbonΓÇöthe multi-award-winning actor who brought Astarion to life in BaldurΓÇÖs Gate 3ΓÇöthis captivating audiobook offers listeners a rare chance to experience… [TRUNCATED 316 chars; original string value]",
+        "Duration": 36066,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": false,
+        "ISBN": "9798217408931",
+        "Id": "3265274c-d0fc-4d6d-9d66-dae2e36739d3",
+        "ImageId": "fad168b2-2efb-4b7a-8aeb-b26420558337",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": true,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-29T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "Price": {
+          "Currency": "EUR",
+          "Price": 19.64
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-29T00:00:00.0000000Z",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "RelatedGroupId": "6404b5a0-9381-fd79-0000-000000000000",
+        "SeriesId": "010a3031-1103-55a2-9c26-73aa0e9d6bce",
+        "SeriesName": "Baldur's Gate 3",
+        "SeriesSlug": "baldur-s-gate-3",
+        "Slug": "baldur-s-gate-3-astarion",
+        "Title": "Baldur's Gate 3: Astarion",
+        "TotalBytes": 288536670,
+        "TotalRating": 0,
+        "WorkId": "92c3d0d1-2562-31c5-806e-d113b9c29f3f"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Corry L. Lee",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Corry L. Lee",
+        "CrossRevisionId": "42ec4476-c13b-3334-8b39-40d0e706a56d",
+        "Description": "<p><strong>War. Rebellion. Magic.</strong></p><p>CelkaΓÇÖs innovative magic let her assassinate the StormhawkΓÇöBourshkanyaΓÇÖs unkillable dictator. Alongside Filip, a State-trained mage and… [TRUNCATED 322 chars; original string value]",
+        "Duration": 57600,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": false,
+        "ISBN": "9798896792819",
+        "Id": "07fe2486-3ba9-44fd-8936-9c0edd322d00",
+        "ImageId": "da178233-3e81-40fb-86d5-9e6925f39b63",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": true,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-10-20T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "Price": {
+          "Currency": "EUR",
+          "Price": 26.77
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-10-20T00:00:00.0000000Z",
+        "PublisherName": "Recorded Books, Inc.",
+        "Rating": 0,
+        "RelatedGroupId": "4666fcb5-18d9-6b61-0000-000000000000",
+        "SeriesId": "3315b1e5-e049-5008-a01f-0905e0d029ab",
+        "SeriesName": "Bourshkanya Trilogy",
+        "SeriesSlug": "bourshkanya-trilogy",
+        "Slug": "imbue-the-sky-2",
+        "Title": "Imbue the Sky",
+        "TotalBytes": 0,
+        "TotalRating": 0,
+        "WorkId": "42ec4476-c13b-3334-8b39-40d0e706a56d"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Mathew Rodriguez",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Mathew Rodriguez",
+        "CrossRevisionId": "88ef990b-7100-3837-ba04-e9b220229262",
+        "Description": "<p><strong>A powerful hybrid memoir exploring the connections between father and son, addiction and disease, and what it really means to be a man, from an award-winning queer journalist</str… [TRUNCATED 309 chars; original string value]",
+        "Duration": 42240,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": false,
+        "ISBN": "9798898840556",
+        "Id": "a645bbf4-1e92-4c8c-b156-d81f1bc03e09",
+        "ImageId": "be193a36-7139-457a-9272-6b2c2ec2415f",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": true,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2027-01-19T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "Price": {
+          "Currency": "EUR",
+          "Price": 23.2
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2027-01-19T00:00:00.0000000Z",
+        "PublisherName": "Recorded Books, Inc.",
+        "Rating": 0,
+        "RelatedGroupId": "74450669-25c1-594f-0000-000000000000",
+        "Slug": "tough-guy-19",
+        "Subtitle": "A Memoir and a Search",
+        "Title": "Tough Guy",
+        "TotalBytes": 0,
+        "TotalRating": 0,
+        "WorkId": "88ef990b-7100-3837-ba04-e9b220229262"
+      }
+    }
+  ],
+  "ItemsPerPage": 4,
+  "TotalItemCount": 500,
+  "TotalPageCount": 125,
+  "VersionCode": 2
+}

@@ -1,0 +1,277 @@
+{
+  "CurrentPageIndex": 0,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "ItemCount": 4,
+  "Items": [
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Lauren Baldwin",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Lewis Carroll",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Lewis Carroll,Lauren Baldwin",
+        "CrossRevisionId": "e1191bf2-8605-3490-85b4-824d708f71c2",
+        "Description": "<p>Lewis CarrollΓÇÖs beloved classic is literary nonsense at its finest and has delighted readers since it was originally published in 1865.</p><p>After tumbling down the rabbit hole while c… [TRUNCATED 311 chars; original string value]",
+        "Duration": 9872,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781989510988",
+        "Id": "1b57843d-c18e-4246-9d25-408bf7fee104",
+        "ImageId": "ccf4ddfd-d8ba-434a-8460-e9a53ff8af00",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2019-12-30T05:00:00.0000000Z"
+        },
+        "LovePointsPrice": 2800,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.54
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2019-12-30T05:00:00.0000000Z",
+        "PublisherName": "Kobo Editions",
+        "Rating": 4.318182,
+        "RelatedGroupId": "a919a016-a76e-8d3b-0000-000000000000",
+        "SeriesId": "2576797e-adc9-5dca-859e-38832511875f",
+        "SeriesName": "The Works of Lewis Carroll presented by Kobo Editions",
+        "SeriesSlug": "the-works-of-lewis-carroll-presented-by-kobo-editions-1",
+        "Slug": "alice-s-adventures-in-wonderland-491",
+        "Title": "Alice's Adventures in Wonderland",
+        "TotalBytes": 78984019,
+        "TotalRating": 22,
+        "WorkId": "e1191bf2-8605-3490-85b4-824d708f71c2"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Mike Rogers",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Robert Louis Stevenson",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Robert Louis Stevenson,Mike Rogers",
+        "CrossRevisionId": "11a0e5f4-03d2-394e-9aef-5bd4bd02a806",
+        "Description": "<p>A violent, sinister stranger wreaks havoc on the streets of 1880s London, while a revered scientist mysteriously retreats into solitude. A few drops of an experimental drug are all that k… [TRUNCATED 289 chars; original string value]",
+        "Duration": 10161,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781989510964",
+        "Id": "c216106a-5722-462f-9731-81463bf488c6",
+        "ImageId": "86bef5dc-8da2-493e-862d-37ba766f5d56",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2019-12-30T05:00:00.0000000Z"
+        },
+        "LovePointsPrice": 2800,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.54
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2019-12-30T05:00:00.0000000Z",
+        "PublisherName": "Kobo Editions",
+        "Rating": 0,
+        "RelatedGroupId": "6a881c6e-a52c-0041-0000-000000000000",
+        "SeriesId": "3fb5d537-4e70-5327-a74b-47ff3e1d7ba0",
+        "SeriesName": "The Works of Robert Louis Stevenson presented by Kobo Editions",
+        "SeriesSlug": "the-works-of-robert-louis-stevenson-presented-by-kobo-editions-1",
+        "Slug": "the-strange-case-of-dr-jekyll-and-mr-hyde-230",
+        "Title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+        "TotalBytes": 81293863,
+        "TotalRating": 28,
+        "WorkId": "11a0e5f4-03d2-394e-9aef-5bd4bd02a806"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Assaf Cohen",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Kahlil Gibran",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Kahlil Gibran,Assaf Cohen",
+        "CrossRevisionId": "88320ca3-69d5-3b3c-9de3-207651964a5e",
+        "Description": "<p>This collection of 26 poetic essays offers spiritual yet practical advice from a figure known only as The Prophet on such central-to-life subjects as love, marriage, beauty, life and deat… [TRUNCATED 253 chars; original string value]",
+        "Duration": 4654,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781989510810",
+        "Id": "45db8c91-ae60-4f8c-b8cb-f96977d971b8",
+        "ImageId": "15c4a9e3-e176-4d3b-a5ef-725eac841daf",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2019-12-30T05:00:00.0000000Z"
+        },
+        "LovePointsPrice": 2800,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.54
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2019-12-30T05:00:00.0000000Z",
+        "PublisherName": "Kobo Editions",
+        "Rating": 4.230769,
+        "RelatedGroupId": "2cc6ea54-1be8-e06c-0000-000000000000",
+        "Slug": "the-prophet-235",
+        "Title": "The Prophet",
+        "TotalBytes": 37235437,
+        "TotalRating": 13,
+        "WorkId": "88320ca3-69d5-3b3c-9de3-207651964a5e"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Jan Cramer",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jane Austen",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Jane Austen,Jan Cramer",
+        "CrossRevisionId": "6140e992-5002-3268-a172-edc813fd110b",
+        "Description": "<p>There are few more iconic love stories than Georgian-era romance PRIDE AND PREJUDICE, arguably Jane AustenΓÇÖs most beloved and influential work.</p><p>Mrs Bennet wants nothing more than … [TRUNCATED 311 chars; original string value]",
+        "Duration": 44259,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781989510865",
+        "Id": "dce1c344-edac-4744-9205-8974b4984fc4",
+        "ImageId": "1b0b6263-48ed-43e3-b613-52a9af3d4e1e",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2019-12-30T05:00:00.0000000Z"
+        },
+        "LovePointsPrice": 4800,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 9.74
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2019-12-30T05:00:00.0000000Z",
+        "PublisherName": "Kobo Editions",
+        "Rating": 4.240741,
+        "RelatedGroupId": "ded666e1-8262-ff88-0000-000000000000",
+        "SeriesId": "95f9dcb3-ccc9-535f-91a3-29dd120066b8",
+        "SeriesName": "The Works of Jane Austen presented by Kobo Editions",
+        "SeriesSlug": "the-works-of-jane-austen-presented-by-kobo-editions-1",
+        "Slug": "pride-and-prejudice-650",
+        "Title": "Pride and Prejudice",
+        "TotalBytes": 354104691,
+        "TotalRating": 54,
+        "WorkId": "6140e992-5002-3268-a172-edc813fd110b"
+      }
+    }
+  ],
+  "ItemsPerPage": 4,
+  "TotalItemCount": 10,
+  "TotalPageCount": 3,
+  "VersionCode": 2
+}

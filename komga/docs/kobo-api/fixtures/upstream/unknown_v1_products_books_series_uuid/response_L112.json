@@ -1,0 +1,800 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "a8da75eb-e398-379b-aeea-7514ad78092f",
+        "IsFree": false,
+        "ISBN": "9781974735259",
+        "PublicationDate": "2022-10-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "a8da75eb-e398-379b-aeea-7514ad78092f",
+        "Title": "Dandadan, Vol. 1",
+        "Description": "<p>Momo Ayase strikes up an unusual friendship with her school’s UFO fanatic, whom she nicknames “Okarun” because he has a name that is not to be said aloud. While Momo believes in spirits, … [TRUNCATED 305 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": "us"
+        },
+        "ImageId": "2f7a1d84-cba0-4e2b-af8a-af5357303a54",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.577143,
+        "TotalRating": 175,
+        "Slug": "dandadan-vol-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 10379275
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "79a3caa7-0909-f688-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2022-10-11T00:00:00.0000000Z"
+        },
+        "Id": "7a651353-38c1-4146-9633-8fb5c30812b1"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "1ff43bb3-ffc3-3433-908d-c1b92e5be115",
+        "IsFree": false,
+        "ISBN": "9781974748235",
+        "PublicationDate": "2024-07-16T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "1ff43bb3-ffc3-3433-908d-c1b92e5be115",
+        "Title": "Dandadan, Vol. 8",
+        "Description": "<p>Having looked on helplessly as Momo fought the Evil , Okarun resolves to become stronger. To help with his training, Turbo Granny takes him, with Aira in tow, to the school’s music room, … [TRUNCATED 200 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": "us"
+        },
+        "ImageId": "94aa92b6-9a86-4619-af6e-bc37c328751d",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.823529,
+        "TotalRating": 51,
+        "Slug": "dandadan-vol-8-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9639047
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "2b5998c6-97b1-dc23-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2024-07-16T00:00:00.0000000Z"
+        },
+        "Id": "f0980c14-9f98-4571-9427-1afa11a14528"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "895d968a-a6c4-360c-a650-cf8be7719f71",
+        "IsFree": false,
+        "ISBN": "9781974757411",
+        "PublicationDate": "2025-08-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "895d968a-a6c4-360c-a650-cf8be7719f71",
+        "Title": "Dandadan, Vol. 14",
+        "Description": "<p>As Momo and the others fight desperately against the alien invaders, a recovering Okarun finally comes to and is able to join them. Unfortunately for him, it’s Tuesday, and that means one… [TRUNCATED 303 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": "us"
+        },
+        "ImageId": "6a501011-fcc3-4182-9351-9a8517398dae",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.730769,
+        "TotalRating": 26,
+        "Slug": "dandadan-vol-14-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5407535
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "12547fdf-4991-2465-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-08-05T00:00:00.0000000Z"
+        },
+        "Id": "f31573c6-8dfb-4ebc-831f-401cca2c07c0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "4db9567f-5456-385a-8765-69acf4f6446c",
+        "IsFree": false,
+        "ISBN": "9781974750627",
+        "PublicationDate": "2024-10-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "4db9567f-5456-385a-8765-69acf4f6446c",
+        "Title": "Dandadan, Vol. 9",
+        "Description": "<p>A seemingly unbeatable kaiju is on the attack! Okarun hits on the idea of revisualizing the nanoskin that repaired Momo’s house into a form they can use to fight back, but he lacks the im… [TRUNCATED 169 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": "us"
+        },
+        "ImageId": "673b718e-efa3-4e27-bf83-8ae065e10faa",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.677419,
+        "TotalRating": 62,
+        "Slug": "dandadan-vol-9",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9509734
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "4472241c-6fad-c3c6-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2024-10-15T00:00:00.0000000Z"
+        },
+        "Id": "7f0cdff8-a55f-4c92-9b3b-5606777bab14"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "021a67dc-a2ee-3843-98cf-353e5bb19288",
+        "SeriesNumber": "4",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781974739905",
+        "PublicationDate": "2023-07-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "021a67dc-a2ee-3843-98cf-353e5bb19288",
+        "Title": "Dandadan, Vol. 4",
+        "Description": "<p>The banana-stealing Serpoians are back! And they’ve trapped Okarun, Momo, and Aira in a void to have another go at stealing their reproductive organs. The subsequent battle causes the pow… [TRUNCATED 238 chars; original string value]",
+        "Language": "en",
+        "ImageId": "57cbdcee-1304-4e81-bc39-605f3c770dae",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.754717,
+        "TotalRating": 53,
+        "Slug": "dandadan-vol-4",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5814285
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "b05c9b2f-096c-6905-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-07-11T00:00:00.0000000Z"
+        },
+        "Id": "9f40ecbd-ed6c-4cf1-b625-c67c25e0c87f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "701be905-daf9-3ef1-be0a-2ab341abb4ea",
+        "SeriesNumber": "5",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 5,
+        "IsFree": false,
+        "ISBN": "9781974741922",
+        "PublicationDate": "2023-10-10T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "701be905-daf9-3ef1-be0a-2ab341abb4ea",
+        "Title": "Dandadan, Vol. 5",
+        "Description": "<p>Okarun and the gang are off to a hot springs town to investigate the mystery of Jiji’s family. But when they get there, a strange family in cahoots with the police starts causing trouble … [TRUNCATED 130 chars; original string value]",
+        "Language": "en",
+        "ImageId": "5fd3645e-bf26-45d4-81bf-7ece95fdbea6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.676923,
+        "TotalRating": 65,
+        "Slug": "dandadan-vol-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4499555
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "db4b186c-00c8-f1ce-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-10-10T00:00:00.0000000Z"
+        },
+        "Id": "ebdc3f4f-e579-471a-a35d-6f4aed932e29"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "8820ede0-386b-3a91-9878-b10db8483836",
+        "SeriesNumber": "6",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 6,
+        "IsFree": false,
+        "ISBN": "9781974744336",
+        "PublicationDate": "2024-01-09T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "8820ede0-386b-3a91-9878-b10db8483836",
+        "Title": "Dandadan, Vol. 6",
+        "Description": "<p>The Kito clan tosses Okarun and the gang into an alternate-reality version of Jiji’s family home as an offering to the serpent god! There they encounter another of the clan’s sacrifices, … [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "98a6920b-448f-4cd7-a2af-7095cd893cd6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.788462,
+        "TotalRating": 52,
+        "Slug": "dandadan-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4848354
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "0d9deaa1-ac3c-3e54-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2024-01-09T00:00:00.0000000Z"
+        },
+        "Id": "18aa0687-fb3d-433c-b677-07c7111853c8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "d581397c-7c26-3f84-bf23-aad3d889a3cd",
+        "SeriesNumber": "7",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 7,
+        "IsFree": false,
+        "ISBN": "9781974745265",
+        "PublicationDate": "2024-04-09T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "d581397c-7c26-3f84-bf23-aad3d889a3cd",
+        "Title": "Dandadan, Vol. 7",
+        "Description": "<p>Okarun and the others emerge victorious in their fight against the serpent god, but one lingering threat remains—the Evil Eye’s possession of Jiji. Even Grandma Seiko’s exorcism is of no … [TRUNCATED 287 chars; original string value]",
+        "Language": "en",
+        "ImageId": "ed67b226-2225-4095-b72e-49595ff8c3c4",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.779661,
+        "TotalRating": 59,
+        "Slug": "dandadan-vol-7",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4161883
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "81372d76-1de1-9b27-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2024-04-09T00:00:00.0000000Z"
+        },
+        "Id": "fb5179d2-3061-4f6a-884b-6610cc5ff6ac"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "8d2ce370-aa3f-3be4-8ab9-1ff23648e78e",
+        "SeriesNumber": "10",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781974751310",
+        "PublicationDate": "2024-12-17T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "8d2ce370-aa3f-3be4-8ab9-1ff23648e78e",
+        "Title": "Dandadan, Vol. 10",
+        "Description": "<p>To avoid being late for school on Vamola’s first day, Momo takes the mysterious kaiju girl on a shortcut through some off-limits ruins. But the protection spell they perform doesn’t work,… [TRUNCATED 283 chars; original string value]",
+        "Language": "en",
+        "ImageId": "a0b4e98f-ac53-4d3e-91ad-c98b664363d5",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.644444,
+        "TotalRating": 45,
+        "Slug": "dandadan-vol-10-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4018290
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "32112507-7fb0-4fd6-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2024-12-17T00:00:00.0000000Z"
+        },
+        "Id": "e6957ce2-a73c-4eab-9bb0-32e6504e596c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "15978c2e-792c-3ce2-8fe7-c9e5245b33cd",
+        "SeriesNumber": "11",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 11,
+        "IsFree": false,
+        "ISBN": "9781974753475",
+        "PublicationDate": "2025-02-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "15978c2e-792c-3ce2-8fe7-c9e5245b33cd",
+        "Title": "Dandadan, Vol. 11",
+        "Description": "<p>Momo struggles to counter a sudden attack by alien clones, but through a temporary truce with her sworn enemy, the alien Serpo, she is able to persevere. However, her troubles are far fro… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "2ed01515-1600-45c4-a42b-391062909ff7",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.657895,
+        "TotalRating": 38,
+        "Slug": "dandadan-vol-11-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4902824
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "112bebc1-d005-5497-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-02-04T00:00:00.0000000Z"
+        },
+        "Id": "e84942ca-c386-4bc9-abd9-11353170efcc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "b641cf9b-db17-3843-a635-c3c694479b35",
+        "SeriesNumber": "12",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9781974754243",
+        "PublicationDate": "2025-04-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "b641cf9b-db17-3843-a635-c3c694479b35",
+        "Title": "Dandadan, Vol. 12",
+        "Description": "<p>A gravely injured Okarun wakes up to an out-of-body experience! And when he answers Momo’s phone, he’s sucked through the telephone wires to where Seiko and Turbo Granny are in the middle… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "162491fc-3fa2-46e1-80bf-7aa82d291919",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.96875,
+        "TotalRating": 32,
+        "Slug": "dandadan-vol-12-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4937274
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "896bfd7b-1f09-02bb-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-04-01T00:00:00.0000000Z"
+        },
+        "Id": "e9525400-82dd-490d-9916-cbf80429225b"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "8b8f9976-0c87-385a-a176-5314743e874e",
+        "SeriesNumber": "13",
+        "SeriesName": "Dandadan",
+        "SeriesSlug": "dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9781974756667",
+        "PublicationDate": "2025-06-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "8b8f9976-0c87-385a-a176-5314743e874e",
+        "Title": "Dandadan, Vol. 13",
+        "Description": "<p>It is revealed that Vamola, the girl found inside the kaiju suit, is actually a member of the once thriving Sumerian race from deep space! Unfortunately, her home world was attacked by th… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "9a55d8fa-04b3-4f35-bfa2-9830cc34fd14",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.761905,
+        "TotalRating": 21,
+        "Slug": "dandadan-vol-13-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6031345
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "09875dcf-3ef4-de53-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-06-03T00:00:00.0000000Z"
+        },
+        "Id": "416e97f7-f910-4e57-8f67-2d46b21eb93c"
+      }
+    }
+  ],
+  "ItemCount": 12,
+  "TotalPageCount": 1,
+  "TotalItemCount": 12,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 100,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

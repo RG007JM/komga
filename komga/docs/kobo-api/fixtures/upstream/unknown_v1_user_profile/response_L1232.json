@@ -1,0 +1,33 @@
+{
+  "IsOneStore": true,
+  "IsChildAccount": false,
+  "CountryCode": "IT",
+  "Geo": "IT",
+  "StoreFront": "IT",
+  "PlatformId": "00000000-0000-0000-0000-000000000390",
+  "PartnerId": "00000000-0000-0000-0000-000000000001",
+  "AffiliateName": "Mondadori",
+  "IsoCultureCode": "en-US",
+  "LoyaltyDetails": {
+    "LoyaltyIsActive": true,
+    "LoyaltyStartDate": "2026-09-22T11:46:07.9970930+00:00",
+    "LoyaltyTags": 2,
+    "LoyaltyTagString": "KoboLoveBasic",
+    "LoyaltyCurrentBalance": 0
+  },
+  "IsLibraryMigrated": false,
+  "VipMembershipPurchased": false,
+  "HasPurchased": true,
+  "HasPurchasedBook": true,
+  "HasPurchasedAudiobook": false,
+  "SafeSearch": false,
+  "AudiobooksEnabled": true,
+  "IsOrangeAffiliated": false,
+  "IsEligibleForOrangeDeal": false,
+  "PrivacyPermissions": [],
+  "KoboCrmOptInSetting": "ExplicitlyConsentedNo",
+  "LinkedAccounts": [],
+  "UserId": "[REDACTED]",
+  "UserCreated": "2025-03-20T18:46:32.0000000Z",
+  "ContactEmail": "[REDACTED]"
+}

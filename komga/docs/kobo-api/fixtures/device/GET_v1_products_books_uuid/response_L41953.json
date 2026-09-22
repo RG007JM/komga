@@ -1,0 +1,76 @@
+{
+  "AccessibilityDetails": {
+    "EPubAccessibilities": [],
+    "HazardWarningTypes": [],
+    "IsAccessible": false,
+    "IsFixedLayout": true,
+    "IsTextToSpeechAllowed": false
+  },
+  "AgeVerificationRequired": false,
+  "ApplicableSubscriptions": [],
+  "ContributorRoles": [
+    {
+      "Name": "Kanehito Yamada",
+      "Role": "Author"
+    },
+    {
+      "Name": "Tsukasa Abe",
+      "Role": "Author"
+    }
+  ],
+  "Contributors": "Kanehito Yamada, Tsukasa Abe",
+  "CrossRevisionId": "b8dc5f22-1050-333f-aebf-4b3b5000d1e4",
+  "Description": "<p>Que deviennent les h├⌐ros une fois le mal vaincu ?</p>\n<p>Alors que Frieren et ses compagnons font halte dans la citadelle de Hei├ƒ, Stark propose ├á Fern d'aller en rendez-vous, sur le t… [TRUNCATED 531 chars; original string value]",
+  "EligibleForKoboLoveDiscount": false,
+  "HasPreview": true,
+  "ISBN": "9791032714010",
+  "Id": "92329c27-e655-4caf-aa15-54f1354ae9d3",
+  "ImageId": "7d0540e1-f54e-420a-a312-18a07d0d00bf",
+  "InWishlist": false,
+  "IsContentSharingEnabled": true,
+  "IsFree": false,
+  "IsInternetArchive": false,
+  "IsPreOrder": false,
+  "IsRecommendation": false,
+  "Language": "fr",
+  "Locale": {
+    "LanguageCode": "fre"
+  },
+  "LovePointsPrice": 2800,
+  "Price": {
+    "Currency": "EUR",
+    "Price": 4.99
+  },
+  "PromoCodeAllowed": false,
+  "PublicationDate": "2023-06-08T00:00:00.0000000Z",
+  "PublisherName": "AC MEDIA",
+  "Rating": 4.75,
+  "RatingHistogram": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 4,
+    "5": 12
+  },
+  "RedirectPreviewUrls": [
+    {
+      "DrmType": "None",
+      "Format": "EPUB3FL_SAMPLE",
+      "Platform": "Generic",
+      "Size": 20734284,
+      "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+    }
+  ],
+  "RelatedGroupId": "b4655498-0089-03e0-0000-000000000000",
+  "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+  "SeriesName": "Frieren",
+  "SeriesNumber": "",
+  "Slug": "frieren-t08",
+  "Stats": {
+    "WordCount": 0
+  },
+  "Subtitle": "",
+  "Title": "Frieren T08",
+  "TotalRating": 16,
+  "WorkId": "b8dc5f22-1050-333f-aebf-4b3b5000d1e4"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "Categories": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "ContributorRoles": [
+      {
+        "Name": "Hajime Kamoshida"
+      },
+      {
+        "Name": "Keji Mizoguchi"
+      }
+    ],
+    "Contributors": [
+      "Hajime Kamoshida",
+      "Keji Mizoguchi"
+    ],
+    "CoverImageId": "0RK4D9QSWQCRR",
+    "CrossRevisionId": "0RDTATJQNHSQ0",
+    "CurrentDisplayPrice": {
+      "CurrencyCode": "USD",
+      "TotalAmount": 0
+    },
+    "CurrentLoveDisplayPrice": {
+      "TotalAmount": 0
+    },
+    "Description": "WHAT WILL IT TAKE TO MAKE HER WISH COME TRUE?After a draining December, Sakuta is quickly nearing the end of his second year of high school. Since Mai is a third-year student, they donΓÇÖt h… [TRUNCATED 464 chars; original string value]",
+    "DownloadUrls": [
+      {
+        "DrmType": "None",
+        "Format": "KEPUB",
+        "Platform": "Generic",
+        "Size": 6656328,
+        "Url": "https://komga.com/kobo/{token}/v1/books/0RDTATJQNHSQ0/file/epub?convert_kepub=false"
+      }
+    ],
+    "EntitlementId": "0RDTATJQNHSQ0",
+    "ExternalIds": [],
+    "Genre": "00000000-0000-0000-0000-000000000001",
+    "IsEligibleForKoboLove": false,
+    "IsInternetArchive": false,
+    "IsPreOrder": false,
+    "IsSocialEnabled": true,
+    "Isbn": "9781975312671",
+    "Language": "en",
+    "PhoneticPronunciations": {},
+    "PublicationDate": "2022-08-22T00:00:00Z",
+    "Publisher": {
+      "Imprint": "",
+      "Name": "Yen Press"
+    },
+    "RevisionId": "0RDTATJQNHSQ0",
+    "Series": {
+      "Id": "0RDTATJHXHZRM",
+      "Name": "Rascal Does Not Dream (light novel)",
+      "Number": "8",
+      "NumberFloat": 8
+    },
+    "Title": "Rascal Does Not Dream of a Sister Venturing Out (light novel)",
+    "WorkId": "0RDTATJQNHSQ0"
+  }
+]

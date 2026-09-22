@@ -1,0 +1,58 @@
+[
+  {
+    "Categories": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "ContributorRoles": [
+      {
+        "Name": "Tatsuya Endo"
+      }
+    ],
+    "Contributors": [
+      "Tatsuya Endo"
+    ],
+    "CoverImageId": "0RPA2D8YGJPSV",
+    "CrossRevisionId": "0RDTATKH5HXZS",
+    "CurrentDisplayPrice": {
+      "CurrencyCode": "USD",
+      "TotalAmount": 0
+    },
+    "CurrentLoveDisplayPrice": {
+      "TotalAmount": 0
+    },
+    "Description": "The midterm examsΓÇöwith stella stars and tonitrus bolts on the lineΓÇöare over. Has AnyaΓÇÖs hard work studying classical language paid off? Also, in hopes of advancing her plan B at the cl… [TRUNCATED 51 chars; original string value]",
+    "DownloadUrls": [
+      {
+        "DrmType": "None",
+        "Format": "EPUB3FL",
+        "Platform": "Generic",
+        "Size": 71303327,
+        "Url": "https://komga.com/kobo/{token}/v1/books/0RDTATKH5HXZS/file/epub?convert_kepub=false"
+      }
+    ],
+    "EntitlementId": "0RDTATKH5HXZS",
+    "ExternalIds": [],
+    "Genre": "00000000-0000-0000-0000-000000000001",
+    "IsEligibleForKoboLove": false,
+    "IsInternetArchive": false,
+    "IsPreOrder": false,
+    "IsSocialEnabled": true,
+    "Isbn": "9781974757466",
+    "Language": "en",
+    "PhoneticPronunciations": {},
+    "PublicationDate": "2025-08-04T00:00:00Z",
+    "Publisher": {
+      "Imprint": "",
+      "Name": "VIZ Media"
+    },
+    "RevisionId": "0RDTATKH5HXZS",
+    "Series": {
+      "Id": "0RDTATKG1HM0V",
+      "Name": "Spy x Family",
+      "Number": "14",
+      "NumberFloat": 14
+    },
+    "Title": "Spy X Family, Vol. 14",
+    "WorkId": "0RDTATKH5HXZS"
+  }
+]

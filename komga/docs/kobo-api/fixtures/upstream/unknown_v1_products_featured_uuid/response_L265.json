@@ -1,0 +1,381 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Bram Stoker",
+        "WorkId": "a397089d-a59a-403f-bcb1-a2bc3a824704",
+        "IsFree": false,
+        "ISBN": "9781989750056",
+        "PublicationDate": "2019-12-30T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Bram Stoker",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "e084237a-982e-378b-bbd9-81c124b92683",
+        "Title": "Dracula",
+        "Description": "<p>Young, unsuspecting clerk Jonathan Harker finds himself sent to visit a mysterious client in Transylvania – Count Dracula. Harker’s perilous journey to Castle Dracula is only the beginnin… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "5bb900a2-6775-4be5-9034-0e6acd2aa98d",
+        "PublisherName": "Kobo Editions",
+        "Rating": 4.213115,
+        "TotalRating": 122,
+        "Slug": "dracula-808",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1331217
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 2.27
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "68f45ae2-a4df-e54e-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "be9e9ac0-5823-4047-8281-069986c626b9",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "",
+          "ContentTypes": [
+            "10"
+          ],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2019-12-30T00:00:00.0000000Z"
+        },
+        "Id": "f60237d1-2b7f-4c7d-9a68-12b35e8f778a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Anna Gomez",
+        "WorkId": "cf87284c-3300-3cc6-a728-a0d319f82233",
+        "IsFree": false,
+        "ISBN": "9781774539200",
+        "PublicationDate": "2024-09-24T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Anna Gomez",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "cf87284c-3300-3cc6-a728-a0d319f82233",
+        "Title": "Somewhere Along the Way",
+        "Description": "<p>** \"A beautifully woven tale of two love stories, past and present, that capture the complexities of love. Anna Gomez delivers a poignant story that juxtaposes the outward quest of a youn… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "dfcc0ffe-34bc-4376-9dbc-9cc77fda7098",
+        "PublisherName": "Kobo Originals",
+        "Rating": 4.526316,
+        "TotalRating": 57,
+        "Slug": "somewhere-along-the-way-8",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2631983
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "ef77acdd-be8f-252c-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "be9e9ac0-5823-4047-8281-069986c626b9",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2024-09-24T00:00:00.0000000Z"
+        },
+        "Id": "b80288ff-dc0f-4ee4-a948-caf93a1e46dc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Melissa Williams",
+        "WorkId": "20b434d5-2ca5-3772-8204-dc3e8b012599",
+        "SeriesNumber": "2",
+        "SeriesName": "Golden Meadow Mountain Men",
+        "SeriesSlug": "golden-meadow-mountain-men",
+        "SeriesId": "cf0e62e1-fc36-59d7-8665-d14682da269e",
+        "SeriesNumberFloat": 2,
+        "IsFree": false,
+        "ISBN": "9781779671769",
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Melissa Williams",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "20b434d5-2ca5-3772-8204-dc3e8b012599",
+        "Title": "Wild at Heart",
+        "Description": "<p>Everyone believes Lena Carter is dead.<br />That’s exactly how she’s kept it.</p><p>Ten years ago, Lena made an impossible choice: stage her own death to protect the people she loved from… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "1feacb44-e46c-4523-b653-7f44b80b831a",
+        "PublisherName": "Kobo Originals",
+        "Rating": 5,
+        "TotalRating": 1,
+        "Slug": "wild-at-heart-71",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3429796
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.13
+        },
+        "PromoCodeAllowed": true,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "0605d8d0-fe26-467d-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "be9e9ac0-5823-4047-8281-069986c626b9",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "00",
+              "Value": "This title is a well-marked up and structured book, which is fully accessible. When necessary, short alt texts and/or extended longer descriptions are provided. This ePub passes Daisy's Ace WCAG 2.2 Level AA checks."
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "15"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "24",
+              "Value": "OpenDyslexic font is available and supported across Kobo apps and devices."
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "96",
+              "Value": "https://help.kobo.com/hc/en-us/articles/32868920931991-Accessibility-Features-Design-Support"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Id": "a0497668-c7ff-40b9-a82d-68b69acdee4e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Alexandre Dumas",
+        "WorkId": "54020263-98a4-4393-bcd4-7668839e536c",
+        "SeriesName": "The Works of Alexandre Dumas presented by Kobo Editions",
+        "SeriesSlug": "the-works-of-alexandre-dumas-presented-by-kobo-editions",
+        "SeriesId": "5dc079dc-4de4-57ab-b426-d004829efebe",
+        "IsFree": false,
+        "ISBN": "9781989750742",
+        "PublicationDate": "2020-05-29T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Alexandre Dumas",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "02bf1955-7614-33bf-be11-7323a367335f",
+        "Title": "The Count of Monte Cristo",
+        "Description": "<p>Edmond Dantès is a young man living a life of good fortune: success, love, and popularity come to him easily—but not everyone is pleased about the station he holds. When three jealous fri… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "990419b9-a4fe-4c26-b3fb-75cb5d692edd",
+        "PublisherName": "Kobo Editions",
+        "Rating": 4.309524,
+        "TotalRating": 42,
+        "Slug": "the-count-of-monte-cristo-345",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1416392
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 2.27
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "e4a06809-5e4e-49e0-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "be9e9ac0-5823-4047-8281-069986c626b9",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "",
+          "ContentTypes": [
+            "10"
+          ],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2020-05-29T00:00:00.0000000Z"
+        },
+        "Id": "516a4ee1-cb6c-456f-8830-55a32456dc05"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 78,
+  "TotalItemCount": 312,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

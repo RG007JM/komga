@@ -1,0 +1,1385 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "7aa68593-e607-3a3a-8c9f-bf4723bd7638",
+        "SeriesNumber": "1",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781421581514",
+        "PublicationDate": "2014-12-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "7aa68593-e607-3a3a-8c9f-bf4723bd7638",
+        "Title": "Assassination Classroom, Vol. 1",
+        "Description": "<p>Meet the would-be assassins of class 3-E: Sugino, who let his grades slip and got kicked off the baseball team. Karma, who’s doing well in his classes but keeps getting suspended for figh… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d05b2324-4b83-487f-83d4-8fce0e17389b",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.746835,
+        "TotalRating": 158,
+        "Slug": "assassination-classroom-vol-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8639468
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "42a9ddd1-ddb2-31d8-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2014-12-02T00:00:00.0000000Z"
+        },
+        "Id": "ef8c966c-b59d-4768-85f0-586f932245d8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "86910b17-9f8f-3e97-81a7-7a60c3757cd6",
+        "SeriesNumber": "2",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 2,
+        "IsFree": false,
+        "ISBN": "9781421582252",
+        "PublicationDate": "2015-02-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "86910b17-9f8f-3e97-81a7-7a60c3757cd6",
+        "Title": "Assassination Classroom, Vol. 2",
+        "Description": "<p>A sexy new teacher comes to Class 3-E to do the students’ job for them. When the 3-E students begin exhibiting signs of self-esteem, Principal Asano demands that Koro Sensei crush their s… [TRUNCATED 199 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c35f96bf-0960-4a6a-988c-cadc6d896722",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.659341,
+        "TotalRating": 91,
+        "Slug": "assassination-classroom-vol-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8481895
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "0cd4a006-ac68-3527-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2015-02-03T00:00:00.0000000Z"
+        },
+        "Id": "6ac9b650-c351-4db7-a56a-4e6fba57ae16"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "59c8e513-4c13-3c7b-8d3c-d1112c45efc6",
+        "SeriesNumber": "3",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 3,
+        "IsFree": false,
+        "ISBN": "9781421583532",
+        "PublicationDate": "2015-04-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "59c8e513-4c13-3c7b-8d3c-d1112c45efc6",
+        "Title": "Assassination Classroom, Vol. 3",
+        "Description": "<p>The latest addition to the misfit students of Class 3-E is a Norwegian robot specially designed to assassinate their teacher—but sadly lacking in social skills. Nothing Koro Sensei can’t … [TRUNCATED 277 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c5d3d0f2-db98-4a5e-977d-5736d868ae12",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.864407,
+        "TotalRating": 59,
+        "Slug": "assassination-classroom-vol-3",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9140937
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "90191d55-cb9e-3280-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2015-04-07T00:00:00.0000000Z"
+        },
+        "Id": "7422721f-7ab4-4e7c-8b9f-38d8a9365dd8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "8ac9d87e-6bba-3eec-8fcd-37545efd6846",
+        "SeriesNumber": "4",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781421584591",
+        "PublicationDate": "2015-06-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "8ac9d87e-6bba-3eec-8fcd-37545efd6846",
+        "Title": "Assassination Classroom, Vol. 4",
+        "Description": "<p>English teacher Irina’s assassination mentor makes an appearance and the two compete-using special agent Karasuma as their target. Another transfer student/would-be assassin joins the cla… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8391a75d-321d-4337-b6fd-479e33b7cb13",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.887097,
+        "TotalRating": 62,
+        "Slug": "assassination-classroom-vol-4",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4110331
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "c2785c82-db5c-693e-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2015-06-02T00:00:00.0000000Z"
+        },
+        "Id": "4ffaf36e-4499-482b-bc8c-092eaca98333"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "967b0aa8-34be-31d4-b245-e3b18285a2af",
+        "SeriesNumber": "5",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 5,
+        "IsFree": false,
+        "ISBN": "9781421585932",
+        "PublicationDate": "2015-08-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "967b0aa8-34be-31d4-b245-e3b18285a2af",
+        "Title": "Assassination Classroom, Vol. 5",
+        "Description": "<p>Intramural relations are at an all-time low: Principal Asano wants to crush Koro Sensei’s 3-E baseball team while Koro Sensei wants to avenge Principal Asano’s sabotage of 3-E’s midterms.… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "1692d027-3217-4bbf-9f54-d581843e87c5",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.862069,
+        "TotalRating": 58,
+        "Slug": "assassination-classroom-vol-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 12405574
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "d0c23000-b73e-08f3-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2015-08-04T00:00:00.0000000Z"
+        },
+        "Id": "017ef755-8f18-4d08-8498-d4a756ee05c0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "3b567237-b447-3365-a275-a7194da15d37",
+        "SeriesNumber": "6",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 6,
+        "IsFree": false,
+        "ISBN": "9781421587295",
+        "PublicationDate": "2015-10-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "3b567237-b447-3365-a275-a7194da15d37",
+        "Title": "Assassination Classroom, Vol. 6",
+        "Description": "<p>The 3-E students discover that Koro Sensei’s greatest weakness might be a common substance. Will they be able to use it to assassinate him while he helps Meg, formerly of the varsity swim… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "2792d6be-a59f-4cf1-9334-28d9b23a2e40",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.803922,
+        "TotalRating": 51,
+        "Slug": "assassination-classroom-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4440228
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "97d822d8-d393-6733-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2015-10-06T00:00:00.0000000Z"
+        },
+        "Id": "4b05fb4e-f593-45a2-83e8-29e2c743e5d6"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "fdc4dc89-f2e2-321a-b2f6-320b48129396",
+        "SeriesNumber": "7",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 7,
+        "IsFree": false,
+        "ISBN": "9781421588759",
+        "PublicationDate": "2015-12-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "fdc4dc89-f2e2-321a-b2f6-320b48129396",
+        "Title": "Assassination Classroom, Vol. 7",
+        "Description": "<p>The 3-E students hope to kill on their final exams to win not only respect but a special reward. Over summer break, Nagisa, Sugino, and Maehara play amateur entomologist with…a girl? Afte… [TRUNCATED 191 chars; original string value]",
+        "Language": "en",
+        "ImageId": "1c023e1b-ac06-4c26-9f7a-2b4bdc25e07d",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.924528,
+        "TotalRating": 53,
+        "Slug": "assassination-classroom-vol-7",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4242268
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "d0c23000-b73e-08f3-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2015-12-01T00:00:00.0000000Z"
+        },
+        "Id": "bda21916-7a11-464b-be46-90c61f67e519"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "f0a354cd-501c-33a4-a91a-e935a72be11b",
+        "SeriesNumber": "8",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 8,
+        "IsFree": false,
+        "ISBN": "9781421589411",
+        "PublicationDate": "2016-02-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "f0a354cd-501c-33a4-a91a-e935a72be11b",
+        "Title": "Assassination Classroom, Vol. 8",
+        "Description": "<p>The 3-E students head for the lair of the enemy to stop a deadly biological attack. But blocking their path are three master assassins: Smog, Grip and Gastro, who excel, respectively, in … [TRUNCATED 278 chars; original string value]",
+        "Language": "en",
+        "ImageId": "fc7a8e96-dbb1-4901-af7f-cee76b99d58e",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.804878,
+        "TotalRating": 41,
+        "Slug": "assassination-classroom-vol-8",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4304793
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "d0c23000-b73e-08f3-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2016-02-02T00:00:00.0000000Z"
+        },
+        "Id": "b73681b8-47cf-47d3-b36c-848a73e41265"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "ed24f870-f263-31b6-9562-7d65678f483d",
+        "SeriesNumber": "9",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 9,
+        "IsFree": false,
+        "ISBN": "9781421589978",
+        "PublicationDate": "2016-04-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "ed24f870-f263-31b6-9562-7d65678f483d",
+        "Title": "Assassination Classroom, Vol. 9",
+        "Description": "<p>Nagisa risks it all in an attempt to take down the mastermind behind the biological attack on his classmates. After the dust settles, Koro Sensei gives his all to ignite summer romance be… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "5d45c81b-2f02-47fa-aedc-ffb493935054",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.840909,
+        "TotalRating": 44,
+        "Slug": "assassination-classroom-vol-9",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3462855
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "d0c23000-b73e-08f3-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2016-04-05T00:00:00.0000000Z"
+        },
+        "Id": "ba5e6127-67b2-47d9-8e8b-0204038a83b9"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "0b7e3984-efa0-363d-8836-65137e4eb98d",
+        "SeriesNumber": "10",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781421590769",
+        "PublicationDate": "2016-06-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "0b7e3984-efa0-363d-8836-65137e4eb98d",
+        "Title": "Assassination Classroom, Vol. 10",
+        "Description": "<p>The students of 3-E turn a surplus of eggs to good use—in pursuit of their usual goal. Karasuma teaches them the art of parkour while Koro Sensei teaches them the game of cops and robbers… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8e620c0b-9b7b-4a45-9d7c-7c557e5a5616",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.888889,
+        "TotalRating": 36,
+        "Slug": "assassination-classroom-vol-10",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3521733
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "c4c40c7a-df39-0960-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2016-06-07T00:00:00.0000000Z"
+        },
+        "Id": "85b5e085-321a-413e-9214-0604639ba05a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "a146a737-b23c-3d1a-bcef-92a077ce50fe",
+        "SeriesNumber": "11",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 11,
+        "IsFree": false,
+        "ISBN": "9781421591896",
+        "PublicationDate": "2016-08-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "a146a737-b23c-3d1a-bcef-92a077ce50fe",
+        "Title": "Assassination Classroom, Vol. 11",
+        "Description": "<p>3-E student Isogai breaks the school rules by working part-time to help support his family. When Gakushu and rest of the Big Four students find out, they use his secret as leverage to for… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "406d67d4-9111-4a5d-8eac-cd225585477c",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.902439,
+        "TotalRating": 41,
+        "Slug": "assassination-classroom-vol-11",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4814783
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "4f040b41-df39-0960-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2016-08-02T00:00:00.0000000Z"
+        },
+        "Id": "92613adb-f6a6-40c6-ab09-748485440869"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "30177c4d-f633-3800-be1e-bdcd973113cb",
+        "SeriesNumber": "12",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9781421592800",
+        "PublicationDate": "2016-10-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "30177c4d-f633-3800-be1e-bdcd973113cb",
+        "Title": "Assassination Classroom, Vol. 12",
+        "Description": "<p>Mr. Karasuma gives the 3-E students superpowered uniforms…with great results. What amazing feats will they perform in their snazzy new outfits? Then, Mr. Karasuma gives Ms. Vitch a bouque… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d454ce09-ec2d-4bdc-8c01-e0f66b3ef770",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.72973,
+        "TotalRating": 37,
+        "Slug": "assassination-classroom-vol-12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3525981
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "f8040702-b6d8-0c97-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2016-10-04T00:00:00.0000000Z"
+        },
+        "Id": "dad7f4b8-503a-4f3f-9660-4cff504fb8cb"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "3015ac48-6a97-3733-a017-11a0f8cf6f83",
+        "SeriesNumber": "13",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9781421594613",
+        "PublicationDate": "2016-12-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "3015ac48-6a97-3733-a017-11a0f8cf6f83",
+        "Title": "Assassination Classroom, Vol. 13",
+        "Description": "<p>The Grim Reaper sets up a lethal trap that buries Mr. Karasuma and Ms. Vitch alive. Will Mr. Karasuma’s repressed feelings surface before he and Ms. Vitch do? And how will Mr. Karasuma fa… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "4820c3e4-8ba5-4ce1-927b-c6092aeb70c6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.823529,
+        "TotalRating": 34,
+        "Slug": "assassination-classroom-vol-13",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4346748
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "e1040a0c-30bd-09ec-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2016-12-06T00:00:00.0000000Z"
+        },
+        "Id": "4fa9defa-9533-48da-9034-9b7877d1491f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "b8dc670e-03d8-3afe-b738-747b09a35753",
+        "SeriesNumber": "14",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 14,
+        "IsFree": false,
+        "ISBN": "9781421595610",
+        "PublicationDate": "2017-02-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "b8dc670e-03d8-3afe-b738-747b09a35753",
+        "Title": "Assassination Classroom, Vol. 14",
+        "Description": "<p>Lowly Class E and elite Class A compete for the most customers at their school festival booths. So far, the students of Class E are holding their own, despite their location on the mounta… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "6b22bce6-a4d4-484d-be10-a01c7276ecbb",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.828571,
+        "TotalRating": 35,
+        "Slug": "assassination-classroom-vol-14",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3775055
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "c284006d-1ab3-0a9b-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-02-07T00:00:00.0000000Z"
+        },
+        "Id": "95a341d8-3c99-4fc7-83f6-3316153ca7d2"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "b05b1d24-b83b-3379-ac28-deb12c54bb67",
+        "SeriesNumber": "15",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 15,
+        "IsFree": false,
+        "ISBN": "9781421596686",
+        "PublicationDate": "2017-04-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "b05b1d24-b83b-3379-ac28-deb12c54bb67",
+        "Title": "Assassination Classroom, Vol. 15",
+        "Description": "<p>Several secret pasts are finally revealed this volume: The tragedy that led Principal Asano to develop his harsh—some would say brutal, sadistic and inhumane—pedagogical methods, the rela… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "199f4df0-8ccd-43e5-864d-e3b9976d0800",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.868421,
+        "TotalRating": 38,
+        "Slug": "assassination-classroom-vol-15",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3417714
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "aa84016f-1ab5-0a9b-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-04-04T00:00:00.0000000Z"
+        },
+        "Id": "afe60cd6-0e2f-4ed8-b61f-8467b730a40f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "aaa32e7c-0a4c-3e18-94b5-a940b3275f69",
+        "SeriesNumber": "16",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 16,
+        "IsFree": false,
+        "ISBN": "9781421597829",
+        "PublicationDate": "2017-06-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "aaa32e7c-0a4c-3e18-94b5-a940b3275f69",
+        "Title": "Assassination Classroom, Vol. 16",
+        "Description": "<p>Koro Sensei tells all: his former profession, his nickname, the mad scientists responsible for his unique cephalopod physiognomy, the love of his life, and why he wants to teach the 3-E s… [TRUNCATED 218 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d7443998-c2b6-4728-8da4-72975519447e",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.837838,
+        "TotalRating": 37,
+        "Slug": "assassination-classroom-vol-16",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4439726
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "a6389896-77b9-51a4-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-06-06T00:00:00.0000000Z"
+        },
+        "Id": "e2bc01ad-6a2c-450a-a9cd-cf17fddd219e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "f18aff66-8c1f-35bd-bfa5-ead1e81952c7",
+        "SeriesNumber": "17",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 17,
+        "IsFree": false,
+        "ISBN": "9781421598802",
+        "PublicationDate": "2017-08-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "f18aff66-8c1f-35bd-bfa5-ead1e81952c7",
+        "Title": "Assassination Classroom, Vol. 17",
+        "Description": "<p>The class is divided: one half wants to carry on with the plan to assassinate Koro Sensei, while the other half wants to save him. So Koro Sensei splits them into two teams, led by Nagisa… [TRUNCATED 247 chars; original string value]",
+        "Language": "en",
+        "ImageId": "acc3a856-e1c5-48ca-b446-1a5dd7e02733",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.78125,
+        "TotalRating": 32,
+        "Slug": "assassination-classroom-vol-17",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5057867
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "8caf4225-3af8-5019-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-08-01T00:00:00.0000000Z"
+        },
+        "Id": "40b77ba7-f3b3-4069-bee6-8d090b54e1c1"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "5b33e643-5c8c-3d22-9276-4b4fb439cee1",
+        "SeriesNumber": "18",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 18,
+        "IsFree": false,
+        "ISBN": "9781421599830",
+        "PublicationDate": "2017-10-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "5b33e643-5c8c-3d22-9276-4b4fb439cee1",
+        "Title": "Assassination Classroom, Vol. 18",
+        "Description": "<p>Nagisa and Karma travel to the International Space Station in hopes of learning the secret to saving Koro Sensei’s life. Meanwhile, Yanagisawa and the upstart Grim Reaper II train ever ha… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "3001f45f-367f-41d5-84b5-d7a6479795ef",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.864865,
+        "TotalRating": 37,
+        "Slug": "assassination-classroom-vol-18",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4449790
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "2d82307a-c0cb-0d73-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-10-03T00:00:00.0000000Z"
+        },
+        "Id": "11842257-e12e-43b6-a735-ade86380c293"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "6de3a253-988b-3054-b767-0688dfab903c",
+        "SeriesNumber": "19",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 19,
+        "IsFree": false,
+        "ISBN": "9781974701148",
+        "PublicationDate": "2017-12-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "6de3a253-988b-3054-b767-0688dfab903c",
+        "Title": "Assassination Classroom, Vol. 19",
+        "Description": "<p>Koro Sensei’s lessons in verbal defense are put to the test when Karma must use his brains instead of his brawn to rescue a classmate. Then things finally begin to go smoothly for the stu… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c44b44e7-744c-49fd-9ce9-0aeda9abeb3e",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.852941,
+        "TotalRating": 34,
+        "Slug": "assassination-classroom-vol-19",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4300287
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "fc423013-d186-0d73-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-12-05T00:00:00.0000000Z"
+        },
+        "Id": "08ff5116-8a96-4745-83dc-63e12c3244b6"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "cb315d39-fd83-3aae-942a-913320760ed4",
+        "SeriesNumber": "20",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 20,
+        "IsFree": false,
+        "ISBN": "9781974701933",
+        "PublicationDate": "2018-02-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "cb315d39-fd83-3aae-942a-913320760ed4",
+        "Title": "Assassination Classroom, Vol. 20",
+        "Description": "<p>The battle for Koro Sensei’s life against a multinational operation’s soldiers and weaponry is difficult enough, but now his creator, mad scientist Yanagisawa, and his former protégé, Gri… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "9615fdae-1848-4b2a-9c2a-ed6441878eba",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.927273,
+        "TotalRating": 55,
+        "Slug": "assassination-classroom-vol-20",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4920330
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "08023041-c2dd-0d73-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2018-02-06T00:00:00.0000000Z"
+        },
+        "Id": "f983f4de-7423-4723-962b-a37bff0bd201"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yusei Matsui",
+        "WorkId": "00671a42-1b57-32fc-8976-0cc695688799",
+        "SeriesNumber": "21",
+        "SeriesName": "Assassination Classroom",
+        "SeriesSlug": "assassination-classroom",
+        "SeriesId": "a1f4ca41-e3e3-58e4-aeab-cb486a44f5c3",
+        "SeriesNumberFloat": 21,
+        "IsFree": false,
+        "ISBN": "9781974702763",
+        "PublicationDate": "2018-04-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yusei Matsui",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "00671a42-1b57-32fc-8976-0cc695688799",
+        "Title": "Assassination Classroom, Vol. 21",
+        "Description": "<p>In the aftermath of tragedy, the students of 3-E nevertheless march proudly in their graduation ceremony. Will their futures still unfold as planned? And what will they do with their rewa… [TRUNCATED 265 chars; original string value]",
+        "Language": "en",
+        "ImageId": "bf2a74f3-783e-4a4c-9795-42ed92aac89d",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.849057,
+        "TotalRating": 53,
+        "Slug": "assassination-classroom-vol-21",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5259280
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "8502309b-cc14-0d73-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2018-04-03T00:00:00.0000000Z"
+        },
+        "Id": "7d21c738-bdca-4194-bd5e-a9387f3970af"
+      }
+    }
+  ],
+  "ItemCount": 21,
+  "TotalPageCount": 1,
+  "TotalItemCount": 21,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 100,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

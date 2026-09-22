@@ -1,0 +1,70 @@
+{
+  "Contributors": "Tatsuya Endo",
+  "WorkId": "dad29474-df99-34bd-8b4b-30bbb51b849d",
+  "SeriesNumber": "13",
+  "SeriesName": "Spy x Family",
+  "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+  "SeriesNumberFloat": 13,
+  "Subtitle": "",
+  "IsFree": false,
+  "ISBN": "9781974753246",
+  "PublicationDate": "2025-01-14T00:00:00.0000000Z",
+  "ContributorRoles": [
+    {
+      "Name": "Tatsuya Endo",
+      "Role": "Author"
+    }
+  ],
+  "IsInternetArchive": false,
+  "IsRecommendation": false,
+  "CrossRevisionId": "dad29474-df99-34bd-8b4b-30bbb51b849d",
+  "Title": "Spy x Family, Vol. 13",
+  "Description": "<p>Twilight is on the ropes after his battle with an Ostanian spy! Can Nightfall save Twilight from disaster? Will WISE manage to recover their stolen secrets? And what will become of Loid a… [TRUNCATED 116 chars; original string value]",
+  "Language": "en",
+  "ImageId": "c5c84082-6d2f-49bd-a6ee-73ccb7373c5d",
+  "PublisherName": "VIZ Media",
+  "Rating": 4.75,
+  "TotalRating": 236,
+  "RatingHistogram": {
+    "1": 5,
+    "2": 0,
+    "3": 6,
+    "4": 27,
+    "5": 198
+  },
+  "Slug": "spy-x-family-vol-13",
+  "IsContentSharingEnabled": true,
+  "RedirectPreviewUrls": [
+    {
+      "DrmType": "None",
+      "Format": "EPUB3FL_SAMPLE",
+      "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+      "Platform": "Generic",
+      "Size": 3070484
+    }
+  ],
+  "HasPreview": true,
+  "Stats": {
+    "WordCount": 0
+  },
+  "Price": {
+    "Currency": "EUR",
+    "Price": 6.24
+  },
+  "PromoCodeAllowed": false,
+  "LovePointsPrice": 3200,
+  "EligibleForKoboLoveDiscount": false,
+  "IsPreOrder": false,
+  "InWishlist": false,
+  "RelatedGroupId": "69738729-f32f-b7f4-0000-000000000000",
+  "ApplicableSubscriptions": [],
+  "AgeVerificationRequired": false,
+  "AccessibilityDetails": {
+    "IsFixedLayout": false,
+    "IsTextToSpeechAllowed": false,
+    "EPubAccessibilities": [],
+    "HazardWarningTypes": [],
+    "IsAccessible": false
+  },
+  "Id": "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+}

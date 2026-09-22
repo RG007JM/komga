@@ -1,0 +1,19 @@
+[
+  {
+    "NewTag": {
+      "Tag": {
+        "Created": "2026-09-22T11:48:22Z",
+        "Id": "0RPN2SADWHMRB",
+        "Items": [
+          {
+            "RevisionId": "0RDTATM01HY4H",
+            "Type": "ProductRevisionTagItem"
+          }
+        ],
+        "LastModified": "2026-09-22T11:48:22Z",
+        "Name": "testing",
+        "Type": "UserTag"
+      }
+    }
+  }
+]

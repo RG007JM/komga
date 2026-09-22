@@ -1,0 +1,304 @@
+{
+  "CurrentPageIndex": 0,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "ItemCount": 4,
+  "Items": [
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Kirsten Potter",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Kimberly Farr",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Peter Ganim",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Catherine Ho",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "James Aaron Oh",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Emily St. John Mandel",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Emily St. John Mandel,Kirsten Potter,Kimberly Farr,Peter Ganim,Catherine Ho,James Aaron Oh",
+        "CrossRevisionId": "26a11372-2281-3faa-9502-fc7ac0892b58",
+        "Description": "<p><strong>The award-winning, bestselling author of <em>Station Eleven</em> and <em>Sea of Tranquility</em> returns with a breathtaking novel of doubles, shadow worlds, and fractured timelin… [TRUNCATED 313 chars; original string value]",
+        "Duration": 44996,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9798217406500",
+        "Id": "9394b74c-9282-49e4-83bd-7d64006530e5",
+        "ImageId": "7ee5b05e-f8be-4b76-9f50-a34b50da9356",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 9200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 21.42
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "RelatedGroupId": "24c845fa-22d9-a97c-0000-000000000000",
+        "Slug": "exit-party-5",
+        "Subtitle": "A Novel",
+        "Title": "Exit Party",
+        "TotalBytes": 359976972,
+        "TotalRating": 0,
+        "WorkId": "26a11372-2281-3faa-9502-fc7ac0892b58"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Rebecca Soler",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "MacLeod Andrews",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Julia Whelan",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jodi Picoult",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jodi Picoult",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Jodi Picoult,Rebecca Soler,MacLeod Andrews,Julia Whelan,Jodi Picoult",
+        "CrossRevisionId": "81316695-479b-392a-885e-1a7b79e5569f",
+        "Description": "<p><strong>From the #1 <em>New York Times</em> bestselling author of <em>By Any Other Name</em> comes a riveting novel about the risks we take to protect the ones we love in a world where cr… [TRUNCATED 311 chars; original string value]",
+        "Duration": 56382,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9798217404483",
+        "Id": "6abdbf44-d487-4f68-ad5a-9423a8f2408e",
+        "ImageId": "1aa2371c-45be-4f16-bb2c-81da5fc66bae",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 10800,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 24.99
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "RelatedGroupId": "44ce2e9a-f680-22bd-0000-000000000000",
+        "Slug": "hollow-bones-10",
+        "Subtitle": "A Novel",
+        "Title": "Hollow Bones",
+        "TotalBytes": 451073810,
+        "TotalRating": 0,
+        "WorkId": "81316695-479b-392a-885e-1a7b79e5569f"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Victoria Villarreal",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Isabel Allende",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Isabel Allende,Victoria Villarreal",
+        "CrossRevisionId": "cbbf201c-7b7a-38d7-8baf-ad2122a525d3",
+        "Description": "<p><strong>A profound exploration of the art and magic of writing by <em>New York Times</em> bestselling author Isabel Allende.</strong></p><p>In this deeply personal and insightful book, Is… [TRUNCATED 308 chars; original string value]",
+        "Duration": 16381,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9798217404582",
+        "Id": "892850e9-1608-43dc-bfcd-216eddc163c9",
+        "ImageId": "c1f576d6-4156-4148-b0d1-7bdeac811dd5",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 6000,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 13.39
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "RelatedGroupId": "1c02082c-161b-b2c2-0000-000000000000",
+        "Slug": "story-telling-4",
+        "Subtitle": "A Writing Life",
+        "Title": "Story Telling",
+        "TotalBytes": 131062380,
+        "TotalRating": 0,
+        "WorkId": "cbbf201c-7b7a-38d7-8baf-ad2122a525d3"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Andrew D. Huberman, Ph.D.",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Andrew D. Huberman, Ph.D.",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Andrew D. Huberman, Ph.D.,Andrew D. Huberman, Ph.D.",
+        "CrossRevisionId": "e778c5a6-9e89-39ec-ab0a-f6b8ceabb0e0",
+        "Description": "<p><strong>Andrew Huberman, host of the worldΓÇÖs leading health and science podcast <em>Huberman Lab</em> and neuroscientist and professor at Stanford School of Medicine, presents an essent… [TRUNCATED 311 chars; original string value]",
+        "Duration": 65134,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781797182919",
+        "Id": "7a2ce24e-6212-4665-af7c-60c0fde008c0",
+        "ImageId": "cc30be14-0314-40e1-9d5b-3feddea02f5c",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 13200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 31.23
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "PublisherName": "Simon & Schuster Audio",
+        "Rating": 0,
+        "RelatedGroupId": "61de8caa-3a7c-e6e4-0000-000000000000",
+        "Slug": "protocols-2",
+        "Subtitle": "An Operating Manual for the Human Body",
+        "Title": "Protocols",
+        "TotalBytes": 521121150,
+        "TotalRating": 0,
+        "WorkId": "e778c5a6-9e89-39ec-ab0a-f6b8ceabb0e0"
+      }
+    }
+  ],
+  "ItemsPerPage": 4,
+  "TotalItemCount": 167,
+  "TotalPageCount": 42,
+  "VersionCode": 2
+}

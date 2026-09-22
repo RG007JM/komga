@@ -1,0 +1,58 @@
+[
+  {
+    "Categories": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "ContributorRoles": [
+      {
+        "Name": "Yukinobu Tatsu"
+      }
+    ],
+    "Contributors": [
+      "Yukinobu Tatsu"
+    ],
+    "CoverImageId": "0RPA2MWERJNWK",
+    "CrossRevisionId": "0RKJK260M7AGR",
+    "CurrentDisplayPrice": {
+      "CurrencyCode": "USD",
+      "TotalAmount": 0
+    },
+    "CurrentLoveDisplayPrice": {
+      "TotalAmount": 0
+    },
+    "Description": "Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what theyΓÇÖll believe in and what they wonΓÇÖt. Their quest to prove each other wrong leads them down a path… [TRUNCATED 86 chars; original string value]",
+    "DownloadUrls": [
+      {
+        "DrmType": "None",
+        "Format": "EPUB3FL",
+        "Platform": "Generic",
+        "Size": 110537637,
+        "Url": "https://komga.com/kobo/{token}/v1/books/0RKJK260M7AGR/file/epub?convert_kepub=false"
+      }
+    ],
+    "EntitlementId": "0RKJK260M7AGR",
+    "ExternalIds": [],
+    "Genre": "00000000-0000-0000-0000-000000000001",
+    "IsEligibleForKoboLove": false,
+    "IsInternetArchive": false,
+    "IsPreOrder": false,
+    "IsSocialEnabled": true,
+    "Isbn": "9781974763474",
+    "Language": "en",
+    "PhoneticPronunciations": {},
+    "PublicationDate": "2026-02-02T00:00:00Z",
+    "Publisher": {
+      "Imprint": "",
+      "Name": "VIZ Media"
+    },
+    "RevisionId": "0RKJK260M7AGR",
+    "Series": {
+      "Id": "0RKGS49PPFETD",
+      "Name": "Dandadan",
+      "Number": "17",
+      "NumberFloat": 17
+    },
+    "Title": "Dandadan, Vol. 17",
+    "WorkId": "0RKJK260M7AGR"
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "AccessibilityDetails": {
+    "EPubAccessibilities": [
+      {
+        "Type": "08"
+      }
+    ],
+    "HazardWarningTypes": [],
+    "IsAccessible": false,
+    "IsFixedLayout": true,
+    "IsTextToSpeechAllowed": false,
+    "PrimaryContentType": "10"
+  },
+  "AgeVerificationRequired": false,
+  "ApplicableSubscriptions": [],
+  "ContributorRoles": [
+    {
+      "Name": "Kanehito Yamada",
+      "Role": "Author"
+    },
+    {
+      "Name": "Abe Tsukasa",
+      "Role": "Illustrator"
+    },
+    {
+      "Name": "Matteo Cremaschi",
+      "Role": "Translator"
+    }
+  ],
+  "Contributors": "Kanehito Yamada",
+  "CrossRevisionId": "17cdaf56-209a-31d3-9d9c-29e3980da9d3",
+  "Description": "<p>Frieren ├¿ la maga elfa che insieme alla compagnia dellΓÇÖeroe ha sconfitto il Re Demone. La sua vita continua a lungo dopo quellΓÇÖavventura ma, quando tocca la Stele della Dea, la sua c… [TRUNCATED 186 chars; original string value]",
+  "EligibleForKoboLoveDiscount": false,
+  "HasPreview": true,
+  "ISBN": "9788834928684",
+  "Id": "f3212cd2-0ca8-49ec-9dea-4263d50b057e",
+  "ImageId": "0f13b8cd-9045-4d50-a7a0-40e285902d10",
+  "InWishlist": false,
+  "IsContentSharingEnabled": true,
+  "IsFree": false,
+  "IsInternetArchive": false,
+  "IsPreOrder": false,
+  "IsRecommendation": false,
+  "Language": "it",
+  "Locale": {
+    "LanguageCode": "ita"
+  },
+  "Price": {
+    "Currency": "EUR",
+    "Price": 3.99
+  },
+  "PromoCodeAllowed": false,
+  "PublicationDate": "2024-04-23T00:00:00.0000000Z",
+  "PublisherName": "J-POP Manga",
+  "Rating": 5,
+  "RatingHistogram": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 4
+  },
+  "RedirectPreviewUrls": [
+    {
+      "DrmType": "None",
+      "Format": "EPUB3FL_SAMPLE",
+      "Platform": "Generic",
+      "Size": 38734693,
+      "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+    }
+  ],
+  "RelatedGroupId": "e48b4ebe-226c-2a4b-0000-000000000000",
+  "SeriesId": "01a4fb8f-759f-5c5e-ac54-a44f37b142f4",
+  "SeriesName": "Frieren. Oltre la fine del viaggio",
+  "SeriesNumber": "12",
+  "SeriesNumberFloat": 12,
+  "Slug": "frieren-oltre-la-fine-del-viaggio-vol-12",
+  "Subtitle": "",
+  "Title": "Frieren. Oltre la fine del viaggio (Vol.12)",
+  "TotalRating": 4,
+  "WorkId": "17cdaf56-209a-31d3-9d9c-29e3980da9d3"
+}

@@ -1,0 +1,65 @@
+{
+  "CurrentPageIndex": 1,
+  "Cursor": "1",
+  "Items": [
+    {
+      "AuthorDisplayName": "[REDACTED_PERSONAL_REVIEW]",
+      "Body": "[REDACTED_PERSONAL_REVIEW]",
+      "CreationDate": "2024-10-13T00:30:02.0488670-04:00",
+      "CrossRevisionId": "0RDTATKHXHPS9",
+      "Dislikes": 26,
+      "Id": "Book-dad29474-df99-34bd-8b4b-30bbb51b849d-G0asfd4QkzY85qM0e9t0AuUJO9vVO2p42AhZl5f304=",
+      "Likes": 85,
+      "ModerationStatus": "Approved",
+      "ProductId": "0RDTATKHXHPS9",
+      "PublicationId": "00000000-0000-0000-0000-000000000000",
+      "Rating": 5,
+      "RevisionId": "0RDTATKHXHPS9",
+      "Title": "Twilight"
+    },
+    {
+      "AuthorDisplayName": "[REDACTED_PERSONAL_REVIEW]",
+      "Body": "[REDACTED_PERSONAL_REVIEW]",
+      "CreationDate": "2024-10-09T23:49:06.1147011-04:00",
+      "CrossRevisionId": "0RDTATKHXHPS9",
+      "Dislikes": 3,
+      "Id": "Book-dad29474-df99-34bd-8b4b-30bbb51b849d-AAkBeayDYMAkFeduOtBOkPFP6dXf8mhNd553tOuKBv4=",
+      "Likes": 45,
+      "ModerationStatus": "Approved",
+      "ProductId": "0RDTATKHXHPS9",
+      "PublicationId": "00000000-0000-0000-0000-000000000000",
+      "Rating": 5,
+      "RevisionId": "0RDTATKHXHPS9",
+      "Title": "Aaaaaaah"
+    },
+    {
+      "AuthorDisplayName": "[REDACTED_PERSONAL_REVIEW]",
+      "Body": "[REDACTED_PERSONAL_REVIEW]",
+      "CreationDate": "2025-02-17T06:40:38.6649063-05:00",
+      "CrossRevisionId": "0RDTATKHXHPS9",
+      "Dislikes": 8,
+      "Id": "Book-dad29474-df99-34bd-8b4b-30bbb51b849d-EsryQunba3TAb4dO1c3oNCMrBbPj7Jio7wCXyPalkM=",
+      "Likes": 33,
+      "ModerationStatus": "Approved",
+      "ProductId": "0RDTATKHXHPS9",
+      "PublicationId": "00000000-0000-0000-0000-000000000000",
+      "Rating": 5,
+      "RevisionId": "0RDTATKHXHPS9",
+      "Title": "SPOILERS"
+    }
+  ],
+  "ReviewSummary": {
+    "0RDTATKHXHPS9": {
+      "AvgRating": 4.75,
+      "NumberOfReviews": 85,
+      "OpinionCount": 236,
+      "RatingHistogram": {
+        "1": 5,
+        "3": 6,
+        "4": 27,
+        "5": 198
+      }
+    }
+  },
+  "TotalPageCount": 29
+}

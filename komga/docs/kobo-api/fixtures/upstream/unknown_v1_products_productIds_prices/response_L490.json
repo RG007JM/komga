@@ -1,0 +1,59 @@
+{
+  "Items": [
+    {
+      "Id": "2af5ad58-c530-48ef-9de0-f1c3708f6d8e",
+      "CrossRevisionId": "de2fd89f-eb4d-3205-8503-82068935f567",
+      "Price": {
+        "Currency": "EUR",
+        "Price": 6.24
+      },
+      "LovePointsPrice": 3200,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false
+    },
+    {
+      "Id": "331d106f-731e-4565-857d-46981fcd3fed",
+      "CrossRevisionId": "9ed2acb0-e4da-3725-afe0-25efa0d7c0bd",
+      "Price": {
+        "Currency": "EUR",
+        "Price": 6.24
+      },
+      "LovePointsPrice": 3200,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false
+    },
+    {
+      "Id": "45368193-f16e-42a8-8411-81a25a2d4832",
+      "CrossRevisionId": "ed980d29-c48c-3ed4-a57a-64097ebdd891",
+      "Price": {
+        "Currency": "EUR",
+        "Price": 5.71
+      },
+      "LovePointsPrice": 3600,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false
+    },
+    {
+      "Id": "6852e6c6-96d3-4000-9851-c4fb8d2cbaa4",
+      "CrossRevisionId": "9d50b83b-29c1-324a-8b9f-33f40513baa2",
+      "Price": {
+        "Currency": "EUR",
+        "Price": 6.24
+      },
+      "LovePointsPrice": 3200,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false
+    },
+    {
+      "Id": "9f7fc08a-2351-452f-933a-f044d2073343",
+      "CrossRevisionId": "82b03a01-91d7-31d3-8549-a0ec81f716fb",
+      "Price": {
+        "Currency": "EUR",
+        "Price": 5.71
+      },
+      "LovePointsPrice": 3600,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false
+    }
+  ]
+}

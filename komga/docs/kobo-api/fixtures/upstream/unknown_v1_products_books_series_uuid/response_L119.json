@@ -1,0 +1,908 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Masakazu Ishiguro",
+        "WorkId": "8f97c12a-11a9-31bc-b285-5c7055dfee85",
+        "SeriesName": "Heavenly Delusion",
+        "SeriesSlug": "heavenly-delusion",
+        "SeriesId": "df0e598b-cdaf-5659-be71-ca9c29b28fd1",
+        "Subtitle": "Tengoku Daimakyo",
+        "IsFree": false,
+        "ISBN": "9781634428187",
+        "PublicationDate": "2023-05-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Masakazu Ishiguro",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "8f97c12a-11a9-31bc-b285-5c7055dfee85",
+        "Title": "Heavenly Delusion, Volume 5",
+        "Description": "<p>Kiruko and Maru have found the origins of the mysterious bird symbol, but that information alone only leads to new problems to solve. What's worse is that they may have to travel halfway … [TRUNCATED 185 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "43720450-eb5a-4c3d-80d6-4baf4b40fecc",
+        "PublisherName": "DENPA LLC",
+        "Rating": 5,
+        "TotalRating": 4,
+        "Slug": "heavenly-delusion-volume-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4341535
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.44
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "52e356e3-ca88-ae3a-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "07",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [
+            {
+              "Type": "22"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-05-03T00:00:00.0000000Z"
+        },
+        "Id": "58e0b78e-28e7-4a48-b5ae-1fc80f97a1bb"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley,Abigail Blackman",
+        "WorkId": "77ee181d-4c54-3f6f-a890-236b93043fda",
+        "SeriesNumber": "1",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesSlug": "girls-last-tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9780316470636",
+        "PublicationDate": "2017-05-23T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu",
+            "Role": "Author"
+          },
+          {
+            "Name": "Abigail Blackman",
+            "Role": "Author"
+          },
+          {
+            "Name": "Amanda Haley",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "5550f4ef-d18d-3c59-b6a9-229e43938a9e",
+        "Title": "Girls' Last Tour, Vol. 1",
+        "Description": "<p>Civilization is dead, but not Chito and Yuuri. Time to hop aboard their beloved Kettenkrad motorbike and wander what's left of the world! Sharing a can of soup or scouting for spare parts… [TRUNCATED 92 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "9e01ecb7-b638-4f50-8940-093e49bff2c4",
+        "PublisherName": "Yen Press",
+        "Rating": 4.833333,
+        "TotalRating": 18,
+        "Slug": "girls-last-tour-vol-1-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5973281
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "acc40073-e6b1-0b46-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-05-23T00:00:00.0000000Z"
+        },
+        "Id": "e68852e5-3743-462c-b502-fb5f22455a83"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Haruo Iwamune,John Neal,Madeleine Jose",
+        "WorkId": "f3912c88-046e-367c-9b99-a1f011273f7e",
+        "SeriesNumber": "1",
+        "SeriesName": "The Color of the End: Mission in the Apocalypse",
+        "SeriesSlug": "the-color-of-the-end-mission-in-the-apocalypse",
+        "SeriesId": "40cd62e2-76c4-53ad-9193-20478c6e93b3",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781975397234",
+        "PublicationDate": "2025-01-28T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Haruo Iwamune",
+            "Role": "Author"
+          },
+          {
+            "Name": "Madeleine Jose",
+            "Role": "Author"
+          },
+          {
+            "Name": "John Neal",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "f3912c88-046e-367c-9b99-a1f011273f7e",
+        "Title": "The Color of the End: Mission in the Apocalypse, Vol. 1",
+        "Description": "<p>A girl walks alone in a world without humans. Her mission—to search for survivors and cleanse the land. But is anyone still out there in the lonely, beautiful ruins, waiting to be found?</p>",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "b72ab947-6795-4289-a71a-0cff87615ee4",
+        "PublisherName": "Yen Press",
+        "Rating": 4.666667,
+        "TotalRating": 12,
+        "Slug": "the-color-of-the-end-mission-in-the-apocalypse-vol-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5330181
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "3a12efc1-9237-8b52-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": true,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-01-28T00:00:00.0000000Z"
+        },
+        "Id": "9159612c-2217-4434-80f9-27d8442a99a8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hitoshi Ashinano",
+        "WorkId": "c9fe520f-4b0c-399f-912f-da54174dc455",
+        "SeriesNumber": "1",
+        "SeriesName": "Yokohama Kaidashi Kikou: Deluxe Edition",
+        "SeriesSlug": "yokohama-kaidashi-kikou-deluxe-edition",
+        "SeriesId": "b6393fe9-19be-551e-8578-185443333548",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781685797911",
+        "PublicationDate": "2022-08-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hitoshi Ashinano",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "c9fe520f-4b0c-399f-912f-da54174dc455",
+        "Title": "Yokohama Kaidashi Kikou: Deluxe Edition 1",
+        "Description": "<p>In a future Japan, long after an environmental catastrophe, Alpha the android runs a small cafe in a seaside town. As she wonders if her absent owner will ever return, she stands witness … [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "3925c4db-1fbc-4b6c-834d-746670558165",
+        "PublisherName": "Seven Seas Entertainment",
+        "Rating": 4.73913,
+        "TotalRating": 23,
+        "Slug": "yokohama-kaidashi-kikou-deluxe-edition-1",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 49879312
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 11.6
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 5600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "5a6bfff9-a80f-2e97-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "be9e9ac0-5823-4047-8281-069986c626b9",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2022-08-02T00:00:00.0000000Z"
+        },
+        "Id": "5a81fdd7-a257-48ef-9125-b7ef133c2d2c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley",
+        "WorkId": "f4bde608-3116-30a5-a2ea-f8ae72195bf3",
+        "SeriesNumber": "2",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesSlug": "girls-last-tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 2,
+        "IsFree": false,
+        "ISBN": "9780316470650",
+        "PublicationDate": "2017-08-22T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu",
+            "Role": "Author"
+          },
+          {
+            "Name": "Amanda Haley",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "799b11d6-3c0b-30ad-9a62-146a048f85ff",
+        "Title": "Girls' Last Tour, Vol. 2",
+        "Description": "<p>Distant lights illuminating the darkness pique Chito's and Yuuri's curiosity, so the two hop aboard their beloved Kettenkrad and head for the horizon. What they find may not be what they … [TRUNCATED 187 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "8bda4a2c-15e1-402e-bc96-a4c2a59f61f6",
+        "PublisherName": "Yen Press",
+        "Rating": 4.642857,
+        "TotalRating": 14,
+        "Slug": "girls-last-tour-vol-2-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5286566
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "d4040220-3cba-0b63-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-08-22T00:00:00.0000000Z"
+        },
+        "Id": "04fcf932-7cae-44be-981e-bc99603a5b67"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hitoshi Ashinano",
+        "WorkId": "9a0eb809-00e1-3149-af59-84cf9686c71d",
+        "SeriesNumber": "2",
+        "SeriesName": "Yokohama Kaidashi Kikou: Deluxe Edition",
+        "SeriesSlug": "yokohama-kaidashi-kikou-deluxe-edition",
+        "SeriesId": "b6393fe9-19be-551e-8578-185443333548",
+        "SeriesNumberFloat": 2,
+        "IsFree": false,
+        "ISBN": "9798888436974",
+        "PublicationDate": "2023-05-23T04:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hitoshi Ashinano",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "9a0eb809-00e1-3149-af59-84cf9686c71d",
+        "Title": "Yokohama Kaidashi Kikou: Deluxe Edition 2",
+        "Description": "<p>Alpha the android takes a short vacation from the cafe and travels to Musashino to shop and visit with her new friend, Kokone. At the shore, Takahiro searches for the Osprey, and Makki me… [TRUNCATED 190 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "a2b24e25-e72c-4af0-b80d-316c9bf6bd85",
+        "PublisherName": "Seven Seas Entertainment",
+        "Rating": 4.818182,
+        "TotalRating": 11,
+        "Slug": "yokohama-kaidashi-kikou-deluxe-edition-2",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 24303545
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 11.6
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 5600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "7df959a1-a1b5-1b43-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-05-23T04:00:00.0000000Z"
+        },
+        "Id": "ff25cf64-9bb2-41f1-a00e-45d66907a10f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley,Abigail Blackman",
+        "WorkId": "cbb1b119-31ec-3338-b32d-34fe2f132cc5",
+        "SeriesNumber": "3",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesSlug": "girls-last-tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 3,
+        "IsFree": false,
+        "ISBN": "9780316470674",
+        "PublicationDate": "2017-11-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu",
+            "Role": "Author"
+          },
+          {
+            "Name": "Abigail Blackman",
+            "Role": "Author"
+          },
+          {
+            "Name": "Amanda Haley",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "cb316d74-99c7-355c-a8c9-f2178d29aabb",
+        "Title": "Girls' Last Tour, Vol. 3",
+        "Description": "<p>(Volume 2)Titus and Yuri continue traveling in a world where the civilization collapsed. What did the two who ventured to the upper level of the city find?</p>",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "22a8456f-3e08-4814-bb6c-1274b72335aa",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 4,
+        "Slug": "girls-last-tour-vol-3-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6295101
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "fb3bf954-2e37-3432-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": true,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2017-11-14T00:00:00.0000000Z"
+        },
+        "Id": "86b7a379-9ec1-4278-b6ad-e6af33e68993"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hitoshi Ashinano",
+        "WorkId": "3b036c52-2eae-3ada-96f6-6cd095a0500a",
+        "SeriesNumber": "3",
+        "SeriesName": "Yokohama Kaidashi Kikou: Deluxe Edition",
+        "SeriesSlug": "yokohama-kaidashi-kikou-deluxe-edition",
+        "SeriesId": "b6393fe9-19be-551e-8578-185443333548",
+        "SeriesNumberFloat": 3,
+        "IsFree": false,
+        "ISBN": "9798888439425",
+        "PublicationDate": "2023-08-08T04:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hitoshi Ashinano",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "3b036c52-2eae-3ada-96f6-6cd095a0500a",
+        "Title": "Yokohama Kaidashi Kikou: Deluxe Edition 3",
+        "Description": "<p>A summer storm passes over the cafe, reminding Alpha that everything, even her memory, is changing all the time. She takes a tour through the seasons on foot, to record all she can in her… [TRUNCATED 145 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "d7d20a10-eece-42b8-a969-70fae32a02d4",
+        "PublisherName": "Seven Seas Entertainment",
+        "Rating": 5,
+        "TotalRating": 4,
+        "Slug": "yokohama-kaidashi-kikou-deluxe-edition-3",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 13821954
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 11.6
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 5600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "fd3ba2db-b5ab-73e5-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-08-08T04:00:00.0000000Z"
+        },
+        "Id": "1eccec59-55be-4329-af42-584eff1ca2dd"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley",
+        "WorkId": "abe51fa9-0ba3-3420-a21d-67a6a175ce56",
+        "SeriesNumber": "4",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesSlug": "girls-last-tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781975326111",
+        "PublicationDate": "2018-02-27T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu",
+            "Role": "Author"
+          },
+          {
+            "Name": "Amanda Haley",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "abe51fa9-0ba3-3420-a21d-67a6a175ce56",
+        "Title": "Girls' Last Tour, Vol. 4",
+        "Description": "<p>Chito and Yuri's post-apocalyptic, everyday adventures continue as the two discover a mysterious living creature!</p>",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "314307a1-ab21-4ea9-af40-85bb004e7d76",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 5,
+        "Slug": "girls-last-tour-vol-4",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5987086
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "ef823017-c3ce-0d73-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": true,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2018-02-27T00:00:00.0000000Z"
+        },
+        "Id": "8e046999-3596-4d9b-9e37-2dfc58acd685"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley",
+        "WorkId": "cec41f1b-ea3b-3f4d-8b20-04196aa76034",
+        "SeriesNumber": "5",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesSlug": "girls-last-tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 5,
+        "IsFree": false,
+        "ISBN": "9781975329006",
+        "PublicationDate": "2018-12-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu",
+            "Role": "Author"
+          },
+          {
+            "Name": "Amanda Haley",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "cec41f1b-ea3b-3f4d-8b20-04196aa76034",
+        "Title": "Girls' Last Tour, Vol. 5",
+        "Description": "<p>Even after a mysterious life form tells Chito and Yuri the end of the earth is near, still they continue their everyday adventures together, traveling slowly toward the city on the top-mo… [TRUNCATED 147 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "2428c6c7-a1fe-4de9-8d4c-a3f9c2c313a1",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 3,
+        "Slug": "girls-last-tour-vol-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3967404
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": true,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2018-12-11T00:00:00.0000000Z"
+        },
+        "Id": "9b726955-7500-4b70-b933-86c6517b3d5d"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley",
+        "WorkId": "e5f58e62-2a73-3efe-9bac-145bcccdcde2",
+        "SeriesNumber": "6",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesSlug": "girls-last-tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 6,
+        "IsFree": false,
+        "ISBN": "9781975329044",
+        "PublicationDate": "2019-02-19T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu",
+            "Role": "Author"
+          },
+          {
+            "Name": "Amanda Haley",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "e5f58e62-2a73-3efe-9bac-145bcccdcde2",
+        "Title": "Girls' Last Tour, Vol. 6",
+        "Description": "<p>Chito and Yuuri have arrived at the highest stratum, but their journey will not be over until they reach the very top of the city. Along the way, they continue to explore the evidences of… [TRUNCATED 225 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "bb3e6daf-d475-4491-afaa-f312499139fa",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 8,
+        "Slug": "girls-last-tour-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4492768
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": true,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2019-02-19T00:00:00.0000000Z"
+        },
+        "Id": "47899fc6-50b3-476c-93bf-afa7285b681f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Norimitsu Kaihou (Nitroplus),Sadoru Chiba,Rachel J. Pierce",
+        "WorkId": "08622c40-a02a-3b02-b0e3-8f19dc8ae332",
+        "SeriesNumber": "13",
+        "SeriesName": "School-Live!",
+        "SeriesSlug": "school-live",
+        "SeriesId": "f64f9b8a-1666-5306-8283-6a9b6ceab504",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9781975363161",
+        "PublicationDate": "2023-02-21T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Norimitsu Kaihou (Nitroplus)",
+            "Role": "Author"
+          },
+          {
+            "Name": "Sadoru Chiba",
+            "Role": "Author"
+          },
+          {
+            "Name": "Rachel J. Pierce",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "08622c40-a02a-3b02-b0e3-8f19dc8ae332",
+        "Title": "School-Live! Letters",
+        "Description": "<p>As the world regains some semblance of normalcy, one question remains regarding the members of the School Living Club—where are they now? Everyone has their own answer, and as life goes o… [TRUNCATED 167 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "0a58c8a3-917c-48df-aec9-c74580443edd",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 4,
+        "Slug": "school-live-letters",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5320971
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "49c3d31b-07ce-9c55-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": true,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-02-21T00:00:00.0000000Z"
+        },
+        "Id": "e64e35b8-6d86-405b-824d-a8c401ffe957"
+      }
+    }
+  ],
+  "ItemCount": 12,
+  "TotalPageCount": 1,
+  "TotalItemCount": 12,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 100,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

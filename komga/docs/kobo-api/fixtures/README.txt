@@ -1,0 +1,3 @@
+Kobo / Komga JSON fixtures, captured 2026-09-22. Source: user-provided redacted logs. Parsed examples: 293. Each individual fixture is valid JSON; long text strings/secret scalar values are sanitized, while JSON keys, types, arrays and nesting are preserved. Device vs upstream are separate; server logs may not include the HTTP method. Manifest includes evidence line, response status when known. Some device-response strings cannot be parsed after sanitization and are intentionally absent rather than fabricated. This does not establish an incomplete or malformed HTTP response.
+
+Additional later device request: review_v2/POST_v1_user_recommendations_feedback/request_L9291.json (device-facing HTTP 204; no JSON reply).

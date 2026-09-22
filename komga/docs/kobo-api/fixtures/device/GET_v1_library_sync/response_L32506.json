@@ -1,0 +1,52 @@
+[
+  {
+    "ChangedEntitlement": {
+      "BookEntitlement": {
+        "Accessibility": "Full",
+        "ActivePeriod": {
+          "From": "2026-09-22T11:47:37.042132466Z"
+        },
+        "Created": "2026-08-26T23:18:48Z",
+        "CrossRevisionId": "0RE3XW4NEEGG4",
+        "Id": "0RE3XW4NEEGG4",
+        "IsHiddenFromArchive": false,
+        "IsLocked": false,
+        "IsRemoved": true,
+        "LastModified": "2026-08-26T23:17:36.27Z",
+        "OriginCategory": "Purchased",
+        "RevisionId": "0RE3XW4NEEGG4",
+        "Status": "Active"
+      },
+      "BookMetadata": {
+        "Categories": [
+          "00000000-0000-0000-0000-000000000001"
+        ],
+        "ContributorRoles": [],
+        "Contributors": [],
+        "CoverImageId": "0RE3XW4NEEGG4",
+        "CrossRevisionId": "0RE3XW4NEEGG4",
+        "CurrentDisplayPrice": {
+          "CurrencyCode": "USD",
+          "TotalAmount": 0
+        },
+        "CurrentLoveDisplayPrice": {
+          "TotalAmount": 0
+        },
+        "DownloadUrls": [],
+        "EntitlementId": "0RE3XW4NEEGG4",
+        "ExternalIds": [],
+        "Genre": "00000000-0000-0000-0000-000000000001",
+        "IsEligibleForKoboLove": false,
+        "IsInternetArchive": false,
+        "IsPreOrder": false,
+        "IsSocialEnabled": true,
+        "Language": "en",
+        "PhoneticPronunciations": {},
+        "RevisionId": "0RE3XW4NEEGG4",
+        "Title": "0RE3XW4NEEGG4",
+        "WorkId": "0RE3XW4NEEGG4"
+      },
+      "ReadingState": null
+    }
+  }
+]

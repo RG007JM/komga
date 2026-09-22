@@ -1,0 +1,278 @@
+{
+  "Items": [
+    {
+      "Audiobook": {
+        "Duration": 31194,
+        "TotalBytes": 187161840,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Stephen Noir,Stephen Noir",
+        "WorkId": "c1bba774-8058-3766-84ef-88cd8a95f460",
+        "IsFree": false,
+        "ISBN": "1230010324844",
+        "PublicationDate": "2026-09-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Stephen Noir",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Stephen Noir",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c1bba774-8058-3766-84ef-88cd8a95f460",
+        "Title": "The Hieroglyph Murders",
+        "Description": "<p><strong>Egypt, 1926. A tomb sealed for three thousand years. A curse that only kills the guilty.</strong></p><p>When epigraphist Cecily Am helps break the seal on an untouched royal tomb … [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "ImageId": "1660afa2-e4fd-4d7a-9ef7-1126c57301f8",
+        "PublisherName": "Stephen Noir",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "the-hieroglyph-murders-1",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 3
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "3ef918b0-0bee-1401-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-01T08:00:00.0000000Z"
+        },
+        "Id": "a6dd43ac-01d8-4046-94e9-e92294c94de9"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 29228,
+        "TotalBytes": 233845095,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "C.N. Steinhour,Lawrence Thunell",
+        "WorkId": "363e6cb8-f5d4-3972-89d0-5556e5983802",
+        "IsFree": false,
+        "ISBN": "9781737106845",
+        "PublicationDate": "2025-11-26T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Lawrence Thunell",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "C.N. Steinhour",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "363e6cb8-f5d4-3972-89d0-5556e5983802",
+        "Title": "The Lifesaver",
+        "Description": "<p><strong>Silver winner of the 2026 IBPA Book Award for Children's/Young Adult Audiobook</strong></p><p><strong>\"As I drop to my knees beside him, I feel a spark of recognition: Tristan Che… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8d3bbd56-949a-4ae4-b680-b8e9cd7350ba",
+        "PublisherName": "Hidden Shield Publishing",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "the-lifesaver-2",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 19
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 8400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "5fea5c06-0c73-7af2-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-08-27T08:00:00.0000000Z"
+        },
+        "Id": "5a959e50-93fc-46eb-8832-cfb4dafa7a79"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 37048,
+        "TotalBytes": 296394824,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Meridith Gibbens,Meridith Gibbens",
+        "WorkId": "7ddb3135-d39b-39c6-be17-94ef35af4a91",
+        "SeriesNumber": "1",
+        "SeriesName": "The Argent Code",
+        "SeriesSlug": "the-argent-code",
+        "SeriesId": "4b82af37-ecae-5ee4-bec4-46cc4bd332ea",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "1230010314852",
+        "PublicationDate": "2026-08-29T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Meridith Gibbens",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Meridith Gibbens",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "7ddb3135-d39b-39c6-be17-94ef35af4a91",
+        "Title": "Code Compromised",
+        "Description": "<p><em>She holds a secret powerful men will kill for.</em></p><p><em>He disappeared twelve years ago without a trace.</em></p><p><em>Now fate has brought them back together… if they survive … [TRUNCATED 306 chars; original string value]",
+        "Language": "en",
+        "ImageId": "0ddbb6d1-da54-48f3-941f-95ad157b397e",
+        "PublisherName": "Meridith Gibbens Books",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "code-compromised",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 17.99
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 8000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "0ae78007-2dc3-0e58-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-08-29T09:00:00.0000000Z"
+        },
+        "Id": "d49f0e9d-d8fc-498a-8b15-7160b22cfb9d"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 28318,
+        "TotalBytes": 226571032,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Alexa Piper,Michael Ferraiuolo,Nick J. Russo",
+        "WorkId": "de34692d-2567-3111-b2b3-a2eb607e9f2e",
+        "SeriesNumber": "1",
+        "SeriesName": "Phoenix Immortal: Hive",
+        "SeriesSlug": "phoenix-immortal-hive-1",
+        "SeriesId": "6191ac88-d2b0-58f2-8449-7b310ad63bf6",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "1230010137963",
+        "PublicationDate": "2026-08-28T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Michael Ferraiuolo",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Nick J. Russo",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Alexa Piper",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "de34692d-2567-3111-b2b3-a2eb607e9f2e",
+        "Title": "Five to Love Him",
+        "Description": "<p>Leopold has been searching for the supernatural for most of his life. What he finds is not as mystical as he first thought. There are classes and tests, and more bureaucracy than wonder.<… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d74696fd-db65-4ced-bdf5-351d580c8a09",
+        "PublisherName": "Alexa Piper",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "five-to-love-him-1",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 17.99
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 8000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "35aedcaf-41b7-29d1-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-08-28T04:00:00.0000000Z"
+        },
+        "Id": "ef8293e5-af72-40cd-9572-a0609bee2013"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 23,
+  "TotalItemCount": 90,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

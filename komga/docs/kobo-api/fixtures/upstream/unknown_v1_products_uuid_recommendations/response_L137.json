@@ -1,0 +1,271 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley,Abigail Blackman",
+        "WorkId": "77ee181d-4c54-3f6f-a890-236b93043fda",
+        "SeriesNumber": "1",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9780316470636",
+        "PublicationDate": "2017-05-23T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu"
+          },
+          {
+            "Name": "Amanda Haley"
+          },
+          {
+            "Name": "Abigail Blackman"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "5550f4ef-d18d-3c59-b6a9-229e43938a9e",
+        "Title": "Girls' Last Tour, Vol. 1",
+        "Description": "<p>Civilization is dead, but not Chito and Yuuri. Time to hop aboard their beloved Kettenkrad motorbike and wander what's left of the world! Sharing a can of soup or scouting for spare parts… [TRUNCATED 92 chars; original string value]",
+        "Language": "en",
+        "ImageId": "9e01ecb7-b638-4f50-8940-093e49bff2c4",
+        "PublisherName": "Yen Press",
+        "Rating": 4.833333,
+        "TotalRating": 18,
+        "Slug": "girls-last-tour-vol-1-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5973281
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "e68852e5-3743-462c-b502-fb5f22455a83"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley",
+        "WorkId": "f4bde608-3116-30a5-a2ea-f8ae72195bf3",
+        "SeriesNumber": "2",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 2,
+        "IsFree": false,
+        "ISBN": "9780316470650",
+        "PublicationDate": "2017-08-22T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu"
+          },
+          {
+            "Name": "Amanda Haley"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "799b11d6-3c0b-30ad-9a62-146a048f85ff",
+        "Title": "Girls' Last Tour, Vol. 2",
+        "Description": "<p>Distant lights illuminating the darkness pique Chito's and Yuuri's curiosity, so the two hop aboard their beloved Kettenkrad and head for the horizon. What they find may not be what they … [TRUNCATED 187 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8bda4a2c-15e1-402e-bc96-a4c2a59f61f6",
+        "PublisherName": "Yen Press",
+        "Rating": 4.642857,
+        "TotalRating": 14,
+        "Slug": "girls-last-tour-vol-2-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5286566
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "04fcf932-7cae-44be-981e-bc99603a5b67"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley",
+        "WorkId": "e5f58e62-2a73-3efe-9bac-145bcccdcde2",
+        "SeriesNumber": "6",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 6,
+        "IsFree": false,
+        "ISBN": "9781975329044",
+        "PublicationDate": "2019-02-19T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu"
+          },
+          {
+            "Name": "Amanda Haley"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "e5f58e62-2a73-3efe-9bac-145bcccdcde2",
+        "Title": "Girls' Last Tour, Vol. 6",
+        "Description": "<p>Chito and Yuuri have arrived at the highest stratum, but their journey will not be over until they reach the very top of the city. Along the way, they continue to explore the evidences of… [TRUNCATED 225 chars; original string value]",
+        "Language": "en",
+        "ImageId": "bb3e6daf-d475-4491-afaa-f312499139fa",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 8,
+        "Slug": "girls-last-tour-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4492768
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "47899fc6-50b3-476c-93bf-afa7285b681f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley",
+        "WorkId": "abe51fa9-0ba3-3420-a21d-67a6a175ce56",
+        "SeriesNumber": "4",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781975326111",
+        "PublicationDate": "2018-02-27T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu"
+          },
+          {
+            "Name": "Amanda Haley"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "abe51fa9-0ba3-3420-a21d-67a6a175ce56",
+        "Title": "Girls' Last Tour, Vol. 4",
+        "Description": "<p>Chito and Yuri's post-apocalyptic, everyday adventures continue as the two discover a mysterious living creature!</p>",
+        "Language": "en",
+        "ImageId": "314307a1-ab21-4ea9-af40-85bb004e7d76",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 5,
+        "Slug": "girls-last-tour-vol-4",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5987086
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "8e046999-3596-4d9b-9e37-2dfc58acd685"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukumizu,Amanda Haley,Abigail Blackman",
+        "WorkId": "cbb1b119-31ec-3338-b32d-34fe2f132cc5",
+        "SeriesNumber": "3",
+        "SeriesName": "Girls' Last Tour",
+        "SeriesId": "acaf2c46-bc39-5d99-bfcb-f737a9ebfd3c",
+        "SeriesNumberFloat": 3,
+        "IsFree": false,
+        "ISBN": "9780316470674",
+        "PublicationDate": "2017-11-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukumizu"
+          },
+          {
+            "Name": "Amanda Haley"
+          },
+          {
+            "Name": "Abigail Blackman"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "cb316d74-99c7-355c-a8c9-f2178d29aabb",
+        "Title": "Girls' Last Tour, Vol. 3",
+        "Description": "<p>(Volume 2)Titus and Yuri continue traveling in a world where the civilization collapsed. What did the two who ventured to the upper level of the city find?</p>",
+        "Language": "en",
+        "ImageId": "22a8456f-3e08-4814-bb6c-1274b72335aa",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 4,
+        "Slug": "girls-last-tour-vol-3-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6295101
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "86b7a379-9ec1-4278-b6ad-e6af33e68993"
+      }
+    }
+  ],
+  "ItemCount": 5,
+  "TotalPageCount": 19,
+  "TotalItemCount": 95,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 5,
+  "VersionCode": 2
+}

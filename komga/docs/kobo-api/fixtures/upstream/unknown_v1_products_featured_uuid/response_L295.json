@@ -1,0 +1,338 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Chiara Moscardelli",
+        "WorkId": "5dd8898d-17bb-3d49-ab12-f59db25c8401",
+        "SeriesNumber": "4",
+        "SeriesName": "I gialli di Teresa Papavero",
+        "SeriesSlug": "i-gialli-di-teresa-papavero",
+        "SeriesId": "feb61058-9e0d-50f3-9a15-fa956eab729f",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9791223276952",
+        "PublicationDate": "2026-05-27T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Chiara Moscardelli",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "5dd8898d-17bb-3d49-ab12-f59db25c8401",
+        "Title": "Teresa Papavero e le verità nascoste",
+        "Description": "<p><strong>Il nuovo capitolo della saga bestseller con protagonista Teresa Papavero, che ha conquistato più di 100.000 lettori in Italia.</strong></p><p>Mentre fissa il seitan bollito nel su… [TRUNCATED 309 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "0658c8e1-1a32-4fbe-9db1-f29c628c3eea",
+        "PublisherName": "Giunti",
+        "Rating": 4.276596,
+        "TotalRating": 47,
+        "Slug": "teresa-papavero-e-le-verita-nascoste",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1391727
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 1.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "WasPrice": 9.99,
+        "IsPreOrder": false,
+        "RelatedGroupId": "208fb395-6f7e-b89b-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "03"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "12"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "19"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "81"
+            },
+            {
+              "Type": "85"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-05-27T00:00:00.0000000Z"
+        },
+        "Id": "0f88a072-e017-4af3-890a-ed530101c024"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Amanda Ashby",
+        "WorkId": "a00cddff-bcef-301d-a9bd-747184f23a22",
+        "SeriesNumber": "1",
+        "SeriesName": "Il club delle arzille detective",
+        "SeriesSlug": "il-club-delle-arzille-detective",
+        "SeriesId": "7d927e0c-63db-5d08-a680-9d0cc0b1636f",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9791223256626",
+        "PublicationDate": "2026-04-22T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Amanda Ashby",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "a00cddff-bcef-301d-a9bd-747184f23a22",
+        "Title": "Il club delle arzille detective",
+        "Description": "<p><em>La pensione era noiosa finchè non sono iniziati gli omicidi…</em></p><p><strong>Il primo capitolo di una saga bestseller, per tutti gli appassionati di cozy crime da Malvandi a Osman.… [TRUNCATED 308 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "7ee3b4e6-0368-403a-b124-2b78b196c451",
+        "PublisherName": "Storm",
+        "Rating": 4.148936,
+        "TotalRating": 47,
+        "Slug": "il-club-delle-arzille-detective",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 608224
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 1.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "WasPrice": 6.99,
+        "IsPreOrder": false,
+        "RelatedGroupId": "3abb0f83-0c88-774c-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "03"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "12"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "19"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "81"
+            },
+            {
+              "Type": "85"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-04-22T00:00:00.0000000Z"
+        },
+        "Id": "63708542-e008-4d70-b62c-f050ce775cdc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Nora Roberts,Sergio Vitali",
+        "WorkId": "96a07d97-277e-3022-a395-908c7af33208",
+        "IsFree": false,
+        "ISBN": "9788833754994",
+        "PublicationDate": "2026-06-26T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Nora Roberts",
+            "Role": "Author"
+          },
+          {
+            "Name": "Sergio Vitali",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "96a07d97-277e-3022-a395-908c7af33208",
+        "Title": "Tracce nell'ombra",
+        "Description": "<p><strong>Il nuovo romanzo della regina del romantic suspense.<strong>Sloan Cooper, caporale della Natural Resources Police, è abituata ai pericoli delle montagne del Maryland, ma non avreb… [TRUNCATED 310 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "c6628003-2125-45de-96db-258d9efb5ab5",
+        "PublisherName": "Leggereditore",
+        "Rating": 4.571429,
+        "TotalRating": 7,
+        "Slug": "tracce-nell-ombra",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPadV1",
+            "Size": 231745
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPhone",
+            "Size": 231745
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Android",
+            "Size": 231745
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 1.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "WasPrice": 7.99,
+        "IsPreOrder": false,
+        "RelatedGroupId": "64b4d382-5751-b53e-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-06-26T00:00:00.0000000Z"
+        },
+        "Id": "b7d563df-c763-4cbc-bfbe-ab1c52e72173"
+      }
+    }
+  ],
+  "ItemCount": 3,
+  "TotalPageCount": 17,
+  "TotalItemCount": 50,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 3,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

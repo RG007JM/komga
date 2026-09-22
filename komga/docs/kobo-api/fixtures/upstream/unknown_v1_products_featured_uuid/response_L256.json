@@ -1,0 +1,343 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Ariel Lawhon",
+        "WorkId": "ea3b593a-0641-4377-be85-31016d2fe9b6",
+        "Subtitle": "A gripping wartime novel inspired by a real-life heroine from the bestselling author of THE FROZEN RIVER",
+        "IsFree": false,
+        "ISBN": "9781472275370",
+        "PublicationDate": "2020-03-31T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Ariel Lawhon",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "1ed6ef7f-bf84-34a5-84e2-4f973b6a6d6e",
+        "Title": "Code Name Hélène",
+        "Description": "<p><strong>Woman. Wife. Smuggler. Spy . . .</strong></p><p><strong>From the <em>New York Times</em> million-copy-selling author of THE FROZEN RIVER, a</strong> <strong>thrilling, heart-wrenc… [TRUNCATED 306 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "a585114a-0f5b-41be-a1b7-f47745cfb3df",
+        "PublisherName": "Headline",
+        "Rating": 4.647059,
+        "TotalRating": 17,
+        "Slug": "code-name-helene-inspired-by-the-gripping-true-story-of-world-war-2-spy-nancy-wake-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Android",
+            "Size": 1224193
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPadV1",
+            "Size": 1224623
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPhone",
+            "Size": 1224557
+          },
+          {
+            "DrmType": "None",
+            "Format": "JPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Html5",
+            "Size": 1877537
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "e5914216-3073-3e16-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "08"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2020-03-31T00:00:00.0000000Z"
+        },
+        "Id": "be2d03c6-2b84-4913-93d6-fe8d565bfd0c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Simon Mason",
+        "WorkId": "eacf3ef6-a956-330f-8f79-420f6e9955a5",
+        "SeriesNumber": "2",
+        "SeriesName": "The Finder Mysteries",
+        "SeriesSlug": "the-finder-mysteries-1",
+        "SeriesId": "feb8bfa3-bef8-52f6-88b4-3cad8532973f",
+        "SeriesNumberFloat": 2,
+        "Subtitle": "the second installment of the sharply-plotted and tense Finder Mysteries",
+        "IsFree": false,
+        "ISBN": "9781529426007",
+        "PublicationDate": "2024-09-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Simon Mason",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "eacf3ef6-a956-330f-8f79-420f6e9955a5",
+        "Title": "The Case of the Lonely Accountant",
+        "Description": "<p><strong>'Mason has been mainlining Simenon for a while, and it shows' Mick Herron</strong><br /><strong>'The very definition of unputdownable' David Peace</strong><br /><strong>'It's like… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "609a4cc8-76a1-45a5-a0d7-82e71eb7aa1f",
+        "PublisherName": "Quercus",
+        "Rating": 4.571429,
+        "TotalRating": 14,
+        "Slug": "the-case-of-the-lonely-accountant-the-finder-mysteries",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 574115
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "53ac9b4f-d628-faa3-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2024-09-11T00:00:00.0000000Z"
+        },
+        "Id": "791abd2d-6761-4752-aacd-c37a7a2e7e24"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Madeline Miller",
+        "WorkId": "3b27d2da-d9ea-4f5f-867b-d03261d53b18",
+        "Subtitle": "From the Women's Prize-winning author of the multi-million copy international bestseller The Song of Achilles",
+        "IsFree": false,
+        "ISBN": "9781408890066",
+        "PublicationDate": "2018-04-19T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Madeline Miller",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "46427263-55af-377f-927d-4620b8ac4ce0",
+        "Title": "Circe",
+        "Description": "<p><strong>SHORTLISTED FOR THE WOMEN'S PRIZE FOR FICTION</strong></p><p><strong>The international Number One bestseller from the author of <em>The Song of Achilles</em></strong></p><p><stron… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "27686a95-3704-45d8-aba5-3ac35d00c481",
+        "PublisherName": "Bloomsbury Publishing",
+        "Rating": 4.487611,
+        "TotalRating": 1009,
+        "Slug": "circe-19",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.41
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "fdf09f1c-6a23-0397-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2018-04-19T00:00:00.0000000Z"
+        },
+        "Id": "bdcaff5f-7f67-46d5-9496-3c920074bb65"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Anne Perry",
+        "WorkId": "37560649-8058-4bea-b18e-91f298f42a89",
+        "SeriesNumber": "20",
+        "SeriesName": "Thomas Pitt Mystery",
+        "SeriesSlug": "thomas-pitt-mystery-1",
+        "SeriesId": "d89caf66-4622-5daa-a97e-e188d798e2f9",
+        "SeriesNumberFloat": 20,
+        "Subtitle": "A thrilling novel of murder, scandal and intrigue",
+        "IsFree": false,
+        "ISBN": "9781472211804",
+        "PublicationDate": "2014-03-27T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Anne Perry",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "555cae2d-1ce6-3f6d-aba1-ca774fb85c49",
+        "Title": "Half Moon Street (Thomas Pitt Mystery, Book 20)",
+        "Description": "<p><strong>A case reeking of scandal before the body is even cold...</strong></p><p><strong><em>Half Moon Street</em> is the twentieth crime novel in the bestselling Thomas Pitt mystery seri… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "98352aab-b595-430f-92a5-8e02ad4f9349",
+        "PublisherName": "Headline",
+        "Rating": 4.230769,
+        "TotalRating": 13,
+        "Slug": "half-moon-street-thomas-pitt-mystery-book-20",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Android",
+            "Size": 872438
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPadV1",
+            "Size": 872868
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPhone",
+            "Size": 872802
+          },
+          {
+            "DrmType": "None",
+            "Format": "JPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Html5",
+            "Size": 1269154
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "4eba7761-41e8-3d76-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "08"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2014-03-27T00:00:00.0000000Z"
+        },
+        "Id": "a766905c-1f55-48ae-8698-672cd19a41cc"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 125,
+  "TotalItemCount": 500,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

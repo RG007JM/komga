@@ -1,0 +1,27 @@
+{
+  "ReadingStates": [
+    {
+      "CurrentBookmark": {
+        "ContentSourceProgressPercent": 0,
+        "LastModified": "2026-09-22T11:54:02Z",
+        "Location": {
+          "Source": "OEBPS/Text/kcc-0145-kcc-x.xhtml",
+          "Type": "KoboSpan",
+          "Value": "kobo.1.1"
+        },
+        "ProgressPercent": 72
+      },
+      "EntitlementId": "0RDTATKHXHPS9",
+      "LastModified": "2026-09-22T11:54:02Z",
+      "Statistics": {
+        "LastModified": "2026-09-22T11:54:02Z",
+        "RemainingTimeMinutes": 0,
+        "SpentReadingMinutes": 0
+      },
+      "StatusInfo": {
+        "LastModified": "2026-09-22T11:54:02Z",
+        "Status": "Reading"
+      }
+    }
+  ]
+}

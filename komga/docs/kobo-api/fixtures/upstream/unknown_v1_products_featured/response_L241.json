@@ -1,0 +1,136 @@
+{
+  "Items": [
+    {
+      "Id": "81844d90-8f90-40b0-98e4-f0cb6c3534e7",
+      "Name": "Top 50 Books",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "1b49078a-87c3-49d1-9124-b00a5c242d6f",
+      "Name": "Top 50 Audiobooks",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "6230542a-b29c-4ccd-98bd-d091d0241a44",
+      "Name": "Top Kobo Plus Books",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "5f08e984-b1c0-c28e-aab3-08dc44f596cd",
+      "Name": "Colourful stories the way they’re meant to be seen",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "fc521346-a71d-c639-329e-08dabb85e7c5",
+      "Name": "New releases you don't want to miss",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "d037e29d-052a-c92d-da3c-08dabc0dd8ed",
+      "Name": "Fantastic fiction",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "0bd27bb0-0159-c3b8-3cd0-08dabc0e6802",
+      "Name": "Guaranteed chills and thrills with these mysteries and thrillers",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "7c088551-070f-ccdf-1740-08dabc0eb416",
+      "Name": "Romantic reads to fall in love with",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "4db8e924-6cf8-c7a3-e468-08dabc0ffed4",
+      "Name": "Kobo Originals, books you won't read anywhere else",
+      "ProductTypes": [
+        "Book"
+      ]
+    },
+    {
+      "Id": "b1a7868b-69d5-cf71-bd21-08d4d9ec79f7",
+      "Name": "New & Hot Audiobooks",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "dd08675a-e472-c113-b74b-08d4eff7539b",
+      "Name": "Start a new audiobook series",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "c4e4068d-f9cb-c60c-327d-08d62ae1a638",
+      "Name": "Better life, better you",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "47218d05-b1e0-cf64-c055-08d84aa5aa4b",
+      "Name": "The latest from GraphicAudio",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "a0c44b04-ff6d-c0e6-4345-08d63524c7bf",
+      "Name": "Cinematic audiobooks",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "fd08edf2-5e88-cfcb-d09c-08d609cdc1b1",
+      "Name": "Staff Picks in Audiobooks",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "aedad156-30ba-c295-8b38-08d6b12f51b8",
+      "Name": "Enthralling audiobooks",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "9ff082fd-0481-cce1-52b3-08d7cd37caa0",
+      "Name": "Timeless classics now in audiobook",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    },
+    {
+      "Id": "b0d1b883-70ee-c833-4cb8-08d790600c26",
+      "Name": "Coming soon to audiobooks",
+      "ProductTypes": [
+        "Audiobook"
+      ]
+    }
+  ],
+  "ItemCount": 18,
+  "TotalPageCount": 1,
+  "TotalItemCount": 18,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 100,
+  "VersionCode": 2
+}

@@ -1,0 +1,78 @@
+{
+  "Contributors": "Kanehito Yamada",
+  "WorkId": "1e78804b-759e-3e91-aa19-a6a7def6e301",
+  "SeriesNumber": "14",
+  "SeriesName": "Frieren. Oltre la fine del viaggio",
+  "SeriesId": "01a4fb8f-759f-5c5e-ac54-a44f37b142f4",
+  "SeriesNumberFloat": 14,
+  "Subtitle": "",
+  "IsFree": false,
+  "ISBN": "9788834937211",
+  "PublicationDate": "2025-06-24T00:00:00.0000000Z",
+  "ContributorRoles": [
+    {
+      "Name": "Kanehito Yamada",
+      "Role": "Author"
+    },
+    {
+      "Name": "Tsukasa Abe",
+      "Role": "Illustrator"
+    },
+    {
+      "Name": "Matteo Cremaschi",
+      "Role": "Translator"
+    }
+  ],
+  "IsInternetArchive": false,
+  "IsRecommendation": false,
+  "CrossRevisionId": "1e78804b-759e-3e91-aa19-a6a7def6e301",
+  "Title": "Frieren. Oltre la fine del viaggio (Vol. 14)",
+  "Description": "<p>La maga Frieren fa visita alla capitale imperiale, il fulcro della civiltà magica fondata dalla sua maestra Flamme. Qualcuno sta pianificando l'assassinio di Serie e l'Istituto di magia d… [TRUNCATED 231 chars; original string value]",
+  "Language": "it",
+  "Locale": {
+    "LanguageCode": "ita"
+  },
+  "ImageId": "284ebc78-3bfd-4d28-b632-d9aa8b0adc75",
+  "PublisherName": "J-POP Manga",
+  "Rating": 5,
+  "TotalRating": 4,
+  "RatingHistogram": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 4
+  },
+  "Slug": "frieren-oltre-la-fine-del-viaggio-vol-14",
+  "IsContentSharingEnabled": true,
+  "RedirectPreviewUrls": [
+    {
+      "DrmType": "None",
+      "Format": "EPUB3FL_SAMPLE",
+      "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+      "Platform": "Generic",
+      "Size": 85245253
+    }
+  ],
+  "HasPreview": true,
+  "Price": {
+    "Currency": "EUR",
+    "Price": 3.99
+  },
+  "PromoCodeAllowed": false,
+  "EligibleForKoboLoveDiscount": false,
+  "IsPreOrder": false,
+  "InWishlist": false,
+  "RelatedGroupId": "d91fa13a-7be8-64da-0000-000000000000",
+  "ApplicableSubscriptions": [],
+  "AgeVerificationRequired": false,
+  "AccessibilityDetails": {
+    "IsFixedLayout": true,
+    "IsTextToSpeechAllowed": false,
+    "PrimaryContentType": "10",
+    "EPubAccessibilities": [],
+    "HazardWarningTypes": [],
+    "IsAccessible": false
+  },
+  "Id": "bb14a4c2-04be-43c7-935b-55d6ef25055a"
+}

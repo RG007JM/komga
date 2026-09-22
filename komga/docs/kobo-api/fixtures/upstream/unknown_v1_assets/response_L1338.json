@@ -1,0 +1,11 @@
+{
+  "AssetGroups": [
+    {
+      "Key": "EPD-KoboPlus-ReadOnly-NeverSubscribed",
+      "ETag": "[REDACTED]",
+      "Assets": [],
+      "Template": "Subscriptions-Single"
+    }
+  ],
+  "KeepGoing": false
+}

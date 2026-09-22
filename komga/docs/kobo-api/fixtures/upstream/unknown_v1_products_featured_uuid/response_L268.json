@@ -1,0 +1,304 @@
+{
+  "Items": [
+    {
+      "Audiobook": {
+        "Duration": 44996,
+        "TotalBytes": 359976972,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Emily St. John Mandel,Kirsten Potter,Kimberly Farr,Peter Ganim,Catherine Ho,James Aaron Oh",
+        "WorkId": "26a11372-2281-3faa-9502-fc7ac0892b58",
+        "Subtitle": "A Novel",
+        "IsFree": false,
+        "ISBN": "9798217406500",
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kirsten Potter",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Kimberly Farr",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Peter Ganim",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Catherine Ho",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "James Aaron Oh",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Emily St. John Mandel",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "26a11372-2281-3faa-9502-fc7ac0892b58",
+        "Title": "Exit Party",
+        "Description": "<p><strong>The award-winning, bestselling author of <em>Station Eleven</em> and <em>Sea of Tranquility</em> returns with a breathtaking novel of doubles, shadow worlds, and fractured timelin… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "7ee5b05e-f8be-4b76-9f50-a34b50da9356",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "exit-party-5",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 21.42
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 9200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "24c845fa-22d9-a97c-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Id": "9394b74c-9282-49e4-83bd-7d64006530e5"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 56382,
+        "TotalBytes": 451073810,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Jodi Picoult,Rebecca Soler,MacLeod Andrews,Julia Whelan,Jodi Picoult",
+        "WorkId": "81316695-479b-392a-885e-1a7b79e5569f",
+        "Subtitle": "A Novel",
+        "IsFree": false,
+        "ISBN": "9798217404483",
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Rebecca Soler",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "MacLeod Andrews",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Julia Whelan",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jodi Picoult",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jodi Picoult",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "81316695-479b-392a-885e-1a7b79e5569f",
+        "Title": "Hollow Bones",
+        "Description": "<p><strong>From the #1 <em>New York Times</em> bestselling author of <em>By Any Other Name</em> comes a riveting novel about the risks we take to protect the ones we love in a world where cr… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "1aa2371c-45be-4f16-bb2c-81da5fc66bae",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "hollow-bones-10",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 24.99
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 10800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "44ce2e9a-f680-22bd-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Id": "6abdbf44-d487-4f68-ad5a-9423a8f2408e"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 16381,
+        "TotalBytes": 131062380,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Isabel Allende,Victoria Villarreal",
+        "WorkId": "cbbf201c-7b7a-38d7-8baf-ad2122a525d3",
+        "Subtitle": "A Writing Life",
+        "IsFree": false,
+        "ISBN": "9798217404582",
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Victoria Villarreal",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Isabel Allende",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "cbbf201c-7b7a-38d7-8baf-ad2122a525d3",
+        "Title": "Story Telling",
+        "Description": "<p><strong>A profound exploration of the art and magic of writing by <em>New York Times</em> bestselling author Isabel Allende.</strong></p><p>In this deeply personal and insightful book, Is… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "c1f576d6-4156-4148-b0d1-7bdeac811dd5",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "story-telling-4",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 13.39
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 6000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "1c02082c-161b-b2c2-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Id": "892850e9-1608-43dc-bfcd-216eddc163c9"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 65134,
+        "TotalBytes": 521121150,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Andrew D. Huberman, Ph.D.,Andrew D. Huberman, Ph.D.",
+        "WorkId": "e778c5a6-9e89-39ec-ab0a-f6b8ceabb0e0",
+        "Subtitle": "An Operating Manual for the Human Body",
+        "IsFree": false,
+        "ISBN": "9781797182919",
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Andrew D. Huberman, Ph.D.",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Andrew D. Huberman, Ph.D.",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "e778c5a6-9e89-39ec-ab0a-f6b8ceabb0e0",
+        "Title": "Protocols",
+        "Description": "<p><strong>Andrew Huberman, host of the world’s leading health and science podcast <em>Huberman Lab</em> and neuroscientist and professor at Stanford School of Medicine, presents an essentia… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "cc30be14-0314-40e1-9d5b-3feddea02f5c",
+        "PublisherName": "Simon & Schuster Audio",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "protocols-2",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 31.23
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 13200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "61de8caa-3a7c-e6e4-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Id": "7a2ce24e-6212-4665-af7c-60c0fde008c0"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 42,
+  "TotalItemCount": 167,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

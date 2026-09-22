@@ -1,0 +1,517 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Richard Osman",
+        "WorkId": "6f918cdd-d6a4-36c8-948d-6c5e78f6a367",
+        "SeriesNumber": "2",
+        "SeriesName": "We Solve Murders",
+        "SeriesSlug": "we-solve-murders-1",
+        "SeriesId": "2d7eb60a-913d-534a-a8d5-59ea8f897c0e",
+        "SeriesNumberFloat": 2,
+        "Subtitle": "The latest novel in the new murder mystery series from the bestselling author of The Thursday Murder Club",
+        "IsFree": false,
+        "ISBN": "9780241747070",
+        "PublicationDate": "2026-09-10T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Richard Osman",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "150791f8-01f9-38e0-9b13-b642fb5cc567",
+        "Title": "We Chase Shadows",
+        "Description": "<p><strong>FROM THE BESTSELLING AUTHOR OF THE THURSDAY MURDER CLUB COMES THE THRILLING NEW MYSTERY IN THE 'WE SOLVE MURDERS' SERIES - A GLOBE-TROTTING, PAGE-TURNING ADVENTURE</strong></p><p>… [TRUNCATED 304 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "e7d7b273-1dd1-4f84-a796-4861e00ac426",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.833333,
+        "TotalRating": 6,
+        "Slug": "we-chase-shadows-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 592411
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 16.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 7600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "1f22610b-611e-bead-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "90",
+              "Value": "Penguin Random House UK"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook is compatible with assistive technologies and features a page list and page break locations to aid coordination with the print edition. There are no hazards. For more information on our commitment to accessibility, please visit us online at https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "93",
+              "Value": "https://daisy.github.io/ace"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "19"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-10T00:00:00.0000000Z"
+        },
+        "Id": "1a826329-5f7c-4933-8403-bd7626e4a8e8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Leigh Bardugo",
+        "WorkId": "870377bd-7e15-36df-b1ff-9831f73dfb20",
+        "SeriesNumber": "3",
+        "SeriesName": "Ninth House",
+        "SeriesSlug": "ninth-house-2",
+        "SeriesId": "dd753c2e-0c03-5074-a27b-8e8ec491f791",
+        "SeriesNumberFloat": 3,
+        "Subtitle": "The explosive finale to the Sunday Times bestselling Ninth House series from the global phenomenon behind the Grishaverse",
+        "IsFree": false,
+        "ISBN": "9781399639392",
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Leigh Bardugo",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "449f2bf2-b5d2-351d-8093-a17339200ea7",
+        "Title": "Dead Beat",
+        "Description": "<p><strong>The highly anticipated, explosive conclusion to the Ninth House trilogy from <em>Sunday Times</em> bestselling author Leigh Bardugo.</strong></p><p><strong>Hell is empty and all t… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "e0eeabe2-4389-4c1e-bbe5-8f3f122c267c",
+        "PublisherName": "Orion",
+        "Rating": 4.666667,
+        "TotalRating": 3,
+        "Slug": "dead-beat-18",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1816496
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 14.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 6800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "45809c95-f5c5-2e27-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "15"
+            },
+            {
+              "Type": "19"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "41"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Id": "6ee011cb-715c-4713-a70a-3369d6ea844b"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Caro Claire Burke",
+        "WorkId": "3e8a1d7e-de11-3f1a-9374-e47d25cf4500",
+        "IsFree": false,
+        "ISBN": "9780008742782",
+        "PublicationDate": "2026-04-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Caro Claire Burke",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "3e8a1d7e-de11-3f1a-9374-e47d25cf4500",
+        "Title": "Yesteryear",
+        "Description": "<p>THE MULTI-MILLION COPY INTERNATIONAL BESTSELLER THE #1 SUNDAY TIMES BESTSELLER THE #1 NEW YORK TIMES BESTSELLER</p><p><strong>'NIGHTMARISH, SHOCKING, BRILLIANT’</strong> – <em>STYLIST</em… [TRUNCATED 305 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "46973ae3-de78-4434-9885-0c24e247a8a8",
+        "PublisherName": "HarperCollins Publishers",
+        "Rating": 4.171946,
+        "TotalRating": 663,
+        "Slug": "yesteryear-9",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2777241
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 12.68
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 6800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "b9ba7843-476e-8a94-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "13"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-04-07T00:00:00.0000000Z"
+        },
+        "Id": "0c620c12-f460-406f-960c-1692cc44d96b"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Richard Osman",
+        "WorkId": "cfba7877-7ae2-3ed2-856a-10e4b45101b7",
+        "SeriesName": "The Thursday Murder Club",
+        "SeriesSlug": "the-thursday-murder-club",
+        "SeriesId": "d6bbf124-78af-5033-887b-3516c978c5bc",
+        "Subtitle": "The new novel in the Sunday Times bestselling murder mystery series",
+        "IsFree": false,
+        "ISBN": "9781405975629",
+        "PublicationDate": "2025-09-25T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Richard Osman",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "cfba7877-7ae2-3ed2-856a-10e4b45101b7",
+        "Title": "The Impossible Fortune",
+        "Description": "<p><strong>THE UNMISSABLE NEW MYSTERY IN THE MULTI-MILLION-COPY BESTSELLING, RECORD-BREAKING <em>THURSDAY MURDER CLUB</em> SERIES</strong></p><p>‘Irresistible’ <strong>LEE CHILD</strong></p>… [TRUNCATED 304 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "4fd3044f-d108-4bed-87ef-36ce85d3434a",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.553806,
+        "TotalRating": 381,
+        "Slug": "the-impossible-fortune-3",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 948500
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "a8c14111-e398-9f8d-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "90",
+              "Value": "Penguin Random House UK"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook is compatible with assistive technologies and features a page list and page break locations to aid coordination with the print edition. There are no hazards. For more information on our commitment to accessibility, please visit us online at https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "93",
+              "Value": "https://daisy.github.io/ace"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "19"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-09-25T00:00:00.0000000Z"
+        },
+        "Id": "aa4fa9ca-4ae2-400d-9ba2-44652b92a6d1"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 125,
+  "TotalItemCount": 499,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

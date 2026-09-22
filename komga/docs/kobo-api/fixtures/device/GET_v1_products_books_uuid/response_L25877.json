@@ -1,0 +1,78 @@
+{
+  "AccessibilityDetails": {
+    "EPubAccessibilities": [],
+    "HazardWarningTypes": [],
+    "IsAccessible": false,
+    "IsFixedLayout": true,
+    "IsTextToSpeechAllowed": false,
+    "PrimaryContentType": "10"
+  },
+  "AgeVerificationRequired": false,
+  "ApplicableSubscriptions": [],
+  "ContributorRoles": [
+    {
+      "Name": "Kanehito Yamada",
+      "Role": "Author"
+    },
+    {
+      "Name": "Tsukasa Abe",
+      "Role": "Illustrator"
+    },
+    {
+      "Name": "Matteo Cremaschi",
+      "Role": "Translator"
+    }
+  ],
+  "Contributors": "Kanehito Yamada",
+  "CrossRevisionId": "1e78804b-759e-3e91-aa19-a6a7def6e301",
+  "Description": "<p>La maga Frieren fa visita alla capitale imperiale, il fulcro della civilt├á magica fondata dalla sua maestra Flamme. Qualcuno sta pianificando l'assassinio di Serie e l'Istituto di magia … [TRUNCATED 232 chars; original string value]",
+  "EligibleForKoboLoveDiscount": false,
+  "HasPreview": true,
+  "ISBN": "9788834937211",
+  "Id": "bb14a4c2-04be-43c7-935b-55d6ef25055a",
+  "ImageId": "284ebc78-3bfd-4d28-b632-d9aa8b0adc75",
+  "InWishlist": false,
+  "IsContentSharingEnabled": true,
+  "IsFree": false,
+  "IsInternetArchive": false,
+  "IsPreOrder": false,
+  "IsRecommendation": false,
+  "Language": "it",
+  "Locale": {
+    "LanguageCode": "ita"
+  },
+  "Price": {
+    "Currency": "EUR",
+    "Price": 3.99
+  },
+  "PromoCodeAllowed": false,
+  "PublicationDate": "2025-06-24T00:00:00.0000000Z",
+  "PublisherName": "J-POP Manga",
+  "Rating": 5,
+  "RatingHistogram": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 4
+  },
+  "RedirectPreviewUrls": [
+    {
+      "DrmType": "None",
+      "Format": "EPUB3FL_SAMPLE",
+      "Platform": "Generic",
+      "Size": 85245253,
+      "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+    }
+  ],
+  "RelatedGroupId": "d91fa13a-7be8-64da-0000-000000000000",
+  "SeriesId": "01a4fb8f-759f-5c5e-ac54-a44f37b142f4",
+  "SeriesName": "Frieren. Oltre la fine del viaggio",
+  "SeriesNumber": "14",
+  "SeriesNumberFloat": 14,
+  "Slug": "frieren-oltre-la-fine-del-viaggio-vol-14",
+  "Subtitle": "",
+  "Title": "Frieren. Oltre la fine del viaggio (Vol. 14)",
+  "TotalRating": 4,
+  "WorkId": "1e78804b-759e-3e91-aa19-a6a7def6e301"
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "Categories": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "ContributorRoles": [
+      {
+        "Name": "Tatsuya Endo"
+      }
+    ],
+    "Contributors": [
+      "Tatsuya Endo"
+    ],
+    "CoverImageId": "0RPA2DAJ0JTT2",
+    "CrossRevisionId": "0RDTATKHXHPS9",
+    "CurrentDisplayPrice": {
+      "CurrencyCode": "USD",
+      "TotalAmount": 0
+    },
+    "CurrentLoveDisplayPrice": {
+      "TotalAmount": 0
+    },
+    "Description": "An action-packed comedy about a fake family that includes a spy, an assassin and a telepath!Master spy Twilight is unparalleled when it comes to going undercover on dangerous missions for th… [TRUNCATED 443 chars; original string value]",
+    "DownloadUrls": [
+      {
+        "DrmType": "None",
+        "Format": "EPUB3FL",
+        "Platform": "Generic",
+        "Size": 72781277,
+        "Url": "https://komga.com/kobo/{token}/v1/books/0RDTATKHXHPS9/file/epub?convert_kepub=false"
+      }
+    ],
+    "EntitlementId": "0RDTATKHXHPS9",
+    "ExternalIds": [],
+    "Genre": "00000000-0000-0000-0000-000000000001",
+    "IsEligibleForKoboLove": false,
+    "IsInternetArchive": false,
+    "IsPreOrder": false,
+    "IsSocialEnabled": true,
+    "Isbn": "9781974753246",
+    "Language": "en",
+    "PhoneticPronunciations": {},
+    "PublicationDate": "2025-01-13T00:00:00Z",
+    "Publisher": {
+      "Imprint": "",
+      "Name": "VIZ Media"
+    },
+    "RevisionId": "0RDTATKHXHPS9",
+    "Series": {
+      "Id": "0RDTATKG1HM0V",
+      "Name": "Spy x Family",
+      "Number": "13",
+      "NumberFloat": 13
+    },
+    "Title": "Spy X Family, Vol. 13",
+    "WorkId": "0RDTATKHXHPS9"
+  }
+]

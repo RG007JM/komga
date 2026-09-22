@@ -1,0 +1,11 @@
+{
+  "Deals": [
+    {
+      "Id": "77c91545-d80f-46be-86d9-357079015fb2",
+      "Name": "EPD-KoboPlus-ReadOnly-NeverSubscribed",
+      "Url": "https://www.kobo.com/{region}/{language}/plus/plans",
+      "AssetGroup": "EPD-KoboPlus-ReadOnly-NeverSubscribed",
+      "From": "2021-10-01T00:00:00.0000000Z"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "CurrentPageIndex": 0,
+  "ItemCount": 5,
+  "Items": [
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "Contributors": "Yukinobu Tatsu",
+        "CrossRevisionId": "0RKJK260C7AX8",
+        "Description": "Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what theyΓÇÖll believe in and what they wonΓÇÖt. Their quest to prove each other wrong leads them down a path… [TRUNCATED 86 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974760688",
+        "Id": "0RKJK260C7AX8",
+        "ImageId": "0RPA2MVW4JHT4",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2025-12-09T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.5,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 8769335,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RKGS49PPFETD",
+        "SeriesName": "Dandadan",
+        "SeriesNumber": "16",
+        "SeriesNumberFloat": 16,
+        "Slug": "dandadan-vol-16-1",
+        "Title": "Dandadan, Vol. 16",
+        "TotalRating": 16,
+        "WorkId": "0RKJK260C7AX8"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "Contributors": "Yukinobu Tatsu",
+        "CrossRevisionId": "bff30543-74bf-35e0-a393-65f41094fd3a",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what theyΓÇÖll believe in and what they wonΓÇÖt. Their quest to prove each other wrong leads them down a p… [TRUNCATED 93 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974764686",
+        "Id": "5e090b20-6a0e-4dc9-9a8a-d7a560e0f14e",
+        "ImageId": "ad09ace9-57ef-4d86-ba32-d36635117fe8",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2026-04-07T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.6,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 8755887,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "Slug": "dandadan-vol-18-1",
+        "Title": "Dandadan, Vol. 18",
+        "TotalRating": 10,
+        "WorkId": "bff30543-74bf-35e0-a393-65f41094fd3a"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "Contributors": "Yukinobu Tatsu",
+        "CrossRevisionId": "bc5d8e22-bf26-3a77-90da-73fa6df0bea9",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what theyΓÇÖll believe in and what they wonΓÇÖt. Their quest to prove each other wrong leads them down a p… [TRUNCATED 93 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974767403",
+        "Id": "10283b21-b4ae-4654-a482-5cf1eea6afcc",
+        "ImageId": "13562750-0239-4c41-ba2e-b48624dd8e82",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2026-06-09T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 5,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 10512819,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "Slug": "dandadan-vol-19-1",
+        "Title": "Dandadan, Vol. 19",
+        "TotalRating": 6,
+        "WorkId": "bc5d8e22-bf26-3a77-90da-73fa6df0bea9"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "Contributors": "Yukinobu Tatsu",
+        "CrossRevisionId": "0RKJK260G7109",
+        "Description": "Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what theyΓÇÖll believe in and what they wonΓÇÖt. Their quest to prove each other wrong leads them down a path… [TRUNCATED 86 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974759859",
+        "Id": "0RKJK260G7109",
+        "ImageId": "0RPA2MW0MJPBE",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2025-10-07T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.793103,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 3400504,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RKGS49PPFETD",
+        "SeriesName": "Dandadan",
+        "SeriesNumber": "15",
+        "SeriesNumberFloat": 15,
+        "Slug": "dandadan-vol-15-1",
+        "Title": "Dandadan, Vol. 15",
+        "TotalRating": 29,
+        "WorkId": "0RKJK260G7109"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "Contributors": "Yukinobu Tatsu",
+        "CrossRevisionId": "0RKJK25XC75MK",
+        "Description": "As Momo and the others fight desperately against the alien invaders, a recovering Okarun finally comes to and is able to join them. Unfortunately for him, itΓÇÖs Tuesday, and that means one … [TRUNCATED 304 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974757411",
+        "Id": "0RKJK25XC75MK",
+        "ImageId": "0RPA2MVJ0JXRM",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2025-08-05T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.730769,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 5407535,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RKGS49PPFETD",
+        "SeriesName": "Dandadan",
+        "SeriesNumber": "14",
+        "SeriesNumberFloat": 14,
+        "Slug": "dandadan-vol-14-1",
+        "Title": "Dandadan, Vol. 14",
+        "TotalRating": 26,
+        "WorkId": "0RKJK25XC75MK"
+      }
+    }
+  ],
+  "ItemsPerPage": 5,
+  "TotalItemCount": 89,
+  "TotalPageCount": 18,
+  "VersionCode": 2
+}

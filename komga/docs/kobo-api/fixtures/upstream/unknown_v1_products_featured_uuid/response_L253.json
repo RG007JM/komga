@@ -1,0 +1,478 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Charles Spencer",
+        "WorkId": "8c8d2094-22ec-34d6-aa36-38612866b2bd",
+        "Subtitle": "Diana, my sister. Beautiful. Beloved. Hunted.",
+        "IsFree": false,
+        "ISBN": "9781405991827",
+        "PublicationDate": "2026-09-22T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Charles Spencer",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "8c8d2094-22ec-34d6-aa36-38612866b2bd",
+        "Title": "Swan Song",
+        "Description": "<p><strong>Beautiful. Beloved. Hunted. The extraordinary life and death of Diana, as told by her brother, Charles.</strong></p><p><strong>‘When asked, ‘What was it like, growing up with Dian… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "9e8f8e63-e24e-4472-8981-5832fe4f4b2d",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "swan-song-104",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 14.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 6800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "86eb67b6-372b-0171-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "90",
+              "Value": "Penguin Random House UK"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook is compatible with assistive technologies and features a page list and page break locations to aid coordination with the print edition. There are no hazards. For more information on our commitment to accessibility, please visit us online at https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "93",
+              "Value": "https://daisy.github.io/ace"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "19"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-22T00:00:00.0000000Z"
+        },
+        "Id": "2e5077a8-c05c-459f-87f4-40e89ebce8d4"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Rachel Gillig",
+        "WorkId": "010d6d98-9405-3602-b576-490b18273bf4",
+        "Subtitle": "The spellbinding sequel to The Knight and the Moth from multi-million-copy bestseller Rachel Gillig",
+        "IsFree": false,
+        "ISBN": "9780356523019",
+        "PublicationDate": "2026-09-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Rachel Gillig",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "54f6717f-7347-39d4-8716-78b833341699",
+        "Title": "The Knave and the Moon",
+        "Description": "<p><strong>Rachel Gillig, the queen of gothic romantasy, returns with higher stakes, darker mysteries and deeper longings in this gorgeous sequel to the No. 1</strong> <strong>international<… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "145f4c6d-81f9-4a0c-ba45-8e22533ca38e",
+        "PublisherName": "Little, Brown Book Group",
+        "Rating": 4.259259,
+        "TotalRating": 27,
+        "Slug": "the-knave-and-the-moon",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 16.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 7600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "9330761d-0d77-95dc-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "85"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-01T00:00:00.0000000Z"
+        },
+        "Id": "2a9083fd-6144-49b6-86b6-c733ead8efdb"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gillian Anderson",
+        "WorkId": "2798f7e0-3027-3a95-b25f-fb0acae66f76",
+        "Subtitle": "The follow-up to the #1 Sunday Times bestseller",
+        "IsFree": false,
+        "ISBN": "9781526677389",
+        "PublicationDate": "2026-09-10T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gillian Anderson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "2798f7e0-3027-3a95-b25f-fb0acae66f76",
+        "Title": "More",
+        "Description": "<p><strong>THE DARING FOLLOW-UP TO THE NO. 1 <em>SUNDAY TIMES</em> BESTSELLER <em>WANT</em></strong></p><p><em><strong>'Am I a bad person? Or am I allowed to wonder “what if”?'</strong></em>… [TRUNCATED 305 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "ad9bec19-2a83-4bbb-87b3-30729b33cf6c",
+        "PublisherName": "Bloomsbury Publishing",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "more-113",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 15.8
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 8000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "ead21517-d866-a1d3-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "19"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "22"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-10T00:00:00.0000000Z"
+        },
+        "Id": "91254aa4-6a3d-478c-802f-303b22f17f45"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Rachel Morley",
+        "WorkId": "2e475617-dc7e-3cfa-bb6f-801207e0089a",
+        "Subtitle": "The Secret Lives and Hidden Stories of England’s Churches",
+        "IsFree": false,
+        "ISBN": "9781529928068",
+        "PublicationDate": "2026-09-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Rachel Morley",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "2e475617-dc7e-3cfa-bb6f-801207e0089a",
+        "Title": "Church Crawling",
+        "Description": "<p><strong>A transporting and gloriously entertaining journey through the hidden lives of England’s rural parish churches – from building conservator and church ‘rescuer’ Rachel Morley</stro… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "962207f5-f594-47cd-beac-89bec463ca74",
+        "PublisherName": "Vintage Publishing",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "church-crawling",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 14.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 6800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "6e6d388e-088d-b5b1-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "90",
+              "Value": "Penguin Random House UK"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook is compatible with assistive technologies and features a page list and page break locations to aid coordination with the print edition. There are no hazards. For more information on our commitment to accessibility, please visit us online at https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "93",
+              "Value": "https://daisy.github.io/ace"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "19"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-03T00:00:00.0000000Z"
+        },
+        "Id": "ae35cc51-8221-4a88-b942-6c422fbe1e0b"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 125,
+  "TotalItemCount": 497,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

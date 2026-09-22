@@ -1,0 +1,15 @@
+{
+  "CurrentPageIndex": 0,
+  "Filters": {
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "ItemCount": 0,
+  "Items": [],
+  "ItemsPerPage": 50,
+  "TotalItemCount": 0,
+  "TotalPageCount": 0,
+  "VersionCode": 2
+}

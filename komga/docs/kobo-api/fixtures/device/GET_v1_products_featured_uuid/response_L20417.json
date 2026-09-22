@@ -1,0 +1,299 @@
+{
+  "CurrentPageIndex": 0,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "ItemCount": 4,
+  "Items": [
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Andrew D. Huberman, Ph.D.",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Andrew D. Huberman, Ph.D.",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Andrew D. Huberman, Ph.D.,Andrew D. Huberman, Ph.D.",
+        "CrossRevisionId": "e778c5a6-9e89-39ec-ab0a-f6b8ceabb0e0",
+        "Description": "<p><strong>Andrew Huberman, host of the worldΓÇÖs leading health and science podcast <em>Huberman Lab</em> and neuroscientist and professor at Stanford School of Medicine, presents an essent… [TRUNCATED 311 chars; original string value]",
+        "Duration": 65134,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781797182919",
+        "Id": "7a2ce24e-6212-4665-af7c-60c0fde008c0",
+        "ImageId": "cc30be14-0314-40e1-9d5b-3feddea02f5c",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-15T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 13200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 31.23
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-15T00:00:00.0000000Z",
+        "PublisherName": "Simon & Schuster Audio",
+        "Rating": 0,
+        "RelatedGroupId": "61de8caa-3a7c-e6e4-0000-000000000000",
+        "Slug": "protocols-2",
+        "Subtitle": "An Operating Manual for the Human Body",
+        "Title": "Protocols",
+        "TotalBytes": 521121150,
+        "TotalRating": 0,
+        "WorkId": "e778c5a6-9e89-39ec-ab0a-f6b8ceabb0e0"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Priya Parker",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Priya Parker",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Priya Parker,Priya Parker",
+        "CrossRevisionId": "82e82c63-2374-3bd4-b16f-ecfc6a1294db",
+        "Description": "<p>**AN INSTANT <em>NEW YORK TIMES</em> BESTSELLER</p><p>FEATURED AT NBCΓÇÖS TODAY SHOW, <em>NEW YORK TIMES MAGAZINE</em>, <em>THE WALL STREET JOURNAL</em>, AND MANY MORE</p><p>ΓÇ£This is no… [TRUNCATED 322 chars; original string value]",
+        "Duration": 36230,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9798217352876",
+        "Id": "9ed66439-2769-4b81-91e9-10134e5b582a",
+        "ImageId": "de4eb8dc-9295-47b8-a344-ba04a0b9f157",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-08T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 8400,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 19.64
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-08T00:00:00.0000000Z",
+        "PublisherName": "Penguin Random House Audio Publishing Group",
+        "Rating": 0,
+        "RelatedGroupId": "073a1ec2-6dcd-6c8f-0000-000000000000",
+        "Slug": "the-art-of-fighting-3",
+        "Subtitle": "The Transformative Power of Conflict",
+        "Title": "The Art of Fighting",
+        "TotalBytes": 289854825,
+        "TotalRating": 0,
+        "WorkId": "82e82c63-2374-3bd4-b16f-ecfc6a1294db"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Jim Curtis",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jim Curtis",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Jim Curtis,Jim Curtis",
+        "CrossRevisionId": "c648769f-7d30-3fff-a829-4689917b51f0",
+        "Description": "<p><strong>For fans of <em>Manifest</em> and <em>DonΓÇÖt Believe Everything You Think</em>, a practical and compassionate guide to healing from transformational coach Jim Curtis, using decad… [TRUNCATED 313 chars; original string value]",
+        "Duration": 30447,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781668189528",
+        "Id": "a10ba9b2-703a-4452-b50f-6fe873da4406",
+        "ImageId": "90f338d3-064e-44bd-8e48-3ebeb7ea8462",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2026-09-08T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 10400,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 24.09
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2026-09-08T00:00:00.0000000Z",
+        "PublisherName": "Simon & Schuster Audio",
+        "Rating": 0,
+        "RelatedGroupId": "5227a630-3fc2-86a6-0000-000000000000",
+        "Slug": "book-of-possibility",
+        "Title": "Book of Possibility",
+        "TotalBytes": 243594247,
+        "TotalRating": 0,
+        "WorkId": "c648769f-7d30-3fff-a829-4689917b51f0"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Rob Reiner",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Christopher Guest",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Michael McKean",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Harry Shearer",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Rob Reiner",
+            "Role": "Author"
+          },
+          {
+            "Name": "Christopher Guest",
+            "Role": "Author"
+          },
+          {
+            "Name": "Michael McKean",
+            "Role": "Author"
+          },
+          {
+            "Name": "Harry Shearer",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Rob Reiner,Rob Reiner,Christopher Guest,Michael McKean,Harry Shearer,Christopher Guest,Michael McKean,Harry Shearer",
+        "CrossRevisionId": "6df79d3a-111f-31f3-810d-f8f8106b36ce",
+        "Description": "<p><strong>A 2026 Audie Award Finalist for Nonfiction</strong></p><p>**<em>NEW YORK TIMES</em> BESTSELLER</p><p>For the first time, director Rob Reiner and cocreators Christopher Guest, Mich… [TRUNCATED 307 chars; original string value]",
+        "Duration": 26769,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781668123904",
+        "Id": "03b9e096-365a-4136-bdb5-4e19d64e79a4",
+        "ImageId": "7707f9d7-9872-44b4-9999-bf5f5d699ab8",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2025-09-09T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 9600,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 22.31
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2025-09-09T00:00:00.0000000Z",
+        "PublisherName": "Simon & Schuster Audio",
+        "Rating": 0,
+        "RelatedGroupId": "d8d880ce-3ad1-bd8f-0000-000000000000",
+        "Slug": "a-fine-line-between-stupid-and-clever",
+        "Subtitle": "The Story of Spinal Tap",
+        "Title": "A Fine Line Between Stupid and Clever",
+        "TotalBytes": 214179068,
+        "TotalRating": 0,
+        "WorkId": "6df79d3a-111f-31f3-810d-f8f8106b36ce"
+      }
+    }
+  ],
+  "ItemsPerPage": 4,
+  "TotalItemCount": 252,
+  "TotalPageCount": 63,
+  "VersionCode": 2
+}

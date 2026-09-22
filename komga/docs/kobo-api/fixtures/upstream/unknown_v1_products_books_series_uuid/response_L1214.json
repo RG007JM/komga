@@ -1,0 +1,1132 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "b35f8d32-18d8-34b8-b22a-5b7fe9e119d8",
+        "SeriesName": "The World According to Clarkson",
+        "SeriesSlug": "the-world-according-to-clarkson",
+        "SeriesId": "2cd9c3d7-5fff-5acf-8189-d9f295065b23",
+        "Subtitle": "The World According to Clarkson Volume 2",
+        "IsFree": false,
+        "ISBN": "9780141901404",
+        "PublicationDate": "2007-10-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "388e7dfa-4c52-45fe-ac4b-67cfbe182fc4",
+        "Title": "And Another Thing",
+        "Description": "<p><strong><em>In And Another Thing...</em> the outspoken and outrageous presenter Jeremy Clarkson, shares his opinions on just about everything.</strong></p><p>Jeremy Clarkson finds the wor… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "0799cbaf-59a4-4479-9e73-c60668d5547a",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.416667,
+        "TotalRating": 12,
+        "Slug": "and-another-thing-2",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 14.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 6800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2007-10-04T00:00:00.0000000Z"
+        },
+        "Id": "81123bf0-3719-4951-bb35-4ad84f319050"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "d8cbfcf1-678b-385c-97b2-99cf1fa9e255",
+        "SeriesName": "The World According to Clarkson",
+        "SeriesSlug": "the-world-according-to-clarkson",
+        "SeriesId": "2cd9c3d7-5fff-5acf-8189-d9f295065b23",
+        "Subtitle": "The World According to Clarkson Volume 4",
+        "IsFree": false,
+        "ISBN": "9780141960258",
+        "PublicationDate": "2010-09-30T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "0d068326-6046-4bce-b53f-2c87dcca2079",
+        "Title": "How Hard Can It Be?",
+        "Description": "<p><em>How Hard Can it Be?</em> is the fourth hilarious volume in Jeremy Clarkson's <em>The World According to Clarkson</em> series.</p><p><strong>How hard can it be...</strong></p><p>To bui… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "db3edfb6-e5c8-499b-a40b-5fffe524f82c",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.333333,
+        "TotalRating": 21,
+        "Slug": "how-hard-can-it-be-the-world-according-to-clarkson-volume-4",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.49
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "e371e7ed-5c21-ed91-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2010-09-30T00:00:00.0000000Z"
+        },
+        "Id": "5f3833e5-4f10-41a6-a641-76aa6c67a565"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "21664a13-8492-307a-83be-15bbb4fff792",
+        "SeriesName": "The World According to Clarkson",
+        "SeriesSlug": "the-world-according-to-clarkson",
+        "SeriesId": "2cd9c3d7-5fff-5acf-8189-d9f295065b23",
+        "Subtitle": "The World According to Clarkson Volume 1",
+        "IsFree": false,
+        "ISBN": "9780141901350",
+        "PublicationDate": "2005-05-26T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "9d109914-e2d4-4628-8c23-72d3beafcffc",
+        "Title": "The World According to Clarkson",
+        "Description": "<p><strong>Jeremy Clarkson, shares his opinions on just about everything in <em>The World According to Clarkson.</em></strong></p><p>Jeremy Clarkson has seen rather more of the world than mo… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "68d06139-9e8a-48d0-9d9f-5f9c2d62b497",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.210526,
+        "TotalRating": 19,
+        "Slug": "the-world-according-to-clarkson",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 324100
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.49
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "66822000-e14c-08c1-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2005-05-26T00:00:00.0000000Z"
+        },
+        "Id": "a974b7da-a802-43e7-b252-25f63db6aa56"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "27cf29c8-6442-3615-b394-3decc8431bf9",
+        "SeriesName": "The World According to Clarkson",
+        "SeriesSlug": "the-world-according-to-clarkson",
+        "SeriesId": "2cd9c3d7-5fff-5acf-8189-d9f295065b23",
+        "Subtitle": "The World According to Clarkson Volume 5",
+        "IsFree": false,
+        "ISBN": "9781405914147",
+        "PublicationDate": "2013-09-26T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "dfb4e1be-8184-38e7-b1aa-f90f4075f028",
+        "Title": "Is It Really Too Much To Ask?",
+        "Description": "<p><em><strong>Is It Really Too Much To Ask?</strong></em> <strong>is the fifth book in Jeremy Clarkson's bestselling <em>The</em> <em>World According to Clarkson</em> series.</strong></p><p… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "570a670b-f16a-4fe5-b368-6235038e723a",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.409091,
+        "TotalRating": 22,
+        "Slug": "is-it-really-too-much-to-ask",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.49
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2013-09-26T00:00:00.0000000Z"
+        },
+        "Id": "c4f90032-e427-4303-84d0-4f8b35daad06"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "649726e1-7d40-3efe-a36b-cf2c8b4c3528",
+        "SeriesName": "The World According to Clarkson",
+        "SeriesSlug": "the-world-according-to-clarkson",
+        "SeriesId": "2cd9c3d7-5fff-5acf-8189-d9f295065b23",
+        "Subtitle": "The World According to Clarkson Volume 6",
+        "IsFree": false,
+        "ISBN": "9781405924160",
+        "PublicationDate": "2015-10-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "65061d4f-7817-3f38-93ef-0b7d382529a7",
+        "Title": "As I Was Saying . . .",
+        "Description": "<p><em><strong>As I Was Saying...</strong></em> <strong>is the seventh book in Jeremy Clarkson's best-selling <em>The</em> <em>World According to Clarkson</em> series.</strong><br /><em>***<… [TRUNCATED 306 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "85c652ba-a69a-4cc0-a9b9-aea835fdd09e",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.625,
+        "TotalRating": 32,
+        "Slug": "as-i-was-saying-5",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.49
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "770408e7-df3a-0960-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2015-10-06T00:00:00.0000000Z"
+        },
+        "Id": "c7ce4822-1c9f-4b90-b813-319f69657366"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "790d2deb-1e45-3fcf-b602-300baa9c1220",
+        "SeriesName": "The World According to Clarkson",
+        "SeriesSlug": "the-world-according-to-clarkson",
+        "SeriesId": "2cd9c3d7-5fff-5acf-8189-d9f295065b23",
+        "Subtitle": "The World According to Clarkson Volume 3",
+        "IsFree": false,
+        "ISBN": "9780141923727",
+        "PublicationDate": "2009-05-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "0d598fa7-4e21-4070-8343-5196ce70b9c2",
+        "Title": "For Crying Out Loud",
+        "Description": "<p>Jeremy Clarkson, shares his opinions on just about everything in <em>For Crying Out Loud</em>.</p><p><strong>The publication of <em>The World According to Clarkson</em> in 2004 launched a… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "87b8b58a-174d-45b8-900a-727fa0cc64bc",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.333333,
+        "TotalRating": 9,
+        "Slug": "for-crying-out-loud-the-world-according-to-clarkson-volume-3",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "a761f89e-aa5d-6a0c-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2009-05-14T00:00:00.0000000Z"
+        },
+        "Id": "b94eedee-d6e0-436e-b949-bde1b89e1acb"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "9239ba8f-72d0-3de2-bc37-cee138ef6f9d",
+        "IsFree": false,
+        "ISBN": "9781405939065",
+        "PublicationDate": "2018-10-18T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "4984f1d1-dfd3-3427-afbb-387ea8eb22a5",
+        "Title": "If You’d Just Let Me Finish",
+        "Description": "<p><strong>Clarkson is back with a</strong> <strong>brand new book of hilarious stories and observations about our gone-wrong world.</strong><br />___________</p><p>In November 2016 we woke … [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "da2cfc6b-a78f-462a-becb-2f357810dfe3",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.2,
+        "TotalRating": 20,
+        "Slug": "if-you-d-just-let-me-finish",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 449574
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 9.49
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2018-10-18T00:00:00.0000000Z"
+        },
+        "Id": "3c7f4e4f-96f6-4c09-93a0-7322bf2f7117"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "96f0677c-088f-318d-ab2a-8215dae2f686",
+        "IsFree": false,
+        "ISBN": "9781405946520",
+        "PublicationDate": "2020-10-29T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "6bf4024c-fe4f-3305-bdd4-e39573ff6e1e",
+        "Title": "Can You Make This Thing Go Faster?",
+        "Description": "<p><strong>The hilarious new collection of stories and observations from Jeremy Clarkson - setting our off-kilter world to rights with thigh-slapping wit once again.</strong></p><p><em><stro… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "0bbb6c8c-10c5-485c-a7bc-b12d6fa72fa2",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.2,
+        "TotalRating": 25,
+        "Slug": "can-you-make-this-thing-go-faster",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 10.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 5200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "cc9d38f3-e66e-3afb-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "90",
+              "Value": "Penguin Random House UK"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "22"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "93",
+              "Value": "https://daisy.github.io/ace"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook is compatible with assistive technologies and features a page list and page break locations to aid coordination with the print edition. There are no hazards. For more information on our commitment to accessibility, please visit us online at https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "37"
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "19"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": true
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2020-10-29T00:00:00.0000000Z"
+        },
+        "Id": "a9b38af8-2ac5-4039-a786-b2c08b85ddd8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "8a728409-e0a8-33a3-a515-f34489c43b9f",
+        "IsFree": false,
+        "ISBN": "9781405939089",
+        "PublicationDate": "2019-10-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "c8416dee-8df3-32f0-babe-a0573e0c5d29",
+        "Title": "Really?",
+        "Description": "<p>**JEREMY CLARKSON'S LATEST - AND MOST OUTRAGEOUS - TAKE ON THE WORLD</p><p><em>CLARKSON'S BACK - AND THIS TIME HE'S PUTTING HIS FOOT DOWN</em>**</p><p>From his first job as a travelling s… [TRUNCATED 306 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "f706fdda-26c1-4827-ac74-23166f1c21ad",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.142857,
+        "TotalRating": 7,
+        "Slug": "really-8",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 376856
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.49
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "b0ff1083-90ae-3a61-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": true
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2019-10-03T00:00:00.0000000Z"
+        },
+        "Id": "90e38bc1-b370-46d1-861e-0b5866aef365"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "ded114ae-ac3e-35b9-9b1a-2d4a9678c0ab",
+        "IsFree": false,
+        "ISBN": "9781405919388",
+        "PublicationDate": "2014-09-25T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "c609b242-53e7-3db2-adb9-f299aa846880",
+        "Title": "What Could Possibly Go Wrong. . .",
+        "Description": "<p><em><strong>What Could Possibly Go Wrong...</strong></em> <strong>is the sixth book in Jeremy Clarkson's bestselling <em>The</em> <em>World According to Clarkson</em> series.</strong></p>… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "dc133716-685c-4dfe-9105-f4387bfe8c95",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 3.916667,
+        "TotalRating": 24,
+        "Slug": "what-could-possibly-go-wrong",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 545601
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "cdc8babb-cea0-3da3-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2014-09-25T00:00:00.0000000Z"
+        },
+        "Id": "18f0e737-d98c-4541-8d3d-15f434fb5765"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "8a25ab14-abad-3fb8-9515-1c715bb49b3b",
+        "IsFree": false,
+        "ISBN": "9780718198015",
+        "PublicationDate": "2012-09-27T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "4573724f-1f46-41f0-912e-7f4deddb60ae",
+        "Title": "The Top Gear Years",
+        "Description": "<p><em>The Top Gear Years</em> brings together Jeremy Clarkson's collected magazine columns for the first time.</p><p><strong>Clarkson at his pithy, provocative, hilarious best</strong></p><… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "39079c55-10aa-4ca9-a0d6-def896bc2aca",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.04,
+        "TotalRating": 25,
+        "Slug": "the-top-gear-years",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "9c423000-7a92-08f0-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": true
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2012-09-27T00:00:00.0000000Z"
+        },
+        "Id": "d8b2eba4-5bac-4547-abdd-e42dfc964d47"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jeremy Clarkson",
+        "WorkId": "a6b60168-ca0b-30f8-8142-e5dce29406c2",
+        "IsFree": false,
+        "ISBN": "9780718158422",
+        "PublicationDate": "2011-10-13T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jeremy Clarkson",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": true,
+        "CrossRevisionId": "d2df2ec7-1610-4e40-9d06-8682cf7d5311",
+        "Title": "Round the Bend",
+        "Description": "<p><strong>Jeremy Clarkson gets REALLY riled up in <em>Round the Bend</em></strong></p><p><strong>What's it like to drive a car that's actively trying to kill you?</strong></p><p>This and ma… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "3c529c0d-a09e-46d2-b6ba-613ecff8b91b",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.619048,
+        "TotalRating": 21,
+        "Slug": "round-the-bend",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.49
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": true,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "96",
+              "Value": "https://www.penguin.co.uk/accessibility"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "00",
+              "Value": "This ebook will feature some basic [REDACTED] support but may currently lack some important features such as described images. To learn more about our commitment to accessibility, please visit us online at penguin.co.uk/company/about-us/notices/accessibility"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2011-10-13T00:00:00.0000000Z"
+        },
+        "Id": "08045fcc-1b2e-41be-842d-ce227ab3952b"
+      }
+    }
+  ],
+  "ItemCount": 12,
+  "TotalPageCount": 1,
+  "TotalItemCount": 12,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 100,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

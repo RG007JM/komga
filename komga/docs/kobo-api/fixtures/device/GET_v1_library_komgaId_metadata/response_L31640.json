@@ -1,0 +1,58 @@
+[
+  {
+    "Categories": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "ContributorRoles": [
+      {
+        "Name": "Jeremy Clarkson"
+      }
+    ],
+    "Contributors": [
+      "Jeremy Clarkson"
+    ],
+    "CoverImageId": "0RPMBCR98HX7E",
+    "CrossRevisionId": "0RE3XW4NEEGG4",
+    "CurrentDisplayPrice": {
+      "CurrencyCode": "USD",
+      "TotalAmount": 0
+    },
+    "CurrentLoveDisplayPrice": {
+      "TotalAmount": 0
+    },
+    "Description": "In And Another Thing... the outspoken and outrageous presenter Jeremy Clarkson, shares his opinions on just about everything. Jeremy Clarkson finds the world such a perplexing place that he … [TRUNCATED 1682 chars; original string value]",
+    "DownloadUrls": [
+      {
+        "DrmType": "None",
+        "Format": "KEPUB",
+        "Platform": "Generic",
+        "Size": 408047,
+        "Url": "https://komga.com/kobo/{token}/v1/books/0RE3XW4NEEGG4/file/epub?convert_kepub=true"
+      }
+    ],
+    "EntitlementId": "0RE3XW4NEEGG4",
+    "ExternalIds": [],
+    "Genre": "00000000-0000-0000-0000-000000000001",
+    "IsEligibleForKoboLove": false,
+    "IsInternetArchive": false,
+    "IsPreOrder": false,
+    "IsSocialEnabled": true,
+    "Isbn": "9780141901404",
+    "Language": "en",
+    "PhoneticPronunciations": {},
+    "PublicationDate": "2007-10-03T00:00:00Z",
+    "Publisher": {
+      "Imprint": "",
+      "Name": "Penguin Books Ltd"
+    },
+    "RevisionId": "0RE3XW4NEEGG4",
+    "Series": {
+      "Id": "0RE3XW0WTEPX6",
+      "Name": "The World According to Clarkson",
+      "Number": "1",
+      "NumberFloat": 1
+    },
+    "Title": "And Another Thing",
+    "WorkId": "0RE3XW4NEEGG4"
+  }
+]

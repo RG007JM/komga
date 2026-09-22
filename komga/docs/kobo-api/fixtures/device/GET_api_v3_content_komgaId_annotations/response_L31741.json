@@ -1,0 +1,25 @@
+{
+  "annotations": [
+    {
+      "attachments": {},
+      "clientLastModifiedUtc": "2026-08-26T23:43:06.3447996Z",
+      "context": null,
+      "highlightColor": "#F6F3B3",
+      "highlightedText": "But thereΓÇÖs",
+      "id": "8738fd0e-4258-4f8f-9f57-92d7a937b836",
+      "location": {
+        "span": {
+          "chapterFilename": "And_Another_Thing_The_World_Acc_split_001.html",
+          "chapterProgress": 0.012195121951219513,
+          "chapterTitle": "And Another Thing",
+          "endChar": 11,
+          "endPath": "span#kobo\\.0\\.11",
+          "startChar": 0,
+          "startPath": "span#kobo\\.0\\.11"
+        }
+      },
+      "type": "highlight"
+    }
+  ],
+  "nextPageOffsetToken": null
+}

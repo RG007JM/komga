@@ -1,0 +1,17 @@
+{
+  "RequestResult": "Failure",
+  "UpdateResults": [
+    {
+      "CurrentBookmarkResult": {
+        "Result": "Failure"
+      },
+      "EntitlementId": "0RDTATKH9HV0E",
+      "StatisticsResult": {
+        "Result": "Failure"
+      },
+      "StatusInfoResult": {
+        "Result": "Failure"
+      }
+    }
+  ]
+}

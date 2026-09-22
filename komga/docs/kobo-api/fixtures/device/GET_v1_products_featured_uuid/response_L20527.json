@@ -1,0 +1,300 @@
+{
+  "CurrentPageIndex": 0,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ]
+  },
+  "ItemCount": 4,
+  "Items": [
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Lesley Manville",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Richard Osman",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Marian Keyes",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Richard Osman",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Richard Osman,Lesley Manville,Richard Osman,Marian Keyes",
+        "CrossRevisionId": "7e2af4d2-f65b-3cbd-b78d-44da15a4f4d2",
+        "Description": "<p><strong>THE FIRST NOVEL IN THE RECORD-BREAKING, MILLION-COPY BESTSELLING THURSDAY MURDER CLUB SERIES AND SOON TO BE A MAJOR NETFLIX MOVIE RELEASE!</strong></p><p><strong>Featuring an excl… [TRUNCATED 307 chars; original string value]",
+        "Duration": 44709,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9780241988299",
+        "Id": "58a5cdfb-11ba-4710-9f69-4143f60dd577",
+        "ImageId": "e500b5a6-276b-4541-8257-2e92eee22948",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2020-09-03T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 8800,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 20.74
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2020-09-03T00:00:00.0000000Z",
+        "PublisherName": "Penguin Books Ltd",
+        "Rating": 4.407407,
+        "RelatedGroupId": "30aca1d5-cd34-82c2-0000-000000000000",
+        "SeriesId": "90fe0ce7-06c9-52e4-a366-fe419177b2a1",
+        "SeriesName": "The Thursday Murder Club",
+        "SeriesSlug": "the-thursday-murder-club-1",
+        "Slug": "the-thursday-murder-club-1",
+        "Subtitle": "The first novel in the multi-million copy bestselling murder mystery series",
+        "Title": "The Thursday Murder Club",
+        "TotalBytes": 357746990,
+        "TotalRating": 189,
+        "WorkId": "7e2af4d2-f65b-3cbd-b78d-44da15a4f4d2"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": ""
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Tor Thom",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Rachel Reid",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Rachel Reid,Tor Thom",
+        "CrossRevisionId": "dfa83752-dcd5-346b-8118-9327b7f816dd",
+        "Description": "<p><strong>Nothing interferes with Shane Hollander's gameΓÇödefinitely not the sexy rival he loves to hate.</strong></p><p>Pro hockey star Shane Hollander isn't just crazy talented, he's got… [TRUNCATED 310 chars; original string value]",
+        "Duration": 34355,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781541431638",
+        "Id": "244d67ea-7d20-4363-bba4-6b63072b8dfa",
+        "ImageId": "ea6cadf3-3a95-42d9-a057-4260d09bf6ac",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2019-10-22T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 8400,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 18.74
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2019-10-22T00:00:00.0000000Z",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 4.461538,
+        "RelatedGroupId": "97581d87-264d-8ec7-0000-000000000000",
+        "SeriesId": "470aa4bb-0255-5d5c-9d29-bfe89f448fa3",
+        "SeriesName": "Game Changers: Heated Rivalry Book Series",
+        "SeriesSlug": "game-changers-heated-rivalry-book-series-1",
+        "Slug": "heated-rivalry-3",
+        "Title": "Heated Rivalry",
+        "TotalBytes": 274837625,
+        "TotalRating": 26,
+        "WorkId": "dfa83752-dcd5-346b-8118-9327b7f816dd"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Marin Ireland",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Michael Urie",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Shelby Van Pelt",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Shelby Van Pelt,Marin Ireland,Michael Urie",
+        "CrossRevisionId": "2c348c5d-4a82-3716-98ba-72d850ff6dc4",
+        "Description": "<p><strong>This audio edition is read by Marin Ireland with Michael Urie as the voice of Marcellus.</strong></p><p><strong>An Audie Award Finalist - Audiobook of the Year. *</strong> <strong… [TRUNCATED 310 chars; original string value]",
+        "Duration": 40611,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9780063204188",
+        "Id": "5c09f23b-8375-41fb-979b-9603e039482e",
+        "ImageId": "31110303-2dbf-467c-bb29-ef8ac193f21c",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2022-05-03T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 10000,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 23.91
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2022-05-03T00:00:00.0000000Z",
+        "PublisherName": "HarperCollins",
+        "Rating": 4.554622,
+        "RelatedGroupId": "f6ee0d41-c106-8f9a-0000-000000000000",
+        "Slug": "remarkably-bright-creatures-1",
+        "Subtitle": "A Novel",
+        "Title": "Remarkably Bright Creatures",
+        "TotalBytes": 324929300,
+        "TotalRating": 119,
+        "WorkId": "2c348c5d-4a82-3716-98ba-72d850ff6dc4"
+      }
+    },
+    {
+      "Audiobook": {
+        "AccessibilityDetails": {
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false,
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "01"
+        },
+        "AgeVerificationRequired": false,
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "ContributorRoles": [
+          {
+            "Name": "Selena Simmons",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Emily Bront├½",
+            "Role": "Author"
+          }
+        ],
+        "Contributors": "Emily Bront├½,Selena Simmons",
+        "CrossRevisionId": "f84c22fd-b85f-332d-b8b3-addd544000d5",
+        "Description": "<p>Wuthering Heights is Emily Bront├½'s only novel. It was first published in 1847 under the pseudonym Ellis Bell, and a posthumous second edition was edited by her sister Charlotte. The nam… [TRUNCATED 311 chars; original string value]",
+        "Duration": 36390,
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9782291963318",
+        "Id": "7216dfea-739f-4790-b313-ff8f280a2259",
+        "ImageId": "6b42c6c3-06ab-4e9b-8ab7-ff0b056d62d4",
+        "IsAbridged": false,
+        "IsContentSharingEnabled": false,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LifeCycleDates": {
+          "ActivationDate": "2024-06-11T00:00:00.0000000Z"
+        },
+        "Locale": {
+          "CountryCode": "",
+          "LanguageCode": "eng",
+          "ScriptCode": ""
+        },
+        "LovePointsPrice": 2400,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 0.49
+        },
+        "PromoCodeAllowed": true,
+        "PublicationDate": "2024-06-11T00:00:00.0000000Z",
+        "PublisherName": "NTMC",
+        "Rating": 4.333333,
+        "RelatedGroupId": "7c15cd88-023a-3679-0000-000000000000",
+        "Slug": "wuthering-heights-554",
+        "Title": "Wuthering Heights",
+        "TotalBytes": 404855559,
+        "TotalRating": 3,
+        "WorkId": "f84c22fd-b85f-332d-b8b3-addd544000d5"
+      }
+    }
+  ],
+  "ItemsPerPage": 4,
+  "TotalItemCount": 196,
+  "TotalPageCount": 49,
+  "VersionCode": 2
+}

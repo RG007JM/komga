@@ -1,0 +1,481 @@
+{
+  "Items": [
+    {
+      "Audiobook": {
+        "Duration": 36032,
+        "TotalBytes": 288270615,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Sarah J. Maas,Colleen Delany,Natalie Van Sistine,Jon Vertullo,Aure Nash,Anthony Palmini,Melody Muze,Renee Dorian,Shawn K. Jain,Nora Achrati,Matthew Bassett,Amanda Forstrom",
+        "WorkId": "36db14d3-dcbf-35f8-8a28-88c75775895f",
+        "SeriesNumber": "1",
+        "SeriesName": "Court of Thorns and Roses",
+        "SeriesSlug": "court-of-thorns-and-roses",
+        "SeriesId": "c9e12c68-52bb-51f1-bd05-af62b2c5fe6b",
+        "SeriesNumberFloat": 1,
+        "Subtitle": "A Court of Thorns and Roses 5",
+        "IsFree": false,
+        "ISBN": "9781685085490",
+        "PublicationDate": "2023-08-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Colleen Delany",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Natalie Van Sistine",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jon Vertullo",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Aure Nash",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Anthony Palmini",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Melody Muze",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Renee Dorian",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Shawn K. Jain",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Nora Achrati",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Matthew Bassett",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Amanda Forstrom",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Sarah J. Maas",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "36db14d3-dcbf-35f8-8a28-88c75775895f",
+        "Title": "A Court of Silver Flames (1 of 2) [Dramatized Adaptation]",
+        "Description": "<p>Sarah J. Maas's sexy, richly imagined audio experience continues with the journey of Feyre's fiery sister, Nesta.</p><p>Nesta Archeron has always been prickly-proud, swift to anger, and s… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "3d6918d4-a07e-4cfd-8848-d3a936a65fee",
+        "PublisherName": "GraphicAudio",
+        "Rating": 4.542857,
+        "TotalRating": 35,
+        "Slug": "a-court-of-silver-flames-1-of-2-dramatized-adaptation",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 27.66
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 11600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "7c32e301-48e3-649c-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-08-14T00:00:00.0000000Z"
+        },
+        "Id": "911bc3fa-482a-4016-bd1a-31ddf2bf1268"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 35738,
+        "TotalBytes": 285920772,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Amber V. Nicole,Full Cast,Marissa Clay,Gabriel Michael,Dominique Salvacion,Marlon Dance-Hooi,Damon Alums,Rayner Gabriel,Mark Harrietha,Torian Brackett,Richard Rohan,K'Lai Rivera,Christopher McLinden",
+        "WorkId": "8b1ce0eb-31aa-3151-9501-3061a89dab6c",
+        "SeriesNumber": "1",
+        "SeriesName": "Gods and Monsters",
+        "SeriesSlug": "gods-and-monsters-5",
+        "SeriesId": "126c53d8-475c-5e3e-83a0-3f75f063e659",
+        "SeriesNumberFloat": 1,
+        "Subtitle": "Gods and Monsters 1",
+        "IsFree": false,
+        "ISBN": "9798890559487",
+        "PublicationDate": "2025-08-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Full Cast",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Marissa Clay",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Gabriel Michael",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Dominique Salvacion",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Marlon Dance-Hooi",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Damon Alums",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Rayner Gabriel",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Mark Harrietha",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Torian Brackett",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Richard Rohan",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "K'Lai Rivera",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Christopher McLinden",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Amber V. Nicole",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8b1ce0eb-31aa-3151-9501-3061a89dab6c",
+        "Title": "The Book of Azrael (1 of 2) [Dramatized Adaptation]",
+        "Description": "<p><strong>World Ender meets Ender of Worlds...</strong></p><p>A thousand years ago, Dianna gave up her life in the deserts of Eoria to save her dying sister. She called upon anyone who woul… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "dd373ed4-8074-4342-b356-823044bcdd35",
+        "PublisherName": "GraphicAudio",
+        "Rating": 4.111111,
+        "TotalRating": 9,
+        "Slug": "the-book-of-azrael-1-of-2-dramatized-adaptation",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 24.09
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 10400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "b88f8dd4-2f51-4359-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-08-15T00:00:00.0000000Z"
+        },
+        "Id": "ee13da7c-6319-4605-a586-9256f8f1c7ac"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 28341,
+        "TotalBytes": 226742229,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Rebecca Yarros,Full Cast,Khaya Fraites,Gabriel Michael,Torian Brackett,Taylor Coan,LaMont Ridgell,Robb Moreira,Laura C. Harris,David Cui Cui,Scott McCormick,Troy Allan,Jessica Lauren Ball",
+        "WorkId": "372bd5a8-7d6f-3894-abaf-3a7a635eeee5",
+        "SeriesNumber": "1",
+        "SeriesName": "Empyrean",
+        "SeriesSlug": "empyrean",
+        "SeriesId": "2ca8a254-04b7-5c35-a19b-a225ba335270",
+        "SeriesNumberFloat": 1,
+        "Subtitle": "The Empyrean 1",
+        "IsFree": false,
+        "ISBN": "9798890551030",
+        "PublicationDate": "2023-12-27T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Full Cast",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Khaya Fraites",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Gabriel Michael",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Torian Brackett",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Taylor Coan",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "LaMont Ridgell",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Robb Moreira",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Laura C. Harris",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "David Cui Cui",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Scott McCormick",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Troy Allan",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jessica Lauren Ball",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Rebecca Yarros",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "372bd5a8-7d6f-3894-abaf-3a7a635eeee5",
+        "Title": "Fourth Wing (1 of 2) [Dramatized Adaptation]",
+        "Description": "<p>\"Enter the brutal and elite world of a war college for dragon riders from New York Times bestselling author Rebecca Yarros.</p><p>Twenty-year-old Violet Sorrengail was supposed to enter t… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "47bc4fd4-9c26-405b-8e11-81fdacdff245",
+        "PublisherName": "GraphicAudio",
+        "Rating": 4.565517,
+        "TotalRating": 145,
+        "Slug": "fourth-wing-1-of-2-dramatized-adaptation",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 20.52
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 8800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "a2a4b444-a66d-08ea-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-12-27T00:00:00.0000000Z"
+        },
+        "Id": "2aadc0f9-0b07-4be6-8252-e8a8a35be26c"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 14729,
+        "TotalBytes": 117839609,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Garth Ennis,David Coyne,Eric Messner,Kenyatta Rogers,Matthew Bassett,Chris Genebach,Laura C. Harris,Scott McCormick,Christopher Walker,Richard Rohan,Amanda Forstrom,Full Cast,Michael John Casey",
+        "WorkId": "0c614fe1-8c4f-3f68-abf5-7eabd38e03ea",
+        "SeriesName": "Boys",
+        "SeriesSlug": "boys",
+        "SeriesId": "c58b3ed2-0a03-53dd-aba8-4cd16c36a0df",
+        "IsFree": false,
+        "ISBN": "9781648814501",
+        "PublicationDate": "2020-08-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "David Coyne",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Eric Messner",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Kenyatta Rogers",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Matthew Bassett",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Chris Genebach",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Laura C. Harris",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Scott McCormick",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Christopher Walker",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Richard Rohan",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Amanda Forstrom",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Full Cast",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Michael John Casey",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Garth Ennis",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "0c614fe1-8c4f-3f68-abf5-7eabd38e03ea",
+        "Title": "The Boys: Volume 1 [Dramatized Adaptation]",
+        "Description": "<p>For the first time ever in audio! GraphicAudio and Dynamite Comics are proud to present THE BOYS produced with a full cast of actors, immersive sound effects and cinematic music. This is … [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "44ccd66f-fa6e-42c8-959a-e4d43b9c2901",
+        "PublisherName": "GraphicAudio",
+        "Rating": 3.5,
+        "TotalRating": 2,
+        "Slug": "the-boys-volume-1-dramatized-adaptation",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 16.06
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 7200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "9b22b544-065f-5ee4-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2020-08-03T00:00:00.0000000Z"
+        },
+        "Id": "e39a67e3-b684-44f8-a9d4-413155f2c3d2"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 125,
+  "TotalItemCount": 500,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

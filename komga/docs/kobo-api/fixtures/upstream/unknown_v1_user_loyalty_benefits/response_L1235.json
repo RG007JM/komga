@@ -1,0 +1,30 @@
+{
+  "Benefits": {
+    "KoboLoveBasic": {
+      "MembershipLevel": "KoboLoveBasic",
+      "PointEarnRate": 200,
+      "CurrencySpendRate": 10.0,
+      "CurrencyType": "EUR",
+      "MinimumPointRedemption": 2400,
+      "UpgradeLevel": "KoboLoveVIP"
+    },
+    "KoboLoveVIP": {
+      "MembershipLevel": "KoboLoveVIP",
+      "PointEarnRate": 400,
+      "CurrencySpendRate": 10.0,
+      "CurrencyType": "EUR",
+      "DiscountRate": 0.0,
+      "MinimumPointRedemption": 2400,
+      "LoveProduct": {
+        "Title": "Kobo VIP Membership",
+        "Price": {
+          "Currency": "EUR",
+          "Price": 12
+        },
+        "LovePointsPrice": 8000,
+        "IsPreOrder": false,
+        "Id": "9df286d2-9318-44b3-82f4-2099bb96c1a9"
+      }
+    }
+  }
+}

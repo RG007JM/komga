@@ -1,0 +1,246 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "03ea1beb-f00d-360a-8cba-311066191047",
+        "SeriesNumber": "1",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781974720286",
+        "PublicationDate": "2020-06-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "03ea1beb-f00d-360a-8cba-311066191047",
+        "Title": "Spy x Family, Vol. 1",
+        "Description": "<p>Not one to depend on others, Twilight has his work cut out for him procuring both a wife and a child for his mission to infiltrate an elite private school. What he doesn’t know is that th… [TRUNCATED 79 chars; original string value]",
+        "Language": "en",
+        "ImageId": "07d1ab28-6fb4-4bfd-b125-21354e434b17",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.765162,
+        "TotalRating": 775,
+        "Slug": "spy-x-family-vol-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8824530
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "907a784e-e44a-443d-a9cc-66308af45f76"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "ed04f0d4-f222-30d3-97d8-701469451f39",
+        "SeriesNumber": "2",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 2,
+        "IsFree": false,
+        "ISBN": "9781974722518",
+        "PublicationDate": "2020-09-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "ed04f0d4-f222-30d3-97d8-701469451f39",
+        "Title": "Spy x Family, Vol. 2",
+        "Description": "<p>Twilight must infiltrate the prestigious Eden Academy to get close to his target Donovan Desmond, but has he ruined his daughter Anya’s chances with his outburst during the admissions int… [TRUNCATED 157 chars; original string value]",
+        "Language": "en",
+        "ImageId": "1f83f028-98cd-419e-a278-1358db5bef32",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.800376,
+        "TotalRating": 531,
+        "Slug": "spy-x-family-vol-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2996736
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "25e3c167-8cda-42e0-9613-6ee499c028b6"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "eb316a05-ee93-37d3-af50-af8a907c5dd3",
+        "IsFree": false,
+        "ISBN": "9781974760602",
+        "PublicationDate": "2025-12-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "eb316a05-ee93-37d3-af50-af8a907c5dd3",
+        "Title": "Spy x Family, Vol. 15",
+        "Description": "<p>Master spy Twilight is unparalleled when it comes to going undercover on dangerous missions for the betterment of the world. But when he receives the ultimate assignment—to get married an… [TRUNCATED 52 chars; original string value]",
+        "Language": "en",
+        "ImageId": "ba4b7cff-0cca-4189-9c50-97d87c4410c3",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.660131,
+        "TotalRating": 153,
+        "Slug": "spy-x-family-vol-15",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 7394220
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "308e4eb1-97e2-46ae-a391-927cc1452f38"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "dad29474-df99-34bd-8b4b-30bbb51b849d",
+        "SeriesNumber": "13",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9781974753246",
+        "PublicationDate": "2025-01-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "dad29474-df99-34bd-8b4b-30bbb51b849d",
+        "Title": "Spy x Family, Vol. 13",
+        "Description": "<p>Twilight is on the ropes after his battle with an Ostanian spy! Can Nightfall save Twilight from disaster? Will WISE manage to recover their stolen secrets? And what will become of Loid a… [TRUNCATED 115 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c5c84082-6d2f-49bd-a6ee-73ccb7373c5d",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.75,
+        "TotalRating": 236,
+        "Slug": "spy-x-family-vol-13",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3070484
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "8201afa9-c23b-429b-a642-a4bcf1c8b638"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "dec9c9f9-cd51-3f31-a190-5a4c11bcff27",
+        "SeriesNumber": "12",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9781974748600",
+        "PublicationDate": "2024-08-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "dec9c9f9-cd51-3f31-a190-5a4c11bcff27",
+        "Title": "Spy x Family, Vol. 12",
+        "Description": "<p>Anya’s friendship scheme seems to be taking a turn for the better in the aftermath of the failed hijacking. Meanwhile, Operation Strix and Loid’s true identity are in danger—a mole has be… [TRUNCATED 122 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d718c265-5733-4185-83aa-f5611647f3ca",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.721925,
+        "TotalRating": 187,
+        "Slug": "spy-x-family-vol-12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3941152
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "2605e837-118e-4245-a6a2-5b0b74cb89fc"
+      }
+    }
+  ],
+  "ItemCount": 5,
+  "TotalPageCount": 17,
+  "TotalItemCount": 84,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 5,
+  "VersionCode": 2
+}

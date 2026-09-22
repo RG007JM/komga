@@ -1,0 +1,4101 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "03ea1beb-f00d-360a-8cba-311066191047",
+        "SeriesNumber": "1",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781974720286",
+        "PublicationDate": "2020-06-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "03ea1beb-f00d-360a-8cba-311066191047",
+        "Title": "Spy x Family, Vol. 1",
+        "Description": "<p>Not one to depend on others, Twilight has his work cut out for him procuring both a wife and a child for his mission to infiltrate an elite private school. What he doesn’t know is that th… [TRUNCATED 79 chars; original string value]",
+        "Language": "en",
+        "ImageId": "07d1ab28-6fb4-4bfd-b125-21354e434b17",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.765162,
+        "TotalRating": 775,
+        "Slug": "spy-x-family-vol-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8824530
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "907a784e-e44a-443d-a9cc-66308af45f76"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "73610a93-5a60-383d-aebc-8f9dabcfa0c1",
+        "IsFree": false,
+        "ISBN": "9781974757466",
+        "PublicationDate": "2025-08-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "73610a93-5a60-383d-aebc-8f9dabcfa0c1",
+        "Title": "Spy x Family, Vol. 14",
+        "Description": "<p>The midterm exams—with stella stars and tonitrus bolts on the line—are over. Has Anya’s hard work studying classical language paid off? Also, in hopes of advancing her plan B at the class… [TRUNCATED 52 chars; original string value]",
+        "Language": "en",
+        "ImageId": "cd671bd3-d339-4008-a5c0-1b0c47068a5d",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.842105,
+        "TotalRating": 190,
+        "Slug": "spy-x-family-vol-14",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2451645
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7d683a5f-65b0-40c2-9c30-1aa0ba3cb97a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "eb316a05-ee93-37d3-af50-af8a907c5dd3",
+        "IsFree": false,
+        "ISBN": "9781974760602",
+        "PublicationDate": "2025-12-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "eb316a05-ee93-37d3-af50-af8a907c5dd3",
+        "Title": "Spy x Family, Vol. 15",
+        "Description": "<p>Master spy Twilight is unparalleled when it comes to going undercover on dangerous missions for the betterment of the world. But when he receives the ultimate assignment—to get married an… [TRUNCATED 52 chars; original string value]",
+        "Language": "en",
+        "ImageId": "ba4b7cff-0cca-4189-9c50-97d87c4410c3",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.660131,
+        "TotalRating": 153,
+        "Slug": "spy-x-family-vol-15",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 7394220
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "308e4eb1-97e2-46ae-a391-927cc1452f38"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "dec9c9f9-cd51-3f31-a190-5a4c11bcff27",
+        "SeriesNumber": "12",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9781974748600",
+        "PublicationDate": "2024-08-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "dec9c9f9-cd51-3f31-a190-5a4c11bcff27",
+        "Title": "Spy x Family, Vol. 12",
+        "Description": "<p>Anya’s friendship scheme seems to be taking a turn for the better in the aftermath of the failed hijacking. Meanwhile, Operation Strix and Loid’s true identity are in danger—a mole has be… [TRUNCATED 122 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d718c265-5733-4185-83aa-f5611647f3ca",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.721925,
+        "TotalRating": 187,
+        "Slug": "spy-x-family-vol-12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3941152
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "2605e837-118e-4245-a6a2-5b0b74cb89fc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "785361c0-c9cb-3f9d-baa5-07fdf4ce0547",
+        "SeriesNumber": "11",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 11,
+        "IsFree": false,
+        "ISBN": "9781974745067",
+        "PublicationDate": "2024-03-19T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "785361c0-c9cb-3f9d-baa5-07fdf4ce0547",
+        "Title": "Spy x Family, Vol. 11",
+        "Description": "<p>Threatened by Yor’s relationship with Melinda Desmond, Anya gets serious about her own friendship scheme. On the way to a museum field trip, however, she and her class become the target o… [TRUNCATED 55 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d6483a06-054d-435f-840c-7b055c9dfe91",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.766667,
+        "TotalRating": 270,
+        "Slug": "spy-x-family-vol-11",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5902058
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "362ecb16-6741-40d8-b599-dee4a388474c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "78781da5-3f08-30d8-b149-ee5dc5a1d00d",
+        "SeriesNumber": "10",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781974742004",
+        "PublicationDate": "2023-10-17T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "78781da5-3f08-30d8-b149-ee5dc5a1d00d",
+        "Title": "Spy x Family, Vol. 10",
+        "Description": "<p>As a child, [REDACTED] lived an unremarkable life with his parents, playing war games with his friends and quarreling with his father. It never occurred to young [REDACTED] that the life … [TRUNCATED 45 chars; original string value]",
+        "Language": "en",
+        "ImageId": "dc281853-7f2d-4cef-b1c8-695e0c0dd19b",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.788546,
+        "TotalRating": 227,
+        "Slug": "spy-x-family-vol-10",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4977707
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "32737661-7870-480d-89fc-ad0b40319fbf"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "0e245c30-537a-3822-bbba-cf7c7414fc47",
+        "SeriesNumber": "9",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 9,
+        "IsFree": false,
+        "ISBN": "9781974738137",
+        "PublicationDate": "2023-03-21T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "0e245c30-537a-3822-bbba-cf7c7414fc47",
+        "Title": "Spy x Family, Vol. 9",
+        "Description": "<p>Yor’s on assignment and finds herself up against a gang of assassins on board a luxury cruiser. Meanwhile, Loid and Anya each discover that bombs have been planted throughout the ship! Wi… [TRUNCATED 55 chars; original string value]",
+        "Language": "en",
+        "ImageId": "2dd8c5a5-00a8-4dca-bbc5-0e8e08fe8fa4",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.761719,
+        "TotalRating": 256,
+        "Slug": "spy-x-family-vol-9",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6525024
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "8d9385f5-7093-478d-a3ab-db7246a13dc3"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "9d50b83b-29c1-324a-8b9f-33f40513baa2",
+        "IsFree": false,
+        "ISBN": "9781974755998",
+        "PublicationDate": "2026-09-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9d50b83b-29c1-324a-8b9f-33f40513baa2",
+        "Title": "Spy x Family, Vol. 16",
+        "Description": "<p>When Melinda comes to Loid for counseling, he lucks into a great opportunity to gather intel. During their session, even Loid is shocked by what he learns about Donovan Desmond. Meanwhile… [TRUNCATED 106 chars; original string value]",
+        "Language": "en",
+        "ImageId": "5f3bdb0e-aa3a-406b-a46a-5bcc0c2488db",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.540541,
+        "TotalRating": 37,
+        "Slug": "spy-x-family-vol-16",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6835131
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6852e6c6-96d3-4000-9851-c4fb8d2cbaa4"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "6c9c1c30-23a5-340a-9420-2eb8aed0f736",
+        "SeriesNumber": "8",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 8,
+        "IsFree": false,
+        "ISBN": "9781974735006",
+        "PublicationDate": "2022-09-20T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "6c9c1c30-23a5-340a-9420-2eb8aed0f736",
+        "Title": "Spy x Family, Vol. 8",
+        "Description": "<p>Yor is assigned to be a bodyguard for a mafia family on a cruise ship by the secret organization Garden. But with Lloyd and Anya also on board thanks to a giveaway they won, Yor is starti… [TRUNCATED 59 chars; original string value]",
+        "Language": "en",
+        "ImageId": "1cffaaf1-cc47-45e0-a2a0-1a6ba87e6ca3",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.828794,
+        "TotalRating": 257,
+        "Slug": "spy-x-family-vol-8",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 7646013
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "523a6a16-5944-46ff-9d55-6840665d5607"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "f7317ed2-34ff-369a-a208-600daea7d2ce",
+        "SeriesNumber": "7",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 7,
+        "IsFree": false,
+        "ISBN": "9781974731893",
+        "PublicationDate": "2022-04-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "f7317ed2-34ff-369a-a208-600daea7d2ce",
+        "Title": "Spy x Family, Vol. 7",
+        "Description": "<p>As Donovan Desmond is about to share a rare family moment with his son Damian, Twilight cuts in to meet his target face-to-face for the first time. Can Twilight find some way to endear hi… [TRUNCATED 37 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c2fd2cdb-6b0f-4219-b45e-0cbabb585b92",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.765385,
+        "TotalRating": 260,
+        "Slug": "spy-x-family-vol-7",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5575372
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7d2aa98e-217c-44da-b8d9-69f28e3d0722"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "f2309aff-cb48-39f6-af05-92688b00cabc",
+        "SeriesNumber": "6",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 6,
+        "IsFree": false,
+        "ISBN": "9781974730421",
+        "PublicationDate": "2021-10-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "f2309aff-cb48-39f6-af05-92688b00cabc",
+        "Title": "Spy x Family, Vol. 6",
+        "Description": "<p>Twilight and Nightfall enter an underground tennis tournament, hoping for an opportunity to obtain an intelligence document that threatens to bring the world to the brink of war! But will… [TRUNCATED 75 chars; original string value]",
+        "Language": "en",
+        "ImageId": "007c4fa4-1fbf-4f9f-84a0-f46c0f197d41",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.760798,
+        "TotalRating": 301,
+        "Slug": "spy-x-family-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3263760
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "9cba5930-2dcd-4ad9-b52f-ee447a00ecd3"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "b8a2547e-8a7e-3c95-a96f-4d96263b3f58",
+        "SeriesNumber": "5",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 5,
+        "IsFree": false,
+        "ISBN": "9781974728176",
+        "PublicationDate": "2021-06-08T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "b8a2547e-8a7e-3c95-a96f-4d96263b3f58",
+        "Title": "Spy x Family, Vol. 5",
+        "Description": "<p>Anya Forger has been trying her best to befriend Damian Desmond, the son of the powerful Ostanian political leader Donovan Desmond, but her attempts have been constantly rebuffed. Despite… [TRUNCATED 241 chars; original string value]",
+        "Language": "en",
+        "ImageId": "9cade8c0-39e6-4d56-be17-49966761d567",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.785047,
+        "TotalRating": 321,
+        "Slug": "spy-x-family-vol-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5805481
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "dccec58b-9630-49f9-ac93-999503de2ca1"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "15978c2e-792c-3ce2-8fe7-c9e5245b33cd",
+        "SeriesNumber": "11",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 11,
+        "IsFree": false,
+        "ISBN": "9781974753475",
+        "PublicationDate": "2025-02-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "15978c2e-792c-3ce2-8fe7-c9e5245b33cd",
+        "Title": "Dandadan, Vol. 11",
+        "Description": "<p>Momo struggles to counter a sudden attack by alien clones, but through a temporary truce with her sworn enemy, the alien Serpo, she is able to persevere. However, her troubles are far fro… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "2ed01515-1600-45c4-a42b-391062909ff7",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.657895,
+        "TotalRating": 38,
+        "Slug": "dandadan-vol-11-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4902824
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "e84942ca-c386-4bc9-abd9-11353170efcc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsu Hyuuga,Nekokurage,Itsuki Nanao,TOUCO SHINO",
+        "WorkId": "ed980d29-c48c-3ed4-a57a-64097ebdd891",
+        "SeriesNumber": "13",
+        "SeriesName": "The Apothecary Diaries",
+        "SeriesId": "7b44ebf1-1471-576e-921e-dab16c8e9fac",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9781646098156",
+        "PublicationDate": "2025-03-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsu Hyuuga"
+          },
+          {
+            "Name": "Nekokurage"
+          },
+          {
+            "Name": "Itsuki Nanao"
+          },
+          {
+            "Name": "TOUCO SHINO"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "ed980d29-c48c-3ed4-a57a-64097ebdd891",
+        "Title": "The Apothecary Diaries 13 (Manga)",
+        "Description": "<p>Maomao has accompanied Jinshi on a hunting trip in which Jinshi is keeping his true identity a secret. But then they were suddenly shot by flintlocks and managed to get away by hiding in … [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c0b79ba3-9d4f-4485-8d90-a75633e50480",
+        "PublisherName": "Square Enix",
+        "Rating": 4.780702,
+        "TotalRating": 114,
+        "Slug": "the-apothecary-diaries-13-manga",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8947118
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "45368193-f16e-42a8-8411-81a25a2d4832"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "e3324afb-64bd-34a9-871d-8e2335b30726",
+        "SeriesNumber": "4",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781974726240",
+        "PublicationDate": "2021-03-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "e3324afb-64bd-34a9-871d-8e2335b30726",
+        "Title": "Spy x Family, Vol. 4",
+        "Description": "<p>The Forgers look into adding a dog to their family, but this is no easy task—especially when Twilight has to simultaneously foil an assassination plot against a foreign minister! The perp… [TRUNCATED 118 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f4276c4e-7d57-4120-9f0b-99b1d25c99a5",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.833787,
+        "TotalRating": 367,
+        "Slug": "spy-x-family-vol-4",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3370560
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "2d18ae33-e73d-4c1f-8736-4cfdbad3766e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "8d2ce370-aa3f-3be4-8ab9-1ff23648e78e",
+        "SeriesNumber": "10",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781974751310",
+        "PublicationDate": "2024-12-17T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8d2ce370-aa3f-3be4-8ab9-1ff23648e78e",
+        "Title": "Dandadan, Vol. 10",
+        "Description": "<p>To avoid being late for school on Vamola’s first day, Momo takes the mysterious kaiju girl on a shortcut through some off-limits ruins. But the protection spell they perform doesn’t work,… [TRUNCATED 283 chars; original string value]",
+        "Language": "en",
+        "ImageId": "a0b4e98f-ac53-4d3e-91ad-c98b664363d5",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.644444,
+        "TotalRating": 45,
+        "Slug": "dandadan-vol-10-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4018290
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "e6957ce2-a73c-4eab-9bb0-32e6504e596c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "b641cf9b-db17-3843-a635-c3c694479b35",
+        "SeriesNumber": "12",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9781974754243",
+        "PublicationDate": "2025-04-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "b641cf9b-db17-3843-a635-c3c694479b35",
+        "Title": "Dandadan, Vol. 12",
+        "Description": "<p>A gravely injured Okarun wakes up to an out-of-body experience! And when he answers Momo’s phone, he’s sucked through the telephone wires to where Seiko and Turbo Granny are in the middle… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "162491fc-3fa2-46e1-80bf-7aa82d291919",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.96875,
+        "TotalRating": 32,
+        "Slug": "dandadan-vol-12-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4937274
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "e9525400-82dd-490d-9916-cbf80429225b"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "ONE",
+        "WorkId": "de2fd89f-eb4d-3205-8503-82068935f567",
+        "SeriesNumber": "30",
+        "SeriesName": "One-Punch Man",
+        "SeriesId": "14e3149a-42e2-5248-9e42-91c720a8a174",
+        "SeriesNumberFloat": 30,
+        "IsFree": false,
+        "ISBN": "9781974754113",
+        "PublicationDate": "2025-03-18T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "ONE"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "de2fd89f-eb4d-3205-8503-82068935f567",
+        "Title": "One-Punch Man, Vol. 30",
+        "Description": "<p>In the deadly battle with the Monster Association, the heroes are all getting seriously injured. And to make matters worse, Garo appears as a monster! However, Bang is there to face him d… [TRUNCATED 67 chars; original string value]",
+        "Language": "en",
+        "ImageId": "ed35fa25-5530-4289-b36f-4ae022004d4e",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.75,
+        "TotalRating": 60,
+        "Slug": "one-punch-man-vol-30",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6042588
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "2af5ad58-c530-48ef-9de0-f1c3708f6d8e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "3e92cd5b-2077-3afc-a04d-12c371de813c",
+        "SeriesNumber": "3",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 3,
+        "IsFree": false,
+        "ISBN": "9781974724291",
+        "PublicationDate": "2020-12-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "3e92cd5b-2077-3afc-a04d-12c371de813c",
+        "Title": "Spy x Family, Vol. 3",
+        "Description": "<p>Twilight has overcome many challenges in putting together the Forger family, but now all his hard work might come undone when Yor’s younger brother Yuri pops in for a surprise visit! Can … [TRUNCATED 80 chars; original string value]",
+        "Language": "en",
+        "ImageId": "d0d566d5-c8ac-43eb-b599-5ceb51158cd6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.835294,
+        "TotalRating": 425,
+        "Slug": "spy-x-family-vol-3",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3663228
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6ea7059c-e343-4544-90b4-e029f4eae23a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsu Hyuuga,Nekokurage,Itsuki Nanao,TOUCO SHINO",
+        "WorkId": "82b03a01-91d7-31d3-8549-a0ec81f716fb",
+        "SeriesNumber": "14",
+        "SeriesName": "The Apothecary Diaries",
+        "SeriesId": "7b44ebf1-1471-576e-921e-dab16c8e9fac",
+        "SeriesNumberFloat": 14,
+        "IsFree": false,
+        "ISBN": "9781646098842",
+        "PublicationDate": "2025-10-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsu Hyuuga"
+          },
+          {
+            "Name": "Nekokurage"
+          },
+          {
+            "Name": "Itsuki Nanao"
+          },
+          {
+            "Name": "TOUCO SHINO"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "82b03a01-91d7-31d3-8549-a0ec81f716fb",
+        "Title": "The Apothecary Diaries 14 (Manga)",
+        "Description": "<p><strong>After breaking a “curse” on the imperial heirs, a palace servant with training in herbal medicine is promoted up the ranks to food taster...and right into the thick of palace intr… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "08940285-18d2-4d01-998f-76a4c2cd3ef2",
+        "PublisherName": "Square Enix",
+        "Rating": 4.762712,
+        "TotalRating": 59,
+        "Slug": "the-apothecary-diaries-14-manga",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8146163
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "9f7fc08a-2351-452f-933a-f044d2073343"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "06610720-ffad-3071-9362-3a4ef59cfb20",
+        "SeriesName": "Spy x Family: The Official Guide—Eyes Only",
+        "SeriesId": "ea2d2beb-d00c-5d93-a8b8-94ec0eabb3cd",
+        "IsFree": false,
+        "ISBN": "9781974741878",
+        "PublicationDate": "2023-10-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "06610720-ffad-3071-9362-3a4ef59cfb20",
+        "Title": "Spy x Family: The Official Guide—Eyes Only",
+        "Description": "<p>The intimate secrets of the Forger family are revealed in this ultimate behind-the-scenes guide! Packed with character details, never-before-seen illustrations, in-depth interviews with c… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "75592bcb-cbb8-472c-8f00-a58d60d5a5c1",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.4,
+        "TotalRating": 75,
+        "Slug": "spy-x-family-the-official-guide-eyes-only",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4822510
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 9.35
+        },
+        "LovePointsPrice": 5200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6a7e55fd-f0f8-467f-89d7-ee898c140e5b"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuki Fujimoto",
+        "WorkId": "9ed2acb0-e4da-3725-afe0-25efa0d7c0bd",
+        "SeriesNumber": "17",
+        "SeriesName": "Chainsaw Man",
+        "SeriesId": "64c9b1e3-5cda-5d62-b5d6-2ac0929cf781",
+        "SeriesNumberFloat": 17,
+        "IsFree": false,
+        "ISBN": "9781974753093",
+        "PublicationDate": "2025-01-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuki Fujimoto"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9ed2acb0-e4da-3725-afe0-25efa0d7c0bd",
+        "Title": "Chainsaw Man, Vol. 17",
+        "Description": "<p>As Public Safety starts to close in on the leaders of the Chainsaw Man Church, the organization’s terrifying true plan will be revealed. Meanwhile, both Asa and Denji will have to make to… [TRUNCATED 55 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f13ac9b5-2dde-4940-af99-588bcc95bd9f",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.65625,
+        "TotalRating": 32,
+        "Slug": "chainsaw-man-vol-17",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3765593
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "331d106f-731e-4565-857d-46981fcd3fed"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "8b8f9976-0c87-385a-a176-5314743e874e",
+        "SeriesNumber": "13",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9781974756667",
+        "PublicationDate": "2025-06-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8b8f9976-0c87-385a-a176-5314743e874e",
+        "Title": "Dandadan, Vol. 13",
+        "Description": "<p>It is revealed that Vamola, the girl found inside the kaiju suit, is actually a member of the once thriving Sumerian race from deep space! Unfortunately, her home world was attacked by th… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "9a55d8fa-04b3-4f35-bfa2-9830cc34fd14",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.761905,
+        "TotalRating": 21,
+        "Slug": "dandadan-vol-13-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6031345
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "416e97f7-f910-4e57-8f67-2d46b21eb93c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "4db9567f-5456-385a-8765-69acf4f6446c",
+        "IsFree": false,
+        "ISBN": "9781974750627",
+        "PublicationDate": "2024-10-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "4db9567f-5456-385a-8765-69acf4f6446c",
+        "Title": "Dandadan, Vol. 9",
+        "Description": "<p>A seemingly unbeatable kaiju is on the attack! Okarun hits on the idea of revisualizing the nanoskin that repaired Momo’s house into a form they can use to fight back, but he lacks the im… [TRUNCATED 169 chars; original string value]",
+        "Language": "en",
+        "ImageId": "673b718e-efa3-4e27-bf83-8ae065e10faa",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.677419,
+        "TotalRating": 62,
+        "Slug": "dandadan-vol-9",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9509734
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7f0cdff8-a55f-4c92-9b3b-5606777bab14"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "4f8854bb-056d-30dc-bda0-8a52c2ac2a4d",
+        "IsFree": false,
+        "ISBN": "9781974759859",
+        "PublicationDate": "2025-10-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "4f8854bb-056d-30dc-bda0-8a52c2ac2a4d",
+        "Title": "Dandadan, Vol. 15",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they’ll believe in and what they won’t. Their quest to prove each other wrong leads them down a path … [TRUNCATED 87 chars; original string value]",
+        "Language": "en",
+        "ImageId": "6a77a4da-ca2b-424d-b3d6-f67cb54eca08",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.793103,
+        "TotalRating": 29,
+        "Slug": "dandadan-vol-15-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3400504
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "3af004dd-4978-4800-bd16-c8527537acc2"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsu Hyuuga,Nekokurage,Itsuki Nanao,TOUCO SHINO",
+        "WorkId": "87db2793-4466-3f49-b699-86be64cdb146",
+        "SeriesNumber": "12",
+        "SeriesName": "The Apothecary Diaries",
+        "SeriesId": "7b44ebf1-1471-576e-921e-dab16c8e9fac",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9781646097685",
+        "PublicationDate": "2024-09-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsu Hyuuga"
+          },
+          {
+            "Name": "Nekokurage"
+          },
+          {
+            "Name": "Itsuki Nanao"
+          },
+          {
+            "Name": "TOUCO SHINO"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "87db2793-4466-3f49-b699-86be64cdb146",
+        "Title": "The Apothecary Diaries 12 (Manga)",
+        "Description": "<p><strong>After breaking a “curse” on the imperial heirs, a palace servant with training in herbal medicine is promoted up the ranks to food taster...and right into the thick of palace intr… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "16d88f0c-9b4f-4766-a6e4-e5bf82c751c3",
+        "PublisherName": "Square Enix",
+        "Rating": 4.897436,
+        "TotalRating": 117,
+        "Slug": "the-apothecary-diaries-12-manga",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8863810
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "d08a8455-49b0-43c3-945b-a2d9078980eb"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsu Hyuuga,Nekokurage,Itsuki Nanao",
+        "WorkId": "c917ed7a-9e74-3119-81ff-2ffd1637ceb7",
+        "SeriesNumber": "15",
+        "SeriesName": "The Apothecary Diaries",
+        "SeriesId": "7b44ebf1-1471-576e-921e-dab16c8e9fac",
+        "SeriesNumberFloat": 15,
+        "IsFree": false,
+        "ISBN": "9781646099139",
+        "PublicationDate": "2026-03-17T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsu Hyuuga"
+          },
+          {
+            "Name": "Nekokurage"
+          },
+          {
+            "Name": "Itsuki Nanao"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c917ed7a-9e74-3119-81ff-2ffd1637ceb7",
+        "Title": "The Apothecary Diaries 15 (Manga)",
+        "Description": "<p><strong>After breaking a “curse” on the imperial heirs, a palace servant with training in herbal medicine is promoted up the ranks to food taster...and right into the thick of palace intr… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "ca0773ef-381d-42d8-bc82-23319af92bbb",
+        "PublisherName": "Square Enix",
+        "Rating": 4.773585,
+        "TotalRating": 53,
+        "Slug": "the-apothecary-diaries-15-manga",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9472809
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "27772fe6-ce39-4922-84c3-710f8bd51823"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "1ff43bb3-ffc3-3433-908d-c1b92e5be115",
+        "IsFree": false,
+        "ISBN": "9781974748235",
+        "PublicationDate": "2024-07-16T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "1ff43bb3-ffc3-3433-908d-c1b92e5be115",
+        "Title": "Dandadan, Vol. 8",
+        "Description": "<p>Having looked on helplessly as Momo fought the Evil , Okarun resolves to become stronger. To help with his training, Turbo Granny takes him, with Aira in tow, to the school’s music room, … [TRUNCATED 200 chars; original string value]",
+        "Language": "en",
+        "ImageId": "94aa92b6-9a86-4619-af6e-bc37c328751d",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.823529,
+        "TotalRating": 51,
+        "Slug": "dandadan-vol-8-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9639047
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "f0980c14-9f98-4571-9427-1afa11a14528"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "ONE",
+        "WorkId": "a6c757a8-bcd9-3671-a3e6-d9f21a509741",
+        "SeriesNumber": "29",
+        "SeriesName": "One-Punch Man",
+        "SeriesId": "14e3149a-42e2-5248-9e42-91c720a8a174",
+        "SeriesNumberFloat": 29,
+        "IsFree": false,
+        "ISBN": "9781974750795",
+        "PublicationDate": "2024-11-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "ONE"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "a6c757a8-bcd9-3671-a3e6-d9f21a509741",
+        "Title": "One-Punch Man, Vol. 29",
+        "Description": "<p>S-class hero Blast suddenly appears before Saitama and Flash in search of a mysterious box! But what is it about the box that has the Hero Association’s top hero chasing after it? Meanwhi… [TRUNCATED 130 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8f403e5b-65b1-4224-86c9-3d13d474356f",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.656716,
+        "TotalRating": 67,
+        "Slug": "one-punch-man-vol-29",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4873659
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "ea4fb43d-503b-4324-973b-3d4959830aa4"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "895d968a-a6c4-360c-a650-cf8be7719f71",
+        "IsFree": false,
+        "ISBN": "9781974757411",
+        "PublicationDate": "2025-08-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "895d968a-a6c4-360c-a650-cf8be7719f71",
+        "Title": "Dandadan, Vol. 14",
+        "Description": "<p>As Momo and the others fight desperately against the alien invaders, a recovering Okarun finally comes to and is able to join them. Unfortunately for him, it’s Tuesday, and that means one… [TRUNCATED 303 chars; original string value]",
+        "Language": "en",
+        "ImageId": "6a501011-fcc3-4182-9351-9a8517398dae",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.730769,
+        "TotalRating": 26,
+        "Slug": "dandadan-vol-14-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5407535
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "f31573c6-8dfb-4ebc-831f-401cca2c07c0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuki Fujimoto",
+        "WorkId": "4d57ee04-fdc7-3d6a-ae6b-34bad6b09c34",
+        "SeriesNumber": "18",
+        "SeriesName": "Chainsaw Man",
+        "SeriesId": "64c9b1e3-5cda-5d62-b5d6-2ac0929cf781",
+        "SeriesNumberFloat": 18,
+        "IsFree": false,
+        "ISBN": "9781974756346",
+        "PublicationDate": "2025-05-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuki Fujimoto"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "4d57ee04-fdc7-3d6a-ae6b-34bad6b09c34",
+        "Title": "Chainsaw Man, Vol. 18",
+        "Description": "<p>When the whole world goes crazy from the Chainsaw Man Church’s dark plans, Denji and Nayuta find themselves in mortal danger. Asa and Fami jump into the fray to attempt a rescue, but they… [TRUNCATED 88 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8d42aba0-dcd8-4080-b9c1-ac07e8cf379c",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.642857,
+        "TotalRating": 28,
+        "Slug": "chainsaw-man-vol-18",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3509336
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "1cbfa8f3-c4b0-4267-8b73-f84296c5aae3"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "8e79f86d-6c5a-3254-9f36-c0f74dd21ff7",
+        "SeriesNumber": "1",
+        "SeriesName": "Spy x Family: The Official Anime Guides",
+        "SeriesId": "f668e4e7-48ff-5e1e-8218-9c311dceb489",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781974748594",
+        "PublicationDate": "2024-08-27T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8e79f86d-6c5a-3254-9f36-c0f74dd21ff7",
+        "Title": "Spy x Family: The Official Anime Guide—Mission Report: 220409-0625",
+        "Description": "<p>Discover the secrets behind the Forger family in <em>Spy x Family: The Official Anime Guide—Mission Report: 220409-0625</em>.</p><p>This companion guide to the first 12 episodes of the hu… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "385acd7c-8dbe-4924-aedd-a4dcfe220d5f",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.575758,
+        "TotalRating": 33,
+        "Slug": "spy-x-family-the-official-anime-guide-mission-report-220409-0625",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4959376
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 9.35
+        },
+        "LovePointsPrice": 5200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "3a82f6fc-a9a9-424b-b949-072500cece8f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Aya Yajima",
+        "WorkId": "7ab081b5-7fd6-3c9f-9bfd-217f2570c53f",
+        "SeriesName": "Spy x Family Novels",
+        "SeriesId": "3822c0cd-e9ce-5d17-9514-545c7102c611",
+        "IsFree": false,
+        "ISBN": "9781974742691",
+        "PublicationDate": "2023-12-26T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Aya Yajima"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "7ab081b5-7fd6-3c9f-9bfd-217f2570c53f",
+        "Title": "Spy x Family: Family Portrait",
+        "Description": "<p>In this book of <em>Spy x Family</em> original prose stories, Anya attempts to make friends with her target Damian during an Eden Academy camping trip, Yuri spends his day off babysitting… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "a28d0839-b608-49ab-9f79-e100fef90c0f",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.6,
+        "TotalRating": 30,
+        "Slug": "spy-x-family-family-portrait",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2922090
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "c125f1df-600d-4e9e-a66e-f529c91eb664"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "ed04f0d4-f222-30d3-97d8-701469451f39",
+        "SeriesNumber": "2",
+        "SeriesName": "Spy x Family",
+        "SeriesId": "4b64f394-81ca-59b8-96c0-57790e01ecc7",
+        "SeriesNumberFloat": 2,
+        "IsFree": false,
+        "ISBN": "9781974722518",
+        "PublicationDate": "2020-09-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "ed04f0d4-f222-30d3-97d8-701469451f39",
+        "Title": "Spy x Family, Vol. 2",
+        "Description": "<p>Twilight must infiltrate the prestigious Eden Academy to get close to his target Donovan Desmond, but has he ruined his daughter Anya’s chances with his outburst during the admissions int… [TRUNCATED 157 chars; original string value]",
+        "Language": "en",
+        "ImageId": "1f83f028-98cd-419e-a278-1358db5bef32",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.800376,
+        "TotalRating": 531,
+        "Slug": "spy-x-family-vol-2",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2996736
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "25e3c167-8cda-42e0-9613-6ee499c028b6"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "64bd4518-a06b-3ee3-b610-86e08bf2c1ee",
+        "IsFree": false,
+        "ISBN": "9781974760688",
+        "PublicationDate": "2025-12-09T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "64bd4518-a06b-3ee3-b610-86e08bf2c1ee",
+        "Title": "Dandadan, Vol. 16",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they’ll believe in and what they won’t. Their quest to prove each other wrong leads them down a path … [TRUNCATED 87 chars; original string value]",
+        "Language": "en",
+        "ImageId": "fc415511-b0a6-4182-bea7-25206c36e2a7",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.5,
+        "TotalRating": 16,
+        "Slug": "dandadan-vol-16-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8769335
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7878512a-db1e-4bd8-a969-ca6c4248f2d5"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "db3d5aca-4dba-3208-8fce-50476434f889",
+        "IsFree": false,
+        "ISBN": "9781974753147",
+        "PublicationDate": "2025-01-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "db3d5aca-4dba-3208-8fce-50476434f889",
+        "Title": "Sakamoto Days, Vol. 15",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f17e13e1-7c92-4d32-a37d-c51bbbe489d6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.882353,
+        "TotalRating": 17,
+        "Slug": "sakamoto-days-vol-15",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4960206
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "b3d9e5fe-430f-4304-862c-8e4ed9589d65"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Nanashi",
+        "WorkId": "b24429ea-0625-3d9d-97f0-adc7c87cd639",
+        "SeriesNumber": "18",
+        "SeriesName": "Don't Toy with Me, Miss Nagatoro",
+        "SeriesId": "9f2f8702-508d-5f1a-9ea9-f031ed7b6400",
+        "SeriesNumberFloat": 18,
+        "IsFree": false,
+        "ISBN": "9798894783390",
+        "PublicationDate": "2025-01-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Nanashi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "b24429ea-0625-3d9d-97f0-adc7c87cd639",
+        "Title": "Don't Toy with Me, Miss Nagatoro 18",
+        "Description": "<p>The moment of truth is finally here, as Senpai’s mock exam and Nagatoro’s judo tournament get into full swing. With so much riding on the results, the two buckle down for the fights of th… [TRUNCATED 173 chars; original string value]",
+        "Language": "en",
+        "ImageId": "258bbc3b-8355-479a-8690-2ce3c01cc980",
+        "PublisherName": "Kodansha Comics",
+        "Rating": 4.75,
+        "TotalRating": 16,
+        "Slug": "don-t-toy-with-me-miss-nagatoro-18",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 21042378
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.44
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "9cba37b2-35c4-499c-bfd9-1e79a65639ae"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "f6cb994f-ff6e-3830-8021-a6b18e8cefd9",
+        "IsFree": false,
+        "ISBN": "9781974763474",
+        "PublicationDate": "2026-02-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "f6cb994f-ff6e-3830-8021-a6b18e8cefd9",
+        "Title": "Dandadan, Vol. 17",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they’ll believe in and what they won’t. Their quest to prove each other wrong leads them down a path … [TRUNCATED 87 chars; original string value]",
+        "Language": "en",
+        "ImageId": "b989e234-8081-4913-91b2-1827087f4995",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.333333,
+        "TotalRating": 15,
+        "Slug": "dandadan-vol-17-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9538107
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "529a0794-40c9-4866-8819-7e999d96e763"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "d581397c-7c26-3f84-bf23-aad3d889a3cd",
+        "SeriesNumber": "7",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 7,
+        "IsFree": false,
+        "ISBN": "9781974745265",
+        "PublicationDate": "2024-04-09T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "d581397c-7c26-3f84-bf23-aad3d889a3cd",
+        "Title": "Dandadan, Vol. 7",
+        "Description": "<p>Okarun and the others emerge victorious in their fight against the serpent god, but one lingering threat remains—the Evil Eye’s possession of Jiji. Even Grandma Seiko’s exorcism is of no … [TRUNCATED 287 chars; original string value]",
+        "Language": "en",
+        "ImageId": "ed67b226-2225-4095-b72e-49595ff8c3c4",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.779661,
+        "TotalRating": 59,
+        "Slug": "dandadan-vol-7",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4161883
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "fb5179d2-3061-4f6a-884b-6610cc5ff6ac"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Naoya Matsumoto",
+        "WorkId": "4e32375f-b7c8-3e73-b0b7-7d46e48bab16",
+        "IsFree": false,
+        "ISBN": "9781974753505",
+        "PublicationDate": "2025-02-25T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Naoya Matsumoto"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "4e32375f-b7c8-3e73-b0b7-7d46e48bab16",
+        "Title": "Kaiju No. 8, Vol. 12",
+        "Description": "<p>The Eastern Division has been attacked by identified-class kaiju. Narumi and Kikoru have taken care of their targets, but Hoshina is still facing off against No. 12, the finished project … [TRUNCATED 188 chars; original string value]",
+        "Language": "en",
+        "ImageId": "7bcdf3b4-91d8-430d-975f-8a527310071a",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.9,
+        "TotalRating": 30,
+        "Slug": "kaiju-no-8-vol-12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5492350
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 1.78
+        },
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "WasPrice": 6.24,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7d438551-a7e1-4122-9629-51e7e6a30664"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "c801f931-94b8-3a9a-96ad-5788f6e43d41",
+        "IsFree": false,
+        "ISBN": "9781974751228",
+        "PublicationDate": "2024-12-10T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c801f931-94b8-3a9a-96ad-5788f6e43d41",
+        "Title": "Jujutsu Kaisen, Vol. 24",
+        "Description": "<p>Military forces from foreign countries invade the culling game, seeking to harness the unlimited potential of cursed energy. However, the soldiers soon find themselves facing off against … [TRUNCATED 162 chars; original string value]",
+        "Language": "en",
+        "ImageId": "5b2280b0-6d76-4ad5-b043-ee0487c57bed",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.818182,
+        "TotalRating": 66,
+        "Slug": "jujutsu-kaisen-vol-24",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4974559
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "b30cf655-e9bf-4084-b908-9344203ef03a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "47c54b85-bb24-3b1b-b804-64b6cad7985b",
+        "IsFree": false,
+        "ISBN": "9781974754007",
+        "PublicationDate": "2025-03-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "47c54b85-bb24-3b1b-b804-64b6cad7985b",
+        "Title": "Jujutsu Kaisen, Vol. 25",
+        "Description": "<p>In order to assume complete control over Fushiguro’s body, Sukuna schemes to kill Tsumiki, whose flesh Yorozu has possessed. Meanwhile, Itadori and the others attempt to use the power of … [TRUNCATED 227 chars; original string value]",
+        "Language": "en",
+        "ImageId": "1810800b-27ec-4dc8-981e-4ca895909dbe",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.760417,
+        "TotalRating": 96,
+        "Slug": "jujutsu-kaisen-vol-25",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4951923
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "a70a3e47-5947-4df5-b6cf-f71f6c696e32"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Takahiro,Yohei Takemura,Christine Dashiell,Brandon Bovia",
+        "WorkId": "f9421e6e-d6ad-3a1d-9e8f-5cc309f2e019",
+        "SeriesNumber": "10",
+        "SeriesName": "Chained Soldier",
+        "SeriesId": "39c487f4-5786-5504-aa67-8ec8e5120329",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781975388003",
+        "PublicationDate": "2025-01-21T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Takahiro"
+          },
+          {
+            "Name": "Yohei Takemura"
+          },
+          {
+            "Name": "Christine Dashiell"
+          },
+          {
+            "Name": "Brandon Bovia"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "f9421e6e-d6ad-3a1d-9e8f-5cc309f2e019",
+        "Title": "Chained Soldier, Vol. 10",
+        "Description": "<p>The subjugation team may have successfully rescued the kidnapped women, but that means inciting the wrath of one of the Eight Thunder Gods! When a seething Kuusetsu appears on Yuuki’s bed… [TRUNCATED 141 chars; original string value]",
+        "Language": "en",
+        "ImageId": "abaca021-5e29-4118-bd7f-a626a601e37a",
+        "PublisherName": "Yen Press",
+        "Rating": 0,
+        "TotalRating": 6,
+        "Slug": "chained-soldier-vol-10",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3566875
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "9dd1796e-e766-49cd-b466-3d630e9c0083"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "6ca002b4-c39a-335a-a06f-82cdfb1d868e",
+        "IsFree": false,
+        "ISBN": "9781974750801",
+        "PublicationDate": "2024-11-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "6ca002b4-c39a-335a-a06f-82cdfb1d868e",
+        "Title": "Sakamoto Days, Vol. 14",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "612cac59-8516-4044-b6ed-2c683e1b6ca5",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.625,
+        "TotalRating": 8,
+        "Slug": "sakamoto-days-vol-14",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4098371
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "957705d1-4451-4604-b07c-efa30f90bb62"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kohei Horikoshi",
+        "WorkId": "2ae50de4-bc5e-3b6c-b8a5-f6eba8345656",
+        "IsFree": false,
+        "ISBN": "9781974753628",
+        "PublicationDate": "2025-02-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kohei Horikoshi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "2ae50de4-bc5e-3b6c-b8a5-f6eba8345656",
+        "Title": "My Hero Academia, Vol. 40",
+        "Description": "<p>Only one man is walking away from the epic rematch between All Might and All For One. All Might’s superpowers may be long gone, but he’s no less of a superhero as he throws everything he’… [TRUNCATED 259 chars; original string value]",
+        "Language": "en",
+        "ImageId": "381235d4-2d81-4d41-a0b5-eadf41ad3b6a",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.724138,
+        "TotalRating": 58,
+        "Slug": "my-hero-academia-vol-40",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5495616
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7c319f37-1ed9-4ac0-8f17-61f9c6a105ec"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuki Fujimoto",
+        "WorkId": "8a9b6984-2547-30f9-bdfc-dbb2404fe768",
+        "IsFree": false,
+        "ISBN": "9781974759842",
+        "PublicationDate": "2025-10-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuki Fujimoto"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8a9b6984-2547-30f9-bdfc-dbb2404fe768",
+        "Title": "Chainsaw Man, Vol. 19",
+        "Description": "<p>Denji was a small-time devil hunter just trying to survive in a harsh world. After being killed on a job, he is revived by his pet devil Pochita and becomes something new and dangerous—Chainsaw Man!</p>",
+        "Language": "en",
+        "ImageId": "d2fd63ce-a262-4da9-97c9-4b3000a894f8",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.785714,
+        "TotalRating": 28,
+        "Slug": "chainsaw-man-vol-19",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3847465
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "12646cbb-6532-4e33-9981-94d5b7cc8a88"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "8820ede0-386b-3a91-9878-b10db8483836",
+        "SeriesNumber": "6",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 6,
+        "IsFree": false,
+        "ISBN": "9781974744336",
+        "PublicationDate": "2024-01-09T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8820ede0-386b-3a91-9878-b10db8483836",
+        "Title": "Dandadan, Vol. 6",
+        "Description": "<p>The Kito clan tosses Okarun and the gang into an alternate-reality version of Jiji’s family home as an offering to the serpent god! There they encounter another of the clan’s sacrifices, … [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "98a6920b-448f-4cd7-a2af-7095cd893cd6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.788462,
+        "TotalRating": 52,
+        "Slug": "dandadan-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4848354
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "18aa0687-fb3d-433c-b677-07c7111853c8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "ONE,Yusuke Murata",
+        "WorkId": "c66825af-7864-3d7e-b05d-07118e42a459",
+        "IsFree": false,
+        "ISBN": "9781974757268",
+        "PublicationDate": "2025-07-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "ONE"
+          },
+          {
+            "Name": "Yusuke Murata"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c66825af-7864-3d7e-b05d-07118e42a459",
+        "Title": "One-Punch Man, Vol. 31",
+        "Description": "<p>Monster Association big shots are taking out S-class heroes one after another… That is, until the strongest man alive, King, rises to confront this crisis. Though the monsters are seethin… [TRUNCATED 99 chars; original string value]",
+        "Language": "en",
+        "ImageId": "925a8e75-ab90-4171-adee-765604221f73",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.571429,
+        "TotalRating": 49,
+        "Slug": "one-punch-man-vol-31",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6955380
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "9d81f673-ab1a-4fa1-8bad-11e74e19554c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Shinichi Fukuda",
+        "WorkId": "94a5b4fe-0ab3-31e8-b1c0-839bee308228",
+        "SeriesNumber": "13",
+        "SeriesName": "My Dress-Up Darling",
+        "SeriesId": "e3b6fc89-8a65-5f83-b57f-eea16eaf0857",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9781646098323",
+        "PublicationDate": "2025-04-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Shinichi Fukuda"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "94a5b4fe-0ab3-31e8-b1c0-839bee308228",
+        "Title": "My Dress-Up Darling 13",
+        "Description": "<p><strong>A loner boy and a flashy girl find common ground via cosplay in this sweet and spicy rom-com!</strong></p><p>After several sleepless nights, Wakana has finished the <em>Heaven’s W… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c76dc1d2-9584-48d7-9744-ffa168d1b26a",
+        "PublisherName": "Square Enix",
+        "Rating": 4.717391,
+        "TotalRating": 46,
+        "Slug": "my-dress-up-darling-13",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5304336
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.27
+        },
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "1757662b-57c8-4513-b1bc-ec0014eb6078"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Shinichi Fukuda",
+        "WorkId": "4e941a0d-11ee-3846-a5ae-f819a7bc2a81",
+        "SeriesNumber": "12",
+        "SeriesName": "My Dress-Up Darling",
+        "SeriesId": "e3b6fc89-8a65-5f83-b57f-eea16eaf0857",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9781646097739",
+        "PublicationDate": "2024-10-22T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Shinichi Fukuda"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "4e941a0d-11ee-3846-a5ae-f819a7bc2a81",
+        "Title": "My Dress-Up Darling 12",
+        "Description": "<p><strong>A loner boy and a flashy girl find common ground via cosplay in this sweet and spicy rom-com!</strong></p><p>Although the impromptu horror-game group cosplay came with a whole bun… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f27d7cc4-06b9-4341-9930-317be3aa1c7f",
+        "PublisherName": "Square Enix",
+        "Rating": 4.854167,
+        "TotalRating": 48,
+        "Slug": "my-dress-up-darling-12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6912751
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.27
+        },
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "d4583aa6-f2e8-45f5-b961-4783fd0080a2"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "bda9cc8e-a726-3388-ba06-6f5f84d9b645",
+        "IsFree": false,
+        "ISBN": "9781974756377",
+        "PublicationDate": "2025-05-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "bda9cc8e-a726-3388-ba06-6f5f84d9b645",
+        "Title": "Sakamoto Days, Vol. 17",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f8a71e89-c97e-432e-b33e-317bcb232f3a",
+        "PublisherName": "VIZ Media",
+        "Rating": 5,
+        "TotalRating": 11,
+        "Slug": "sakamoto-days-vol-17",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4464548
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "a094f782-c4d6-4aa4-bd0c-63651275ebe0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Keigo Maki",
+        "WorkId": "0f5af18e-53e9-387e-8672-031524b1dc07",
+        "SeriesNumber": "19",
+        "SeriesName": "Shikimori's Not Just a Cutie",
+        "SeriesId": "c828f529-9f87-5735-b10a-799210e64ce1",
+        "SeriesNumberFloat": 19,
+        "IsFree": false,
+        "ISBN": "9798894783413",
+        "PublicationDate": "2025-01-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Keigo Maki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "0f5af18e-53e9-387e-8672-031524b1dc07",
+        "Title": "Shikimori's Not Just a Cutie 19",
+        "Description": "<p>Entrance exams are just around the corner, so naturally everyone's decided to spend a frigid New Year's Day at the beach. The beach?! Whose idea was this, anyway?! Time will tell if the r… [TRUNCATED 148 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f5eadc49-f088-4a85-9466-ecf65dd44907",
+        "PublisherName": "Kodansha Comics",
+        "Rating": 5,
+        "TotalRating": 6,
+        "Slug": "shikimori-s-not-just-a-cutie-19",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8699939
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.62
+        },
+        "LovePointsPrice": 4800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "33702439-f35d-442a-9e4c-92d63693aebc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "2bdb07a4-f0e0-3dc8-aaac-b35c07c0cdac",
+        "IsFree": false,
+        "ISBN": "9781974753956",
+        "PublicationDate": "2025-03-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "2bdb07a4-f0e0-3dc8-aaac-b35c07c0cdac",
+        "Title": "Sakamoto Days, Vol. 16",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "873b0cae-d936-449d-9c40-f6bdf869de02",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.785714,
+        "TotalRating": 14,
+        "Slug": "sakamoto-days-vol-16",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4522014
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "deaccce2-4ca8-4acf-af48-75531ec84ee4"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Taichi Nagaoka",
+        "WorkId": "266259dc-d863-3f08-95f9-1b26ed24c52f",
+        "SeriesNumber": "8",
+        "SeriesName": "Please Go Home, Miss Akutsu!",
+        "SeriesId": "69968f7c-c4c5-596c-9859-f7c2d7fc171d",
+        "SeriesNumberFloat": 8,
+        "IsFree": false,
+        "ISBN": "9798895617939",
+        "PublicationDate": "2025-03-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Taichi Nagaoka"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "266259dc-d863-3f08-95f9-1b26ed24c52f",
+        "Title": "Please Go Home, Miss Akutsu! Vol. 8",
+        "Description": "<p>He had his reservations when she first barged into his apartment, but shy and timid Oyama doesn't want to be parted from delinquent tough gal Akutsu. After the disappointment of having to… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "634de7b5-b944-4dd3-80bf-3578c2a9af56",
+        "PublisherName": "Seven Seas Entertainment",
+        "Rating": 4.777778,
+        "TotalRating": 9,
+        "Slug": "please-go-home-miss-akutsu-vol-8",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 11825558
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.92
+        },
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "33817a3d-1ac9-4269-9ceb-8e408a5c7073"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsu Hyuuga,Nekokurage,Itsuki Nanao,TOUCO SHINO",
+        "WorkId": "6a86a079-8395-31ae-a1c4-abe7d38bedbf",
+        "SeriesNumber": "11",
+        "SeriesName": "The Apothecary Diaries",
+        "SeriesId": "7b44ebf1-1471-576e-921e-dab16c8e9fac",
+        "SeriesNumberFloat": 11,
+        "IsFree": false,
+        "ISBN": "9781646097302",
+        "PublicationDate": "2024-03-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsu Hyuuga"
+          },
+          {
+            "Name": "Nekokurage"
+          },
+          {
+            "Name": "Itsuki Nanao"
+          },
+          {
+            "Name": "TOUCO SHINO"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "6a86a079-8395-31ae-a1c4-abe7d38bedbf",
+        "Title": "The Apothecary Diaries 11 (Manga)",
+        "Description": "<p><strong>After breaking a “curse” on the imperial heirs, a palace servant with training in herbal medicine is promoted up the ranks to food taster...and right into the thick of palace intr… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c846c81e-9812-4576-910e-9790c3611c8f",
+        "PublisherName": "Square Enix",
+        "Rating": 4.801653,
+        "TotalRating": 121,
+        "Slug": "the-apothecary-diaries-11-manga",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 7985149
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6940e196-2c4e-4c3a-b957-ba1ff48d7052"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kohei Horikoshi",
+        "WorkId": "e2572b45-63e4-35a3-a8b5-3ed364cb7c22",
+        "IsFree": false,
+        "ISBN": "9781974750450",
+        "PublicationDate": "2024-10-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kohei Horikoshi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "e2572b45-63e4-35a3-a8b5-3ed364cb7c22",
+        "Title": "My Hero Academia, Vol. 39",
+        "Description": "<p>Endeavor and Dabi clash as the villain reaches critical mass, but Endeavor’s path to victory may also lead to his own destruction. Elsewhere, Ochaco tries to talk Himiko Toga down. She’ll… [TRUNCATED 268 chars; original string value]",
+        "Language": "en",
+        "ImageId": "26907c35-8ed3-4f5c-9a82-20e1de90c5b6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.753846,
+        "TotalRating": 65,
+        "Slug": "my-hero-academia-vol-39",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4796360
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "33dd84ed-106d-43e1-8b84-22949740e423"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuya Endo",
+        "WorkId": "dc3c5d70-8f2d-3277-b440-75a76f15eb27",
+        "SeriesName": "Four Lives Remain: Tatsuya Endo Before Spy x Family",
+        "SeriesId": "de485a24-770e-5e6f-aa1c-4970b86dbacf",
+        "IsFree": false,
+        "ISBN": "9781974753925",
+        "PublicationDate": "2025-03-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "dc3c5d70-8f2d-3277-b440-75a76f15eb27",
+        "Title": "Four Lives Remain: Tatsuya Endo Before Spy x Family",
+        "Description": "<p>A young girl fighting her way through bounty hunter school. A princess forced to flee her moon empire after a coup. Witch-hunters hell-bent on killing with bloodsucking swords. And a grou… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "78ccade3-ea1f-49ac-9ded-b311763bc99c",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.833333,
+        "TotalRating": 6,
+        "Slug": "four-lives-remain-tatsuya-endo-before-spy-x-family",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4927716
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6dd79ab9-55c6-4017-9c90-353620c20985"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "f912dfd2-cc9b-37d5-a706-2f28826abbd1",
+        "IsFree": false,
+        "ISBN": "9781974756575",
+        "PublicationDate": "2025-05-20T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "f912dfd2-cc9b-37d5-a706-2f28826abbd1",
+        "Title": "Jujutsu Kaisen, Vol. 26",
+        "Description": "<p>The battle between the two strongest sorcerers—Gojo and Sukuna—unfolds on a mind-blowing scale! The combatants repeatedly open their domains and repair burnt-out cursed techniques. Their … [TRUNCATED 108 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f4c57891-9328-444c-a4a5-0db696b6a11e",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.80597,
+        "TotalRating": 134,
+        "Slug": "jujutsu-kaisen-vol-26",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4185114
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7b665921-7fc9-4228-b982-1a24717d5a99"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Jinushi",
+        "WorkId": "dec7dc0e-0d23-31d1-b5e9-bf5b72a16af4",
+        "SeriesNumber": "4",
+        "SeriesName": "Smoking Behind the Supermarket with You",
+        "SeriesId": "9f57cd69-c7a9-556a-aed7-b288fbd57294",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781646098132",
+        "PublicationDate": "2025-03-18T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Jinushi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "dec7dc0e-0d23-31d1-b5e9-bf5b72a16af4",
+        "Title": "Smoking Behind the Supermarket with You 04",
+        "Description": "<p><strong>An overworked salaryman and a mischievous cashier with a dual personality form an unexpected bond in this sweet-and-sour comedy!</strong></p><p>The new year starts strong for Sasa… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "3606bdac-b095-4c04-b175-8434cffda24f",
+        "PublisherName": "Square Enix",
+        "Rating": 4.8,
+        "TotalRating": 20,
+        "Slug": "smoking-behind-the-supermarket-with-you-04",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 10522456
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "a5096a58-68f7-4816-b4ad-525498bdd841"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "85c2dece-61af-321a-961a-491a619268a5",
+        "IsFree": false,
+        "ISBN": "9781974750085",
+        "PublicationDate": "2024-09-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "85c2dece-61af-321a-961a-491a619268a5",
+        "Title": "Sakamoto Days, Vol. 13",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8087969c-897e-4c32-9e07-930c4282b633",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.6875,
+        "TotalRating": 16,
+        "Slug": "sakamoto-days-vol-13",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3704252
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "1a8a6f5b-d215-4dd2-96c8-cd74e96e05b1"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "890928f4-fba2-37af-99e6-bc13e6791f43",
+        "IsFree": false,
+        "ISBN": "9781974757046",
+        "PublicationDate": "2025-08-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "890928f4-fba2-37af-99e6-bc13e6791f43",
+        "Title": "Sakamoto Days, Vol. 18",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "b388144f-6c6e-48da-bec0-3831df6afc1d",
+        "PublisherName": "VIZ Media",
+        "Rating": 5,
+        "TotalRating": 8,
+        "Slug": "sakamoto-days-vol-18",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5471269
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6d8bb388-de17-40cc-a52b-45e9889180c8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsuki Hokami,Koyoharu Gotouge",
+        "WorkId": "7d2a5662-f8c1-39e7-bd2a-7ffd918aa925",
+        "IsFree": false,
+        "ISBN": "9781974757428",
+        "PublicationDate": "2025-08-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsuki Hokami"
+          },
+          {
+            "Name": "Koyoharu Gotouge"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "7d2a5662-f8c1-39e7-bd2a-7ffd918aa925",
+        "Title": "Demon Slayer: Kimetsu Academy, Vol. 6",
+        "Description": "<p>School’s about to be out—forever! As the school’s culture festival approaches, Muzan seizes on an opportunity to finally take control of Kimetsu Academy! Will Tanjiro, Inosuke, and Zenits… [TRUNCATED 267 chars; original string value]",
+        "Language": "en",
+        "ImageId": "808c0efc-3710-43c3-8379-8b1ec4256c73",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.756098,
+        "TotalRating": 82,
+        "Slug": "demon-slayer-kimetsu-academy-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5628376
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "5ab14cad-c700-43f2-8767-09efe255b5e4"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Chorisuke Natsumi",
+        "WorkId": "4e38b2f4-f666-3bad-8f36-eb04558b83a0",
+        "SeriesNumber": "10",
+        "SeriesName": "Hitomi-chan is Shy With Strangers",
+        "SeriesId": "992136c0-a2e9-5b89-917a-c081c9ab7225",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9798895617885",
+        "PublicationDate": "2025-03-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Chorisuke Natsumi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "4e38b2f4-f666-3bad-8f36-eb04558b83a0",
+        "Title": "Hitomi-chan is Shy With Strangers Vol. 10",
+        "Description": "<p>To top off an already jam-packed summer, Hitomi-chan and Usa-kun are headed to the Takano family's country estate. The new couple's trip to the countryside has plenty in store for them--s… [TRUNCATED 112 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8dec7824-e058-4432-9316-66f23128369c",
+        "PublisherName": "Seven Seas Entertainment",
+        "Rating": 4.615385,
+        "TotalRating": 13,
+        "Slug": "hitomi-chan-is-shy-with-strangers-vol-10",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 11468573
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.92
+        },
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "119641c0-79cf-44df-a0d7-0c6d51d1e385"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kamome Shirahama",
+        "WorkId": "04e3969b-704c-3b2e-8925-33aa916dd1b5",
+        "SeriesNumber": "13",
+        "SeriesName": "Witch Hat Atelier",
+        "SeriesId": "f8137b02-8f72-5079-ab45-485c587ce1da",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9798894783482",
+        "PublicationDate": "2025-01-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kamome Shirahama"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "04e3969b-704c-3b2e-8925-33aa916dd1b5",
+        "Title": "Witch Hat Atelier 13",
+        "Description": "<p>The true mastermind responsible for the havoc in Ezrest is subdued at last, but not without exacting a heavy price on Coco. She is still eager to rejoin the search for Custas, and fortuna… [TRUNCATED 289 chars; original string value]",
+        "Language": "en",
+        "ImageId": "8587dac5-29cc-44a8-9c12-127bedc5fee6",
+        "PublisherName": "Kodansha Comics",
+        "Rating": 4.855263,
+        "TotalRating": 76,
+        "Slug": "witch-hat-atelier-13",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 12671657
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.62
+        },
+        "LovePointsPrice": 4800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "30faf080-2d70-4ae1-b6cd-0b4bb16d3cfc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Naoya Matsumoto",
+        "WorkId": "eb5bd6c6-f007-3de6-a936-7a0bc073e162",
+        "IsFree": false,
+        "ISBN": "9781974750429",
+        "PublicationDate": "2024-10-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Naoya Matsumoto"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "eb5bd6c6-f007-3de6-a936-7a0bc073e162",
+        "Title": "Kaiju No. 8, Vol. 11",
+        "Description": "<p>The five identified-class kaiju created by No. 9 gather in the eastern division’s area. Specifically designed to eliminate the Defense Force’s main players, these kaiju have drawn every d… [TRUNCATED 109 chars; original string value]",
+        "Language": "en",
+        "ImageId": "e6f2c554-8ebc-4f0b-a418-2773b4f92360",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.897436,
+        "TotalRating": 39,
+        "Slug": "kaiju-no-8-vol-11",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5939685
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 1.78
+        },
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "WasPrice": 6.24,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "e7261c66-fb76-4023-9980-02be1e2d6b6f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "29eb2b02-6685-3e12-86dd-7017e9e7cd98",
+        "IsFree": false,
+        "ISBN": "9781974747771",
+        "PublicationDate": "2024-06-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "29eb2b02-6685-3e12-86dd-7017e9e7cd98",
+        "Title": "Sakamoto Days, Vol. 12",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "5dd20c10-1bb2-487c-8731-233f3b677ceb",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.545455,
+        "TotalRating": 11,
+        "Slug": "sakamoto-days-vol-12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8400715
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6ced04f1-3a77-497e-8ce2-62c6455bd5da"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tatsuki Fujimoto",
+        "WorkId": "c83f8871-0831-3675-9749-fe916b6d2b5f",
+        "SeriesNumber": "16",
+        "SeriesName": "Chainsaw Man",
+        "SeriesId": "64c9b1e3-5cda-5d62-b5d6-2ac0929cf781",
+        "SeriesNumberFloat": 16,
+        "IsFree": false,
+        "ISBN": "9781974750078",
+        "PublicationDate": "2024-09-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuki Fujimoto"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c83f8871-0831-3675-9749-fe916b6d2b5f",
+        "Title": "Chainsaw Man, Vol. 16",
+        "Description": "<p>To live life as a normal high school student, or to become Chainsaw Man again. Denji is facing the ultimate choice and has no idea what to do. Meanwhile, a mysterious group called the Cha… [TRUNCATED 130 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c2f8fc90-9ea8-429c-8288-ad1955ce71ab",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.604651,
+        "TotalRating": 43,
+        "Slug": "chainsaw-man-vol-16",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3459752
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "3f03641a-48b7-48a2-87ff-6990c62d03df"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "701be905-daf9-3ef1-be0a-2ab341abb4ea",
+        "SeriesNumber": "5",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 5,
+        "IsFree": false,
+        "ISBN": "9781974741922",
+        "PublicationDate": "2023-10-10T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "701be905-daf9-3ef1-be0a-2ab341abb4ea",
+        "Title": "Dandadan, Vol. 5",
+        "Description": "<p>Okarun and the gang are off to a hot springs town to investigate the mystery of Jiji’s family. But when they get there, a strange family in cahoots with the police starts causing trouble … [TRUNCATED 130 chars; original string value]",
+        "Language": "en",
+        "ImageId": "5fd3645e-bf26-45d4-81bf-7ece95fdbea6",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.676923,
+        "TotalRating": 65,
+        "Slug": "dandadan-vol-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4499555
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "ebdc3f4f-e579-471a-a35d-6f4aed932e29"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Ryoko Kui,Taylor Engel,Abigail Blackman",
+        "WorkId": "8d29991f-389c-3d76-95ba-2e4e170ec3c2",
+        "SeriesNumber": "14",
+        "SeriesName": "Delicious in Dungeon",
+        "SeriesId": "dfb9d726-f392-5f41-b403-df88742e09f4",
+        "SeriesNumberFloat": 14,
+        "IsFree": false,
+        "ISBN": "9798855400366",
+        "PublicationDate": "2024-07-23T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Ryoko Kui"
+          },
+          {
+            "Name": "Taylor Engel"
+          },
+          {
+            "Name": "Abigail Blackman"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8d29991f-389c-3d76-95ba-2e4e170ec3c2",
+        "Title": "Delicious in Dungeon, Vol. 14",
+        "Description": "<p>It’s eat or be eaten...literally!Laios’s plan to overcome the demon seems to have worked—but at great physical cost to his monstrous form. As the dungeon crumbles around them, his friends… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f1fe8975-6c87-42e5-938f-cefe25f3425e",
+        "PublisherName": "Yen Press",
+        "Rating": 4.764706,
+        "TotalRating": 34,
+        "Slug": "delicious-in-dungeon-vol-14",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4244997
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "e4ec04d6-bed7-4af5-a8eb-1eebb6967172"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hajime Komoto",
+        "WorkId": "9672dc41-e621-336a-99f7-5f5a4b745a3f",
+        "SeriesNumber": "18",
+        "SeriesName": "Mashle: Magic and Muscles",
+        "SeriesId": "aa66bd34-85ac-50a8-ab29-b74fa0b3ce63",
+        "SeriesNumberFloat": 18,
+        "IsFree": false,
+        "ISBN": "9781974751174",
+        "PublicationDate": "2024-12-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hajime Komoto"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9672dc41-e621-336a-99f7-5f5a4b745a3f",
+        "Title": "Mashle: Magic and Muscles, Vol. 18",
+        "Description": "<p>Innocent Zero has exceeded the limits of human existence and become a god! Humanity has no choice but to bow down before his awe-inspiring divinity. Except for Mash, whose muscles have un… [TRUNCATED 297 chars; original string value]",
+        "Language": "en",
+        "ImageId": "28c8b68f-aa5c-42f4-8205-5808e81ab5d5",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.5625,
+        "TotalRating": 16,
+        "Slug": "mashle-magic-and-muscles-vol-18",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3510149
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "14ca519a-b945-4d94-aaf9-832055f54b5f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsuki Hokami",
+        "WorkId": "00438264-2dc8-3bc0-a9d4-06a149150133",
+        "SeriesNumber": "5",
+        "SeriesName": "Demon Slayer: Kimetsu Academy",
+        "SeriesId": "3a05a8ca-aada-52ff-ae0a-7968762de6ac",
+        "SeriesNumberFloat": 5,
+        "IsFree": false,
+        "ISBN": "9781974754250",
+        "PublicationDate": "2025-04-01T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsuki Hokami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "00438264-2dc8-3bc0-a9d4-06a149150133",
+        "Title": "Demon Slayer: Kimetsu Academy, Vol. 5",
+        "Description": "<p>Spring is here, and life is in full bloom at Kimetsu Academy! A poorly placed cut (on a pizza) gets Muichiro into a world of trouble with his brother, while Rengoku’s dad gets wrapped up … [TRUNCATED 191 chars; original string value]",
+        "Language": "en",
+        "ImageId": "6158ee3d-76cf-4841-8615-27b1f4dbba22",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.831326,
+        "TotalRating": 83,
+        "Slug": "demon-slayer-kimetsu-academy-vol-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4960367
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "266d91ec-f923-44c3-b868-d56252db3b6a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Aki Hamazi",
+        "WorkId": "00fce7bf-51b2-3c6e-814d-9732e5030a87",
+        "SeriesNumber": "6",
+        "SeriesName": "Bocchi the Rock!",
+        "SeriesId": "14a8fa98-310c-57cc-9c1b-ca16e88ae9da",
+        "SeriesNumberFloat": 6,
+        "IsFree": false,
+        "ISBN": "9798855409338",
+        "PublicationDate": "2025-02-18T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Aki Hamazi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "00fce7bf-51b2-3c6e-814d-9732e5030a87",
+        "Title": "Bocchi the Rock!, Vol. 6",
+        "Description": "<p>Hitori “Bocchi” Gotoh may dream of becoming a rock legend, but she and the rest of Kessoku Band have a long way to go before they can pay the bills with their musical skills alone—and gra… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "e87f92af-cf97-44b9-a06b-78bcf546f2ed",
+        "PublisherName": "Yen Press",
+        "Rating": 4.4,
+        "TotalRating": 5,
+        "Slug": "bocchi-the-rock-vol-6",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2173052
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "76ec73c7-c301-44e4-b414-4a75377d680e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Aki Hamazi",
+        "WorkId": "abb904d1-8e7a-34dc-99a0-eec94811c407",
+        "SeriesNumber": "5",
+        "SeriesName": "Bocchi the Rock!",
+        "SeriesId": "14a8fa98-310c-57cc-9c1b-ca16e88ae9da",
+        "SeriesNumberFloat": 5,
+        "IsFree": false,
+        "ISBN": "9781975378097",
+        "PublicationDate": "2024-11-26T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Aki Hamazi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "abb904d1-8e7a-34dc-99a0-eec94811c407",
+        "Title": "Bocchi the Rock!, Vol. 5",
+        "Description": "<p>With new juniors at work, new friends at school, and Kessoku Band newly signed to a record label, Hitori Gotoh is moving up in the world. But now she’ll need to overcome the next hurdle o… [TRUNCATED 256 chars; original string value]",
+        "Language": "en",
+        "ImageId": "3877ed5b-7a7b-4f02-b9f6-1ce77bd39e27",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 4,
+        "Slug": "bocchi-the-rock-vol-5",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1889801
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.99
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6f3e7a1f-920c-4bb2-aa99-d311056db817"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Masaoki Shindo",
+        "WorkId": "8c269c62-cc09-30fb-9a50-7de83c02ab2b",
+        "SeriesNumber": "1",
+        "SeriesName": "RuriDragon",
+        "SeriesId": "dc2bc4e7-0aad-5f4b-b2fc-027bbb60dd0a",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781974753130",
+        "PublicationDate": "2025-01-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Masaoki Shindo"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8c269c62-cc09-30fb-9a50-7de83c02ab2b",
+        "Title": "RuriDragon, Vol. 1",
+        "Description": "<p>Well, a half dragon. Her mom admits Ruri inherited her draconic traits from her father, who, yes, is actually a dragon. As if dealing with curious classmates wasn’t already challenging en… [TRUNCATED 137 chars; original string value]",
+        "Language": "en",
+        "ImageId": "712be03f-66f9-429f-b3d0-04f0f7e8af51",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.75,
+        "TotalRating": 24,
+        "Slug": "ruridragon-vol-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 2267967
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "b59cf4f3-f115-4b65-94f7-46bd303258fe"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "183faade-970c-316c-b6e5-0146265164c4",
+        "IsFree": false,
+        "ISBN": "9781974745227",
+        "PublicationDate": "2024-04-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "183faade-970c-316c-b6e5-0146265164c4",
+        "Title": "Sakamoto Days, Vol. 11",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "2f3dda0f-9ca4-4558-82ae-8553669c3396",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.9375,
+        "TotalRating": 16,
+        "Slug": "sakamoto-days-vol-11",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6993983
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "d6705ca4-0ad4-4597-9975-085229492399"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "c4050dc0-43bc-3d2c-9c6d-bc0548b2e5ce",
+        "IsFree": false,
+        "ISBN": "9781974748525",
+        "PublicationDate": "2024-08-20T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c4050dc0-43bc-3d2c-9c6d-bc0548b2e5ce",
+        "Title": "Jujutsu Kaisen, Vol. 23",
+        "Description": "<p>Sukuna reveals that he is the Disgraced One whom the Angel wants to kill. While Itadori grapples with this terrible news, Kenjaku has set in motion plans involving various nations, throwi… [TRUNCATED 167 chars; original string value]",
+        "Language": "en",
+        "ImageId": "21640f8a-a492-4520-84d9-d196e97ce843",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.530864,
+        "TotalRating": 81,
+        "Slug": "jujutsu-kaisen-vol-23",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 4058165
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "35d392fb-2e2b-4c25-b9c4-c034ca3de15e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "021a67dc-a2ee-3843-98cf-353e5bb19288",
+        "SeriesNumber": "4",
+        "SeriesName": "Dandadan",
+        "SeriesId": "7e6d5eb9-ec88-5e1d-bfbf-179df8080a38",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781974739905",
+        "PublicationDate": "2023-07-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "021a67dc-a2ee-3843-98cf-353e5bb19288",
+        "Title": "Dandadan, Vol. 4",
+        "Description": "<p>The banana-stealing Serpoians are back! And they’ve trapped Okarun, Momo, and Aira in a void to have another go at stealing their reproductive organs. The subsequent battle causes the pow… [TRUNCATED 238 chars; original string value]",
+        "Language": "en",
+        "ImageId": "57cbdcee-1304-4e81-bc39-605f3c770dae",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.754717,
+        "TotalRating": 53,
+        "Slug": "dandadan-vol-4",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5814285
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "9f40ecbd-ed6c-4cf1-b625-c67c25e0c87f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Ren Eguchi,Akagishi K,Kevin Chen",
+        "WorkId": "cb596e71-40df-31b5-9852-c97267cf0ede",
+        "SeriesNumber": "10",
+        "SeriesName": "Campfire Cooking in Another World with My Absurd Skill (MANGA)",
+        "SeriesId": "1ec7b239-ffce-5db1-a436-9631e3386342",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781718343498",
+        "PublicationDate": "2025-01-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Ren Eguchi"
+          },
+          {
+            "Name": "Akagishi K"
+          },
+          {
+            "Name": "Kevin Chen"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "cb596e71-40df-31b5-9852-c97267cf0ede",
+        "Title": "Campfire Cooking in Another World with My Absurd Skill (MANGA) Volume 10",
+        "Description": "<p>Mukohda and co have arrived at their destination, the seaside town of Berléand, totally ready to enjoy the bounty of the sea! Unfortunately, that won’t be possible until they take care of… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "f038cc9b-f1c0-41b7-86ea-3c580b2704bc",
+        "PublisherName": "J-Novel Club",
+        "Rating": 4.6,
+        "TotalRating": 20,
+        "Slug": "campfire-cooking-in-another-world-with-my-absurd-skill-manga-volume-10",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6141244
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.66
+        },
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "ApplicableSubscriptions": [
+          "be9e9ac0-5823-4047-8281-069986c626b9",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "Id": "4560e82c-90a5-4707-829a-4673fbd2eb08"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsu Hyuuga,Itsuki Nanao,Nekokurage,TOUCO SHINO",
+        "WorkId": "9fabacd8-cd7b-3cf9-bd99-907d11d5fe4d",
+        "SeriesNumber": "10",
+        "SeriesName": "The Apothecary Diaries",
+        "SeriesId": "7b44ebf1-1471-576e-921e-dab16c8e9fac",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781646096213",
+        "PublicationDate": "2023-11-28T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsu Hyuuga"
+          },
+          {
+            "Name": "Itsuki Nanao"
+          },
+          {
+            "Name": "Nekokurage"
+          },
+          {
+            "Name": "TOUCO SHINO"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9fabacd8-cd7b-3cf9-bd99-907d11d5fe4d",
+        "Title": "The Apothecary Diaries 10 (Manga)",
+        "Description": "<p><strong>After breaking a \"curse\" on the imperial heirs, a palace servant with training in herbal medicine is promoted up the ranks to food taster...and right into the thick of palace intr… [TRUNCATED 309 chars; original string value]",
+        "Language": "en",
+        "ImageId": "c509f678-b751-457d-95f8-b2a6f838683d",
+        "PublisherName": "Square Enix",
+        "Rating": 4.719626,
+        "TotalRating": 107,
+        "Slug": "the-apothecary-diaries-10-manga",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 9477595
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7e67a35f-e53a-4c61-a15d-32f903236766"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Taichi Nagaoka",
+        "WorkId": "48ef10b3-8ad5-39c6-b230-948f6753a06f",
+        "SeriesNumber": "7",
+        "SeriesName": "Please Go Home, Miss Akutsu!",
+        "SeriesId": "69968f7c-c4c5-596c-9859-f7c2d7fc171d",
+        "SeriesNumberFloat": 7,
+        "IsFree": false,
+        "ISBN": "9798895611388",
+        "PublicationDate": "2024-11-12T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Taichi Nagaoka"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "48ef10b3-8ad5-39c6-b230-948f6753a06f",
+        "Title": "Please Go Home, Miss Akutsu! Vol. 7",
+        "Description": "<p>Christmas is coming soon, but even in the middle of the holidays, Akutsu-san continues to spend all her time hanging out at Oyama's apartment. As the school year ends and winter break beg… [TRUNCATED 121 chars; original string value]",
+        "Language": "en",
+        "ImageId": "9fbcdbef-f7ec-4477-aad3-6451a90d9f10",
+        "PublisherName": "Seven Seas Entertainment",
+        "Rating": 0,
+        "TotalRating": 11,
+        "Slug": "please-go-home-miss-akutsu-vol-7",
+        "IsContentSharingEnabled": false,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 10069088
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 8.92
+        },
+        "LovePointsPrice": 4400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "f57efe84-d425-4124-bb20-b2cb639322e3"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsuki Hokami",
+        "WorkId": "9f89ae08-262c-3bd0-9b15-be52f92b8ada",
+        "SeriesNumber": "4",
+        "SeriesName": "Demon Slayer: Kimetsu Academy",
+        "SeriesId": "3a05a8ca-aada-52ff-ae0a-7968762de6ac",
+        "SeriesNumberFloat": 4,
+        "IsFree": false,
+        "ISBN": "9781974751136",
+        "PublicationDate": "2024-12-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsuki Hokami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9f89ae08-262c-3bd0-9b15-be52f92b8ada",
+        "Title": "Demon Slayer: Kimetsu Academy, Vol. 4",
+        "Description": "<p>It might be winter, but things at Kimetsu Academy show no signs of cooling off! If Giyu wants to enjoy some warm, freshly baked bread, he’s going to have to overcome his embarrassment abo… [TRUNCATED 250 chars; original string value]",
+        "Language": "en",
+        "ImageId": "40c8ac31-0658-461e-8f19-32230c74ae86",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.902174,
+        "TotalRating": 92,
+        "Slug": "demon-slayer-kimetsu-academy-vol-4",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5487364
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "06fff3f4-caa8-49d0-8fa4-be2acaf057d0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Akira Toriyama",
+        "WorkId": "5b72a905-9fdb-3ebd-a27f-ffe8840b37d6",
+        "SeriesNumber": "22",
+        "SeriesName": "Dragon Ball Super",
+        "SeriesId": "b6c07ca5-53bf-5108-8fff-ab4a4d5f0466",
+        "SeriesNumberFloat": 22,
+        "IsFree": false,
+        "ISBN": "9781974751143",
+        "PublicationDate": "2024-12-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Akira Toriyama"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "5b72a905-9fdb-3ebd-a27f-ffe8840b37d6",
+        "Title": "Dragon Ball Super, Vol. 22",
+        "Description": "<p>Piccolo sneaks into the Red Ribbon Army’s secret base and learns of their plan to try and conquer the world again. This time, they have Dr. Hedo—a naive super genius and grandson of Dr. G… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "730e53e0-c3dc-4caa-ac70-33d0ce975afa",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.745454,
+        "TotalRating": 55,
+        "Slug": "dragon-ball-super-vol-22",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3633798
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "4fbd0117-8574-4d24-899a-19ceac7ce03f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "c26c37e1-65e1-3ff8-b10d-d87466041f7d",
+        "IsFree": false,
+        "ISBN": "9781974738359",
+        "PublicationDate": "2023-04-11T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c26c37e1-65e1-3ff8-b10d-d87466041f7d",
+        "Title": "Dandadan, Vol. 3",
+        "Description": "<p>Okarun, a high school boy obsessed with supernatural phenomena, has lost his precious <em>family jewels</em> in a battle with Turbo Granny! His classmate Aira ends up finding one, and it … [TRUNCATED 205 chars; original string value]",
+        "Language": "en",
+        "ImageId": "0b789903-ac86-43c1-84df-fc750668bcd5",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.720588,
+        "TotalRating": 68,
+        "Slug": "dandadan-vol-3",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 10601801
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "da42a18f-07a0-47a2-b1e9-0f1681069299"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Natsu Hyuuga,Itsuki Nanao,Touco Shino,Nekokurage",
+        "WorkId": "492a5b0c-c027-30cb-8cf5-e45d968654e3",
+        "SeriesNumber": "8",
+        "SeriesName": "The Apothecary Diaries",
+        "SeriesId": "7b44ebf1-1471-576e-921e-dab16c8e9fac",
+        "SeriesNumberFloat": 8,
+        "IsFree": false,
+        "ISBN": "9781646096190",
+        "PublicationDate": "2023-07-18T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Natsu Hyuuga"
+          },
+          {
+            "Name": "Itsuki Nanao"
+          },
+          {
+            "Name": "Touco Shino"
+          },
+          {
+            "Name": "Nekokurage"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "492a5b0c-c027-30cb-8cf5-e45d968654e3",
+        "Title": "The Apothecary Diaries 08 (Manga)",
+        "Description": "<p><strong>After breaking a \"curse\" on the imperial heirs, a palace servant with training in herbal medicine is promoted up the ranks to food taster...and right into the thick of palace intr… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "ImageId": "2a917aa5-2361-4091-ab77-12f17947fd06",
+        "PublisherName": "Square Enix",
+        "Rating": 4.907407,
+        "TotalRating": 108,
+        "Slug": "the-apothecary-diaries-08-manga",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6320482
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 5.71
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "cb7aac2e-7977-487d-9cc7-af079aa0e62c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "6079240c-3728-3074-8ae1-ac335bf32b82",
+        "IsFree": false,
+        "ISBN": "9781974742578",
+        "PublicationDate": "2023-12-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "6079240c-3728-3074-8ae1-ac335bf32b82",
+        "Title": "Sakamoto Days, Vol. 10",
+        "Description": "<p>Taro Sakamoto was once a legendary hit man considered the greatest of all time. Bad guys feared him! Assassins revered him! But then one day he quit, got married, and had a baby. He’s now… [TRUNCATED 155 chars; original string value]",
+        "Language": "en",
+        "ImageId": "69af3530-f5b0-4d45-a8d4-f93f6f0de68a",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.818182,
+        "TotalRating": 11,
+        "Slug": "sakamoto-days-vol-10",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5571714
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "a4809f48-7fcd-4b8b-b8e4-09b37cb5a788"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kohei Horikoshi",
+        "WorkId": "423c82c6-c103-3a2b-a9ec-8a4ea0099f9b",
+        "IsFree": false,
+        "ISBN": "9781974747764",
+        "PublicationDate": "2024-06-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kohei Horikoshi"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "423c82c6-c103-3a2b-a9ec-8a4ea0099f9b",
+        "Title": "My Hero Academia, Vol. 38",
+        "Description": "<p>In the desperate battle with All For One and his minions, the U.A. students are pushing themselves to their absolute limits. Everywhere, the villains have the upper hand. As the floating … [TRUNCATED 233 chars; original string value]",
+        "Language": "en",
+        "ImageId": "b4753fbc-4595-4143-aca0-dbc7a322ea5a",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.661017,
+        "TotalRating": 59,
+        "Slug": "my-hero-academia-vol-38",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8535718
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "8536b2b6-d393-4a36-b41c-06097eb873ae"
+      }
+    }
+  ],
+  "ItemCount": 86,
+  "TotalPageCount": 1,
+  "TotalItemCount": 86,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 100,
+  "VersionCode": 2
+}

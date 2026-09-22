@@ -1,0 +1,280 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Hajime Kamoshida,Keji Mizoguchi,Andrew Cunningham",
+        "WorkId": "c2c1cce7-be77-3f2d-90b6-0cf69be4d06a",
+        "SeriesNumber": "1",
+        "SeriesName": "Rascal Does Not Dream (light novel)",
+        "SeriesId": "1510b8fd-6154-557b-8af6-5d12ef17f4cb",
+        "SeriesNumberFloat": 1,
+        "IsFree": false,
+        "ISBN": "9781975312534",
+        "PublicationDate": "2020-04-28T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hajime Kamoshida"
+          },
+          {
+            "Name": "Keji Mizoguchi"
+          },
+          {
+            "Name": "Andrew Cunningham"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c2c1cce7-be77-3f2d-90b6-0cf69be4d06a",
+        "Title": "Rascal Does Not Dream of Bunny Girl Senpai (light novel)",
+        "Description": "<p>Out of sight, out of mind!Bunny girls do not live in libraries. This is simply common sense. And yet, that’s exactly where Sakuta finds one in the wild. More bewildering is who the bunny … [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "e757659b-1336-4558-b891-3b5882f93b2c",
+        "PublisherName": "Yen Press",
+        "Rating": 4.62963,
+        "TotalRating": 27,
+        "Slug": "rascal-does-not-dream-of-bunny-girl-senpai-light-novel",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6390130
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "b123ce7a-d0ca-4591-a967-4b567e04a7e0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hajime Kamoshida,Keji Mizoguchi,Andrew Cunningham",
+        "WorkId": "678130e0-fe7d-32a6-9d92-b1d1db1b15a0",
+        "SeriesNumber": "9",
+        "SeriesName": "Rascal Does Not Dream (light novel)",
+        "SeriesId": "1510b8fd-6154-557b-8af6-5d12ef17f4cb",
+        "SeriesNumberFloat": 9,
+        "IsFree": false,
+        "ISBN": "9781975312695",
+        "PublicationDate": "2022-12-13T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hajime Kamoshida"
+          },
+          {
+            "Name": "Keji Mizoguchi"
+          },
+          {
+            "Name": "Andrew Cunningham"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "678130e0-fe7d-32a6-9d92-b1d1db1b15a0",
+        "Title": "Rascal Does Not Dream of a Knapsack Kid (light novel)",
+        "Description": "<p>March has arrived, meaning there’s only one month left in the third term. Mai’s graduation has come and gone. This might be a time for change, but that isn’t nearly enough to explain why … [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "9b2b4a4c-1245-45f8-b82b-5a315a9d78fc",
+        "PublisherName": "Yen Press",
+        "Rating": 4.875,
+        "TotalRating": 8,
+        "Slug": "rascal-does-not-dream-of-a-knapsack-kid-light-novel",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3203816
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "79e9587a-2413-4acb-bd3e-cfd03047c32e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hajime Kamoshida,Keji Mizoguchi,Andrew Cunningham",
+        "WorkId": "95b0319d-9cab-3ed5-8beb-c786962e9b31",
+        "SeriesNumber": "10",
+        "SeriesName": "Rascal Does Not Dream (light novel)",
+        "SeriesId": "1510b8fd-6154-557b-8af6-5d12ef17f4cb",
+        "SeriesNumberFloat": 10,
+        "IsFree": false,
+        "ISBN": "9781975318529",
+        "PublicationDate": "2023-03-21T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hajime Kamoshida"
+          },
+          {
+            "Name": "Keji Mizoguchi"
+          },
+          {
+            "Name": "Andrew Cunningham"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "95b0319d-9cab-3ed5-8beb-c786962e9b31",
+        "Title": "Rascal Does Not Dream of a Lost Singer (light novel)",
+        "Description": "<p>Becoming a college student means starting a whole new life...right? Sakuta honestly isn’t sure. Some things have changed, but some things are still the same. His reputation definitely pre… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "a9c73cf8-2a63-418d-bff8-de71099df732",
+        "PublisherName": "Yen Press",
+        "Rating": 3.5,
+        "TotalRating": 6,
+        "Slug": "rascal-does-not-dream-of-a-lost-singer-light-novel",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5217872
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.99
+        },
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "930b106d-1155-40c8-83c3-b30fdcd59aeb"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hajime Kamoshida,Keji Mizoguchi,Andrew Cunningham",
+        "WorkId": "dbe8d574-5f86-351e-b2dd-3f5fb2d2d806",
+        "SeriesNumber": "7",
+        "SeriesName": "Rascal Does Not Dream (light novel)",
+        "SeriesId": "1510b8fd-6154-557b-8af6-5d12ef17f4cb",
+        "SeriesNumberFloat": 7,
+        "IsFree": false,
+        "ISBN": "9781975312657",
+        "PublicationDate": "2022-05-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hajime Kamoshida"
+          },
+          {
+            "Name": "Keji Mizoguchi"
+          },
+          {
+            "Name": "Andrew Cunningham"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "dbe8d574-5f86-351e-b2dd-3f5fb2d2d806",
+        "Title": "Rascal Does Not Dream of His First Love (light novel)",
+        "Description": "<p>UNDOING WHAT CAN’T BE UNDONE.Sakuta had been ready to give up his life, but nothing could have prepared him to keep living like this. Now he must find a way to carry on even when it feels… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "e6e3428d-fc8b-4264-97fc-d4a18d5c9d2d",
+        "PublisherName": "Yen Press",
+        "Rating": 5,
+        "TotalRating": 7,
+        "Slug": "rascal-does-not-dream-of-his-first-love-light-novel",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5087025
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "5d439238-39d2-4494-b1be-470982a3c3b7"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Hajime Kamoshida,Keji Mizoguchi,Andrew Cunningham",
+        "WorkId": "77ee2397-da3d-30b7-8ded-08fcac7bfa83",
+        "SeriesNumber": "11",
+        "SeriesName": "Rascal Does Not Dream (light novel)",
+        "SeriesId": "1510b8fd-6154-557b-8af6-5d12ef17f4cb",
+        "SeriesNumberFloat": 11,
+        "IsFree": false,
+        "ISBN": "9781975343514",
+        "PublicationDate": "2023-06-20T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Hajime Kamoshida"
+          },
+          {
+            "Name": "Keji Mizoguchi"
+          },
+          {
+            "Name": "Andrew Cunningham"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "77ee2397-da3d-30b7-8ded-08fcac7bfa83",
+        "Title": "Rascal Does Not Dream of a Nightingale (light novel)",
+        "Description": "<p>WORST CHRISTMAS GIFT EVER…A miniskirt-wearing Santa appears before Sakuta, calling herself Touko Kirishima and cheerfully informing him that she’s been handing out presents—Adolescence Sy… [TRUNCATED 310 chars; original string value]",
+        "Language": "en",
+        "ImageId": "6487d49e-9002-42b5-86a8-c279282c0da1",
+        "PublisherName": "Yen Press",
+        "Rating": 4.6,
+        "TotalRating": 5,
+        "Slug": "rascal-does-not-dream-of-a-nightingale-light-novel",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5043655
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.99
+        },
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "d8471959-e30c-4112-bf82-95431c740659"
+      }
+    }
+  ],
+  "ItemCount": 5,
+  "TotalPageCount": 17,
+  "TotalItemCount": 81,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 5,
+  "VersionCode": 2
+}

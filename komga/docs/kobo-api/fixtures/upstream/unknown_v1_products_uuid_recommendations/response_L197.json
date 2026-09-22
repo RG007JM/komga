@@ -1,0 +1,230 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "64bd4518-a06b-3ee3-b610-86e08bf2c1ee",
+        "IsFree": false,
+        "ISBN": "9781974760688",
+        "PublicationDate": "2025-12-09T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "64bd4518-a06b-3ee3-b610-86e08bf2c1ee",
+        "Title": "Dandadan, Vol. 16",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they’ll believe in and what they won’t. Their quest to prove each other wrong leads them down a path … [TRUNCATED 87 chars; original string value]",
+        "Language": "en",
+        "ImageId": "fc415511-b0a6-4182-bea7-25206c36e2a7",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.5,
+        "TotalRating": 16,
+        "Slug": "dandadan-vol-16-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8769335
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "7878512a-db1e-4bd8-a969-ca6c4248f2d5"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "bff30543-74bf-35e0-a393-65f41094fd3a",
+        "IsFree": false,
+        "ISBN": "9781974764686",
+        "PublicationDate": "2026-04-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "bff30543-74bf-35e0-a393-65f41094fd3a",
+        "Title": "Dandadan, Vol. 18",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they’ll believe in and what they won’t. Their quest to prove each other wrong leads them down a path … [TRUNCATED 87 chars; original string value]",
+        "Language": "en",
+        "ImageId": "ad09ace9-57ef-4d86-ba32-d36635117fe8",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.6,
+        "TotalRating": 10,
+        "Slug": "dandadan-vol-18-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 8755887
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "5e090b20-6a0e-4dc9-9a8a-d7a560e0f14e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "bc5d8e22-bf26-3a77-90da-73fa6df0bea9",
+        "IsFree": false,
+        "ISBN": "9781974767403",
+        "PublicationDate": "2026-06-09T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "bc5d8e22-bf26-3a77-90da-73fa6df0bea9",
+        "Title": "Dandadan, Vol. 19",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they’ll believe in and what they won’t. Their quest to prove each other wrong leads them down a path … [TRUNCATED 87 chars; original string value]",
+        "Language": "en",
+        "ImageId": "13562750-0239-4c41-ba2e-b48624dd8e82",
+        "PublisherName": "VIZ Media",
+        "Rating": 5,
+        "TotalRating": 6,
+        "Slug": "dandadan-vol-19-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 10512819
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "10283b21-b4ae-4654-a482-5cf1eea6afcc"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "4f8854bb-056d-30dc-bda0-8a52c2ac2a4d",
+        "IsFree": false,
+        "ISBN": "9781974759859",
+        "PublicationDate": "2025-10-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "4f8854bb-056d-30dc-bda0-8a52c2ac2a4d",
+        "Title": "Dandadan, Vol. 15",
+        "Description": "<p>Momo Ayase and Okarun are on opposite sides of the paranormal spectrum regarding what they’ll believe in and what they won’t. Their quest to prove each other wrong leads them down a path … [TRUNCATED 87 chars; original string value]",
+        "Language": "en",
+        "ImageId": "6a77a4da-ca2b-424d-b3d6-f67cb54eca08",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.793103,
+        "TotalRating": 29,
+        "Slug": "dandadan-vol-15-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3400504
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "3af004dd-4978-4800-bd16-c8527537acc2"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yukinobu Tatsu",
+        "WorkId": "895d968a-a6c4-360c-a650-cf8be7719f71",
+        "IsFree": false,
+        "ISBN": "9781974757411",
+        "PublicationDate": "2025-08-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yukinobu Tatsu"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "895d968a-a6c4-360c-a650-cf8be7719f71",
+        "Title": "Dandadan, Vol. 14",
+        "Description": "<p>As Momo and the others fight desperately against the alien invaders, a recovering Okarun finally comes to and is able to join them. Unfortunately for him, it’s Tuesday, and that means one… [TRUNCATED 303 chars; original string value]",
+        "Language": "en",
+        "ImageId": "6a501011-fcc3-4182-9351-9a8517398dae",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.730769,
+        "TotalRating": 26,
+        "Slug": "dandadan-vol-14-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 5407535
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "LovePointsPrice": 3200,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "f31573c6-8dfb-4ebc-831f-401cca2c07c0"
+      }
+    }
+  ],
+  "ItemCount": 5,
+  "TotalPageCount": 18,
+  "TotalItemCount": 89,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 5,
+  "VersionCode": 2
+}

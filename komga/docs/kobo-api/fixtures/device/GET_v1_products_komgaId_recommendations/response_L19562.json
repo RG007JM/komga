@@ -1,0 +1,250 @@
+{
+  "CurrentPageIndex": 0,
+  "ItemCount": 5,
+  "Items": [
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "Contributors": "Tatsuya Endo",
+        "CrossRevisionId": "0RDTATKH5HXZM",
+        "Description": "Not one to depend on others, Twilight has his work cut out for him procuring both a wife and a child for his mission to infiltrate an elite private school. What he doesnΓÇÖt know is that the… [TRUNCATED 78 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974720286",
+        "Id": "0RDTATKH5HXZM",
+        "ImageId": "0RPA2D7X0JMTC",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2020-06-02T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.765162,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 8824530,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RDTATKG1HM0V",
+        "SeriesName": "Spy x Family",
+        "SeriesNumber": "1",
+        "SeriesNumberFloat": 1,
+        "Slug": "spy-x-family-vol-1",
+        "Title": "Spy x Family, Vol. 1",
+        "TotalRating": 775,
+        "WorkId": "0RDTATKH5HXZM"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "Contributors": "Tatsuya Endo",
+        "CrossRevisionId": "0RDTATKH9HV0F",
+        "Description": "Twilight must infiltrate the prestigious Eden Academy to get close to his target Donovan Desmond, but has he ruined his daughter AnyaΓÇÖs chances with his outburst during the admissions inte… [TRUNCATED 167 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974722518",
+        "Id": "0RDTATKH9HV0F",
+        "ImageId": "0RPA2D9Q8JGH5",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2020-09-01T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.800376,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 2996736,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RDTATKG1HM0V",
+        "SeriesName": "Spy x Family",
+        "SeriesNumber": "2",
+        "SeriesNumberFloat": 2,
+        "Slug": "spy-x-family-vol-2",
+        "Title": "Spy x Family, Vol. 2",
+        "TotalRating": 531,
+        "WorkId": "0RDTATKH9HV0F"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "Contributors": "Tatsuya Endo",
+        "CrossRevisionId": "0RDTATKH9HV0E",
+        "Description": "An action-packed comedy about a fake family that includes a spy, an assassin and a telepath!Master spy Twilight is unparalleled when it comes to going undercover on dangerous missions for th… [TRUNCATED 401 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974760602",
+        "Id": "0RDTATKH9HV0E",
+        "ImageId": "0RPA2D9K8JSGY",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2025-12-02T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.660131,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 7394220,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RDTATKG1HM0V",
+        "SeriesName": "Spy x Family",
+        "SeriesNumber": "15",
+        "SeriesNumberFloat": 15,
+        "Slug": "spy-x-family-vol-15",
+        "Title": "Spy x Family, Vol. 15",
+        "TotalRating": 153,
+        "WorkId": "0RDTATKH9HV0E"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "Contributors": "Tatsuya Endo",
+        "CrossRevisionId": "0RDTATKHXHPS9",
+        "Description": "An action-packed comedy about a fake family that includes a spy, an assassin and a telepath!Master spy Twilight is unparalleled when it comes to going undercover on dangerous missions for th… [TRUNCATED 443 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974753246",
+        "Id": "0RDTATKHXHPS9",
+        "ImageId": "0RPA2DAJ0JTT2",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2025-01-14T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.75,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 3070484,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RDTATKG1HM0V",
+        "SeriesName": "Spy x Family",
+        "SeriesNumber": "13",
+        "SeriesNumberFloat": 13,
+        "Slug": "spy-x-family-vol-13",
+        "Title": "Spy x Family, Vol. 13",
+        "TotalRating": 236,
+        "WorkId": "0RDTATKHXHPS9"
+      }
+    },
+    {
+      "Book": {
+        "AgeVerificationRequired": false,
+        "ContributorRoles": [
+          {
+            "Name": "Tatsuya Endo"
+          }
+        ],
+        "Contributors": "Tatsuya Endo",
+        "CrossRevisionId": "0RDTATKH9HV0D",
+        "Description": "An action-packed comedy about a fake family that includes a spy, an assassin and a telepath!Master spy Twilight is unparalleled when it comes to going undercover on dangerous missions for th… [TRUNCATED 452 chars; original string value]",
+        "EligibleForKoboLoveDiscount": false,
+        "HasPreview": true,
+        "ISBN": "9781974748600",
+        "Id": "0RDTATKH9HV0D",
+        "ImageId": "0RPA2D9E8JJ8K",
+        "IsContentSharingEnabled": true,
+        "IsFree": false,
+        "IsPreOrder": false,
+        "IsRecommendation": false,
+        "Language": "en",
+        "LovePointsPrice": 3200,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.24
+        },
+        "PublicationDate": "2024-08-06T00:00:00.0000000Z",
+        "PublisherName": "VIZ Media",
+        "Rating": 4.721925,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Platform": "Generic",
+            "Size": 3941152,
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]"
+          }
+        ],
+        "SeriesId": "0RDTATKG1HM0V",
+        "SeriesName": "Spy x Family",
+        "SeriesNumber": "12",
+        "SeriesNumberFloat": 12,
+        "Slug": "spy-x-family-vol-12",
+        "Title": "Spy x Family, Vol. 12",
+        "TotalRating": 187,
+        "WorkId": "0RDTATKH9HV0D"
+      }
+    }
+  ],
+  "ItemsPerPage": 5,
+  "TotalItemCount": 84,
+  "TotalPageCount": 17,
+  "VersionCode": 2
+}

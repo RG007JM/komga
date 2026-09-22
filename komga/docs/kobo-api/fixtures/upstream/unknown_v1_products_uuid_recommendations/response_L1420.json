@@ -1,0 +1,1632 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "16e0d8dc-0c78-3a52-ab8b-d53832dba6a1",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032714065",
+        "PublicationDate": "2023-08-24T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "16e0d8dc-0c78-3a52-ab8b-d53832dba6a1",
+        "Title": "Frieren T09",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Dans la région de Drachen, Frieren et ses compagnons tombent sur un village en piteux état… L'elfe accepte de débarrasser les habit… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "98283d7e-af22-40ef-a9a5-b181be421d60",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.941176,
+        "TotalRating": 17,
+        "Slug": "frieren-t09",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 20451270
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "344733c5-d464-4a67-8c02-ec4d19ff0266"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "cd41b901-9399-34ff-9c90-760f7669e581",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032714096",
+        "PublicationDate": "2023-09-28T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "cd41b901-9399-34ff-9c90-760f7669e581",
+        "Title": "Frieren T10",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>À l'issue d'une discussion stérile avec Macht des Terres d'Or, Frieren a néanmoins appris une chose: s'il est impossible pour elle … [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "4d3198ad-f58a-4409-900e-051307ec64a0",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.928571,
+        "TotalRating": 14,
+        "Slug": "frieren-t10",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 18641457
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "84f366a2-28d7-45b2-9a32-1451974bd593"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "6442940d-b960-3918-b13a-503986df447c",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032713976",
+        "PublicationDate": "2023-03-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "6442940d-b960-3918-b13a-503986df447c",
+        "Title": "Frieren T07",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Douze candidats ont réussi le test de Sense, sauf qu'aux yeux de Serie, qui dirige la société des mages du continent, c'est douze d… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "4c7d0826-7324-4e38-96c5-f68fd4bd1bcf",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.736842,
+        "TotalRating": 19,
+        "Slug": "frieren-t07",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 16995627
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "18c73beb-fef3-49c1-96ce-f015fd7e892b"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "37748b7e-d821-3600-80e4-613177ff0259",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032716083",
+        "PublicationDate": "2024-01-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "37748b7e-d821-3600-80e4-613177ff0259",
+        "Title": "Frieren T11",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Pour faire gagner du temps à Frieren, qui doit finir d'analyser les souvenirs de Macht, Denken se charge de retenir le démon, tandi… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "92e895f8-eda4-4347-9820-e3bbb017f8c2",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.8125,
+        "TotalRating": 16,
+        "Slug": "frieren-t11",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 18809719
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "81e32293-8f89-41a4-b1ad-c2214cfd6fe1"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe,Géraldine Oudin",
+        "WorkId": "191236bc-af2f-34f7-a77a-f416e0ac4d6e",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032716106",
+        "PublicationDate": "2024-05-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          },
+          {
+            "Name": "Géraldine Oudin"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "191236bc-af2f-34f7-a77a-f416e0ac4d6e",
+        "Title": "Frieren T12",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Frieren, Fern et Stark s'apprêtent à quitter le haut-plateau du nord pour entrer sur les terres de l'Empire, au niveau du col de K… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "95d6041f-8b31-4842-b614-1edfc899df97",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.5,
+        "TotalRating": 14,
+        "Slug": "frieren-t12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 20437825
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "15ea0783-f890-482a-903b-480d8d703c40"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "9cf8e22d-756e-3704-9d21-35914a487359",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032713969",
+        "PublicationDate": "2023-01-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9cf8e22d-756e-3704-9d21-35914a487359",
+        "Title": "Frieren T06",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Après la première épreuve de l'examen de magie, les candidats restants peuvent prendre un peu de repos. Seulement, Frieren et Stark… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "85c6d2c7-f8e8-4994-9f49-85cd5b7ac6e5",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.923077,
+        "TotalRating": 13,
+        "Slug": "frieren-t06",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 17765367
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "311897aa-9966-4fd1-9bd4-efcc8de704a5"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "6716d953-0e5d-3e02-bf0a-0ffa0101dc19",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032716120",
+        "PublicationDate": "2024-12-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "6716d953-0e5d-3e02-bf0a-0ffa0101dc19",
+        "Title": "Frieren T13",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Les démons ont remarqué les interférences spatio-temporelles provoquées par Frieren, et ils comptent bien lui soutirer le maximum … [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "ef00c4e2-229e-4ab6-a969-b719f38a523b",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.333333,
+        "TotalRating": 15,
+        "Slug": "frieren-t13",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 21562436
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "cf010cad-490a-46d3-8966-425fc63b06e0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe,Géraldine Oudin",
+        "WorkId": "d915a22d-fce0-347a-9b4a-95aca52ba15b",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032712559",
+        "PublicationDate": "2022-10-13T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          },
+          {
+            "Name": "Géraldine Oudin"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "d915a22d-fce0-347a-9b4a-95aca52ba15b",
+        "Title": "Frieren T05",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Tandis que Sein fait route seul vers Tür afin de retrouver son ami disparu, Fern et Frieren s'apprêtent à passer l'examen pour deve… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "b426790f-c1e2-4e4e-971d-d845f9b0f125",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.95,
+        "TotalRating": 20,
+        "Slug": "frieren-t05",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 20097178
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "3402b376-15c9-45e3-8ba0-7a8eb5007679"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "be7d4cf2-85b2-3dd7-ad2c-1eca8e7ff4c9",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032712351",
+        "PublicationDate": "2022-07-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "be7d4cf2-85b2-3dd7-ad2c-1eca8e7ff4c9",
+        "Title": "Frieren T04",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>En pleine forêt, Stark se fait mordre par un monstre venimeux ! Hélas, Frieren ne s'y connaît pas vraiment en poisons, il va lui fa… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "787ce930-6235-48da-ac4b-e5546d5cc5f7",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.809524,
+        "TotalRating": 21,
+        "Slug": "frieren-t04",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 16558453
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "937cf696-2e47-46ee-a43d-f55ed130f034"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tsukasa Abe,Kanehito Yamada",
+        "WorkId": "8f759571-3dc6-3916-92f2-cf29771032f5",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032724835",
+        "PublicationDate": "2025-07-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tsukasa Abe"
+          },
+          {
+            "Name": "Kanehito Yamada"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "8f759571-3dc6-3916-92f2-cf29771032f5",
+        "Title": "Frieren T14",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>À peine arrivés à Eiseberg, la capitale, Frieren et ses compagnons sont appréhendés par Sense, qui a besoin de Fern pour une missio… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "3080e894-ba80-4e66-9ac4-3eb67712ad9b",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.142857,
+        "TotalRating": 7,
+        "Slug": "frieren-t14",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 21919511
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "5c931559-7e0f-4a9d-bc52-bc2582eb9084"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe,Géraldine Oudin",
+        "WorkId": "2aa94509-062b-3c91-b7db-68724583936e",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032712399",
+        "PublicationDate": "2022-05-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          },
+          {
+            "Name": "Géraldine Oudin"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "2aa94509-062b-3c91-b7db-68724583936e",
+        "Title": "Frieren T03",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Stark, guerrier et disciple d'Eisen, a rejoint les deux mages dans leur périple. Ensemble, ils arrivent dans le comté de Granat, ma… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "26133556-0068-42da-8dde-3fb3a7e83ca6",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.565217,
+        "TotalRating": 23,
+        "Slug": "frieren-t03",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 19650134
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "edb408d4-48fc-46c1-94cf-4966641ddb84"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe,Géraldine Oudin",
+        "WorkId": "cee70386-899d-3409-9850-f0106f8f62cb",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032711606",
+        "PublicationDate": "2022-03-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          },
+          {
+            "Name": "Géraldine Oudin"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "cee70386-899d-3409-9850-f0106f8f62cb",
+        "Title": "Frieren T02",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Frieren a désormais une compagne de route, Fern, car l'elfe a promis de veiller sur la protégée de Heiter à la mort de son ami. Ens… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "2394968b-872e-40f6-9f24-d4cebfef514f",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.761905,
+        "TotalRating": 21,
+        "Slug": "frieren-t02",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 19924621
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "8d27367b-782e-42b2-ba03-541ee3ef9fc6"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "192a879d-c317-37c2-88d0-8cfcbac6b745",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032724828",
+        "PublicationDate": "2026-04-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "192a879d-c317-37c2-88d0-8cfcbac6b745",
+        "Title": "Frieren T15",
+        "Description": "<p>Que deviennent les héros une fois le mal vaincu ?</p><p>Alors que Frieren et Fern cherchent une solution pour soigner Stark, empoisonné par une flèche ennemie, un sauveur inattendu fait s… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "67e54286-101c-40cc-bd40-93af364fd665",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.9,
+        "TotalRating": 10,
+        "Slug": "frieren-t15",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 18236005
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "f882d705-8216-471e-9fa0-40a44c5953a7"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe,Géraldine Oudin",
+        "WorkId": "7aad241f-f35f-36d7-bbe4-32dc10b65e9f",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032711613",
+        "PublicationDate": "2022-03-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          },
+          {
+            "Name": "Géraldine Oudin"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "7aad241f-f35f-36d7-bbe4-32dc10b65e9f",
+        "Title": "Frieren T01",
+        "Description": "<p>Que deviennent les héros, une fois le mal vaincu ?</p><p>Le jeune héros Himmel et ses compagnons, l'elfe Frieren, le nain Eisen et le prêtre Heiter, rentrent victorieux de leur combat con… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "9edfdff5-5955-4213-8865-6e72ebe46719",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.590909,
+        "TotalRating": 44,
+        "Slug": "frieren-t01",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 16010234
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "46a46d5e-d54d-44f8-b783-0d2e46e981d0"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe",
+        "WorkId": "9af0da93-320a-382f-9e6c-72e37e5c09c2",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032724842",
+        "PublicationDate": "2024-12-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9af0da93-320a-382f-9e6c-72e37e5c09c2",
+        "Title": "Frieren Anthologie",
+        "Description": "<p>Un recueil de 5 récits inédits dans l'univers de Frieren !</p><p>Avez-vous déjà imaginé Frieren en train de préparer à manger pour ses compagnons grâce à ses sorts, l'amitié naissante ent… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "98f2cd09-0c37-410c-b8e4-24d368dea1e8",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4,
+        "TotalRating": 4,
+        "Slug": "frieren-anthologie",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 11436318
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "04c5bbdb-9475-4df1-834f-0a969b8c2070"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Kanehito Yamada,Tsukasa Abe,Mei Hachimoku,Leticia Jabur",
+        "WorkId": "1bd5675b-8e38-3ad5-9f70-a6caa38c6a38",
+        "SeriesName": "Frieren",
+        "SeriesId": "01db7780-884a-5899-b844-6402d91ae926",
+        "IsFree": false,
+        "ISBN": "9791032721964",
+        "PublicationDate": "2026-06-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Kanehito Yamada"
+          },
+          {
+            "Name": "Tsukasa Abe"
+          },
+          {
+            "Name": "Mei Hachimoku"
+          },
+          {
+            "Name": "Leticia Jabur"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "1bd5675b-8e38-3ad5-9f70-a6caa38c6a38",
+        "Title": "Frieren - Prélude",
+        "Description": "<p>Prélude est un roman passionnant qui explore l'univers de Frieren avec justesse, en nous plongeant dans le quotidien à la fois ordinaire et empli de magie de ses personnages.</p><p>Retrou… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "7aede8a9-45fd-4b8e-ab9a-179501c3d9d2",
+        "PublisherName": "AC MEDIA",
+        "Rating": 5,
+        "TotalRating": 2,
+        "Slug": "frieren-prelude",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3548188
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 9.99
+        },
+        "LovePointsPrice": 4800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "099bea03-05d6-47a9-9344-ee9d97f7e941"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "f61e519a-7e23-3484-922b-25e3a750b2fd",
+        "SeriesName": "Jujutsu Kaisen",
+        "SeriesId": "1c80d5b8-5314-5554-a2ef-8d085b227513",
+        "IsFree": false,
+        "ISBN": "9791032716274",
+        "PublicationDate": "2024-10-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "f61e519a-7e23-3484-922b-25e3a750b2fd",
+        "Title": "Jujutsu Kaisen T25",
+        "Description": "<p>Engloutir les ténèbres pour mieux les combattre !</p><p>Megumi pensait pouvoir retrouver sa sœur durant la Traque meurtrière… mais c'est en réalité une exorciste du passé, Yorozu, qui a p… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "3da0c44e-f81f-4e5e-9a99-a6266257b833",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.703704,
+        "TotalRating": 27,
+        "Slug": "jujutsu-kaisen-t25",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 24455733
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "a3c0d3be-2efc-4c71-a1bc-08148df9a286"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Miyako Slocombe,Megumi Morino",
+        "WorkId": "c5e24a10-22d7-3dba-96ed-7d82e805b067",
+        "SeriesNumber": "13",
+        "SeriesName": "À tes côtés",
+        "SeriesId": "7b52f316-889b-570a-a3ef-4fdb41ae326d",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9782385310134",
+        "PublicationDate": "2024-03-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Miyako Slocombe"
+          },
+          {
+            "Name": "Megumi Morino"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "e42d23c2-83fb-3c90-828c-c9e5d70c2196",
+        "Title": "À tes côtés - Tome 13",
+        "Description": "<p>Quand un après-midi d’hiver enneigé, Hotaru tend son parapluie à Hananoï, un de ses camarades de lycée qui vient de se faire larguer, elle n’imaginait pas encore que c’était le début d’un… [TRUNCATED 310 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "b1d81335-091e-4cef-b2c5-6c4a35ac633e",
+        "PublisherName": "Akata",
+        "Rating": 4.5,
+        "TotalRating": 4,
+        "Slug": "a-tes-cotes-tome-13",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3474289
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.49
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "f36cc50d-4d4f-4466-b768-e75604873dea"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "b39261c3-3065-3c32-9507-a9440fe7b92f",
+        "SeriesNumber": "13",
+        "SeriesName": "Sakamoto Days",
+        "SeriesId": "e168c97d-1b99-5d2b-9587-bd4394457ccc",
+        "SeriesNumberFloat": 13,
+        "IsFree": false,
+        "ISBN": "9782331080562",
+        "PublicationDate": "2024-05-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "b39261c3-3065-3c32-9507-a9440fe7b92f",
+        "Title": "Sakamoto Days - Tome 13",
+        "Description": "<p>Quelques années auparavant, alors qu’ils sont encore étudiants, Sakamoto, Nagumo et Akao font régner la terreur sur le campus de la JCC. Bientôt, la sanction tombe ! S’ils ne veulent pas … [TRUNCATED 251 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "9a90c456-1618-4a29-9021-efa567a35af0",
+        "PublisherName": "Glénat Manga",
+        "Rating": 4.769231,
+        "TotalRating": 13,
+        "Slug": "sakamoto-days-tome-13",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6887992
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "c251a08b-8d91-410a-abb4-4d479d5f28b7"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Rifujin na Magonote,Yuka Fujikawa,Jean-Benoît Silvestre",
+        "WorkId": "0656f5e4-ec46-3837-a89b-dcef4a0ea907",
+        "IsFree": false,
+        "ISBN": "9791041107896",
+        "PublicationDate": "2024-01-10T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Rifujin na Magonote"
+          },
+          {
+            "Name": "Yuka Fujikawa"
+          },
+          {
+            "Name": "Jean-Benoît Silvestre"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "0656f5e4-ec46-3837-a89b-dcef4a0ea907",
+        "Title": "Mushoku Tensei - Tome 19",
+        "Description": "<p>On pardonne encore moins facilement une faute lorsqu’elle est commise par un membre de sa famille.\"Je me suis donné du mal ! Pourquoi c’est Norn qui est récompensée ?\"Louiseld a accompagn… [TRUNCATED 310 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "c7d7097a-db54-4e8a-baea-54f6057a7cec",
+        "PublisherName": "Bamboo",
+        "Rating": 4.5,
+        "TotalRating": 4,
+        "Slug": "mushoku-tensei-tome-19",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3638823
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "fc237293-5818-43c7-8db5-9ab42795393b"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "9ce46a76-98e1-3b45-869c-8503bca0ae20",
+        "SeriesName": "Jujutsu Kaisen",
+        "SeriesId": "1c80d5b8-5314-5554-a2ef-8d085b227513",
+        "IsFree": false,
+        "ISBN": "9791032716236",
+        "PublicationDate": "2024-04-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "9ce46a76-98e1-3b45-869c-8503bca0ae20",
+        "Title": "Jujutsu Kaisen T23",
+        "Description": "<p>Engloutir les ténèbres pour mieux les combattre !</p><p>Flanqué de Fumihiko, un humoriste pour le moins détonnant, Yuji retrouve enfin Megumi, récupéré juste à temps par Hana après son … [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "556d76a8-eb32-49eb-a9f7-312e22d53a21",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.733333,
+        "TotalRating": 30,
+        "Slug": "jujutsu-kaisen-t23",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 22249030
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "4192a527-7d89-443a-9fb5-e884ed612e09"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "5ee9ec11-23f5-3f25-baeb-f092164e68b2",
+        "SeriesNumber": "12",
+        "SeriesName": "Sakamoto Days",
+        "SeriesId": "e168c97d-1b99-5d2b-9587-bd4394457ccc",
+        "SeriesNumberFloat": 12,
+        "IsFree": false,
+        "ISBN": "9782331080319",
+        "PublicationDate": "2024-02-21T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "5ee9ec11-23f5-3f25-baeb-f092164e68b2",
+        "Title": "Sakamoto Days - Tome 12",
+        "Description": "<p>Les duels de Shishiba contre Yotsumura et d’Osaragi contre une geiko transforment la ville de Kyoto en champ de bataille sanglant ! Shishiba et Yotsumura, autrefois élève et maître, sont … [TRUNCATED 206 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "e77eb70b-c106-45ed-886f-0b3ebc5e9ebf",
+        "PublisherName": "Glénat Manga",
+        "Rating": 4.6,
+        "TotalRating": 10,
+        "Slug": "sakamoto-days-tome-12",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6262454
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "0ba6a7cb-db16-4e8a-a5a3-3940fbfddd24"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "735ef4db-6915-33c1-b054-fc20de61bf3d",
+        "SeriesName": "Jujutsu Kaisen",
+        "SeriesId": "1c80d5b8-5314-5554-a2ef-8d085b227513",
+        "IsFree": false,
+        "ISBN": "9791032720448",
+        "PublicationDate": "2025-04-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "735ef4db-6915-33c1-b054-fc20de61bf3d",
+        "Title": "Jujutsu Kaisen T26",
+        "Description": "<p>Engloutir les ténèbres pour mieux les combattre !</p><p>Grâce à l'ange, le sceau qui retenait Satoru Gojo prisonnier de la Lisière du supplice a enfin été levé ! Ainsi, l'exorciste le plu… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "4fd0608a-4707-4e18-9dc9-0f6f37186b03",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.793103,
+        "TotalRating": 29,
+        "Slug": "jujutsu-kaisen-t26",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 21383403
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "4889edbd-b067-4547-983e-673a33fc8d20"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tail Yuzuhara,Sora",
+        "WorkId": "d55ebe42-b72b-329d-9802-a091789310a6",
+        "SeriesName": "Sorcière d'un autre monde",
+        "SeriesId": "b877f10e-aaaa-5f23-b69f-ccb90c65749e",
+        "IsFree": false,
+        "ISBN": "9782413056287",
+        "PublicationDate": "2023-07-05T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tail Yuzuhara"
+          },
+          {
+            "Name": "Sora"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "3b5f8815-2331-39e8-825f-01ebfb93c19f",
+        "Title": "Sorcière d'un autre monde T03",
+        "Description": "<p>Sena et Keith regagnent Beclair après avoir apaisé Rishkall, le Roi-dragon du Vent. Tout le royaume est en liesse suite au retour triomphal de l'invocatrice, mais une missive de l'empire … [TRUNCATED 212 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "b65aecb1-aaf5-431a-b3a3-d7297a0cac6c",
+        "PublisherName": "GROUPE DELCOURT BD",
+        "Rating": 4.75,
+        "TotalRating": 4,
+        "Slug": "sorciere-d-un-autre-monde-t03",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 21149408
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "30054149-0253-44fa-adc3-fd09e81149d8"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "75a9d548-36c4-38fb-a300-f0c42cd752c4",
+        "SeriesName": "Jujutsu Kaisen",
+        "SeriesId": "1c80d5b8-5314-5554-a2ef-8d085b227513",
+        "IsFree": false,
+        "ISBN": "9791032716250",
+        "PublicationDate": "2024-07-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "75a9d548-36c4-38fb-a300-f0c42cd752c4",
+        "Title": "Jujutsu Kaisen T24",
+        "Description": "<p>Engloutir les ténèbres pour mieux les combattre !</p><p>Malgré un combat dantesque face à Yuki Tsukumo, Kenjaku parvient à tirer son épingle du jeu afin de poursuivre son but : permettre … [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "7db677ec-9f4c-47b1-914e-d1bca980c453",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.9,
+        "TotalRating": 30,
+        "Slug": "jujutsu-kaisen-t24",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 20896465
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "5d1ef60d-5d37-4072-8ddb-5ae7b34eef72"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Mozuku Sora,Higoro Toumori",
+        "WorkId": "eb1cac1e-1569-328b-a4bf-e689481c574d",
+        "SeriesName": "The Bugle Call",
+        "SeriesId": "b92c9233-9e0e-5be1-8f74-2437ed012156",
+        "IsFree": false,
+        "ISBN": "9791032717660",
+        "PublicationDate": "2024-03-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Mozuku Sora"
+          },
+          {
+            "Name": "Higoro Toumori"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "eb1cac1e-1569-328b-a4bf-e689481c574d",
+        "Title": "The Bugle Call T01",
+        "Description": "<p>Transcender le fracas des armes, décider du sort de la bataille !</p><p>Luka, orphelin recueilli par le chef d'un groupe de mercenaires, n'est pas comme les autres : une branche pousse su… [TRUNCATED 309 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "93dd4490-23d1-458d-8b65-785be98f92d2",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.6,
+        "TotalRating": 5,
+        "Slug": "the-bugle-call-t01",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 26944006
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "d653591c-9e8f-4425-9010-07fe4d37a158"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Yuto Suzuki",
+        "WorkId": "db38972b-0fc5-3881-a7c5-17a26fe4fc00",
+        "SeriesNumber": "14",
+        "SeriesName": "Sakamoto Days",
+        "SeriesId": "e168c97d-1b99-5d2b-9587-bd4394457ccc",
+        "SeriesNumberFloat": 14,
+        "IsFree": false,
+        "ISBN": "9782331080739",
+        "PublicationDate": "2024-07-03T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Yuto Suzuki"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "db38972b-0fc5-3881-a7c5-17a26fe4fc00",
+        "Title": "Sakamoto Days - Tome 14",
+        "Description": "<p>Sakamoto, Nagumo et Akao, le trio d’étudiants terribles, escortent des VIP en compagnie de Kindaka, un membre de l’Ordre. Ils sont aidés dans cette mission par un autre étudiant, Uzuki ! … [TRUNCATED 257 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "5d4f0cb7-e42a-4df9-b101-fe315dcf334a",
+        "PublisherName": "Glénat Manga",
+        "Rating": 4.2,
+        "TotalRating": 5,
+        "Slug": "sakamoto-days-tome-14",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6287649
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "84c8d38c-efad-407c-9f8e-2b9060eca64a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Mozuku Sora,Higoro Toumori",
+        "WorkId": "2c34e431-a396-309f-ba3b-83829da356b3",
+        "SeriesName": "The Bugle Call",
+        "SeriesId": "b92c9233-9e0e-5be1-8f74-2437ed012156",
+        "IsFree": false,
+        "ISBN": "9791032717677",
+        "PublicationDate": "2024-05-02T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Mozuku Sora"
+          },
+          {
+            "Name": "Higoro Toumori"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "2c34e431-a396-309f-ba3b-83829da356b3",
+        "Title": "The Bugle Call T02",
+        "Description": "<p>Transcender le fracas des armes, décider du sort de la bataille !</p><p>Luka a accepté de travailler pour le pape à la condition que ce dernier finance ses études de musique, mais le fait… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "db3c9419-85e5-494d-819b-27319275e1e7",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.8,
+        "TotalRating": 5,
+        "Slug": "the-bugle-call-t02",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 24348461
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "5848bc83-4914-4ae9-9e0d-013067668019"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Tail Yuzuhara,Sora",
+        "WorkId": "8d10b3c6-42ac-3c74-ace0-7103040801e1",
+        "SeriesName": "Sorcière d'un autre monde",
+        "SeriesId": "b877f10e-aaaa-5f23-b69f-ccb90c65749e",
+        "IsFree": false,
+        "ISBN": "9782413059103",
+        "PublicationDate": "2023-11-15T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Tail Yuzuhara"
+          },
+          {
+            "Name": "Sora"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "f89c2289-f376-339c-8ce1-77ed121281a2",
+        "Title": "Sorcière d'un autre monde T04",
+        "Description": "<p>Convoquée par Isaac, l'illustre chef suprême considéré comme le plus puissant du continent, Sena accepte de se rendre à Fonduna, empire voisin de Beclair. Accompagnée de Keith, elle y ren… [TRUNCATED 250 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "c220dc12-f0e7-4b65-b90a-c035dc7fed77",
+        "PublisherName": "GROUPE DELCOURT BD",
+        "Rating": 4.75,
+        "TotalRating": 4,
+        "Slug": "sorciere-d-un-autre-monde-t04",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 22644506
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "50d1318c-3fde-4d67-b55a-b8c46cd2f77c"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "7d5f1433-2db2-3963-937a-e36275d10110",
+        "SeriesName": "Jujutsu Kaisen",
+        "SeriesId": "1c80d5b8-5314-5554-a2ef-8d085b227513",
+        "IsFree": false,
+        "ISBN": "9791032716212",
+        "PublicationDate": "2024-01-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "7d5f1433-2db2-3963-937a-e36275d10110",
+        "Title": "Jujutsu Kaisen T22",
+        "Description": "<p>Engloutir les ténèbres pour mieux les combattre !</p><p>Après avoir montré toute l'étendue de sa force à ses deux adversaires, Kinji s'allie avec Hajime Kashimo, un exorciste du passé qui… [TRUNCATED 290 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "2213bbec-5200-40a6-9169-633cd6b802ee",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.756757,
+        "TotalRating": 37,
+        "Slug": "jujutsu-kaisen-t22",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 6761617
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "d76407a9-eccf-46d7-bb65-85b3b9469abe"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Rifujin na Magonote,Yuka Fujikawa,Jean-Benoît Silvestre",
+        "WorkId": "edb1eb3d-c8a1-3861-8f05-865982b6b5a4",
+        "SeriesNumber": "20",
+        "SeriesName": "Mushoku Tensei",
+        "SeriesId": "42d14458-247b-5049-92b4-6403c7d66e43",
+        "SeriesNumberFloat": 20,
+        "IsFree": false,
+        "ISBN": "9791041112265",
+        "PublicationDate": "2024-08-21T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Rifujin na Magonote"
+          },
+          {
+            "Name": "Yuka Fujikawa"
+          },
+          {
+            "Name": "Jean-Benoît Silvestre"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "edb1eb3d-c8a1-3861-8f05-865982b6b5a4",
+        "Title": "Mushoku Tensei - Tome 20",
+        "Description": "<p>Norn s’est cloîtrée dans sa chambre à cause de Rudeus ?! Mais cette fois-ci, il ne cherchera pas à fuir ses responsabilités !</p><p>\"La vie d’étudiante de Norn est perturbée par un terrib… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "8f3b37e0-e427-4fb1-81c4-973225f62c24",
+        "PublisherName": "Bamboo",
+        "Rating": 5,
+        "TotalRating": 2,
+        "Slug": "mushoku-tensei-tome-20",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 3435467
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "6b59f70c-c8fb-41e9-a1da-d434a040646f"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "You Chiba",
+        "WorkId": "dd869f49-f6fa-33e5-9de1-1de8c822bde1",
+        "SeriesName": "Kindergarten Wars",
+        "SeriesId": "2042eff9-6c58-57df-a2d2-29f8167764e3",
+        "IsFree": false,
+        "ISBN": "9791032718070",
+        "PublicationDate": "2024-04-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "You Chiba"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "dd869f49-f6fa-33e5-9de1-1de8c822bde1",
+        "Title": "Kindergarten Wars T01",
+        "Description": "<p>Découvrez la maternelle la plus sécurisée du monde et ses enseignants au tempérament… explosif !</p><p>Rita est la dernière recrue du “Kindergarten Black”, surnommé “la maternelle la plus… [TRUNCATED 309 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "2a2a8b10-fadf-45a3-940a-0a56923128e6",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.8,
+        "TotalRating": 25,
+        "Slug": "kindergarten-wars-t01",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 21965734
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "cdd54c63-83fd-4e81-a7c6-d55523f8d468"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Gege Akutami",
+        "WorkId": "ab15ca93-e7e8-3b2d-beac-cfa31a3d5e70",
+        "SeriesName": "Jujutsu Kaisen",
+        "SeriesId": "1c80d5b8-5314-5554-a2ef-8d085b227513",
+        "IsFree": false,
+        "ISBN": "9791032714058",
+        "PublicationDate": "2023-07-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Gege Akutami"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "ab15ca93-e7e8-3b2d-beac-cfa31a3d5e70",
+        "Title": "Jujutsu Kaisen T20",
+        "Description": "<p>Engloutir les ténèbres pour mieux les combattre !</p><p>Après un combat éprouvant contre Hiromi Higuruma, un exorciste doté d'un sort étonnant capable d'innocenter ou de condamner un adve… [TRUNCATED 308 chars; original string value]",
+        "Language": "fr",
+        "ImageId": "e97c5951-1e6f-4122-b89f-8beef15a0a45",
+        "PublisherName": "AC MEDIA",
+        "Rating": 4.757576,
+        "TotalRating": 33,
+        "Slug": "jujutsu-kaisen-t20",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 7935961
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 4.99
+        },
+        "LovePointsPrice": 2800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "Id": "67e8d12f-7c64-46b0-b7a0-bde0ca5de851"
+      }
+    }
+  ],
+  "ItemCount": 33,
+  "TotalPageCount": 1,
+  "TotalItemCount": 33,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 100,
+  "VersionCode": 2
+}

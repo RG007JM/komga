@@ -1,0 +1,393 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "Elle Kennedy",
+        "WorkId": "04cfebd9-b1cb-3f0c-9bb5-c779277e8d52",
+        "SeriesName": "Off-Campus",
+        "SeriesSlug": "off-campus",
+        "SeriesId": "c860020c-e12e-532d-bcf8-995fa58a0539",
+        "Subtitle": "Now an Original Series on Amazon Prime",
+        "IsFree": false,
+        "ISBN": "9780349440880",
+        "PublicationDate": "2023-11-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Elle Kennedy",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "04cfebd9-b1cb-3f0c-9bb5-c779277e8d52",
+        "Title": "The Goal",
+        "Description": "<p><strong>Original Series now on Prime Video. Can't wait for Season 2 of Off Campus? Fall in love with Tuck and Sabrina...</strong></p><h2><strong>Welcome to Briar U!</strong></h2><h3>Get r… [TRUNCATED 305 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "b1b4532f-1eba-4547-b81e-be60a3d78cfb",
+        "PublisherName": "Little, Brown Book Group",
+        "Rating": 4.142241,
+        "TotalRating": 232,
+        "Slug": "the-goal-7",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 998667
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "4cbe8aac-872e-0a2b-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-11-14T00:00:00.0000000Z"
+        },
+        "Id": "5b57a356-92c3-45c1-bff4-1bf718102b93"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Elle Kennedy",
+        "WorkId": "2e07109b-d517-384c-83f8-ed6e0807155a",
+        "SeriesName": "Off-Campus",
+        "SeriesSlug": "off-campus",
+        "SeriesId": "c860020c-e12e-532d-bcf8-995fa58a0539",
+        "Subtitle": "Now an Original Series on Amazon Prime",
+        "IsFree": false,
+        "ISBN": "9780349440866",
+        "PublicationDate": "2023-11-14T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Elle Kennedy",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "2e07109b-d517-384c-83f8-ed6e0807155a",
+        "Title": "The Mistake",
+        "Description": "<p><strong>Original Series now on Prime Video. Can't wait for Season 2 of Off Campus? Fall in love with Grace and Logan...</strong></p><h2><strong>Welcome to Briar U!</strong></h2><h3>Get re… [TRUNCATED 305 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "b94d1b4c-f0ff-47d8-85b1-5731b171a6fa",
+        "PublisherName": "Little, Brown Book Group",
+        "Rating": 4.067151,
+        "TotalRating": 551,
+        "Slug": "the-mistake-32",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1124561
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 3600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "f39720f8-bb21-1779-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-11-14T00:00:00.0000000Z"
+        },
+        "Id": "9610df2c-a16c-491c-a3cc-807bc6982c5e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Ali Hazelwood",
+        "WorkId": "eb18e43a-1ed2-3ba3-a0bf-61c2d9f5a045",
+        "IsFree": false,
+        "ISBN": "9780593952597",
+        "PublicationDate": "2025-10-07T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Ali Hazelwood",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "eb18e43a-1ed2-3ba3-a0bf-61c2d9f5a045",
+        "Title": "Mate",
+        "Description": "<p>**The instant #1 <em>New York Times</em> bestseller!</p><p>A Human hybrid and an Alpha Were claw against the bonds of fate in the highly anticipated companion novel to the <em>New York Ti… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "9f365b3b-e999-4653-a55a-33048bf4f8be",
+        "PublisherName": "Penguin Publishing Group",
+        "Rating": 4.319149,
+        "TotalRating": 376,
+        "Slug": "mate-15",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1111660
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 6.96
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "1e01670c-06db-35da-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [
+            "07",
+            "46"
+          ],
+          "EPubAccessibilities": [
+            {
+              "Type": "00",
+              "Value": "This ebook features mark-up that supports accessibility and enables compatibility with assistive technology. It has been designed to allow display properties to be modified by the reader. The file includes a table of contents, a defined reading order, and ARIA roles to identify key sections and improve the reading experience. A page list and page break locations help readers coordinate with the print edition. Headings allow readers to navigate the ebook quickly by level. Images are well described in conformance with WCAG 2.1 Level AA. Colors meet WCAG 2.1 Level AA contrast standards. There are no hazards."
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "11"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "19"
+            },
+            {
+              "Type": "25"
+            },
+            {
+              "Type": "26"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "32"
+            },
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "52"
+            },
+            {
+              "Type": "81"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "90",
+              "Value": "Penguin Random House LLC"
+            },
+            {
+              "Type": "96"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-10-07T00:00:00.0000000Z"
+        },
+        "Id": "a51a49f8-9bca-4449-956e-f96714b239a9"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Sarah J. Maas",
+        "WorkId": "17be8ae6-3b1b-43d1-999b-792eaf1a45d4",
+        "SeriesName": "Throne of Glass",
+        "SeriesSlug": "throne-of-glass-1",
+        "SeriesId": "a1f6d41f-ae43-510e-b310-5287c8ce24d7",
+        "Subtitle": "An 8 Book Bundle",
+        "IsFree": false,
+        "ISBN": "9781547608553",
+        "PublicationDate": "2020-11-26T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Sarah J. Maas",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "e21d6f46-4947-30a0-9a8d-2f4f7a48d8e7",
+        "Title": "Throne of Glass eBook Bundle",
+        "Description": "<p><strong>Enter the world of Throne of Glass in this 8-eBook bundle of the complete, #1 bestselling series by Sarah J. Maas, author of the Court of Thorns and Roses (ACOTAR) series.</strong… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "2e06a22b-7973-40bb-ba66-3c2cfe7d6789",
+        "PublisherName": "Bloomsbury Publishing",
+        "Rating": 4.70445,
+        "TotalRating": 1191,
+        "Slug": "throne-of-glass-ebook-bundle-1",
+        "IsContentSharingEnabled": true,
+        "HasPreview": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 51.05
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 24000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "a201d12d-3fb2-310d-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "36"
+            },
+            {
+              "Type": "04"
+            },
+            {
+              "Type": "85"
+            },
+            {
+              "Type": "40"
+            },
+            {
+              "Type": "82"
+            },
+            {
+              "Type": "10"
+            },
+            {
+              "Type": "19"
+            },
+            {
+              "Type": "14"
+            },
+            {
+              "Type": "13"
+            },
+            {
+              "Type": "29"
+            },
+            {
+              "Type": "99",
+              "Value": "[REDACTED]"
+            },
+            {
+              "Type": "30"
+            },
+            {
+              "Type": "22"
+            }
+          ],
+          "HazardWarningTypes": [
+            {
+              "Type": "00"
+            }
+          ],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2020-11-26T00:00:00.0000000Z"
+        },
+        "Id": "4b269fc2-5bce-4e57-838d-6a6fcc382f92"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 125,
+  "TotalItemCount": 498,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "CrossRevisionId": "be9e9ac0-5823-4047-8281-069986c626b9",
+    "Name": "Kobo Plus Read",
+    "Tiers": [
+      {
+        "Id": "d41549e4-50e9-41c1-ac86-7941f96c122b",
+        "Description": "",
+        "Headline": "",
+        "Phases": [
+          {
+            "Order": 0,
+            "Prices": [
+              {
+                "Currency": "EUR",
+                "Geo": "IT",
+                "Price": 0.0,
+                "TaxIn": true,
+                "ValidFrom": "2022-07-23T22:00:00.0000000Z"
+              }
+            ],
+            "BillingSpecification": {
+              "InitialBillingDateOffset": {
+                "IntervalUnits": 0,
+                "IntervalUnitType": "Days"
+              },
+              "RebillInterval": {
+                "IntervalUnits": 0,
+                "IntervalUnitType": "Days"
+              }
+            },
+            "Duration": {
+              "Number": 30,
+              "Unit": "Days"
+            },
+            "PhaseType": "Trial"
+          },
+          {
+            "Order": 2,
+            "Prices": [
+              {
+                "Currency": "EUR",
+                "Geo": "IT",
+                "Price": 9.99,
+                "TaxIn": true,
+                "ValidFrom": "2023-05-26T21:59:59.0000000Z"
+              }
+            ],
+            "BillingSpecification": {
+              "InitialBillingDateOffset": {
+                "IntervalUnits": 30,
+                "IntervalUnitType": "Days"
+              },
+              "RebillInterval": {
+                "IntervalUnits": 30,
+                "IntervalUnitType": "Days"
+              }
+            },
+            "Duration": {
+              "Number": 30,
+              "Unit": "Days"
+            },
+            "PhaseType": "Active"
+          }
+        ]
+      }
+    ],
+    "ActivationDate": "2023-05-26T21:59:59.0000000Z",
+    "IsPreOrder": false,
+    "Id": "a532a22f-fac5-45a8-a7eb-2dcc596eaadc"
+  },
+  {
+    "CrossRevisionId": "416bfce4-e4ae-4730-8314-5857dece58a6",
+    "Name": "Kobo Plus Read & Listen",
+    "Tiers": [
+      {
+        "Id": "9697bdb6-539d-45ca-b681-fd5161ed58d6",
+        "Description": "",
+        "Headline": "",
+        "Phases": [
+          {
+            "Order": 0,
+            "Prices": [
+              {
+                "Currency": "EUR",
+                "Geo": "IT",
+                "Price": 0.0,
+                "TaxIn": true,
+                "ValidFrom": "2022-07-23T22:00:00.0000000Z"
+              }
+            ],
+            "BillingSpecification": {
+              "InitialBillingDateOffset": {
+                "IntervalUnits": 0,
+                "IntervalUnitType": "Days"
+              },
+              "RebillInterval": {
+                "IntervalUnits": 0,
+                "IntervalUnitType": "Days"
+              }
+            },
+            "Duration": {
+              "Number": 30,
+              "Unit": "Days"
+            },
+            "PhaseType": "Trial"
+          },
+          {
+            "Order": 2,
+            "Prices": [
+              {
+                "Currency": "EUR",
+                "Geo": "IT",
+                "Price": 12.99,
+                "TaxIn": true,
+                "ValidFrom": "2023-05-26T21:59:59.0000000Z"
+              }
+            ],
+            "BillingSpecification": {
+              "InitialBillingDateOffset": {
+                "IntervalUnits": 30,
+                "IntervalUnitType": "Days"
+              },
+              "RebillInterval": {
+                "IntervalUnits": 30,
+                "IntervalUnitType": "Days"
+              }
+            },
+            "Duration": {
+              "Number": 30,
+              "Unit": "Days"
+            },
+            "PhaseType": "Active"
+          }
+        ]
+      }
+    ],
+    "ActivationDate": "2023-05-26T21:59:59.0000000Z",
+    "IsPreOrder": false,
+    "Id": "27ef4486-eed0-4bbc-ac55-ded89007f68e"
+  },
+  {
+    "CrossRevisionId": "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+    "Name": "Kobo Plus Listen",
+    "Tiers": [
+      {
+        "Id": "c5bedc21-8f47-4761-a651-fee1af49dc22",
+        "Description": "",
+        "Headline": "",
+        "Phases": [
+          {
+            "Order": 0,
+            "Prices": [
+              {
+                "Currency": "EUR",
+                "Geo": "IT",
+                "Price": 0.0,
+                "TaxIn": true,
+                "ValidFrom": "2022-07-23T22:00:00.0000000Z"
+              }
+            ],
+            "BillingSpecification": {
+              "InitialBillingDateOffset": {
+                "IntervalUnits": 0,
+                "IntervalUnitType": "Days"
+              },
+              "RebillInterval": {
+                "IntervalUnits": 0,
+                "IntervalUnitType": "Days"
+              }
+            },
+            "Duration": {
+              "Number": 30,
+              "Unit": "Days"
+            },
+            "PhaseType": "Trial"
+          },
+          {
+            "Order": 2,
+            "Prices": [
+              {
+                "Currency": "EUR",
+                "Geo": "IT",
+                "Price": 9.99,
+                "TaxIn": true,
+                "ValidFrom": "2023-05-26T21:59:59.0000000Z"
+              }
+            ],
+            "BillingSpecification": {
+              "InitialBillingDateOffset": {
+                "IntervalUnits": 30,
+                "IntervalUnitType": "Days"
+              },
+              "RebillInterval": {
+                "IntervalUnits": 30,
+                "IntervalUnitType": "Days"
+              }
+            },
+            "Duration": {
+              "Number": 30,
+              "Unit": "Days"
+            },
+            "PhaseType": "Active"
+          }
+        ]
+      }
+    ],
+    "ActivationDate": "2023-05-26T21:59:59.0000000Z",
+    "IsPreOrder": false,
+    "Id": "1ecb8932-4938-4d65-a623-e94c28609513"
+  }
+]

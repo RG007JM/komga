@@ -1,0 +1,304 @@
+{
+  "Items": [
+    {
+      "Audiobook": {
+        "Duration": 71504,
+        "TotalBytes": 572075224,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Devney Perry,Samantha Brentmoor,Jason Clarke",
+        "WorkId": "1a3277ee-3648-3afb-9682-8c9a57506d79",
+        "SeriesName": "Shield of Sparrows",
+        "SeriesSlug": "shield-of-sparrows",
+        "SeriesId": "a4a43771-dd4f-5211-9668-165b941e20bd",
+        "IsFree": false,
+        "ISBN": "9798331924867",
+        "PublicationDate": "2025-05-06T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Samantha Brentmoor",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jason Clarke",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Devney Perry",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "1a3277ee-3648-3afb-9682-8c9a57506d79",
+        "Title": "Shield of Sparrows",
+        "Description": "<p><strong>Now in development as a feature film with Amazon MGM Studios, with <em>John Wick</em> screenwriter Derek Kolstad attached to write the script!</strong></p><p><strong><em>Shield of… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "b381e31c-77e1-4383-b046-dba404ea635c",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 4,
+        "TotalRating": 14,
+        "Slug": "shield-of-sparrows-1",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 27.66
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 11600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "57a6cab8-78b3-b8e2-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-05-06T00:00:00.0000000Z"
+        },
+        "Id": "b0358ef9-1ac6-4fc9-9ee1-c88c5199e3da"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 35831,
+        "TotalBytes": 286646436,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Mark Dawson,Simon Vance",
+        "WorkId": "bee1a629-a2cd-33e1-86d3-d5f5706c8248",
+        "SeriesName": "Atticus Priest",
+        "SeriesSlug": "atticus-priest",
+        "SeriesId": "c0b97b98-1654-59cd-ac69-b25ff1e51c29",
+        "IsFree": false,
+        "ISBN": "9781705228548",
+        "PublicationDate": "2020-05-19T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Simon Vance",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Mark Dawson",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "bee1a629-a2cd-33e1-86d3-d5f5706c8248",
+        "Title": "The House in the Woods",
+        "Description": "<p><strong>Four murders. Two detectives. One mystifying crime.</strong></p><p>On Christmas Eve, DCI Mackenzie Jones is called to a shooting at a remote farmhouse. Ralph Mallender believes hi… [TRUNCATED 308 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "10742dcb-e881-4131-804d-639e5c444b17",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 4.37037,
+        "TotalRating": 27,
+        "Slug": "the-house-in-the-woods-3",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 22.31
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 9600,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "8f141198-c50b-b54e-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2020-05-19T00:00:00.0000000Z"
+        },
+        "Id": "40022698-c35e-4224-b00f-92b584ac1ce1"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 44386,
+        "TotalBytes": 355095525,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Love Belvin,Winston James,Alyx Monroe",
+        "WorkId": "5d15bddc-45e3-3932-bc9f-b66884b8949a",
+        "SeriesName": "Love Unaccounted",
+        "SeriesSlug": "love-unaccounted",
+        "SeriesId": "7a52044f-65d3-5151-9077-1fca3cd770a3",
+        "IsFree": false,
+        "ISBN": "9798855597240",
+        "PublicationDate": "2025-05-20T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Winston James",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Alyx Monroe",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Love Belvin",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "5d15bddc-45e3-3932-bc9f-b66884b8949a",
+        "Title": "In Covenant with Ezra",
+        "Description": "<p>He's an Oxonian, licensed therapist, and man of faith, preparing to take over the largest Pentecostal church in New York.</p><p>She's an around-the-way girl from Harlem, struggling with t… [TRUNCATED 250 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "f3090613-6f2f-459c-a80e-bf906c85d456",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 5,
+        "TotalRating": 1,
+        "Slug": "in-covenant-with-ezra",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 23.2
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 10000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "3a10dff2-c6e0-e164-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-05-20T00:00:00.0000000Z"
+        },
+        "Id": "4cb4e549-8a0d-4344-8605-2abcf92f0881"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 31534,
+        "TotalBytes": 252292209,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Keira Montclair,Paul Woodson",
+        "WorkId": "76e36c3b-1d3b-3cc0-9778-f4d99c7ebbf3",
+        "SeriesName": "Clan Grant",
+        "SeriesSlug": "clan-grant",
+        "SeriesId": "e167df78-d0ed-5c19-92d1-d323d643b29b",
+        "IsFree": false,
+        "ISBN": "9798331960247",
+        "PublicationDate": "2025-06-10T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Paul Woodson",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Keira Montclair",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "76e36c3b-1d3b-3cc0-9778-f4d99c7ebbf3",
+        "Title": "Rescued by a Highlander",
+        "Description": "<p><strong>First in a beloved multi-generational saga of two Scottish clans that spans over forty books.</strong></p><p>An abused woman. A fierce Highlander. Is he strong enough to battle th… [TRUNCATED 307 chars; original string value]",
+        "Language": "en",
+        "Locale": {
+          "LanguageCode": "eng",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "c03000db-ee57-46da-812d-05057705c1e5",
+        "PublisherName": "Tantor Media, Inc",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "rescued-by-a-highlander-4",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 18.74
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 8400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "973f547d-aea0-9767-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-06-10T00:00:00.0000000Z"
+        },
+        "Id": "9e3b958e-5952-4dd2-b4bf-483c4422f863"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 43,
+  "TotalItemCount": 169,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

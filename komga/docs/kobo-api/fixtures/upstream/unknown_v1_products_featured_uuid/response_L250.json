@@ -1,0 +1,372 @@
+{
+  "Items": [
+    {
+      "Book": {
+        "Contributors": "J.R.R. Tolkien,Ottavio Fatica,Alan Lee",
+        "WorkId": "6f076b1d-fd44-34cf-a291-203a9b232a69",
+        "IsFree": false,
+        "ISBN": "9788858790311",
+        "PublicationDate": "2020-10-28T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "J.R.R. Tolkien",
+            "Role": "Author"
+          },
+          {
+            "Name": "Ottavio Fatica",
+            "Role": "Translator"
+          },
+          {
+            "Name": "Alan Lee",
+            "Role": "Illustrator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "6f076b1d-fd44-34cf-a291-203a9b232a69",
+        "Title": "Il Signore degli Anelli (illustrato)",
+        "Description": "<p><strong>La nuova edizione del classico di J.R.R. Tolkien nella traduzione di Ottavio Fatica arricchita da 50 tavole illustrate dal pluripremiato artista Alan Lee.</strong><br /><strong>In… [TRUNCATED 308 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "8d00e3ad-a74c-414d-8b14-8bc495d90805",
+        "PublisherName": "Bompiani",
+        "Rating": 4.388889,
+        "TotalRating": 72,
+        "Slug": "il-signore-degli-anelli-illustrato",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPadV1",
+            "Size": 7126785
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPhone",
+            "Size": 7126785
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Android",
+            "Size": 7126785
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 14.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 6800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "08",
+              "Value": "The release date of the product is before 28 June 2025, the product could not be checked for all accessibility features yet"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2020-10-28T00:00:00.0000000Z"
+        },
+        "Id": "fd5524ad-83df-498d-ad1e-1a3e13062a4a"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "J.R.R. Tolkien,Caterina Ciuferri,Alan Lee",
+        "WorkId": "ac214ba0-0b6a-4162-bd7c-4547ecce4efe",
+        "SeriesName": "nuova edizione",
+        "SeriesSlug": "nuova-edizione",
+        "SeriesId": "91f5bb07-9732-5161-b56d-d48e2f999879",
+        "Subtitle": "Con le illustrazioni di Alan Lee",
+        "IsFree": false,
+        "ISBN": "9788858757437",
+        "PublicationDate": "2012-11-28T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "J.R.R. Tolkien",
+            "Role": "Author"
+          },
+          {
+            "Name": "Caterina Ciuferri",
+            "Role": "Translator"
+          },
+          {
+            "Name": "Alan Lee",
+            "Role": "Illustrator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "9fc57bdc-3811-31ab-b8de-c6cc1f736dc6",
+        "Title": "Lo Hobbit (illustrato)",
+        "Description": "<p><strong>Pubblicato per la prima volta nel 1937, <em>Lo Hobbit</em> è per i lettori di tutto il mondo il primo capitolo del <em>Signore degli Anelli</em>, uno dei massimi cicli narrativi d… [TRUNCATED 309 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "cbac0b11-140a-44ad-af28-05e1a6758bfe",
+        "PublisherName": "Bompiani",
+        "Rating": 4.388889,
+        "TotalRating": 234,
+        "Slug": "lo-hobbit-illustrato-1",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Android",
+            "Size": 5504859
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPadV1",
+            "Size": 5505289
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPhone",
+            "Size": 5505223
+          },
+          {
+            "DrmType": "None",
+            "Format": "JPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Html5",
+            "Size": 7860673
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 9.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 4800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "dcf2e421-c948-323b-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "09",
+              "Value": "EPUB2 format is limited accessible"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2012-11-28T00:00:00.0000000Z"
+        },
+        "Id": "483f4734-f1df-4d82-a4ac-3a528e42399e"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Antoine de Saint-Exupéry,Nini Bompiani Bregoli",
+        "WorkId": "17b82925-1210-36cf-b896-3760f47fb563",
+        "Subtitle": "Traduzione di Nini Bompiani Bregoli",
+        "IsFree": false,
+        "ISBN": "9788858704950",
+        "PublicationDate": "2011-03-31T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Antoine de Saint-Exupéry",
+            "Role": "Author"
+          },
+          {
+            "Name": "Nini Bompiani Bregoli",
+            "Role": "Translator"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "2e6d1f82-a3de-38d3-9cf9-fab256e9d9ed",
+        "Title": "Il Piccolo Principe",
+        "Description": "<p><strong>EDIZIONE ORIGINALE CON LA STORICA TRADUZIONE DI NINI BOMPIANI BREGOLI</strong><br />«Gli uomini hanno delle stelle che non sono le stesse. Per gli uni, quelli che viaggiano, le st… [TRUNCATED 309 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "b1a79820-7f0e-4797-a303-636f15e28962",
+        "PublisherName": "Bompiani",
+        "Rating": 4.404762,
+        "TotalRating": 42,
+        "Slug": "il-piccolo-principe-32",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPadV1",
+            "Size": 334202
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "IPhone",
+            "Size": 334202
+          },
+          {
+            "DrmType": "None",
+            "Format": "EPUB_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Android",
+            "Size": 334202
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 3.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 2400,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "0afb2d5d-fe63-3b65-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [
+            {
+              "Type": "09",
+              "Value": "EPUB2 format is limited accessible"
+            }
+          ],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2011-03-31T00:00:00.0000000Z"
+        },
+        "Id": "60c4ac9d-005b-4b1a-a7dd-0f59a714b3e6"
+      }
+    },
+    {
+      "Book": {
+        "Contributors": "Zerocalcare",
+        "WorkId": "521c807c-88b3-31fe-9cf4-6a529ef03a90",
+        "IsFree": false,
+        "ISBN": "9788832737967",
+        "PublicationDate": "2022-10-04T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Zerocalcare",
+            "Role": "Author"
+          }
+        ],
+        "IsInternetArchive": false,
+        "IsRecommendation": false,
+        "CrossRevisionId": "521c807c-88b3-31fe-9cf4-6a529ef03a90",
+        "Title": "No Sleep Till Shengal",
+        "Description": "<p>Nella primavera del 2021 Zerocalcare si reca in Iraq, per far visita alla comunità ezida di Shengal, minacciata dalle tensioni internazionali e protetta dalle milizie curde, e documentarn… [TRUNCATED 310 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "3ea96d28-33f3-4374-b617-cb9bec07e3c8",
+        "PublisherName": "BAO Publishing",
+        "Rating": 4.548387,
+        "TotalRating": 31,
+        "Slug": "no-sleep-till-shengal",
+        "IsContentSharingEnabled": true,
+        "RedirectPreviewUrls": [
+          {
+            "DrmType": "None",
+            "Format": "EPUB3FL_SAMPLE",
+            "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+            "Platform": "Generic",
+            "Size": 1599067
+          }
+        ],
+        "HasPreview": true,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 12.99
+        },
+        "PromoCodeAllowed": false,
+        "LovePointsPrice": 6000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "78678681-1833-eae4-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2022-10-04T00:00:00.0000000Z"
+        },
+        "Id": "116a6932-835d-4e76-b8b0-0a91048f355d"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 24,
+  "TotalItemCount": 96,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

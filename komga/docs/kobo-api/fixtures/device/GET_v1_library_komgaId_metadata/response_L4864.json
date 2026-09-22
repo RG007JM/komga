@@ -1,0 +1,58 @@
+[
+  {
+    "Categories": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "ContributorRoles": [
+      {
+        "Name": "Tsukumizu"
+      }
+    ],
+    "Contributors": [
+      "Tsukumizu"
+    ],
+    "CoverImageId": "0RPA2D6B8JQ97",
+    "CrossRevisionId": "0RDTATKFHHSYW",
+    "CurrentDisplayPrice": {
+      "CurrencyCode": "USD",
+      "TotalAmount": 0
+    },
+    "CurrentLoveDisplayPrice": {
+      "TotalAmount": 0
+    },
+    "Description": "Even after a mysterious life form tells Chito and Yuri the end of the earth is near, still they continue their everyday adventures together, traveling slowly toward the city on the top-most … [TRUNCATED 140 chars; original string value]",
+    "DownloadUrls": [
+      {
+        "DrmType": "None",
+        "Format": "EPUB3FL",
+        "Platform": "Generic",
+        "Size": 67166847,
+        "Url": "https://komga.com/kobo/{token}/v1/books/0RDTATKFHHSYW/file/epub?convert_kepub=false"
+      }
+    ],
+    "EntitlementId": "0RDTATKFHHSYW",
+    "ExternalIds": [],
+    "Genre": "00000000-0000-0000-0000-000000000001",
+    "IsEligibleForKoboLove": false,
+    "IsInternetArchive": false,
+    "IsPreOrder": false,
+    "IsSocialEnabled": true,
+    "Isbn": "9781975329006",
+    "Language": "en",
+    "PhoneticPronunciations": {},
+    "PublicationDate": "2018-12-10T00:00:00Z",
+    "Publisher": {
+      "Imprint": "",
+      "Name": "Yen Press"
+    },
+    "RevisionId": "0RDTATKFHHSYW",
+    "Series": {
+      "Id": "0RDTATKF5HM5A",
+      "Name": "Girls' Last Tour",
+      "Number": "5",
+      "NumberFloat": 5
+    },
+    "Title": "Girls' Last Tour, Vol. 5",
+    "WorkId": "0RDTATKFHHSYW"
+  }
+]

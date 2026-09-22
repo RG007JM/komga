@@ -39,7 +39,7 @@ Refer to the [website](https://komga.org/docs/category/installation) for instruc
 
 Head over to our [website](https://komga.org) for more information.
 
-For the Kobo extensions in this fork, see the [Kobo integration documentation](./docs/kobo/README.md).
+For the Kobo extensions in this fork, see the [Kobo integration documentation](./komga/docs/kobo/README.md).
 
 ## Develop in Komga
 

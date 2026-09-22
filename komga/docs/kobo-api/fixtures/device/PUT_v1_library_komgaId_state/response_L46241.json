@@ -1,0 +1,17 @@
+{
+  "RequestResult": "Success",
+  "UpdateResults": [
+    {
+      "CurrentBookmarkResult": {
+        "Result": "Success"
+      },
+      "EntitlementId": "0RDTATKHXHPS9",
+      "StatisticsResult": {
+        "Result": "Ignored"
+      },
+      "StatusInfoResult": {
+        "Result": "Success"
+      }
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "Items": [
+    {
+      "Audiobook": {
+        "Duration": 25132,
+        "TotalBytes": 610999044,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Milan Kundera,Marco Baliani,Giuseppe Dierna",
+        "WorkId": "c43427ce-fbd5-315a-988b-245d55a3635f",
+        "IsFree": false,
+        "ISBN": "9788869869600",
+        "PublicationDate": "2023-02-24T05:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Marco Baliani",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Milan Kundera",
+            "Role": "Author"
+          },
+          {
+            "Name": "Giuseppe Dierna",
+            "Role": "Translator"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "c43427ce-fbd5-315a-988b-245d55a3635f",
+        "Title": "Amori ridicoli",
+        "Description": "<p>Si tratta sempre di amore, in queste storie. Ma un amore a cui si accompagna ogni volta la mistificazione, con effetto deflagrante. Il mondo va felicemente in pezzi sotto i nostri occhi, … [TRUNCATED 188 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "0fc72229-131e-4a8e-b867-f469ed2185d2",
+        "PublisherName": "Emons Audiolibri",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "amori-ridicoli-1",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.9
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "a90dc454-1795-6fce-0000-000000000000",
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2023-02-24T05:00:00.0000000Z"
+        },
+        "Id": "638a88e7-4aff-4476-86fb-2570c94455c8"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 90913,
+        "TotalBytes": 727318344,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Rebecca Yarros,Martina Levato",
+        "WorkId": "1bcdd56c-d783-3fb5-8c33-f8b041540a5f",
+        "SeriesNumber": "3",
+        "SeriesName": "The Empyrean Series",
+        "SeriesSlug": "the-empyrean-series",
+        "SeriesId": "685dc169-a96f-51a2-b185-793b406cc96a",
+        "SeriesNumberFloat": 3,
+        "Subtitle": "Edizione italiana",
+        "IsFree": false,
+        "ISBN": "9788820082352",
+        "PublicationDate": "2025-01-22T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Martina Levato",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Rebecca Yarros",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "1bcdd56c-d783-3fb5-8c33-f8b041540a5f",
+        "Title": "Onyx Storm",
+        "Description": "<p>Dopo aver trascorso quasi diciotto mesi nell’accademia militare di Basgiath, Violet Sorrengail sa che non c’è più tempo per le lezioni. O per l’incertezza. La guerra è davvero iniziata e,… [TRUNCATED 310 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "41a3eb8e-7d9f-4e9d-8e27-4ecace3454b5",
+        "PublisherName": "SPERLING KUPFER",
+        "Rating": 4.222222,
+        "TotalRating": 9,
+        "Slug": "onyx-storm-edizione-italiana-1",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 14.99
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 6800,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "a91b524d-9aec-90b3-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2025-01-22T00:00:00.0000000Z"
+        },
+        "Id": "bba20f50-a6d0-4b09-b816-04651c720fbf"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 38246,
+        "TotalBytes": 306021426,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Irene Di Liberto,Alice Torriani",
+        "WorkId": "0199ffd1-db26-3990-abdb-14dd8b04cd88",
+        "IsFree": false,
+        "ISBN": "9788858554777",
+        "PublicationDate": "2026-06-17T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Alice Torriani",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Irene Di Liberto",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "0199ffd1-db26-3990-abdb-14dd8b04cd88",
+        "Title": "La zolfatara",
+        "Description": "<p>Sicilia, inizio Novecento. A Castellatani gli uomini sono destinati a respirare la polvere dello zolfo. La grande miniera sulla collina è un dio crudele che divora i carusi e restituisce … [TRUNCATED 310 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "64c9a81d-5fde-47d9-9036-179b64d81fd7",
+        "PublisherName": "PIEMME",
+        "Rating": 0,
+        "TotalRating": 0,
+        "Slug": "la-zolfatara",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 12.99
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 6000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "916512d2-54f9-69a5-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "10",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2026-06-17T00:00:00.0000000Z"
+        },
+        "Id": "39b0bdc5-d360-4258-b09e-639e5ec511cc"
+      }
+    },
+    {
+      "Audiobook": {
+        "Duration": 18911,
+        "TotalBytes": 151308462,
+        "IsAbridged": false,
+        "HasPreview": true,
+        "Contributors": "Jorge Luis Borges,Massimo De Lorenzo",
+        "WorkId": "09553d85-8216-3487-8847-466bc8cdb1e0",
+        "IsFree": false,
+        "ISBN": "9788869868979",
+        "PublicationDate": "2022-08-19T00:00:00.0000000Z",
+        "ContributorRoles": [
+          {
+            "Name": "Massimo De Lorenzo",
+            "Role": "Narrator"
+          },
+          {
+            "Name": "Jorge Luis Borges",
+            "Role": "Author"
+          }
+        ],
+        "IsRecommendation": false,
+        "CrossRevisionId": "09553d85-8216-3487-8847-466bc8cdb1e0",
+        "Title": "L'Aleph",
+        "Description": "<p>L'Aleph è una raccolta di racconti che prende il nome dall'ultima storia presente nella raccolta, in cui uno dei protagonisti descrive Aleph come \"il luogo dove si trovano, senza confonde… [TRUNCATED 186 chars; original string value]",
+        "Language": "it",
+        "Locale": {
+          "LanguageCode": "ita",
+          "ScriptCode": "",
+          "CountryCode": ""
+        },
+        "ImageId": "017cd555-eab7-4a07-8a8b-6992fe3c8d4e",
+        "PublisherName": "Emons Audiolibri",
+        "Rating": 5,
+        "TotalRating": 2,
+        "Slug": "l-aleph",
+        "IsContentSharingEnabled": false,
+        "Price": {
+          "Currency": "EUR",
+          "Price": 7.9
+        },
+        "PromoCodeAllowed": true,
+        "LovePointsPrice": 4000,
+        "EligibleForKoboLoveDiscount": false,
+        "IsPreOrder": false,
+        "RelatedGroupId": "5bc8f19c-ba11-3d8e-0000-000000000000",
+        "ApplicableSubscriptions": [
+          "93dd7c18-51f1-493f-bb5f-d9e62b974bee",
+          "416bfce4-e4ae-4730-8314-5857dece58a6"
+        ],
+        "AgeVerificationRequired": false,
+        "AccessibilityDetails": {
+          "IsFixedLayout": false,
+          "IsTextToSpeechAllowed": false,
+          "PrimaryContentType": "",
+          "ContentTypes": [],
+          "EPubAccessibilities": [],
+          "HazardWarningTypes": [],
+          "IsAccessible": false
+        },
+        "LifeCycleDates": {
+          "ActivationDate": "2022-08-19T00:00:00.0000000Z"
+        },
+        "Id": "06911015-0179-4a1d-96db-e9f47ab9a406"
+      }
+    }
+  ],
+  "ItemCount": 4,
+  "TotalPageCount": 13,
+  "TotalItemCount": 50,
+  "CurrentPageIndex": 0,
+  "ItemsPerPage": 4,
+  "Filters": {
+    "KoboLoveEnabled": [
+      "True",
+      "False"
+    ],
+    "SubscriptionsAvailable": [
+      "True",
+      "False"
+    ],
+    "PreOrders": [
+      "True",
+      "False"
+    ]
+  },
+  "VersionCode": 2
+}

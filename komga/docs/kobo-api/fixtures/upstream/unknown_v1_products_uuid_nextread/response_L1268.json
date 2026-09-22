@@ -1,0 +1,387 @@
+{
+  "42ed6d94-1f32-4df9-9d97-023335a4eb9c": [
+    {
+      "Contributors": "Kanehito Yamada,Tsukasa Abe,Matteo Cremaschi",
+      "WorkId": "1e78804b-759e-3e91-aa19-a6a7def6e301",
+      "SeriesNumber": "14",
+      "SeriesName": "Frieren. Oltre la fine del viaggio",
+      "SeriesSlug": "frieren-oltre-la-fine-del-viaggio-1",
+      "SeriesId": "01a4fb8f-759f-5c5e-ac54-a44f37b142f4",
+      "SeriesNumberFloat": 14,
+      "IsFree": false,
+      "ISBN": "9788834937211",
+      "PublicationDate": "2025-06-24T00:00:00.0000000Z",
+      "ContributorRoles": [
+        {
+          "Name": "Kanehito Yamada",
+          "Role": "Author"
+        },
+        {
+          "Name": "Tsukasa Abe",
+          "Role": "Illustrator"
+        },
+        {
+          "Name": "Matteo Cremaschi",
+          "Role": "Translator"
+        }
+      ],
+      "IsInternetArchive": false,
+      "IsRecommendation": false,
+      "CrossRevisionId": "1e78804b-759e-3e91-aa19-a6a7def6e301",
+      "Title": "Frieren. Oltre la fine del viaggio (Vol. 14)",
+      "Description": "<p>La maga Frieren fa visita alla capitale imperiale, il fulcro della civiltà magica fondata dalla sua maestra Flamme. Qualcuno sta pianificando l'assassinio di Serie e l'Istituto di magia d… [TRUNCATED 230 chars; original string value]",
+      "Language": "it",
+      "Locale": {
+        "LanguageCode": "ita",
+        "ScriptCode": "",
+        "CountryCode": ""
+      },
+      "ImageId": "284ebc78-3bfd-4d28-b632-d9aa8b0adc75",
+      "PublisherName": "J-POP Manga",
+      "Rating": 5,
+      "TotalRating": 4,
+      "Slug": "frieren-oltre-la-fine-del-viaggio-vol-14",
+      "IsContentSharingEnabled": true,
+      "RedirectPreviewUrls": [
+        {
+          "DrmType": "None",
+          "Format": "EPUB3FL_SAMPLE",
+          "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+          "Platform": "Generic",
+          "Size": 85245253
+        }
+      ],
+      "HasPreview": true,
+      "Price": {
+        "Currency": "EUR",
+        "Price": 3.99
+      },
+      "PromoCodeAllowed": false,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false,
+      "RelatedGroupId": "d91fa13a-7be8-64da-0000-000000000000",
+      "AgeVerificationRequired": false,
+      "AccessibilityDetails": {
+        "IsFixedLayout": true,
+        "IsTextToSpeechAllowed": false,
+        "PrimaryContentType": "10",
+        "ContentTypes": [],
+        "EPubAccessibilities": [],
+        "HazardWarningTypes": [],
+        "IsAccessible": false
+      },
+      "LifeCycleDates": {
+        "ActivationDate": "2025-06-24T00:00:00.0000000Z"
+      },
+      "Id": "bb14a4c2-04be-43c7-935b-55d6ef25055a"
+    },
+    {
+      "Contributors": "Kanehito Yamada",
+      "WorkId": "43593869-0f5a-3134-a33e-72c37f7de520",
+      "SeriesNumber": "13",
+      "SeriesName": "Frieren. Oltre la fine del viaggio",
+      "SeriesSlug": "frieren-oltre-la-fine-del-viaggio-1",
+      "SeriesId": "01a4fb8f-759f-5c5e-ac54-a44f37b142f4",
+      "SeriesNumberFloat": 13,
+      "IsFree": false,
+      "ISBN": "9788834931608",
+      "PublicationDate": "2024-09-24T00:00:00.0000000Z",
+      "ContributorRoles": [
+        {
+          "Name": "Kanehito Yamada",
+          "Role": "Author"
+        }
+      ],
+      "IsInternetArchive": false,
+      "IsRecommendation": false,
+      "CrossRevisionId": "43593869-0f5a-3134-a33e-72c37f7de520",
+      "Title": "Frieren. Oltre la fine del viaggio (Vol. 13)",
+      "Description": "<p>La maga Frieren ripercorre il camino intrapreso con l’eroe Himmel, mentre ne tiene vivo il ricordo. La sua coscienza torna indietro nel tempo, dove si trova nuovamente a fronteggiare le a… [TRUNCATED 156 chars; original string value]",
+      "Language": "it",
+      "Locale": {
+        "LanguageCode": "ita",
+        "ScriptCode": "",
+        "CountryCode": ""
+      },
+      "ImageId": "7273ec92-846d-458d-9925-5d4ff33b1694",
+      "PublisherName": "J-POP Manga",
+      "Rating": 5,
+      "TotalRating": 2,
+      "Slug": "frieren-oltre-la-fine-del-viaggio-vol-13",
+      "IsContentSharingEnabled": true,
+      "RedirectPreviewUrls": [
+        {
+          "DrmType": "None",
+          "Format": "EPUB3FL_SAMPLE",
+          "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+          "Platform": "Generic",
+          "Size": 29465190
+        }
+      ],
+      "HasPreview": true,
+      "Price": {
+        "Currency": "EUR",
+        "Price": 3.99
+      },
+      "PromoCodeAllowed": false,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false,
+      "RelatedGroupId": "d131f1db-5067-6f6d-0000-000000000000",
+      "AgeVerificationRequired": false,
+      "AccessibilityDetails": {
+        "IsFixedLayout": true,
+        "IsTextToSpeechAllowed": false,
+        "PrimaryContentType": "10",
+        "ContentTypes": [],
+        "EPubAccessibilities": [
+          {
+            "Type": "08"
+          }
+        ],
+        "HazardWarningTypes": [],
+        "IsAccessible": false
+      },
+      "LifeCycleDates": {
+        "ActivationDate": "2024-09-24T00:00:00.0000000Z"
+      },
+      "Id": "2618a30b-165d-4bdf-8c48-f20c3fce40a3"
+    },
+    {
+      "Contributors": "Kanehito Yamada,Abe Tsukasa,Matteo Cremaschi",
+      "WorkId": "17cdaf56-209a-31d3-9d9c-29e3980da9d3",
+      "SeriesNumber": "12",
+      "SeriesName": "Frieren. Oltre la fine del viaggio",
+      "SeriesSlug": "frieren-oltre-la-fine-del-viaggio-1",
+      "SeriesId": "01a4fb8f-759f-5c5e-ac54-a44f37b142f4",
+      "SeriesNumberFloat": 12,
+      "IsFree": false,
+      "ISBN": "9788834928684",
+      "PublicationDate": "2024-04-23T00:00:00.0000000Z",
+      "ContributorRoles": [
+        {
+          "Name": "Kanehito Yamada",
+          "Role": "Author"
+        },
+        {
+          "Name": "Abe Tsukasa",
+          "Role": "Illustrator"
+        },
+        {
+          "Name": "Matteo Cremaschi",
+          "Role": "Translator"
+        }
+      ],
+      "IsInternetArchive": false,
+      "IsRecommendation": false,
+      "CrossRevisionId": "17cdaf56-209a-31d3-9d9c-29e3980da9d3",
+      "Title": "Frieren. Oltre la fine del viaggio (Vol.12)",
+      "Description": "<p>Frieren è la maga elfa che insieme alla compagnia dell’eroe ha sconfitto il Re Demone. La sua vita continua a lungo dopo quell’avventura ma, quando tocca la Stele della Dea, la sua coscie… [TRUNCATED 177 chars; original string value]",
+      "Language": "it",
+      "Locale": {
+        "LanguageCode": "ita",
+        "ScriptCode": "",
+        "CountryCode": ""
+      },
+      "ImageId": "0f13b8cd-9045-4d50-a7a0-40e285902d10",
+      "PublisherName": "J-POP Manga",
+      "Rating": 5,
+      "TotalRating": 4,
+      "Slug": "frieren-oltre-la-fine-del-viaggio-vol-12",
+      "IsContentSharingEnabled": true,
+      "RedirectPreviewUrls": [
+        {
+          "DrmType": "None",
+          "Format": "EPUB3FL_SAMPLE",
+          "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+          "Platform": "Generic",
+          "Size": 38734693
+        }
+      ],
+      "HasPreview": true,
+      "Price": {
+        "Currency": "EUR",
+        "Price": 3.99
+      },
+      "PromoCodeAllowed": false,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false,
+      "RelatedGroupId": "e48b4ebe-226c-2a4b-0000-000000000000",
+      "AgeVerificationRequired": false,
+      "AccessibilityDetails": {
+        "IsFixedLayout": true,
+        "IsTextToSpeechAllowed": false,
+        "PrimaryContentType": "10",
+        "ContentTypes": [],
+        "EPubAccessibilities": [
+          {
+            "Type": "08"
+          }
+        ],
+        "HazardWarningTypes": [],
+        "IsAccessible": false
+      },
+      "LifeCycleDates": {
+        "ActivationDate": "2024-04-23T00:00:00.0000000Z"
+      },
+      "Id": "f3212cd2-0ca8-49ec-9dea-4263d50b057e"
+    },
+    {
+      "Contributors": "Kanehito Yamada,Tsukasa Abe,Matteo Cremaschi",
+      "WorkId": "82921db9-82e1-38df-862b-11a7532b40d1",
+      "SeriesNumber": "10",
+      "SeriesName": "Frieren. Oltre la fine del viaggio",
+      "SeriesSlug": "frieren-oltre-la-fine-del-viaggio-1",
+      "SeriesId": "01a4fb8f-759f-5c5e-ac54-a44f37b142f4",
+      "SeriesNumberFloat": 10,
+      "IsFree": false,
+      "ISBN": "9788834923719",
+      "PublicationDate": "2023-11-22T00:00:00.0000000Z",
+      "ContributorRoles": [
+        {
+          "Name": "Kanehito Yamada",
+          "Role": "Author"
+        },
+        {
+          "Name": "Tsukasa Abe",
+          "Role": "Author"
+        },
+        {
+          "Name": "Matteo Cremaschi",
+          "Role": "Translator"
+        }
+      ],
+      "IsInternetArchive": false,
+      "IsRecommendation": false,
+      "CrossRevisionId": "82921db9-82e1-38df-862b-11a7532b40d1",
+      "Title": "Frieren. Oltre la fine del viaggio (Vol.10)",
+      "Description": "<p>L’elfo mago Frieren e i suoi coraggiosi compagni d’avventura hanno sconfitto il Re Demone, portando finalmente la pace nella loro terra. Ora gli eroi possono intraprendere strade diverse,… [TRUNCATED 310 chars; original string value]",
+      "Language": "it",
+      "Locale": {
+        "LanguageCode": "ita",
+        "ScriptCode": "",
+        "CountryCode": ""
+      },
+      "ImageId": "888d918c-f169-4514-b375-04762dc963f8",
+      "PublisherName": "J-POP Manga",
+      "Rating": 5,
+      "TotalRating": 3,
+      "Slug": "frieren-oltre-la-fine-del-viaggio-vol-10",
+      "IsContentSharingEnabled": true,
+      "RedirectPreviewUrls": [
+        {
+          "DrmType": "None",
+          "Format": "EPUB3FL_SAMPLE",
+          "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+          "Platform": "Generic",
+          "Size": 29951838
+        }
+      ],
+      "HasPreview": true,
+      "Price": {
+        "Currency": "EUR",
+        "Price": 3.99
+      },
+      "PromoCodeAllowed": false,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false,
+      "RelatedGroupId": "5958f7f7-0d4f-c618-0000-000000000000",
+      "AgeVerificationRequired": false,
+      "AccessibilityDetails": {
+        "IsFixedLayout": true,
+        "IsTextToSpeechAllowed": false,
+        "PrimaryContentType": "10",
+        "ContentTypes": [],
+        "EPubAccessibilities": [
+          {
+            "Type": "08"
+          }
+        ],
+        "HazardWarningTypes": [],
+        "IsAccessible": false
+      },
+      "LifeCycleDates": {
+        "ActivationDate": "2023-11-22T00:00:00.0000000Z"
+      },
+      "Id": "62f623f6-4b4d-43ec-afc1-85cd5ce99a06"
+    },
+    {
+      "Contributors": "Tsukasa Abe,Kanehito Yamada,Matteo Cremaschi",
+      "WorkId": "5b275628-f6e1-3ec8-8eed-88a983b6fd5a",
+      "SeriesNumber": "8",
+      "SeriesName": "Frieren. Oltre la fine del viaggio",
+      "SeriesSlug": "frieren-oltre-la-fine-del-viaggio",
+      "SeriesId": "e99dd828-368e-5b4d-b728-5386dc0c2307",
+      "SeriesNumberFloat": 8,
+      "IsFree": false,
+      "ISBN": "9788834923696",
+      "PublicationDate": "2023-09-27T00:00:00.0000000Z",
+      "ContributorRoles": [
+        {
+          "Name": "Tsukasa Abe",
+          "Role": "Author"
+        },
+        {
+          "Name": "Kanehito Yamada",
+          "Role": "Author"
+        },
+        {
+          "Name": "Matteo Cremaschi",
+          "Role": "Translator"
+        }
+      ],
+      "IsInternetArchive": false,
+      "IsRecommendation": false,
+      "CrossRevisionId": "5b275628-f6e1-3ec8-8eed-88a983b6fd5a",
+      "Title": "Frieren. Oltre la fine del viaggio (Vol.8)",
+      "Description": "<p>Ripercorrendo il viaggio intrapreso tempo addietro con i suoi eroici compagni. la maga Frieren sta per entrare nel pericolosissimo Altopiano del Nord, a cui si può accedere solo in compag… [TRUNCATED 210 chars; original string value]",
+      "Language": "it",
+      "Locale": {
+        "LanguageCode": "ita",
+        "ScriptCode": "",
+        "CountryCode": ""
+      },
+      "ImageId": "25eb8e4b-9eec-42ac-beaf-7c153deaf183",
+      "PublisherName": "J-POP Manga",
+      "Rating": 4.833333,
+      "TotalRating": 6,
+      "Slug": "frieren-oltre-la-fine-del-viaggio-vol-8",
+      "IsContentSharingEnabled": true,
+      "RedirectPreviewUrls": [
+        {
+          "DrmType": "None",
+          "Format": "EPUB3FL_SAMPLE",
+          "Url": "https://storedownloads.kobo.com/download?downloadToken=[REDACTED]",
+          "Platform": "Generic",
+          "Size": 30305329
+        }
+      ],
+      "HasPreview": true,
+      "Price": {
+        "Currency": "EUR",
+        "Price": 3.99
+      },
+      "PromoCodeAllowed": false,
+      "EligibleForKoboLoveDiscount": false,
+      "IsPreOrder": false,
+      "RelatedGroupId": "6efef492-3942-b021-0000-000000000000",
+      "AgeVerificationRequired": false,
+      "AccessibilityDetails": {
+        "IsFixedLayout": true,
+        "IsTextToSpeechAllowed": false,
+        "PrimaryContentType": "10",
+        "ContentTypes": [],
+        "EPubAccessibilities": [
+          {
+            "Type": "08"
+          }
+        ],
+        "HazardWarningTypes": [],
+        "IsAccessible": false
+      },
+      "LifeCycleDates": {
+        "ActivationDate": "2023-09-27T00:00:00.0000000Z"
+      },
+      "Id": "cb4922b2-7577-4fa6-878a-d19d1891322a"
+    }
+  ]
+}

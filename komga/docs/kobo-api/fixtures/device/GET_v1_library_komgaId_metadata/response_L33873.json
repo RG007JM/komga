@@ -1,0 +1,58 @@
+[
+  {
+    "Categories": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "ContributorRoles": [
+      {
+        "Name": "Yusei Matsui"
+      }
+    ],
+    "Contributors": [
+      "Yusei Matsui"
+    ],
+    "CoverImageId": "0RPA2CBC4JVY8",
+    "CrossRevisionId": "0RDTATJ7XHNW3",
+    "CurrentDisplayPrice": {
+      "CurrencyCode": "USD",
+      "TotalAmount": 0
+    },
+    "CurrentLoveDisplayPrice": {
+      "TotalAmount": 0
+    },
+    "Description": "English teacher IrinaΓÇÖs assassination mentor makes an appearance and the two compete-using special agent Karasuma as their target. Another transfer student/would-be assassin joins the clas… [TRUNCATED 321 chars; original string value]",
+    "DownloadUrls": [
+      {
+        "DrmType": "None",
+        "Format": "EPUB3FL",
+        "Platform": "Generic",
+        "Size": 66830227,
+        "Url": "https://komga.com/kobo/{token}/v1/books/0RDTATJ7XHNW3/file/epub?convert_kepub=false"
+      }
+    ],
+    "EntitlementId": "0RDTATJ7XHNW3",
+    "ExternalIds": [],
+    "Genre": "00000000-0000-0000-0000-000000000001",
+    "IsEligibleForKoboLove": false,
+    "IsInternetArchive": false,
+    "IsPreOrder": false,
+    "IsSocialEnabled": true,
+    "Isbn": "9781421584591",
+    "Language": "en",
+    "PhoneticPronunciations": {},
+    "PublicationDate": "2015-06-01T00:00:00Z",
+    "Publisher": {
+      "Imprint": "",
+      "Name": "VIZ Media"
+    },
+    "RevisionId": "0RDTATJ7XHNW3",
+    "Series": {
+      "Id": "0RDTATJ4DHY6Z",
+      "Name": "Assassination Classroom",
+      "Number": "4",
+      "NumberFloat": 4
+    },
+    "Title": "Assassination Classroom, Vol. 4",
+    "WorkId": "0RDTATJ7XHNW3"
+  }
+]

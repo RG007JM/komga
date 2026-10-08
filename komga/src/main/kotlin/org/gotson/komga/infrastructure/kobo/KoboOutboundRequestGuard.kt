@@ -3,6 +3,7 @@ package org.gotson.komga.infrastructure.kobo
 
 import com.github.f4b6a3.tsid.Tsid
 import io.github.oshai.kotlinlogging.KotlinLogging
+import org.gotson.komga.domain.model.SearchContext
 import org.gotson.komga.domain.persistence.BookRepository
 import org.gotson.komga.domain.persistence.ReadListRepository
 import org.gotson.komga.domain.persistence.SeriesRepository
@@ -104,5 +105,5 @@ class KoboOutboundRequestGuard(
   private fun isKnownKomgaId(id: String): Boolean =
     bookRepository.findByIdOrNull(id) != null ||
       seriesRepository.findByIdOrNull(id) != null ||
-      readListRepository.findByIdOrNull(id) != null
+      readListRepository.findByIdOrNull(id, SearchContext.empty()) != null
 }

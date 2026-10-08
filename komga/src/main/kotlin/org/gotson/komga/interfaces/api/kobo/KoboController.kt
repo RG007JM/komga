@@ -12,6 +12,7 @@ import org.apache.commons.lang3.RandomStringUtils
 import org.gotson.komga.domain.model.Book
 import org.gotson.komga.domain.model.BookWithMedia
 import org.gotson.komga.domain.model.DuplicateNameException
+import org.gotson.komga.domain.model.KEPUB_DEFAULT
 import org.gotson.komga.domain.model.KomgaSyncToken
 import org.gotson.komga.domain.model.MediaExtensionEpub
 import org.gotson.komga.domain.model.MediaType.EPUB
@@ -19,11 +20,11 @@ import org.gotson.komga.domain.model.R2Device
 import org.gotson.komga.domain.model.R2Locator
 import org.gotson.komga.domain.model.R2Progression
 import org.gotson.komga.domain.model.ReadList
+import org.gotson.komga.domain.model.SearchContext
 import org.gotson.komga.domain.model.SyncPoint
 import org.gotson.komga.domain.persistence.BookRepository
 import org.gotson.komga.domain.persistence.KoboArchivedBookRepository
 import org.gotson.komga.domain.persistence.KoboExternalCollectionMemberRepository
-import org.gotson.komga.domain.persistence.KoboKepubSizeCacheRepository
 import org.gotson.komga.domain.persistence.MediaRepository
 import org.gotson.komga.domain.persistence.ReadListRepository
 import org.gotson.komga.domain.persistence.ReadProgressRepository
@@ -176,7 +177,6 @@ class KoboController(
   private val koboRawStoreProxy: KoboRawStoreProxy,
   private val koboTagRequestTranslator: KoboTagRequestTranslator,
   private val kepubConverter: KepubConverter,
-  private val koboKepubSizeCacheRepository: KoboKepubSizeCacheRepository,
   private val koboArchivedBookRepository: KoboArchivedBookRepository,
   private val syncPointLifecycle: SyncPointLifecycle,
   private val syncPointRepository: SyncPointRepository,
@@ -801,9 +801,9 @@ class KoboController(
       bookRepository.findByIdOrNull(bookId)?.let { book ->
         contentRestrictionChecker.checkContentRestrictionBook(principal.user, book)
 
-        // An absent source hash is not sufficient to prove a conversion is current.
-        val cacheKey = book.koboKepubCacheKey()
-        var kepubPath = cacheKey?.let { cachedKepub.getIfPresent(it) }?.let { if (it.exists()) it else null }
+        // check cache
+        val cacheKey = book.computeCacheKey()
+        var kepubPath = cachedKepub.getIfPresent(cacheKey)?.let { if (it.exists()) it else null }
 
         if (kepubPath == null) {
           // convert
@@ -811,44 +811,20 @@ class KoboController(
             kepubConverter.convertEpubToKepub(BookWithMedia(book, mediaRepository.findById(bookId)))
               ?: throw ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Kepub conversion failed")
           converted.toFile().deleteOnExit()
-          if (cacheKey != null) cachedKepub.put(cacheKey, converted)
+          cachedKepub.put(cacheKey, converted)
           kepubPath = converted
         } else {
           logger.debug { "Found kepub in cache" }
         }
-				
-        val kepubFileSize =
-          java.nio.file.Files
-            .size(kepubPath)
-        val sourceFileHash = book.fileHash
 
-        if (!sourceFileHash.isNullOrBlank()) {
-          koboKepubSizeCacheRepository.upsert(
-            bookId = book.id,
-            sourceFileHash = sourceFileHash,
-            kepubFileSize = kepubFileSize,
-          )
-
-          logger.debug {
-            "Stored Kobo KEPUB size for ${book.id}: " +
-              "$kepubFileSize bytes, source hash=$sourceFileHash"
-          }
-        }
-				
-        // Unhashed sources are never cached; release their unique temporary conversion after streaming.
-        val temporaryKepub = if (cacheKey == null) kepubPath else null
         try {
           with(FileSystemResource(kepubPath)) {
             if (!exists()) throw FileNotFoundException(path)
             val stream =
               StreamingResponseBody { os: OutputStream ->
-                try {
-                  this.inputStream.use {
-                    IOUtils.copyLarge(it, os, ByteArray(8192))
-                    os.close()
-                  }
-                } finally {
-                  temporaryKepub?.deleteIfExists()
+                this.inputStream.use {
+                  IOUtils.copyLarge(it, os, ByteArray(8192))
+                  os.close()
                 }
               }
             return ResponseEntity
@@ -874,6 +850,8 @@ class KoboController(
       return commonBookController.getBookFileInternal(principal, bookId)
     }
   }
+
+  private fun Book.computeCacheKey() = "$id-$fileLastModified"
 
   @GetMapping(
     value = [
@@ -985,7 +963,7 @@ class KoboController(
     }
 
     val existing =
-      readListRepository.findByIdOrNull(tagId)
+      readListRepository.findByIdOrNull(tagId, SearchContext.empty())
         ?: return proxyHybridKoboTagRequest(
           rawBody = rawBody,
           translateItems = false,
@@ -1016,7 +994,7 @@ class KoboController(
     }
 
     val existing =
-      readListRepository.findByIdOrNull(tagId)
+      readListRepository.findByIdOrNull(tagId, SearchContext.empty())
         ?: return proxyHybridKoboTagRequest(
           rawBody = rawBody,
           translateItems = false,
@@ -1045,7 +1023,7 @@ class KoboController(
     }
 
     val existing =
-      readListRepository.findByIdOrNull(tagId)
+      readListRepository.findByIdOrNull(tagId, SearchContext.empty())
         ?: return proxyHybridKoboTagRequest(
           rawBody = rawBody,
           translateItems = true,
@@ -1112,7 +1090,7 @@ class KoboController(
     }
 
     val existing =
-      readListRepository.findByIdOrNull(tagId)
+      readListRepository.findByIdOrNull(tagId, SearchContext.empty())
         ?: return proxyHybridKoboTagRequest(
           rawBody = rawBody,
           translateItems = true,
@@ -1291,52 +1269,10 @@ class KoboController(
               isKepub || kepubConverter.isAvailable -> FormatDto.KEPUB to !isKepub
               else -> FormatDto.EPUB3 to false
             }
-
-          val advertisedSize =
-            if (convert) {
-              val book = bookRepository.findByIdOrNull(entitlementId)
-              val currentFileHash = book?.fileHash
-              val cached = koboKepubSizeCacheRepository.findByBookId(entitlementId)
-
-              val resolvedSize =
-                KoboKepubSizeResolver.advertisedSize(
-                  sourceFileSize = fileSize,
-                  currentFileHash = currentFileHash,
-                  cached = cached,
-                )
-
-              when {
-                currentFileHash.isNullOrBlank() || cached == null -> {
-                  logger.debug {
-                    "No stored Kobo KEPUB size for $entitlementId, using source size=$resolvedSize"
-                  }
-                }
-
-                cached.sourceFileHash == currentFileHash -> {
-                  logger.debug {
-                    "Source hash unchanged for $entitlementId, " +
-                      "using stored KEPUB size=$resolvedSize"
-                  }
-                }
-
-                else -> {
-                  logger.debug {
-                    "Source hash changed for $entitlementId: " +
-                      "${cached.sourceFileHash} -> $currentFileHash; " +
-                      "forcing redownload with advertised size=$resolvedSize"
-                  }
-                }
-              }
-
-              resolvedSize
-            } else {
-              fileSize
-            }
-
           add(
             DownloadUrlDto(
               format = format,
-              size = advertisedSize,
+              size = if (format === FormatDto.KEPUB) extraFileSizes[KEPUB_DEFAULT] ?: fileSize else fileSize,
               url = downloadUriBuilder.build(entitlementId, convert).toURL().toString(),
             ),
           )

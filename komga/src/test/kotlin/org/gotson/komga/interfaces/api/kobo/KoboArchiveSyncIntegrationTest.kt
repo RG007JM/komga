@@ -7,6 +7,7 @@ import org.gotson.komga.domain.model.KomgaUser
 import org.gotson.komga.domain.model.Media
 import org.gotson.komga.domain.model.MediaType
 import org.gotson.komga.domain.model.ReadList
+import org.gotson.komga.domain.model.SearchContext
 import org.gotson.komga.domain.model.UserRoles
 import org.gotson.komga.domain.model.makeBook
 import org.gotson.komga.domain.model.makeLibrary
@@ -191,7 +192,7 @@ class KoboArchiveSyncIntegrationTest(
         ).andExpect(status().isCreated)
         .andReturn()
     val readListId = objectMapper.readTree(created.response.contentAsString).asText()
-    val localReadList = readListRepository.findByIdOrNull(readListId)!!
+    val localReadList = readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!
     assertThat(localReadList.bookIds.values).containsExactly(books[0].id)
     assertThat(localReadList.bookIds.values).doesNotContain(storeRevisionId)
 
@@ -199,7 +200,7 @@ class KoboArchiveSyncIntegrationTest(
     val createdB = completeSync(apiKeyB, initialB.token)
 
     readListLifecycle.updateReadList(
-      readListRepository.findByIdOrNull(readListId)!!.copy(
+      readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!.copy(
         bookIds = sortedMapOf(0 to books[0].id, 1 to books[1].id),
       ),
     )
@@ -224,7 +225,7 @@ class KoboArchiveSyncIntegrationTest(
 
     // Komga remains unaware of the purchased member; only the originating user's
     // Kobo collection receives it when Komga republishes the changed ReadList.
-    assertThat(readListRepository.findByIdOrNull(readListId)!!.bookIds.values)
+    assertThat(readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!.bookIds.values)
       .containsExactly(books[0].id, books[1].id)
     assertThat(createdA.tagItems("NewTag")).contains(storeRevisionId)
     assertThat(changedA.tagItems("ChangedTag"))
@@ -291,11 +292,11 @@ class KoboArchiveSyncIntegrationTest(
       ).andExpect(status().isOk)
     assertThat(externalMembers.findByReadListIds(userA.id, listOf(readListId))[readListId])
       .containsExactly(secondStoreId)
-    assertThat(readListRepository.findByIdOrNull(readListId)!!.bookIds.values)
+    assertThat(readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!.bookIds.values)
       .containsExactly(book.id)
 
-    readListLifecycle.deleteReadList(readListRepository.findByIdOrNull(readListId)!!)
-    assertThat(readListRepository.findByIdOrNull(readListId)).isNull()
+    readListLifecycle.deleteReadList(readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!)
+    assertThat(readListRepository.findByIdOrNull(readListId, SearchContext.empty())).isNull()
     assertThat(externalMembers.findByReadListIds(userA.id, listOf(readListId))).isEmpty()
   }
 
@@ -366,7 +367,7 @@ class KoboArchiveSyncIntegrationTest(
     assertThat(otherAfterCreate.tagItems("NewTag")).doesNotContain(firstStoreId)
 
     // This operation must not change the Komga ReadList or rely on an unrelated Komga edit.
-    val originalReadList = readListRepository.findByIdOrNull(readListId)!!
+    val originalReadList = readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!
     mockMvc
       .perform(
         MockMvcRequestBuilders
@@ -374,7 +375,7 @@ class KoboArchiveSyncIntegrationTest(
           .contentType("application/json")
           .content(itemsBody(secondStoreId)),
       ).andExpect(status().isCreated)
-    assertThat(readListRepository.findByIdOrNull(readListId)!!).isEqualTo(originalReadList)
+    assertThat(readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!).isEqualTo(originalReadList)
 
     val secondAfterAdd = completeSync(secondDeviceKey, secondAfterCreate.token)
     assertThat(secondAfterAdd.tagItems("ChangedTag"))
@@ -389,7 +390,7 @@ class KoboArchiveSyncIntegrationTest(
           .contentType("application/json")
           .content(itemsBody(firstStoreId)),
       ).andExpect(status().isOk)
-    assertThat(readListRepository.findByIdOrNull(readListId)!!).isEqualTo(originalReadList)
+    assertThat(readListRepository.findByIdOrNull(readListId, SearchContext.empty())!!).isEqualTo(originalReadList)
 
     val secondAfterRemove = completeSync(secondDeviceKey, secondAfterAdd.token)
     assertThat(secondAfterRemove.tagItems("ChangedTag"))

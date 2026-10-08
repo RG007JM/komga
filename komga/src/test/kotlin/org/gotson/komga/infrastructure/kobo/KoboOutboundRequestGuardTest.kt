@@ -38,7 +38,7 @@ class KoboOutboundRequestGuardTest {
 
     every { bookRepository.findByIdOrNull(any()) } returns null
     every { seriesRepository.findByIdOrNull(any()) } returns null
-    every { readListRepository.findByIdOrNull(any()) } returns null
+    every { readListRepository.findByIdOrNull(any(), any()) } returns null
   }
 
   @Test
@@ -80,7 +80,7 @@ class KoboOutboundRequestGuardTest {
   @Test
   fun `blocks untranslated Komga read-list ID in final Store path`() {
     val readListId = "0RDTATKG1HM0V"
-    every { readListRepository.findByIdOrNull(readListId) } returns mockk()
+    every { readListRepository.findByIdOrNull(readListId, any()) } returns mockk()
 
     assertThatThrownBy {
       guard.validate(

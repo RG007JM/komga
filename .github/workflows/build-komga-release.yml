@@ -1,8 +1,11 @@
 name: Build Komga Release (Draft)
 
 on:
-  # This workflow is dispatched from the default branch. Use source_ref to
-  # build the merged feature branch without requiring this file on that branch.
+  # Automatically build this merged test branch when the workflow is committed or updated.
+  push:
+    branches:
+      - "test/komga-1.29.2-merge"
+  # Also retain manual dispatch from the repository's default branch.
   workflow_dispatch:
     inputs:
       source_ref:

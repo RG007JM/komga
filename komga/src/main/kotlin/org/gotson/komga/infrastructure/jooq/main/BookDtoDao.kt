@@ -1,5 +1,7 @@
 package org.gotson.komga.infrastructure.jooq.main
 
+import org.gotson.komga.application.query.buildPage
+import org.gotson.komga.application.query.isEmpty
 import org.gotson.komga.domain.model.BookSearch
 import org.gotson.komga.domain.model.ContentRestrictions
 import org.gotson.komga.domain.model.ReadList
@@ -24,6 +26,7 @@ import org.gotson.komga.interfaces.api.rest.dto.AuthorDto
 import org.gotson.komga.interfaces.api.rest.dto.BookDto
 import org.gotson.komga.interfaces.api.rest.dto.BookMetadataDto
 import org.gotson.komga.interfaces.api.rest.dto.MediaDto
+import org.gotson.komga.interfaces.api.rest.dto.NotableEntityDto
 import org.gotson.komga.interfaces.api.rest.dto.ReadProgressDto
 import org.gotson.komga.interfaces.api.rest.dto.WebLinkDto
 import org.gotson.komga.jooq.main.Tables
@@ -68,6 +71,7 @@ class BookDtoDao(
   private val rlb = Tables.READLIST_BOOK
   private val bt = Tables.BOOK_METADATA_TAG
   private val bl = Tables.BOOK_METADATA_LINK
+  private val ne = Tables.BOOK_METADATA_NOTABLE_ENTITIES
 
   private val onDeckFields = b.fields() + m.fields() + d.fields() + r.fields() + sd.TITLE
 
@@ -151,50 +155,56 @@ class BookDtoDao(
           }
         }
 
-      val count =
-        dslRO.fetchCount(
-          dslRO
-            .select(b.ID)
-            .from(b)
-            .leftJoin(m)
-            .on(b.ID.eq(m.BOOK_ID))
-            .leftJoin(d)
-            .on(b.ID.eq(d.BOOK_ID))
-            .leftJoin(r)
-            .on(b.ID.eq(r.BOOK_ID))
-            .and(readProgressCondition(userId))
-            .leftJoin(sd)
-            .on(b.SERIES_ID.eq(sd.SERIES_ID))
-            .apply {
-              joins.forEach { join ->
-                when (join) {
-                  is RequiredJoin.ReadList -> {
-                    val rlbAlias = rlbAlias(join.readListId)
-                    leftJoin(rlbAlias).on(rlbAlias.BOOK_ID.eq(b.ID).and(rlbAlias.READLIST_ID.eq(join.readListId)))
-                  }
-                  // always joined
-                  RequiredJoin.BookMetadata -> Unit
-                  RequiredJoin.Media -> Unit
-                  is RequiredJoin.ReadProgress -> Unit
-                  // Series joins - not needed
-                  RequiredJoin.BookMetadataAggregation -> Unit
-                  RequiredJoin.SeriesMetadata -> Unit
-                  is RequiredJoin.Collection -> Unit
-                }
-              }
-            }.where(conditions)
-            .and(searchCondition)
-            .groupBy(b.ID),
-        )
-
       val dtos =
-        dslRO
-          .selectBase(userId, joins)
-          .where(conditions)
-          .and(searchCondition)
-          .orderBy(orderBy)
-          .apply { if (pageable.isPaged) limit(pageable.pageSize).offset(pageable.offset) }
-          .fetchAndMap(dslRO)
+        if (pageable.isEmpty())
+          emptyList()
+        else
+          dslRO
+            .selectBase(userId, joins)
+            .where(conditions)
+            .and(searchCondition)
+            .orderBy(orderBy)
+            .apply { if (pageable.isPaged) limit(pageable.pageSize).offset(pageable.offset) }
+            .fetchAndMap(dslRO)
+
+      val count =
+        if (pageable.isUnpaged)
+          dtos.size
+        else
+          dslRO.fetchCount(
+            dslRO
+              .select(b.ID)
+              .from(b)
+              .leftJoin(m)
+              .on(b.ID.eq(m.BOOK_ID))
+              .leftJoin(d)
+              .on(b.ID.eq(d.BOOK_ID))
+              .leftJoin(r)
+              .on(b.ID.eq(r.BOOK_ID))
+              .and(readProgressCondition(userId))
+              .leftJoin(sd)
+              .on(b.SERIES_ID.eq(sd.SERIES_ID))
+              .apply {
+                joins.forEach { join ->
+                  when (join) {
+                    is RequiredJoin.ReadList -> {
+                      val rlbAlias = rlbAlias(join.readListId)
+                      leftJoin(rlbAlias).on(rlbAlias.BOOK_ID.eq(b.ID).and(rlbAlias.READLIST_ID.eq(join.readListId)))
+                    }
+                    // always joined
+                    RequiredJoin.BookMetadata -> Unit
+                    RequiredJoin.Media -> Unit
+                    is RequiredJoin.ReadProgress -> Unit
+                    // Series joins - not needed
+                    RequiredJoin.BookMetadataAggregation -> Unit
+                    RequiredJoin.SeriesMetadata -> Unit
+                    is RequiredJoin.Collection -> Unit
+                  }
+                }
+              }.where(conditions)
+              .and(searchCondition)
+              .groupBy(b.ID),
+          )
 
       val pageSort = if (orderBy.isNotEmpty()) pageable.sort else Sort.unsorted()
       return PageImpl(
@@ -248,21 +258,18 @@ class BookDtoDao(
   ): Page<BookDto> {
     val (query, sortField, _) = bookCommonDao.getBooksOnDeckQuery(userId, restrictions, filterOnLibraryIds, onDeckFields)
 
-    val count = dslRO.fetchCount(query)
-    val dtos =
-      query
-        .orderBy(sortField.desc())
-        .apply { if (pageable.isPaged) limit(pageable.pageSize).offset(pageable.offset) }
-        .fetchAndMap(dslRO)
+    val count = if (pageable.isUnpaged) null else dslRO.fetchCount(query)
 
-    return PageImpl(
-      dtos,
-      if (pageable.isPaged)
-        PageRequest.of(pageable.pageNumber, pageable.pageSize, Sort.unsorted())
+    val dtos =
+      if (pageable.isEmpty())
+        emptyList()
       else
-        PageRequest.of(0, maxOf(count, 20), Sort.unsorted()),
-      count.toLong(),
-    )
+        query
+          .orderBy(sortField.desc())
+          .apply { if (pageable.isPaged) limit(pageable.pageSize).offset(pageable.offset) }
+          .fetchAndMap(dslRO)
+
+    return buildPage(dtos, pageable, count ?: dtos.size, Sort.unsorted())
   }
 
   override fun findAllDuplicates(
@@ -442,6 +449,7 @@ class BookDtoDao(
     lateinit var authors: Map<String, List<AuthorDto>>
     lateinit var tags: Map<String, List<String>>
     lateinit var links: Map<String, List<WebLinkDto>>
+    lateinit var notableEntities: Map<String, List<NotableEntityDto>>
     dsl.withTempTable(batchSize, bookIds).use { tempTable ->
       authors =
         dsl
@@ -461,6 +469,12 @@ class BookDtoDao(
           .selectFrom(bl)
           .where(bl.BOOK_ID.`in`(tempTable.selectTempStrings()))
           .groupBy({ it.bookId }, { WebLinkDto(it.label, it.url) })
+
+      notableEntities =
+        dsl
+          .selectFrom(ne)
+          .where(ne.BOOK_ID.`in`(tempTable.selectTempStrings()))
+          .groupBy({ it.bookId }, { NotableEntityDto(it.kind, it.name) })
     }
 
     return records
@@ -471,7 +485,7 @@ class BookDtoDao(
         val rr = rec.into(r)
         val seriesTitle = rec.into(sd.TITLE).component1()
 
-        br.toDto(mr.toDto(), dr.toDto(authors[br.id].orEmpty(), tags[br.id].orEmpty().toSet(), links[br.id].orEmpty()), if (rr.userId != null) rr.toDto() else null, seriesTitle)
+        br.toDto(mr.toDto(), dr.toDto(authors[br.id].orEmpty(), tags[br.id].orEmpty().toSet(), links[br.id].orEmpty(), notableEntities[br.id].orEmpty()), if (rr.userId != null) rr.toDto() else null, seriesTitle)
       }
   }
 
@@ -514,6 +528,7 @@ class BookDtoDao(
     authors: List<AuthorDto>,
     tags: Set<String>,
     links: List<WebLinkDto>,
+    notableEntities: List<NotableEntityDto>,
   ) = BookMetadataDto(
     title = title,
     titleLock = titleLock,
@@ -527,6 +542,8 @@ class BookDtoDao(
     releaseDateLock = releaseDateLock,
     authors = authors,
     authorsLock = authorsLock,
+    notableEntities = notableEntities,
+    notableEntitiesLock = notableEntitiesLock,
     tags = tags,
     tagsLock = tagsLock,
     isbn = isbn,

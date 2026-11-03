@@ -2,12 +2,6 @@ name: Build Komga Release (Draft)
 
 on:
   workflow_dispatch:
-    inputs:
-      source_ref:
-        description: "Branch, tag, or commit to build"
-        required: true
-        default: "master"
-        type: string
 
 permissions:
   contents: read
@@ -17,10 +11,10 @@ jobs:
     name: Build Komga and Tray JARs (no publishing)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout requested source
+      - name: Checkout selected branch
         uses: actions/checkout@v7
         with:
-          ref: ${{ inputs.source_ref }}
+          ref: ${{ github.ref }}
 
       - name: Legacy WebUI - setup
         uses: ./.github/actions/setup-web

@@ -2,19 +2,66 @@ name: Build Komga Release (Draft)
 
 on:
   workflow_dispatch:
+    inputs:
+      release_version:
+        description: "Version to stamp into the JARs (for example 1.29.2)"
+        required: true
+        type: string
+      release_tag:
+        description: "Draft release tag (for example 1.29.2-kobo-test)"
+        required: true
+        type: string
+      release_name:
+        description: "Draft release title"
+        required: true
+        type: string
+      release_body:
+        description: "Release notes (Markdown)"
+        required: true
+        type: string
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
-    name: Build Komga and Tray JARs (no publishing)
+    name: Build, checksum, and create draft release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout selected branch
         uses: actions/checkout@v7
         with:
           ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Validate release metadata
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]] || {
+            echo "::error::Invalid release_version: $RELEASE_VERSION"
+            exit 1
+          }
+          [[ "$RELEASE_TAG" =~ ^[0-9A-Za-z._-]+$ ]] || {
+            echo "::error::Invalid release_tag: $RELEASE_TAG"
+            exit 1
+          }
+          if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "::error::Tag already exists: $RELEASE_TAG"
+            exit 1
+          fi
+
+      - name: Set release version
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          set -euo pipefail
+          sed -i -E "s/^version=.*/version=$RELEASE_VERSION/" gradle.properties
+          grep -Fx "version=$RELEASE_VERSION" gradle.properties
 
       - name: Legacy WebUI - setup
         uses: ./.github/actions/setup-web
@@ -59,15 +106,49 @@ jobs:
           --console=plain
           --stacktrace
 
-      - name: Upload Komga and Tray JARs
-        uses: actions/upload-artifact@v7
+      - name: Prepare release assets and SHA-256 checksums
+        id: assets
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+          main_jar="komga/build/libs/komga-${RELEASE_VERSION}.jar"
+          tray_jar="komga-tray/build/libs/komga-tray-${RELEASE_VERSION}.jar"
+          plain_jar="komga/build/libs/komga-${RELEASE_VERSION}-plain.jar"
+
+          test -s "$main_jar" || { echo "::error::Missing executable Komga JAR: $main_jar"; exit 1; }
+          test -s "$tray_jar" || { echo "::error::Missing tray JAR: $tray_jar"; exit 1; }
+
+          cp "$main_jar" release-assets/
+          cp "$tray_jar" release-assets/
+          if [[ -s "$plain_jar" ]]; then
+            cp "$plain_jar" release-assets/
+          fi
+
+          (
+            cd release-assets
+            sha256sum *.jar > checksums_sha256.txt
+            sha256sum -c checksums_sha256.txt
+          )
+
+          echo "main_jar=release-assets/komga-${RELEASE_VERSION}.jar" >> "$GITHUB_OUTPUT"
+          echo "checksums=release-assets/checksums_sha256.txt" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub draft release and upload JARs/checksums
+        uses: softprops/action-gh-release@v2
         with:
-          name: komga-draft-release-${{ github.run_number }}
-          path: |
-            komga/build/libs/komga-*.jar
-            komga-tray/build/libs/*.jar
-          if-no-files-found: error
-          retention-days: 14
+          tag_name: ${{ inputs.release_tag }}
+          name: ${{ inputs.release_name }}
+          body: ${{ inputs.release_body }}
+          draft: true
+          prerelease: false
+          target_commitish: ${{ github.sha }}
+          fail_on_unmatched_files: true
+          files: |
+            release-assets/*.jar
+            release-assets/checksums_sha256.txt
 
       - name: Upload Kotlin/Gradle test reports
         if: always()

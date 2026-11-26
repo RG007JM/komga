@@ -1,3 +1,62 @@
+# [1.30.2](https://github.com/gotson/komga/compare/1.30.1...1.30.2) (2026-11-23)
+## 🐛 Fixes
+**api**
+- honor properties in server.servlet.session.cookie ([db2ad64](https://github.com/gotson/komga/commits/db2ad64)), closes [#1501](https://github.com/gotson/komga/issues/1501)
+
+**komga**
+- bind spring session transaction manager to the correct datasource ([8867b38](https://github.com/gotson/komga/commits/8867b38)), closes [#2556](https://github.com/gotson/komga/issues/2556)
+- make ICU collators thread safe ([79c1c84](https://github.com/gotson/komga/commits/79c1c84)), closes [#2555](https://github.com/gotson/komga/issues/2555)
+
+## 🛠  Build
+**release**
+- fix syntax ([6e161b6](https://github.com/gotson/komga/commits/6e161b6))
+- cleanup obsolete release artifacts ([f4e3126](https://github.com/gotson/komga/commits/f4e3126))
+
+## 🌐 Translation
+**nextui**
+- translated using Weblate (Chinese (Simplified Han script)) ([d6d5374](https://github.com/gotson/komga/commits/d6d5374))
+- translated using Weblate (Croatian) ([6306b45](https://github.com/gotson/komga/commits/6306b45))
+
+**webui**
+- translated using Weblate (Croatian) ([2a0cf2c](https://github.com/gotson/komga/commits/2a0cf2c))
+
+## ⚙️ Dependencies
+**ci**
+- bump hydraulic-software/conveyor from 22.3 to 22.4 ([d4195ff](https://github.com/gotson/komga/commits/d4195ff))
+
+**webui**
+- bump node-forge from 1.4.2 to 1.4.3 in /komga-webui ([dac5929](https://github.com/gotson/komga/commits/dac5929))
+
+# [1.30.1](https://github.com/gotson/komga/compare/1.30.0...1.30.1) (2026-11-10)
+## 🐛 Fixes
+**api**
+- add CSP headers ([100795f](https://github.com/gotson/komga/commits/100795f))
+
+**komga**
+- temp table concurrency ([865dae1](https://github.com/gotson/komga/commits/865dae1)), closes [#2553](https://github.com/gotson/komga/issues/2553)
+
+**nextui**
+- add padding after user menu avatar ([37491c2](https://github.com/gotson/komga/commits/37491c2))
+
+## 🔄️ Changes
+**komga**
+- clarify logs when no thumbnail is found when analyzing book ([609e98a](https://github.com/gotson/komga/commits/609e98a)), closes [#2540](https://github.com/gotson/komga/issues/2540)
+
+## 🌐 Translation
+**komga-tray**
+- translated using Weblate (Spanish) ([1252a91](https://github.com/gotson/komga/commits/1252a91))
+
+**nextui**
+- translated using Weblate (Chinese (Simplified Han script)) ([a0dd8cf](https://github.com/gotson/komga/commits/a0dd8cf))
+- translated using Weblate (Korean) ([ae5972a](https://github.com/gotson/komga/commits/ae5972a))
+- translated using Weblate (French) ([d2e5358](https://github.com/gotson/komga/commits/d2e5358))
+- translated using Weblate (Turkish) ([6d34bef](https://github.com/gotson/komga/commits/6d34bef))
+
+**webui**
+- translated using Weblate (Chinese (Simplified Han script)) ([e94ca9a](https://github.com/gotson/komga/commits/e94ca9a))
+- translated using Weblate (Czech) ([1bf3ac2](https://github.com/gotson/komga/commits/1bf3ac2))
+- translated using Weblate (Turkish) ([504f876](https://github.com/gotson/komga/commits/504f876))
+
 # [1.30.0](https://github.com/gotson/komga/compare/1.29.2...1.30.0) (2026-11-04)
 ## 🚀 Features
 **komga**

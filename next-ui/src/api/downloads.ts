@@ -21,6 +21,9 @@ export type Tracked = {
   result?: string
   error?: string
 }
+export type KccOption = { flag: string; group: string; kind: string; description: string }
+export type KccDevice = { code: string; name: string; width: number; height: number }
+export type KccCapabilities = { version: string; devices: KccDevice[]; formats: string[]; options: KccOption[] }
 export type Profile = {
   id: string
   name: string
@@ -42,7 +45,7 @@ export type Record = {
   downloadedAt: string
   mode: string
   scan: string
-  conversion?: { profile: Profile; status: string; file?: string; error?: string }
+  conversion?: { profile: Profile; status: string; file?: string; files?: string[]; error?: string }
 }
 export type Kcc = { autoProfileId: string; manualProfileId: string; profiles: Profile[] }
 export type Overview = {
@@ -50,6 +53,7 @@ export type Overview = {
   providers: { id: string; label: string }[]
   libraries: { id: string; name: string }[]
   health: { [component: string]: string }
+  kccCapabilities: KccCapabilities
   workerError?: string
 }
 

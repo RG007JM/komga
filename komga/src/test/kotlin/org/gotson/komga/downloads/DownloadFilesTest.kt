@@ -107,7 +107,7 @@ class DownloadFilesTest {
   fun `invalid KCC output is rejected`() {
     val output = root.resolve("broken.epub")
     Files.writeString(output, "not an epub")
-    assertThrowsType(java.util.zip.ZipException::class.java) { DownloadKcc(files()).validateOutput(output, "EPUB") }
+    assertThrowsType(java.util.zip.ZipException::class.java) { DownloadKcc(files(), mockk()).validateOutput(output, "EPUB") }
   }
 
   @Test

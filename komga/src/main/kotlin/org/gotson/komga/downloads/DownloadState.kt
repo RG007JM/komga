@@ -51,6 +51,7 @@ data class Conversion(
   val status: String,
   val file: String? = null,
   val error: String? = null,
+  val files: List<String> = emptyList(),
 )
 
 data class KccProfile(

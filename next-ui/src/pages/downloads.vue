@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useDisplay } from 'vuetify'
+import KccOptionsEditor from '@/components/downloads/KccOptionsEditor.vue'
 import {
   downloadsApi,
   type Chapter,
@@ -42,6 +43,20 @@ const includes = ref('')
 const excludes = ref('')
 const profileId = ref('inherit')
 const state = computed(() => overview.value?.state)
+const kccCapabilities = computed(() => overview.value?.kccCapabilities)
+const kccDevices = computed(() => kccCapabilities.value?.devices.map(device => ({
+  title: device.name + (device.width ? ` (${device.width} × ${device.height})` : ''),
+  value: device.code,
+})) ?? [])
+const kccArguments = computed(() => profile.value ? [
+  '--profile=' + profile.value.device,
+  '--format=' + profile.value.format,
+  ...(profile.value.manga ? ['--manga-style'] : []),
+  ...profile.value.extraArgs,
+] : [])
+const conversionFiles = (item: Record) => item.conversion?.files?.length
+  ? item.conversion.files.join(' · ')
+  : item.conversion?.file ?? item.file
 const visible = (title: string) => title.toLowerCase().includes(filter.value.toLowerCase().trim())
 const library = (id: string) => overview.value?.libraries.find((item) => item.id === id)?.name ?? id
 const source = (id: string) => overview.value?.providers.find((item) => item.id === id)?.label ?? id
@@ -115,7 +130,7 @@ const alreadyDownloaded = computed(
 )
 const stamp = (value?: string) => (value ? new Date(value).toLocaleString() : '—')
 const chip = (status?: string) =>
-  ['Failed', 'Unavailable', 'Offline', 'Not found'].includes(status ?? '')
+  ['Failed', 'Unavailable', 'Offline', 'Not found', 'Unsupported version'].some(value => status?.startsWith(value))
     ? 'error'
     : ['Queued', 'Converting', 'Checking'].includes(status ?? '')
       ? 'info'
@@ -336,7 +351,7 @@ function stop() {
 }
 function editProfile(item?: Profile) {
   profile.value = item
-    ? { ...item }
+    ? { ...item, extraArgs: [...item.extraArgs] }
     : {
         id: crypto.randomUUID(),
         name: '',
@@ -345,7 +360,7 @@ function editProfile(item?: Profile) {
         manga: true,
         keepOriginal: true,
         outputFolder: 'Converted',
-        extraArgs: [],
+        extraArgs: ['--mozjpeg', '--metadatatitle=2', '--keepcomicinfo=1'],
       }
 }
 function saveKcc(settings: Kcc, done?: () => void) {
@@ -464,7 +479,7 @@ function retry(item: Record) {
         >
         <template #item.file="{ item }"
           >{{ library(item.destination.libraryId) }}
-          <div class="text-body-small">{{ item.conversion?.file ?? item.file }}</div></template
+          <div class="text-body-small">{{ conversionFiles(item) }}</div></template
         >
         <template #item.mode="{ item }">{{
           matches(item)?.enabled ? 'Enabled' : matches(item) ? 'Paused' : 'Untracked'
@@ -610,6 +625,13 @@ function retry(item: Record) {
     </template>
 
     <template v-else-if="state">
+      <v-card variant="outlined" title="Conversion engine" class="my-4">
+        <v-list>
+          <v-list-item title="KCC version" :subtitle="kccCapabilities?.version ?? 'Unknown'" />
+          <v-list-item title="Runtime" :subtitle="overview?.health['KCC executable'] ?? 'Unknown'" />
+          <v-list-item title="Archive utility" :subtitle="overview?.health['KCC archive utility'] ?? 'Unknown'" />
+        </v-list>
+      </v-card>
       <v-card
         variant="outlined"
         title="Conversion defaults"
@@ -672,7 +694,7 @@ function retry(item: Record) {
             v-for="item in activity"
             :key="item.id"
             :title="item.title + ' · Chapter ' + item.chapter.number"
-            :subtitle="item.conversion?.profile.name + ' · ' + (item.conversion?.file ?? item.file)"
+            :subtitle="item.conversion?.profile.name + ' · ' + (conversionFiles(item))"
           >
             <template #append
               ><v-chip
@@ -973,7 +995,7 @@ function retry(item: Record) {
               :key="item.id"
               :title="'Chapter ' + item.chapter.number"
               :subtitle="
-                (item.conversion?.file ?? item.file) +
+                (conversionFiles(item)) +
                 ' · ' +
                 item.scan +
                 ' · ' +
@@ -1026,7 +1048,7 @@ function retry(item: Record) {
     <v-dialog
       :model-value="!!profile"
       :fullscreen="xs"
-      max-width="650"
+      max-width="850"
       scrollable
       @update:model-value="profile = undefined"
     >
@@ -1039,26 +1061,26 @@ function retry(item: Record) {
             v-model="profile.name"
             label="Profile name"
           />
-          <v-text-field
+          <v-select
             v-model="profile.device"
-            label="KCC device profile code"
+            :items="kccDevices"
+            label="Device profile"
           />
           <v-select
             v-model="profile.format"
-            :items="['EPUB', 'CBZ']"
+            :items="kccCapabilities?.formats ?? []"
             label="Output format"
           />
           <v-text-field
             v-model="profile.outputFolder"
             label="Library-relative output folder"
           />
-          <v-select
+          <KccOptionsEditor
             v-model="profile.extraArgs"
-            :items="['--cropping=0', '--eraserainbow']"
-            label="Extra KCC options"
-            multiple
-            chips
+            :options="kccCapabilities?.options ?? []"
           />
+          <p class="text-body-small text-medium-emphasis mb-2">Conversion arguments (Komga manages input and output paths)</p>
+          <pre class="text-body-small mb-4" style="white-space: pre-wrap; overflow-wrap: anywhere">{{ JSON.stringify(kccArguments, null, 2) }}</pre>
           <v-checkbox
             v-model="profile.manga"
             label="Manga reading order"

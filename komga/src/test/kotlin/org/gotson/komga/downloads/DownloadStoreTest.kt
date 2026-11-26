@@ -29,7 +29,7 @@ class DownloadStoreTest {
 
   @Test
   fun `profiles and tracked state persist across store restart`() {
-    val profile = KccProfile("kobo", "Kobo", "KLC")
+    val profile = KccProfile("kobo", "Kobo", "KoLC")
     val tracked = TrackedManga("entry", "fixture", "series", "Series", DownloadDestination("library", "Series"), kccProfileId = profile.id, seen = setOf("a"), lastCheck = Instant.parse("2026-01-01T00:00:00Z"))
     val expected = DownloadState(tracked = listOf(tracked), kcc = KccSettings(autoProfileId = profile.id, profiles = listOf(profile)))
     store().update { expected }

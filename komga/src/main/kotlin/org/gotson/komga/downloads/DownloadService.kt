@@ -2,6 +2,7 @@ package org.gotson.komga.downloads
 
 import jakarta.annotation.PreDestroy
 import org.gotson.komga.application.tasks.TaskEmitter
+import org.gotson.komga.downloads.kcc.KccOptions
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import java.nio.file.Files
@@ -161,11 +162,8 @@ class DownloadService(
     require(ids.size == settings.profiles.size && "off" !in ids && settings.profiles.size <= 100)
     require(listOf(settings.autoProfileId, settings.manualProfileId).all { it == "off" || it in ids })
     settings.profiles.forEach { profile ->
-      require(profile.name.isNotBlank() && profile.device.matches(Regex("[A-Za-z0-9_-]{1,30}"))) { "Invalid KCC profile" }
-      require(profile.format in setOf("EPUB", "CBZ")) { "Unsupported KCC format" }
-      require(profile.extraArgs.distinct() == profile.extraArgs && profile.extraArgs.all { it in setOf("--cropping=0", "--eraserainbow") }) {
-        "Supported extra KCC options are --cropping=0 and --eraserainbow"
-      }
+      require(profile.name.isNotBlank()) { "Enter a KCC profile name" }
+      KccOptions.validate(profile)
       require(profile.outputFolder.isNotBlank()) { "Enter a library-relative KCC output folder" }
       val path =
         java.nio.file.Path
@@ -242,7 +240,8 @@ class DownloadService(
         else
           "Unavailable",
       "Komga scan" to "Uses Komga task queue",
-      "KCC executable" to if (converter.available()) "Available" else "Not found",
+      "KCC executable" to converter.status(),
+      "KCC archive utility" to converter.archiveStatus(),
     )
   }
 
@@ -379,18 +378,18 @@ class DownloadService(
     profile: KccProfile,
   ) {
     updateRecord(record.id) { it.copy(conversion = Conversion(profile, "Converting")) }
-    val file =
+    val outputs =
       try {
         converter.convert(record, profile)
       } catch (e: Exception) {
         updateRecord(record.id) { it.copy(scan = "Conversion failed", conversion = Conversion(profile, "Failed", error = e.message ?: "KCC failed")) }
         return
       }
-    updateRecord(record.id) { it.copy(conversion = Conversion(profile, "Converted", file)) }
+    updateRecord(record.id) { it.copy(conversion = Conversion(profile, "Converted", outputs.first(), files = outputs)) }
     if (!profile.keepOriginal) {
       runCatching { files.removeOriginal(record) }.onFailure { error ->
         updateRecord(record.id) {
-          it.copy(conversion = Conversion(profile, "Converted", file, "Original retained: ${error.message}"))
+          it.copy(conversion = Conversion(profile, "Converted", outputs.first(), "Original retained: ${error.message}", outputs))
         }
       }
     }

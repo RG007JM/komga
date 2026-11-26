@@ -1,0 +1,26 @@
+name: KCC headless smoke test
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/kcc/**'
+      - 'komga/src/main/kotlin/org/gotson/komga/downloads/kcc/**'
+      - 'komga/src/main/kotlin/org/gotson/komga/downloads/DownloadKcc.kt'
+      - '.github/workflows/kcc-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends p7zip-full libglib2.0-0t64 build-essential cmake libffi-dev libjpeg-dev
+      - name: Install KCC 12.1.5 headlessly
+        run: KCC_PYTHON=python bash scripts/kcc/install-unix.sh "$RUNNER_TEMP/komga-kcc"
+      - name: Convert synthetic comics
+        run: |
+          "$RUNNER_TEMP/komga-kcc/kcc/runtime-12.1.5/venv/bin/python" scripts/kcc/smoke.py "$RUNNER_TEMP/komga-kcc/kcc/bin/kcc-c2e"

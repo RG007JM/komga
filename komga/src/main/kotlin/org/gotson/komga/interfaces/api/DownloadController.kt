@@ -9,6 +9,7 @@ import org.gotson.komga.downloads.KccSettings
 import org.gotson.komga.downloads.ManualRequest
 import org.gotson.komga.downloads.SourceSeries
 import org.gotson.komga.downloads.TrackRequest
+import org.gotson.komga.downloads.kcc.KccOptions
 import org.springframework.http.HttpStatus
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -41,6 +42,7 @@ class DownloadController(
       "libraries" to libraries.findAll().map { mapOf("id" to it.id, "name" to it.name) },
       "health" to service.health(),
       "workerError" to service.workerError,
+      "kccCapabilities" to mapOf("version" to KccOptions.VERSION, "devices" to KccOptions.devices, "formats" to KccOptions.formats, "options" to KccOptions.options),
     )
 
   @GetMapping("/{source}/search")

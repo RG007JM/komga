@@ -28,8 +28,8 @@ class DownloadServiceTest {
   private val converter = mockk<DownloadKcc>()
   private val tasks = mockk<TaskEmitter>(relaxed = true)
   private lateinit var service: DownloadService
-  private val global = KccProfile("global", "Global", "KLC", keepOriginal = false)
-  private val specific = KccProfile("specific", "Specific", "KLC", keepOriginal = false)
+  private val global = KccProfile("global", "Global", "KoLC", keepOriginal = false)
+  private val specific = KccProfile("specific", "Specific", "KoLC", keepOriginal = false)
 
   @BeforeEach
   fun setup() {
@@ -43,7 +43,7 @@ class DownloadServiceTest {
     every { files.root("library") } returns directory
     every { files.target(directory, "Series", false) } returns directory.resolve("Series")
     every { files.archive(any(), any(), any(), any()) } returns "Series/chapter.cbz"
-    every { converter.convert(any(), any()) } returns "Converted/chapter.epub"
+    every { converter.convert(any(), any()) } returns listOf("Converted/chapter.epub", "Converted/chapter 2.epub")
     every { files.removeOriginal(any()) } answers {
       val record = firstArg<DownloadRecord>()
       assertEqualValue(
@@ -122,6 +122,7 @@ class DownloadServiceTest {
     assertEqualValue(fresh.id, record.chapter.id)
     assertEqualValue(global, record.conversion?.profile)
     assertEqualValue("Converted", record.conversion?.status)
+    assertEqualValue(listOf("Converted/chapter.epub", "Converted/chapter 2.epub"), record.conversion?.files)
     assertEqualValue("Scan queued", record.scan)
     verify(exactly = 1) { converter.convert(any(), global) }
     verify(exactly = 1) { files.removeOriginal(any()) }

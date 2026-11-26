@@ -151,6 +151,7 @@ declare module 'vue' {
     LayoutAppDrawerHeader: typeof import('./components/layout/app/drawer/Header.vue')['default']
     LayoutAppDrawerMenu: typeof import('./components/layout/app/drawer/menu/Menu.vue')['default']
     LayoutAppDrawerMenuClassicUi: typeof import('./components/layout/app/drawer/menu/ClassicUi.vue')['default']
+    LayoutAppDrawerMenuDownloads: typeof import('./components/layout/app/drawer/menu/Downloads.vue')['default']
     LayoutAppDrawerMenuHistory: typeof import('./components/layout/app/drawer/menu/History.vue')['default']
     LayoutAppDrawerMenuImport: typeof import('./components/layout/app/drawer/menu/Import.vue')['default']
     LayoutAppDrawerMenuLibraries: typeof import('./components/layout/app/drawer/menu/Libraries.vue')['default']

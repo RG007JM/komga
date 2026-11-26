@@ -2,6 +2,7 @@
   <v-list nav>
     <LayoutAppDrawerMenuLibraries />
     <LayoutAppDrawerMenuImport v-if="isAdmin" />
+    <LayoutAppDrawerMenuDownloads v-if="isAdmin" />
     <LayoutAppDrawerMenuMedia v-if="isAdmin" />
     <LayoutAppDrawerMenuHistory v-if="isAdmin" />
     <LayoutAppDrawerMenuServer v-if="isAdmin" />

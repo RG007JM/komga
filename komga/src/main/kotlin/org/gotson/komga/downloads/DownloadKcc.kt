@@ -68,14 +68,12 @@ class DownloadKcc(
     check(archiveStatus().startsWith("Available (")) { "KCC archive utility: ${archiveStatus()}" }
     val binary = checkNotNull(runtime.executable()) { "KCC executable disappeared" }
     val root = files.root(record.destination.libraryId)
-    val relative = Path.of(record.file)
-    val input = files.target(root, relative.parent.toString(), false).resolve(relative.fileName)
-    check(Files.isRegularFile(input, NOFOLLOW_LINKS)) { "Source CBZ is unavailable" }
-    val destination = files.target(root, profile.outputFolder + "/" + input.parent.fileName, true)
+    val input = files.sourceArchive(record)
+    val destination = files.target(root, record.destination.folder, false)
     val stage = Files.createTempDirectory("komga-kcc-")
     val published = mutableListOf<Path>()
     try {
-      val copied = Files.copy(input, stage.resolve(input.fileName))
+      val copied = Files.copy(input, stage.resolve(input.fileName.toString().removePrefix(".")))
       val out = Files.createDirectory(stage.resolve("output"))
       val log = runtime.logFile()
       val command = listOf(binary.toString()) + args + listOf("--output=${out.toAbsolutePath()}", "--", copied.toAbsolutePath().toString())
@@ -86,6 +84,7 @@ class DownloadKcc(
         check(Files.isRegularFile(output, NOFOLLOW_LINKS) && output.fileName.toString().endsWith(".${profile.format.lowercase()}", ignoreCase = true)) { "Unexpected KCC output; see ${log.fileName}" }
         validateOutput(output, profile.format)
       }
+      files.target(root, record.destination.folder, true)
       val targets = outputs.map { output -> destination.resolve(output.fileName) }
       check(targets.none { Files.exists(it, NOFOLLOW_LINKS) }) { "KCC output already exists; original retained" }
       outputs.zip(targets).forEach { (output, target) ->

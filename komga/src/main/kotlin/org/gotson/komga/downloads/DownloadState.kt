@@ -60,8 +60,9 @@ data class KccProfile(
   val device: String,
   val format: String = "EPUB",
   val manga: Boolean = true,
-  val keepOriginal: Boolean = true,
-  val outputFolder: String = "Converted",
+  // Legacy serialized fields: retained for compatibility, no longer control publication.
+  val keepOriginal: Boolean = false,
+  val outputFolder: String = "",
   val extraArgs: List<String> = emptyList(),
 )
 

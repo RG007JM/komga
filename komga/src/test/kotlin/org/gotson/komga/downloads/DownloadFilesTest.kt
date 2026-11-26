@@ -3,6 +3,7 @@ package org.gotson.komga.downloads
 import io.mockk.every
 import io.mockk.mockk
 import org.gotson.komga.domain.persistence.LibraryRepository
+import org.gotson.komga.domain.service.FileSystemScanner
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.awt.image.BufferedImage
@@ -26,6 +27,7 @@ class DownloadFilesTest {
       mockk {
         every { root } returns libraryUrl
       }
+    every { libraries.findAll() } returns emptyList()
     return DownloadFiles(libraries)
   }
 
@@ -86,6 +88,86 @@ class DownloadFilesTest {
       assertEqualValue("A & B", xml.getElementsByTagName("Title").item(0).textContent)
       assertEqualValue("1.5", xml.getElementsByTagName("Number").item(0).textContent)
       assertEqualValue("2026", xml.getElementsByTagName("Year").item(0).textContent)
+    }
+  }
+
+  @Test
+  fun `conversion source is outside the library and is removed after conversion`() {
+    val files = files()
+    val pages = listOf(SourcePage("a.png") { png(23, 42).inputStream() })
+    val file = files.archive(destination, "Series", chapter, pages, forConversion = true)
+    val input = Path.of(file)
+    try {
+      assertTrueValue(input.isAbsolute)
+      assertFalseValue(input.startsWith(root))
+      assertTrueValue(input.parent.parent == Path.of(System.getProperty("java.io.tmpdir")).toRealPath())
+      assertFalseValue(Files.exists(root.resolve("Series")))
+      ZipFile(input.toFile()).use { zip -> assertTrueValue(zip.getEntry("0001.png") != null) }
+      val scanner = FileSystemScanner(emptyList(), emptyList())
+      assertTrueValue(scanner.scanRootFolder(root).series.isEmpty())
+      val record = DownloadRecord("id", "fixture", "series", "Series", chapter, destination, file, Instant.now(), "manual", "Awaiting conversion")
+      assertEqualValue(input, files.sourceArchive(record))
+      files.removeOriginal(record)
+      assertFalseValue(Files.exists(input))
+      assertFalseValue(Files.exists(input.parent))
+      assertTrueValue(scanner.scanRootFolder(root).series.isEmpty())
+    } finally {
+      Files.deleteIfExists(input)
+      Files.deleteIfExists(input.parent)
+    }
+  }
+
+  @Test
+  fun `KCC publishes in selected series even with legacy output settings`() {
+    val files = files()
+    val pages = listOf(SourcePage("a.png") { png(23, 42).inputStream() })
+    val input = Path.of(files.archive(destination, "Series", chapter, pages, forConversion = true))
+    val profile = KccProfile("legacy", "Legacy", "KoLC", format = "CBZ", keepOriginal = true, outputFolder = "Converted")
+    val record = DownloadRecord("id", "fixture", "series", "Series", chapter, destination, input.toString(), Instant.now(), "manual", "Awaiting conversion", Conversion(profile, "Queued"))
+    val runtime = mockk<org.gotson.komga.downloads.kcc.KccRuntime>()
+    every { runtime.status() } returns "Available (12.1.5)"
+    every { runtime.archiveStatus() } returns "Available (7z)"
+    every { runtime.executable() } returns root.resolve("fake-kcc")
+    every { runtime.logFile() } returns root.resolve("conversion.log")
+    every { runtime.run(any(), any(), any(), any()) } answers {
+      val stage = checkNotNull(secondArg<Path?>())
+      Files.copy(input, stage.resolve("output").resolve(input.fileName))
+      Unit
+    }
+    try {
+      val outputs = DownloadKcc(files, runtime).convert(record, profile)
+      assertEqualValue(listOf(root.relativize(root.resolve("Series").resolve(input.fileName)).toString()), outputs)
+      assertTrueValue(Files.isRegularFile(root.resolve(outputs.single())))
+      assertFalseValue(Files.exists(root.resolve("Converted")))
+      assertTrueValue(Files.isRegularFile(input))
+      files.removeOriginal(record)
+      assertFalseValue(Files.exists(input.parent))
+      assertEqualValue(1, FileSystemScanner(emptyList(), emptyList()).scanRootFolder(root).series.size)
+    } finally {
+      Files.deleteIfExists(input)
+      Files.deleteIfExists(input.parent)
+    }
+  }
+
+  @Test
+  fun `conversion failure retains temporary source outside library`() {
+    val files = files()
+    val pages = listOf(SourcePage("a.png") { png(23, 42).inputStream() })
+    val input = Path.of(files.archive(destination, "Series", chapter, pages, forConversion = true))
+    val profile = KccProfile("kobo", "Kobo", "KoLC")
+    val record = DownloadRecord("id", "fixture", "series", "Series", chapter, destination, input.toString(), Instant.now(), "manual", "Awaiting conversion", Conversion(profile, "Queued"))
+    val runtime = mockk<org.gotson.komga.downloads.kcc.KccRuntime>()
+    every { runtime.status() } returns "Available (12.1.5)"
+    every { runtime.archiveStatus() } returns "Available (7z)"
+    every { runtime.executable() } returns root.resolve("fake-kcc")
+    every { runtime.logFile() } returns root.resolve("conversion.log")
+    every { runtime.run(any(), any(), any(), any()) } throws IllegalStateException("fixture KCC failure")
+    try {
+      assertThrowsType(IllegalStateException::class.java) { DownloadKcc(files, runtime).convert(record, profile) }
+      assertTrueValue(Files.isRegularFile(input))
+      assertTrueValue(FileSystemScanner(emptyList(), emptyList()).scanRootFolder(root).series.isEmpty())
+    } finally {
+      files.removeOriginal(record)
     }
   }
 

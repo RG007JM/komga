@@ -44,19 +44,27 @@ const excludes = ref('')
 const profileId = ref('inherit')
 const state = computed(() => overview.value?.state)
 const kccCapabilities = computed(() => overview.value?.kccCapabilities)
-const kccDevices = computed(() => kccCapabilities.value?.devices.map(device => ({
-  title: device.name + (device.width ? ` (${device.width} × ${device.height})` : ''),
-  value: device.code,
-})) ?? [])
-const kccArguments = computed(() => profile.value ? [
-  '--profile=' + profile.value.device,
-  '--format=' + profile.value.format,
-  ...(profile.value.manga ? ['--manga-style'] : []),
-  ...profile.value.extraArgs,
-] : [])
-const conversionFiles = (item: Record) => item.conversion?.files?.length
-  ? item.conversion.files.join(' · ')
-  : item.conversion?.file ?? item.file
+const kccDevices = computed(
+  () =>
+    kccCapabilities.value?.devices.map((device) => ({
+      title: device.name + (device.width ? ` (${device.width} × ${device.height})` : ''),
+      value: device.code,
+    })) ?? [],
+)
+const kccArguments = computed(() =>
+  profile.value
+    ? [
+        '--profile=' + profile.value.device,
+        '--format=' + profile.value.format,
+        ...(profile.value.manga ? ['--manga-style'] : []),
+        ...profile.value.extraArgs,
+      ]
+    : [],
+)
+const conversionFiles = (item: Record) =>
+  item.conversion?.files?.length
+    ? item.conversion.files.join(' · ')
+    : (item.conversion?.file ?? item.file)
 const visible = (title: string) => title.toLowerCase().includes(filter.value.toLowerCase().trim())
 const library = (id: string) => overview.value?.libraries.find((item) => item.id === id)?.name ?? id
 const source = (id: string) => overview.value?.providers.find((item) => item.id === id)?.label ?? id
@@ -95,7 +103,10 @@ const autoOptions = computed(() => [
   ...profileOptions.value,
 ])
 const manualOptions = computed(() => [
-  { title: 'Use default (' + profileName(state.value?.kcc.manualProfileId) + ')', value: 'inherit' },
+  {
+    title: 'Use default (' + profileName(state.value?.kcc.manualProfileId) + ')',
+    value: 'inherit',
+  },
   ...profileOptions.value,
 ])
 const historyHeaders = [
@@ -130,7 +141,9 @@ const alreadyDownloaded = computed(
 )
 const stamp = (value?: string) => (value ? new Date(value).toLocaleString() : '—')
 const chip = (status?: string) =>
-  ['Failed', 'Unavailable', 'Offline', 'Not found', 'Unsupported version'].some(value => status?.startsWith(value))
+  ['Failed', 'Unavailable', 'Offline', 'Not found', 'Unsupported version'].some((value) =>
+    status?.startsWith(value),
+  )
     ? 'error'
     : ['Queued', 'Converting', 'Checking'].includes(status ?? '')
       ? 'info'
@@ -358,8 +371,8 @@ function editProfile(item?: Profile) {
         device: 'KoLC',
         format: 'EPUB',
         manga: true,
-        keepOriginal: true,
-        outputFolder: 'Converted',
+        keepOriginal: false,
+        outputFolder: '',
         extraArgs: ['--mozjpeg', '--metadatatitle=2', '--keepcomicinfo=1'],
       }
 }
@@ -376,7 +389,8 @@ function saveProfile() {
     ...profile.value,
     name: profile.value.name.trim(),
     device: profile.value.device.trim(),
-    outputFolder: profile.value.outputFolder.trim(),
+    keepOriginal: false,
+    outputFolder: '',
   }
   const profiles = state.value.kcc.profiles.filter((item) => item.id !== saved.id)
   saveKcc({ ...state.value.kcc, profiles: [...profiles, saved] }, () => {
@@ -625,11 +639,24 @@ function retry(item: Record) {
     </template>
 
     <template v-else-if="state">
-      <v-card variant="outlined" title="Conversion engine" class="my-4">
+      <v-card
+        variant="outlined"
+        title="Conversion engine"
+        class="my-4"
+      >
         <v-list>
-          <v-list-item title="KCC version" :subtitle="kccCapabilities?.version ?? 'Unknown'" />
-          <v-list-item title="Runtime" :subtitle="overview?.health['KCC executable'] ?? 'Unknown'" />
-          <v-list-item title="Archive utility" :subtitle="overview?.health['KCC archive utility'] ?? 'Unknown'" />
+          <v-list-item
+            title="KCC version"
+            :subtitle="kccCapabilities?.version ?? 'Unknown'"
+          />
+          <v-list-item
+            title="Runtime"
+            :subtitle="overview?.health['KCC executable'] ?? 'Unknown'"
+          />
+          <v-list-item
+            title="Archive utility"
+            :subtitle="overview?.health['KCC archive utility'] ?? 'Unknown'"
+          />
         </v-list>
       </v-card>
       <v-card
@@ -673,7 +700,7 @@ function retry(item: Record) {
             v-for="item in state.kcc.profiles"
             :key="item.id"
             :title="item.name"
-            :subtitle="item.device + ' · ' + item.format + ' · ' + item.outputFolder"
+            :subtitle="item.device + ' · ' + item.format"
           >
             <template #append
               ><v-btn
@@ -694,7 +721,7 @@ function retry(item: Record) {
             v-for="item in activity"
             :key="item.id"
             :title="item.title + ' · Chapter ' + item.chapter.number"
-            :subtitle="item.conversion?.profile.name + ' · ' + (conversionFiles(item))"
+            :subtitle="item.conversion?.profile.name + ' · ' + conversionFiles(item)"
           >
             <template #append
               ><v-chip
@@ -904,7 +931,9 @@ function retry(item: Record) {
             <v-select
               v-model="profileId"
               :items="mode === 'manual' ? manualOptions : autoOptions"
-              :label="mode === 'manual' ? 'KCC profile for this download' : 'KCC profile for this manga'"
+              :label="
+                mode === 'manual' ? 'KCC profile for this download' : 'KCC profile for this manga'
+              "
             />
             <template v-if="mode !== 'manual'">
               <v-text-field
@@ -995,11 +1024,7 @@ function retry(item: Record) {
               :key="item.id"
               :title="'Chapter ' + item.chapter.number"
               :subtitle="
-                (conversionFiles(item)) +
-                ' · ' +
-                item.scan +
-                ' · ' +
-                stamp(item.downloadedAt)
+                conversionFiles(item) + ' · ' + item.scan + ' · ' + stamp(item.downloadedAt)
               "
             />
             <v-list-item
@@ -1071,24 +1096,24 @@ function retry(item: Record) {
             :items="kccCapabilities?.formats ?? []"
             label="Output format"
           />
-          <v-text-field
-            v-model="profile.outputFolder"
-            label="Library-relative output folder"
-          />
+          <p class="text-body-small text-medium-emphasis mb-2">
+            Converted books are saved in the selected manga folder. The temporary source CBZ is
+            deleted after successful conversion.
+          </p>
           <KccOptionsEditor
             v-model="profile.extraArgs"
             :options="kccCapabilities?.options ?? []"
           />
-          <p class="text-body-small text-medium-emphasis mb-2">Conversion arguments (Komga manages input and output paths)</p>
-          <pre class="text-body-small mb-4" style="white-space: pre-wrap; overflow-wrap: anywhere">{{ JSON.stringify(kccArguments, null, 2) }}</pre>
+          <p class="text-body-small text-medium-emphasis mb-2">
+            Conversion arguments (Komga manages input and output paths)
+          </p>
+          <pre
+            class="text-body-small mb-4"
+            style="white-space: pre-wrap; overflow-wrap: anywhere"
+            >{{ JSON.stringify(kccArguments, null, 2) }}</pre>
           <v-checkbox
             v-model="profile.manga"
             label="Manga reading order"
-            hide-details
-          />
-          <v-checkbox
-            v-model="profile.keepOriginal"
-            label="Keep original CBZ after conversion"
             hide-details
           />
           <v-alert

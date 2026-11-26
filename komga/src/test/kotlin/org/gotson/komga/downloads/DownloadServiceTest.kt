@@ -42,8 +42,8 @@ class DownloadServiceTest {
     every { source.pages(any()) } returns emptyList()
     every { files.root("library") } returns directory
     every { files.target(directory, "Series", false) } returns directory.resolve("Series")
-    every { files.archive(any(), any(), any(), any()) } returns "Series/chapter.cbz"
-    every { converter.convert(any(), any()) } returns listOf("Converted/chapter.epub", "Converted/chapter 2.epub")
+    every { files.archive(any(), any(), any(), any(), any()) } returns "Series/chapter.cbz"
+    every { converter.convert(any(), any()) } returns listOf("Series/chapter.epub", "Series/chapter 2.epub")
     every { files.removeOriginal(any()) } answers {
       val record = firstArg<DownloadRecord>()
       assertEqualValue(
@@ -106,7 +106,7 @@ class DownloadServiceTest {
     val entry = track()
     assertEqualValue(setOf(old.id), entry.seen)
     assertTrueValue(service.state().history.isEmpty())
-    verify(exactly = 0) { files.archive(any(), any(), any(), any()) }
+    verify(exactly = 0) { files.archive(any(), any(), any(), any(), any()) }
   }
 
   @Test
@@ -122,8 +122,9 @@ class DownloadServiceTest {
     assertEqualValue(fresh.id, record.chapter.id)
     assertEqualValue(global, record.conversion?.profile)
     assertEqualValue("Converted", record.conversion?.status)
-    assertEqualValue(listOf("Converted/chapter.epub", "Converted/chapter 2.epub"), record.conversion?.files)
+    assertEqualValue(listOf("Series/chapter.epub", "Series/chapter 2.epub"), record.conversion?.files)
     assertEqualValue("Scan queued", record.scan)
+    verify(exactly = 1) { files.archive(any(), any(), any(), any(), true) }
     verify(exactly = 1) { converter.convert(any(), global) }
     verify(exactly = 1) { files.removeOriginal(any()) }
   }
@@ -139,6 +140,7 @@ class DownloadServiceTest {
     val record = checkFresh("off")
     assertNullValue(record.conversion)
     assertEqualValue("Scan queued", record.scan)
+    verify(exactly = 1) { files.archive(any(), any(), any(), any(), false) }
     verify(exactly = 0) { converter.convert(any(), any()) }
   }
 
@@ -146,7 +148,7 @@ class DownloadServiceTest {
   fun `download failure does not mark new chapter as seen`() {
     val entry = track("off")
     every { source.chapters("series", any()) } returns listOf(old, fresh)
-    every { files.archive(any(), any(), any(), any()) } throws IllegalStateException("fixture failure")
+    every { files.archive(any(), any(), any(), any(), any()) } throws IllegalStateException("fixture failure")
     service.check(entry.id)
     awaitCheck(entry.id)
     assertEqualValue(
@@ -184,6 +186,7 @@ class DownloadServiceTest {
         .error,
     )
     verify(exactly = 0) { files.removeOriginal(any()) }
+    verify(exactly = 0) { tasks.scanLibrary(any()) }
   }
 
   @Test

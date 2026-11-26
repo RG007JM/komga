@@ -68,15 +68,34 @@ class DownloadFiles(
     title: String,
     chapter: SourceChapter,
     pages: List<SourcePage>,
+    forConversion: Boolean = false,
   ): String {
     require(pages.isNotEmpty()) { "Source returned no pages" }
     val root = root(destination.libraryId)
-    val folder = target(root, destination.folder, true)
     val name = safeName("Chapter " + chapter.number + " - " + chapter.title) + " [" + safeName(chapter.id) + "].cbz"
+    val folder =
+      if (forConversion) {
+        target(root, destination.folder, false)
+        val temp = systemTemp()
+        require(!temp.startsWith(root)) { "System temporary directory is inside the library" }
+        require(
+          libraries.findAll().none { library ->
+            val configured = Path.of(library.root.toURI()).toAbsolutePath().normalize()
+            val libraryRoot = runCatching { configured.toRealPath() }.getOrDefault(configured)
+            temp.startsWith(libraryRoot)
+          },
+        ) { "System temporary directory is inside a Komga library" }
+        Files.createTempDirectory(temp, "komga-download-")
+      } else {
+        target(root, destination.folder, true)
+      }
     val output = folder.resolve(name)
-    val temporary = Files.createTempFile(folder, ".manga-download-", ".tmp")
+    var temporary: Path? = null
+    var completed = false
     try {
-      ZipOutputStream(Files.newOutputStream(temporary)).use { zip ->
+      val partial = Files.createTempFile(folder, ".manga-download-", ".tmp")
+      temporary = partial
+      ZipOutputStream(Files.newOutputStream(partial)).use { zip ->
         pages.forEachIndexed { index, page ->
           val extension = page.filename.substringAfterLast('.', "").lowercase()
           require(extension in setOf("jpeg", "jpg", "png", "webp", "gif", "avif", "bmp")) { "Unsupported source page type" }
@@ -112,10 +131,12 @@ class DownloadFiles(
         xml.flush()
         zip.closeEntry()
       }
-      Files.move(temporary, output)
-      return root.relativize(output).toString()
+      Files.move(partial, output)
+      completed = true
+      return if (forConversion) output.toString() else root.relativize(output).toString()
     } finally {
-      Files.deleteIfExists(temporary)
+      temporary?.let { Files.deleteIfExists(it) }
+      if (forConversion && !completed) Files.deleteIfExists(folder)
     }
   }
 
@@ -138,13 +159,30 @@ class DownloadFiles(
     return bytes
   }
 
-  fun removeOriginal(record: DownloadRecord) {
-    val root = root(record.destination.libraryId)
-    val relative = Path.of(record.file)
-    require(relative.root == null && relative.parent != null) { "Invalid original path" }
-    val original = target(root, relative.parent.toString(), false).resolve(relative.fileName)
+  private fun systemTemp(): Path = Path.of(System.getProperty("java.io.tmpdir")).toRealPath()
+
+  fun sourceArchive(record: DownloadRecord): Path {
+    val path = Path.of(record.file)
+    val original =
+      if (path.isAbsolute) {
+        val parent = requireNotNull(path.parent) { "Invalid staged CBZ path" }
+        require(path == path.normalize() && parent.parent == systemTemp() && parent.fileName.toString().startsWith("komga-download-")) { "Invalid staged CBZ path" }
+        require(Files.isDirectory(parent, NOFOLLOW_LINKS)) { "Staged download directory is unavailable" }
+        path
+      } else {
+        // Retry records created by earlier downloader versions.
+        require(path.root == null && path.parent != null) { "Invalid original path" }
+        target(root(record.destination.libraryId), path.parent.toString(), false).resolve(path.fileName)
+      }
+    require(original.fileName.toString().endsWith(".cbz", ignoreCase = true)) { "Invalid source archive type" }
     check(Files.isRegularFile(original, NOFOLLOW_LINKS)) { "Original CBZ is unavailable" }
+    return original
+  }
+
+  fun removeOriginal(record: DownloadRecord) {
+    val original = sourceArchive(record)
     Files.delete(original)
+    if (Path.of(record.file).isAbsolute) Files.deleteIfExists(original.parent)
   }
 
   fun safeName(value: String): String =

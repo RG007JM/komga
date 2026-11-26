@@ -164,15 +164,10 @@ class DownloadService(
     settings.profiles.forEach { profile ->
       require(profile.name.isNotBlank()) { "Enter a KCC profile name" }
       KccOptions.validate(profile)
-      require(profile.outputFolder.isNotBlank()) { "Enter a library-relative KCC output folder" }
-      val path =
-        java.nio.file.Path
-          .of(profile.outputFolder)
-      require(path.root == null && path.none { it.toString() in setOf("..", ".") }) { "Enter a library-relative KCC output folder" }
     }
     store.update { current ->
       require(current.tracked.none { it.kccProfileId != null && it.kccProfileId != "off" && it.kccProfileId !in ids }) { "A tracked manga still uses this profile" }
-      current.copy(kcc = settings)
+      current.copy(kcc = settings.copy(profiles = settings.profiles.map { it.copy(keepOriginal = false, outputFolder = "") }))
     }
   }
 
@@ -212,7 +207,7 @@ class DownloadService(
           ?.kcc
           ?.profiles
           ?.find { it.id == id }
-          ?.let { tracked.destination.libraryId to it.outputFolder }
+          ?.let { tracked.destination.libraryId to tracked.destination.folder }
       }
     val kccPathsAvailable =
       activeKccDestinations.all { (libraryId, folder) ->
@@ -353,7 +348,7 @@ class DownloadService(
     val settings = current.kcc
     val selected = profileId ?: if (mode == "auto") settings.autoProfileId else settings.manualProfileId
     val profile = settings.profiles.find { it.id == selected }
-    val file = files.archive(destination, title, chapter, source.pages(chapter.id))
+    val file = files.archive(destination, title, chapter, source.pages(chapter.id), forConversion = profile != null)
     val record =
       DownloadRecord(
         UUID.randomUUID().toString(),
@@ -368,7 +363,12 @@ class DownloadService(
         if (profile == null) "Pending scan" else "Awaiting conversion",
         profile?.let { Conversion(it, "Queued") },
       )
-    store.update { it.copy(history = listOf(record) + it.history) }
+    try {
+      store.update { it.copy(history = listOf(record) + it.history) }
+    } catch (e: Exception) {
+      if (profile != null) runCatching { files.removeOriginal(record) }
+      throw e
+    }
     if (profile == null) scan(record) else convert(record, profile)
     return state().history.first { it.id == record.id }
   }
@@ -386,11 +386,9 @@ class DownloadService(
         return
       }
     updateRecord(record.id) { it.copy(conversion = Conversion(profile, "Converted", outputs.first(), files = outputs)) }
-    if (!profile.keepOriginal) {
-      runCatching { files.removeOriginal(record) }.onFailure { error ->
-        updateRecord(record.id) {
-          it.copy(conversion = Conversion(profile, "Converted", outputs.first(), "Original retained: ${error.message}", outputs))
-        }
+    runCatching { files.removeOriginal(record) }.onFailure { error ->
+      updateRecord(record.id) {
+        it.copy(conversion = Conversion(profile, "Converted", outputs.first(), "Temporary source cleanup failed: ${error.message}", outputs))
       }
     }
     scan(record)

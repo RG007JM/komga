@@ -462,7 +462,7 @@ function retry(item: Record) {
         :mobile="xs"
         :sort-by="[{ key: 'downloadedAt', order: 'desc' }]"
       >
-        <template #item.title="{ item }"
+        <template #[`item.title`]="{ item }"
           ><v-btn
             variant="text"
             color="primary"
@@ -471,17 +471,17 @@ function retry(item: Record) {
           >
           <div class="text-body-small">{{ source(item.provider) }}</div></template
         >
-        <template #item.downloadedAt="{ item }"
+        <template #[`item.downloadedAt`]="{ item }"
           >Chapter {{ item.chapter.number }}
           <div class="text-body-small">
             {{ stamp(item.downloadedAt) }} · {{ item.mode === 'auto' ? 'Auto-fetch' : 'Manual' }}
           </div></template
         >
-        <template #item.file="{ item }"
+        <template #[`item.file`]="{ item }"
           >{{ library(item.destination.libraryId) }}
           <div class="text-body-small">{{ conversionFiles(item) }}</div></template
         >
-        <template #item.mode="{ item }">{{
+        <template #[`item.mode`]="{ item }">{{
           matches(item)?.enabled ? 'Enabled' : matches(item) ? 'Paused' : 'Untracked'
         }}</template>
       </v-data-table>
@@ -491,7 +491,7 @@ function retry(item: Record) {
         :items="tracked"
         :mobile="xs"
       >
-        <template #item.title="{ item }"
+        <template #[`item.title`]="{ item }"
           ><v-btn
             variant="text"
             color="primary"
@@ -500,7 +500,7 @@ function retry(item: Record) {
           >
           <div class="text-body-small">{{ source(item.provider) }}</div></template
         >
-        <template #item.enabled="{ item }"
+        <template #[`item.enabled`]="{ item }"
           ><v-chip
             size="small"
             variant="tonal"
@@ -508,13 +508,13 @@ function retry(item: Record) {
             >{{ item.enabled ? 'Enabled' : 'Paused' }}</v-chip
           ></template
         >
-        <template #item.kccProfileId="{ item }"
+        <template #[`item.kccProfileId`]="{ item }"
           >{{ profileName(item.kccProfileId ?? state?.kcc.autoProfileId) }}
           <div class="text-body-small">
             {{ item.kccProfileId == null ? 'Default' : 'Manga override' }}
           </div></template
         >
-        <template #item.expectedRelease="{ item }"
+        <template #[`item.expectedRelease`]="{ item }"
           >{{ item.expectedRelease ? stamp(item.expectedRelease) : 'Unknown' }}
           <div
             v-if="item.releaseBasis"
@@ -523,8 +523,8 @@ function retry(item: Record) {
             {{ item.releaseBasis }}
           </div></template
         >
-        <template #item.nextCheck="{ item }">{{ stamp(item.nextCheck) }}</template>
-        <template #item.lastCheck="{ item }"
+        <template #[`item.nextCheck`]="{ item }">{{ stamp(item.nextCheck) }}</template>
+        <template #[`item.lastCheck`]="{ item }"
           >{{ stamp(item.lastCheck) }}
           <div
             v-if="item.error"
@@ -533,7 +533,7 @@ function retry(item: Record) {
             {{ item.error }}
           </div></template
         >
-        <template #item.actions="{ item }"
+        <template #[`item.actions`]="{ item }"
           ><v-btn
             variant="text"
             :disabled="working"

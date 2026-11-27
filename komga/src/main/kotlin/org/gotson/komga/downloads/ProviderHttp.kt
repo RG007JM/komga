@@ -19,6 +19,11 @@ import java.util.HexFormat
 import java.util.concurrent.TimeUnit
 import java.util.zip.GZIPInputStream
 
+internal class NativeMangaPlusResponse(
+  val body: ByteArray,
+  val viewerCookie: String?,
+)
+
 /** Native HTTP transport: bounded responses, checked redirects and no challenge solver. */
 @Component
 class ProviderHttp {
@@ -67,6 +72,50 @@ class ProviderHttp {
     hosts: Set<String>,
     headers: Map<String, String>,
   ): ByteArray = fetch(uri, hosts, headers, 32 * 1024 * 1024, imageResponse = true)
+
+  /** Native requests are never redirected and never retry HTTP denials or rate limits. */
+  internal fun nativeMangaPlusResponse(
+    uri: URI,
+    hosts: Set<String>,
+    headers: Map<String, String>,
+    image: Boolean,
+  ): NativeMangaPlusResponse {
+    validateUri(uri, hosts)
+    pace(requireNotNull(uri.host).lowercase())
+    val response =
+      try {
+        client.send(providerRequest(uri, headers).GET().build(), HttpResponse.BodyHandlers.ofInputStream())
+      } catch (e: InterruptedException) {
+        Thread.currentThread().interrupt()
+        throw e
+      } catch (_: IOException) {
+        // Do not leak signed image URLs or device credentials through exception messages.
+        error("Native MANGA Plus network request failed")
+      }
+    return response.body().use { stream ->
+      check(response.statusCode() in 200..299) { "Native MANGA Plus returned HTTP ${response.statusCode()}; request stopped" }
+      val contentType = response.headers().firstValue("Content-Type").orElse("")
+      check(
+        !contentType.contains("html", true) &&
+          !response
+            .headers()
+            .firstValue("cf-mitigated")
+            .orElse("")
+            .equals("challenge", true),
+      ) { "Native MANGA Plus returned an interactive challenge or HTML response" }
+      if (image) validateProviderImageContentType(contentType)
+      val body = readProviderBody(stream, response.headers().firstValue("Content-Encoding").orElse(""), if (image) 32 * 1024 * 1024 else 64 * 1024 * 1024)
+      check(body.isNotEmpty()) { "Native MANGA Plus returned an empty response" }
+      val cookie =
+        response
+          .headers()
+          .allValues("Set-Cookie")
+          .map { it.substringBefore(';').trim() }
+          .firstOrNull { it.startsWith("plus_vw_token=") }
+          ?.substringAfter('=')
+      NativeMangaPlusResponse(body, cookie)
+    }
+  }
 
   private fun fetch(
     uri: URI,

@@ -20,6 +20,10 @@ class MangaPlusDownloadProvider(
   @param:Value("\${komga.downloads.mangaplus.language:0}") private val language: Int = 0,
   @param:Value("\${komga.downloads.mangaplus.image-quality:super_high}") private val imageQuality: String = "super_high",
   @param:Value("\${komga.downloads.mangaplus.split:no}") private val split: String = "no",
+  @param:Value("\${MANGAPLUS_DEVICE_SECRET:}") private val nativeSecret: String = "",
+  @param:Value("\${MANGAPLUS_OS_VER:36}") private val nativeOsVersion: String = "36",
+  @param:Value("\${MANGAPLUS_APP_VER:264}") private val nativeAppVersion: String = "264",
+  @param:Value("\${MANGAPLUS_COUNTRY_CODE:IT}") private val nativeCountryCode: String = "IT",
 ) : DownloadProvider {
   init {
     require(language in 0..6) { "Invalid MANGA Plus catalogue language" }
@@ -27,9 +31,14 @@ class MangaPlusDownloadProvider(
     require(split in setOf("yes", "no")) { "Invalid MANGA Plus split option" }
   }
 
+  private val native =
+    nativeSecret.trim().takeIf { it.isNotEmpty() }?.let {
+      MangaPlusNative(http, it, nativeOsVersion.trim(), nativeAppVersion.trim(), nativeCountryCode.trim().uppercase(), language)
+    }
+  override val pagePreviewSupported: Boolean get() = native == null
   private val session = UUID.randomUUID().toString()
   override val id = "mangaplus"
-  override val label = "MANGA Plus (experimental)"
+  override val label = if (native == null) "MANGA Plus (web)" else "MANGA Plus (native)"
   private val base = "https://jumpg-webapi.tokyo-cdn.com/api"
   private val hosts = setOf("jumpg-webapi.tokyo-cdn.com")
   private val website = "https://mangaplus.shueisha.co.jp"
@@ -47,6 +56,7 @@ class MangaPlusDownloadProvider(
       }
     if (exact != null) return listOf(series(detail(exact).wireMessage(1)))
     require(value.isNotEmpty()) { "Enter a MANGA Plus title or ID" }
+    native?.let { return it.search(value) }
     val data = get("/title_list/allV2", "$website/manga_list/all")
     return try {
       mangaPlusCatalog(data, value, language)
@@ -60,6 +70,11 @@ class MangaPlusDownloadProvider(
     filters: ChapterFilters,
   ): List<SourceChapter> {
     val id = titleId(seriesId)
+    native?.let {
+      val chapters = it.chapters(id)
+      logger.info { "MANGA Plus native title $id: parsed ${chapters.size} distinct chapters" }
+      return chapters
+    }
     // Mangathr selects language at catalogue lookup and ignores group filters.
     val data = detailResponse(id)
     val detail = parseDetail(data, id)
@@ -99,17 +114,28 @@ class MangaPlusDownloadProvider(
       .sortedByDescending { it.number.toBigDecimalOrNull() ?: java.math.BigDecimal.ZERO }
   }
 
-  override fun nextRelease(seriesId: String): Instant? = mangaPlusRelease(detail(titleId(seriesId)))
+  override fun nextRelease(seriesId: String): Instant? {
+    val id = titleId(seriesId)
+    return if (native != null) native.nextRelease(id) else mangaPlusRelease(detail(id))
+  }
 
   override fun pages(chapterId: String): List<SourcePage> {
     val id = titleId(chapterId)
+    native?.let { return it.pages(id, split, imageQuality) }
     val viewer = get("/manga_viewer_v3?chapter_id=$id&split=$split&img_quality=$imageQuality&viewer_mode=horizontal&clang=eng", "$website/viewer/$id")
     return mangaPlusViewerPages(viewer, imageHosts, http)
   }
 
   private fun detailResponse(id: Long): ByteArray = get("/title_detailV4?title_id=$id&clang=eng", "$website/titles/$id")
 
-  private fun detail(id: Long): List<MangaPlusField> = parseDetail(detailResponse(id), id)
+  private fun detail(id: Long): List<MangaPlusField> {
+    if (native != null) {
+      val detail = mangaPlusNativeSuccess(native.detail(id), 8)
+      require(detail.wireMessage(1).wireValue(1) == id) { "Native title detail ID mismatch" }
+      return detail
+    }
+    return parseDetail(detailResponse(id), id)
+  }
 
   private fun parseDetail(
     data: ByteArray,

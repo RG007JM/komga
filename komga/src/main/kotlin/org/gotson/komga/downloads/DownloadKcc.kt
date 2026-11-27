@@ -83,6 +83,10 @@ class DownloadKcc(
       outputs.forEach { output ->
         check(Files.isRegularFile(output, NOFOLLOW_LINKS) && output.fileName.toString().endsWith(".${profile.format.lowercase()}", ignoreCase = true)) { "Unexpected KCC output; see ${log.fileName}" }
         validateOutput(output, profile.format)
+        if (profile.format in setOf("EPUB", "CBZ")) {
+          DownloadChapterMetadata.restore(output, input, record.title, record.chapter, profile.format)
+          validateOutput(output, profile.format)
+        }
       }
       files.target(root, record.destination.folder, true)
       val targets =

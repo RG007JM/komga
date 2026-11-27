@@ -134,6 +134,19 @@ pixel limits. Do not assume that previewing a page reserves it for download.
   sent to a different host on redirect. No entitlement or regional restrictions
   are overridden. Actual upstream response compatibility must be established
   by live smoke testing.
+  Native mode is enabled by supplying the existing server-issued
+  `MANGAPLUS_DEVICE_SECRET` environment credential. The native Go release-date
+  patch in Mangathr is the reference for `title_list/all_v3`, `title_detailV3`,
+  chapter publication fields and the official next release timestamp. Viewer
+  requests use the standalone reference's free-reading-only policy; no ticket
+  or subscription entitlement is asserted. The native transport stops on
+  HTTP denials/rate limits, does not redirect signed requests, and does not
+  register or rotate identities. Native resolution preview is disabled to
+  avoid consuming an entitled reading session. Native page records use the
+  declared schema fields, and malformed/incomplete responses fail closed.
+  The existing web mode remains available when no credential is configured;
+  failures in native mode do not trigger web fallback. The native per-chapter
+  staging limit is 256 MiB. Live API compatibility remains to be verified.
 - **Cubari** (`cubari`): optional manifest provider; not the focus of this
   revision. Existing IDs and implementation are retained.
 

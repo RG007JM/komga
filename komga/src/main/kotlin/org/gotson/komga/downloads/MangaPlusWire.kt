@@ -73,6 +73,7 @@ internal data class MangaPlusChapter(
   val id: Long,
   val name: String,
   val subtitle: String,
+  val publishedAt: Instant? = null,
 )
 
 internal fun mangaPlusChapters(

@@ -103,6 +103,18 @@ class DownloadServiceTest {
   }
 
   @Test
+  fun `deleting auto fetch retains history and prevents future checks`() {
+    val record = checkFresh("off")
+    val entry = service.state().tracked.single()
+    service.stop(entry.id)
+    service.stop(entry.id)
+    assertTrueValue(service.state().tracked.isEmpty())
+    assertEqualValue(listOf(record), service.state().history)
+    assertThrowsType(IllegalArgumentException::class.java) { service.check(entry.id) }
+    verify(exactly = 0) { files.removeOriginal(any()) }
+  }
+
+  @Test
   fun `new subscription seeds old chapters without downloading them`() {
     val entry = track()
     assertEqualValue(setOf(old.id), entry.seen)

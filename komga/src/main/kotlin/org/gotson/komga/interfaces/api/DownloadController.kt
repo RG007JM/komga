@@ -70,7 +70,11 @@ class DownloadController(
   fun dimensions(
     @PathVariable source: String,
     @PathVariable id: String,
-  ) = files.dimensions(service.provider(source).pages(id))
+  ): List<org.gotson.komga.downloads.PageDimensions> {
+    val provider = service.provider(source)
+    require(provider.pagePreviewSupported) { "Page preview is disabled for native MANGA Plus to avoid consuming a free-reading session. Download the chapter first." }
+    return files.dimensions(provider.pages(id))
+  }
 
   @PutMapping("/tracked")
   fun track(

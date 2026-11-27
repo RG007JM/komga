@@ -414,7 +414,7 @@ function stop() {
     if (!stopEntry.value) return
     await downloadsApi('/tracked/' + stopEntry.value.id, 'DELETE')
     stopEntry.value = undefined
-    await update('Auto-fetch stopped. History was kept.')
+    await update('Auto-fetch deleted. Downloaded books and history were kept.')
   })
 }
 function editProfile(item?: Profile) {
@@ -622,6 +622,12 @@ function retry(item: Record) {
             variant="text"
             @click="open('edit', item)"
             >Edit</v-btn
+          ><v-btn
+            variant="text"
+            color="error"
+            :disabled="working"
+            @click="stopEntry = item"
+            >Delete auto-fetch</v-btn
           ></template
         >
       </v-data-table>
@@ -1157,8 +1163,8 @@ function retry(item: Record) {
       @update:model-value="stopEntry = undefined"
     >
       <v-card
-        title="Stop tracking?"
-        text="Automatic checks will stop. Downloaded chapters and history will be kept."
+        title="Delete auto-fetch entry?"
+        text="This removes the auto-fetch entry and its pending chapter selections. Downloaded books and history will be kept. A chapter already downloading may finish."
       >
         <v-alert
           v-if="error"
@@ -1172,7 +1178,7 @@ function retry(item: Record) {
             color="error"
             :disabled="working"
             @click="stop"
-            >Stop tracking</v-btn
+            >Delete entry</v-btn
           ></v-card-actions
         >
       </v-card>

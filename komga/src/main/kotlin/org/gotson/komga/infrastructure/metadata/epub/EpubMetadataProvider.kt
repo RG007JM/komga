@@ -40,6 +40,8 @@ class EpubMetadataProvider(
   override val capabilities =
     setOf(
       BookMetadataPatchCapability.TITLE,
+      BookMetadataPatchCapability.NUMBER,
+      BookMetadataPatchCapability.NUMBER_SORT,
       BookMetadataPatchCapability.SUMMARY,
       BookMetadataPatchCapability.RELEASE_DATE,
       BookMetadataPatchCapability.AUTHORS,

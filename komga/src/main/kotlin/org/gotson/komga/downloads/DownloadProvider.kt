@@ -7,6 +7,7 @@ import java.time.Instant
 interface DownloadProvider {
   val id: String
   val label: String
+  val pagePreviewSupported: Boolean get() = true
 
   fun search(query: String): List<SourceSeries>
 

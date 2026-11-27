@@ -28,6 +28,7 @@ class KccRuntime(
   private val pathDirectories: List<Path>
     get() =
       buildList {
+        add(directory.resolve("runtime-${KccOptions.VERSION}/bin"))
         add(directory.resolve("bin"))
         if (windows) {
           System.getenv("ProgramFiles")?.let { add(Path.of(it, "7-Zip")) }

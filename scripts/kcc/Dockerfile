@@ -11,5 +11,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && KCC_PYTHON=python3 bash /tmp/install-komga-kcc.sh /opt/komga-kcc \
     && rm -f /tmp/install-komga-kcc.sh \
     && rm -rf /var/lib/apt/lists/*
-ENV KOMGA_KCC_C2E=/opt/komga-kcc/kcc/bin/kcc-c2e
-ENV PATH=/opt/komga-kcc/kcc/bin:${PATH}
+ENV KOMGA_KCC_C2E=/opt/komga-kcc/kcc/runtime-13.0.4/bin/kcc-c2e
+ENV PATH=/opt/komga-kcc/kcc/runtime-13.0.4/bin:${PATH}

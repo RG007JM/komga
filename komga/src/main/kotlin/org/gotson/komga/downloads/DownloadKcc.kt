@@ -73,7 +73,7 @@ class DownloadKcc(
     val stage = Files.createTempDirectory("komga-kcc-")
     val published = mutableListOf<Path>()
     try {
-      val copied = Files.copy(input, stage.resolve(input.fileName.toString().removePrefix(".")))
+      val copied = Files.copy(input, stage.resolve("chapter.cbz"))
       val out = Files.createDirectory(stage.resolve("output"))
       val log = runtime.logFile()
       val command = listOf(binary.toString()) + args + listOf("--output=${out.toAbsolutePath()}", "--", copied.toAbsolutePath().toString())

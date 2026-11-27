@@ -16,9 +16,9 @@ data class KccOption(
   val description: String,
 )
 
-/** CLI contract from KCC 12.1.5, comic2ebook.makeParser and image.ProfileData. */
+/** CLI contract from KCC 13.0.4, comic2ebook.makeParser and image.ProfileData. */
 object KccOptions {
-  const val VERSION = "12.1.5"
+  const val VERSION = "13.0.4"
   val formats = listOf("EPUB", "CBZ", "PDF")
   val devices =
     listOf(

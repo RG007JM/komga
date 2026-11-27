@@ -188,14 +188,14 @@ class DownloadFilesTest {
     val profile = KccProfile("legacy", "Legacy", "KoLC", format = "CBZ", keepOriginal = true, outputFolder = "Converted")
     val record = DownloadRecord("id", "fixture", "series", "Series", chapter, destination, input.toString(), Instant.now(), "manual", "Awaiting conversion", Conversion(profile, "Queued"))
     val runtime = mockk<org.gotson.komga.downloads.kcc.KccRuntime>()
-    every { runtime.status() } returns "Available (12.1.5)"
+    every { runtime.status() } returns "Available (13.0.4)"
     every { runtime.archiveStatus() } returns "Available (7z)"
     every { runtime.executable() } returns root.resolve("fake-kcc")
     every { runtime.logFile() } returns root.resolve("conversion.log")
     every { runtime.run(any(), any(), any(), any()) } answers {
       val stage = checkNotNull(secondArg<Path?>())
       Files.copy(input, stage.resolve("output").resolve(input.fileName))
-      Unit
+      return@answers Unit
     }
     try {
       val outputs = DownloadKcc(files, runtime).convert(record, profile)
@@ -220,7 +220,7 @@ class DownloadFilesTest {
     val profile = KccProfile("kobo", "Kobo", "KoLC")
     val record = DownloadRecord("id", "fixture", "series", "Series", chapter, destination, input.toString(), Instant.now(), "manual", "Awaiting conversion", Conversion(profile, "Queued"))
     val runtime = mockk<org.gotson.komga.downloads.kcc.KccRuntime>()
-    every { runtime.status() } returns "Available (12.1.5)"
+    every { runtime.status() } returns "Available (13.0.4)"
     every { runtime.archiveStatus() } returns "Available (7z)"
     every { runtime.executable() } returns root.resolve("fake-kcc")
     every { runtime.logFile() } returns root.resolve("conversion.log")

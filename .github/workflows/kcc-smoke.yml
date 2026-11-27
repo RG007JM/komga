@@ -4,23 +4,40 @@ on:
   push:
     paths:
       - 'scripts/kcc/**'
-      - 'komga/src/main/kotlin/org/gotson/komga/downloads/kcc/**'
-      - 'komga/src/main/kotlin/org/gotson/komga/downloads/DownloadKcc.kt'
+      - 'komga/src/main/kotlin/org/gotson/komga/downloads/**'
+      - 'komga/src/test/kotlin/org/gotson/komga/downloads/**'
       - '.github/workflows/kcc-smoke.yml'
 permissions:
   contents: read
 jobs:
   linux:
     runs-on: ubuntu-latest
+    env:
+      KOMGA_TEST_KCC: 'true'
+      LC_ALL: C.UTF-8
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v6.4.1
+      # KCC itself is installed from its pinned upstream source on Unix.
+      # The smoke tests below are Kotlin/JUnit, not Python.
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
       - name: Install system dependencies
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends p7zip-full libglib2.0-0t64 build-essential cmake libffi-dev libjpeg-dev
-      - name: Install KCC 12.1.5 headlessly
+      - name: Install KCC 13.0.4 headlessly
         run: KCC_PYTHON=python bash scripts/kcc/install-unix.sh "$RUNNER_TEMP/komga-kcc"
-      - name: Convert synthetic comics
+      - name: Convert synthetic comics using Kotlin/JUnit
         run: |
-          "$RUNNER_TEMP/komga-kcc/kcc/runtime-12.1.5/venv/bin/python" scripts/kcc/smoke.py "$RUNNER_TEMP/komga-kcc/kcc/bin/kcc-c2e"
+          export KOMGA_KCC_C2E="$RUNNER_TEMP/komga-kcc/kcc/runtime-13.0.4/bin/kcc-c2e"
+          ./gradlew :komga:test --rerun --tests 'org.gotson.komga.downloads.KccSmokeTest' --console=plain
+      - name: Upload smoke test results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: kcc-smoke-results
+          path: komga/build/test-results/test/

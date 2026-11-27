@@ -8,6 +8,7 @@ class KccOptionsTest {
 
   @Test
   fun `registry matches pinned CLI device and flag counts`() {
+    assertEqualValue("13.0.4", KccOptions.VERSION)
     assertEqualValue(49, KccOptions.devices.size)
     assertEqualValue(54, KccOptions.options.size)
     val libra = KccOptions.devices.single { it.code == "KoLC" }
@@ -36,7 +37,7 @@ class KccOptionsTest {
 
   @Test
   fun `managed and malformed options are rejected`() {
-    listOf("--delete", "-d", "--output=/tmp", "--profile=OTHER", "--filefusion", "--help", "other.cbz", "--forcecolor=true", "--gamma=NaN", "--jpeg-quality=96", "--cropping=3").forEach { arg ->
+    listOf("--delete", "-d", "--output=/tmp", "--filename=unsafe", "--profile=OTHER", "--filefusion", "--help", "other.cbz", "--forcecolor=true", "--gamma=NaN", "--jpeg-quality=96", "--cropping=3").forEach { arg ->
       assertThrowsType(IllegalArgumentException::class.java) { KccOptions.validate(profile.copy(extraArgs = listOf(arg))) }
     }
     assertThrowsType(IllegalArgumentException::class.java) { KccOptions.validate(profile.copy(extraArgs = listOf("--gamma=1", "--gamma=2"))) }

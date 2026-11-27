@@ -43,6 +43,7 @@ class DownloadServiceTest {
     every { files.root("library") } returns directory
     every { files.target(directory, "Series", false) } returns directory.resolve("Series")
     every { files.archive(any(), any(), any(), any(), any(), any()) } returns "Series/chapter.cbz"
+    every { files.presence(any<DownloadRecord>()) } returns DownloadPresence.PRESENT
     every { converter.convert(any(), any()) } returns listOf("Series/chapter.epub", "Series/chapter 2.epub")
     every { files.removeOriginal(any()) } answers {
       val record = firstArg<DownloadRecord>()
@@ -313,6 +314,48 @@ class DownloadServiceTest {
       Thread.sleep(10)
     }
     error("Manual downloads did not finish: ${service.workerError}")
+  }
+
+  @Test
+  fun `deleted output permits explicit download again`() {
+    val request = ManualRequest("fixture", "series", "Series", destination, setOf(old.id), kccProfileId = "off")
+    service.download(request)
+    val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10)
+    while (service
+        .state()
+        .history
+        .singleOrNull()
+        ?.scan != "Scan queued" && System.nanoTime() < deadline
+    ) {
+      Thread.sleep(10)
+    }
+    val first = service.state().history.single()
+    every { files.presence(any<DownloadRecord>()) } returns DownloadPresence.MISSING
+    service.download(request)
+    while (service
+        .state()
+        .history
+        .singleOrNull()
+        ?.let { it.id != first.id && it.scan == "Scan queued" } != true && System.nanoTime() < deadline
+    ) {
+      Thread.sleep(10)
+    }
+    assertTrueValue(
+      service
+        .state()
+        .history
+        .single()
+        .id != first.id,
+    )
+    assertEqualValue(
+      "Scan queued",
+      service
+        .state()
+        .history
+        .single()
+        .scan,
+    )
+    verify(exactly = 2) { files.archive(any(), any(), any(), any(), false, false) }
   }
 
   @Test

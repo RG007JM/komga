@@ -36,14 +36,17 @@ class DownloadController(
 ) {
   @GetMapping
   fun overview() =
-    mapOf(
-      "state" to service.state(),
-      "providers" to service.providers.values.map { mapOf("id" to it.id, "label" to it.label) },
-      "libraries" to libraries.findAll().map { mapOf("id" to it.id, "name" to it.name) },
-      "health" to service.health(),
-      "workerError" to service.workerError,
-      "kccCapabilities" to mapOf("version" to KccOptions.VERSION, "devices" to KccOptions.devices, "formats" to KccOptions.formats, "options" to KccOptions.options),
-    )
+    service.state().let { snapshot ->
+      mapOf(
+        "state" to snapshot,
+        "filePresence" to files.presence(snapshot.history),
+        "providers" to service.providers.values.map { mapOf("id" to it.id, "label" to it.label) },
+        "libraries" to libraries.findAll().map { mapOf("id" to it.id, "name" to it.name) },
+        "health" to service.health(),
+        "workerError" to service.workerError,
+        "kccCapabilities" to mapOf("version" to KccOptions.VERSION, "devices" to KccOptions.devices, "formats" to KccOptions.formats, "options" to KccOptions.options),
+      )
+    }
 
   @GetMapping("/{source}/search")
   fun search(

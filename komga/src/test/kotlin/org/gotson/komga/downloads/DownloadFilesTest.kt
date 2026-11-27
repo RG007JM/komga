@@ -92,7 +92,7 @@ class DownloadFilesTest {
   }
 
   @Test
-  fun `optional white page has first source page dimensions and preserves source bytes`() {
+  fun `optional alignment page duplicates first source page and preserves source bytes`() {
     val first = png(23, 42)
     val second = png(10, 20)
     var opened = 0
@@ -111,13 +111,44 @@ class DownloadFilesTest {
     assertEqualValue(2, opened)
     ZipFile(root.resolve(file).toFile()).use { zip ->
       assertEqualValue(listOf("0000.png", "0001.png", "0002.png", "ComicInfo.xml"), zip.entries().toList().map { it.name })
-      val blank = zip.getInputStream(zip.getEntry("0000.png")).use { ImageIO.read(it) }
-      assertEqualValue(23, blank.width)
-      assertEqualValue(42, blank.height)
-      assertTrueValue((0 until blank.height).all { y -> (0 until blank.width).all { x -> blank.getRGB(x, y) == -1 } })
+      val duplicate = zip.getInputStream(zip.getEntry("0000.png")).use { it.readBytes() }
+      assertTrueValue(duplicate.contentEquals(first))
+      val image = ImageIO.read(duplicate.inputStream())
+      assertEqualValue(23, image.width)
+      assertEqualValue(42, image.height)
       assertTrueValue(zip.getInputStream(zip.getEntry("0001.png")).use { it.readBytes().contentEquals(first) })
       assertTrueValue(zip.getInputStream(zip.getEntry("0002.png")).use { it.readBytes().contentEquals(second) })
     }
+  }
+
+  @Test
+  fun `file presence checks final outputs not deleted temporary sources`() {
+    val files = files()
+    val folder = Files.createDirectory(root.resolve("Series"))
+    val source = folder.resolve("old.cbz")
+    Files.writeString(source, "source")
+    val record = DownloadRecord("id", "fixture", "series", "Series", chapter, destination, "Series/old.cbz", Instant.now(), "manual", "Scan queued")
+    assertEqualValue(DownloadPresence.PRESENT, files.presence(record))
+    Files.delete(source)
+    assertEqualValue(DownloadPresence.MISSING, files.presence(record))
+    val a = Files.writeString(folder.resolve("first.kepub.epub"), "first")
+    val b = Files.writeString(folder.resolve("second.kepub.epub"), "second")
+    val profile = KccProfile("test", "Test", "KoLC")
+    val converted = record.copy(conversion = Conversion(profile, "Converted", "Series/first.kepub.epub", files = listOf("Series/first.kepub.epub", "Series/second.kepub.epub")))
+    assertEqualValue(DownloadPresence.PRESENT, files.presence(converted))
+    Files.delete(a)
+    assertEqualValue(DownloadPresence.INCOMPLETE, files.presence(converted))
+    Files.delete(b)
+    assertEqualValue(DownloadPresence.MISSING, files.presence(converted))
+    assertEqualValue(DownloadPresence.UNAVAILABLE, files.presence(record.copy(file = "../outside.cbz")))
+  }
+
+  @Test
+  fun `normalized filenames preserve Unicode and compound extensions`() {
+    val titled = chapter.copy(number = "4", title = "Chapter #4 - Technological・Ecological")
+    assertEqualValue("Chapter #4 - Technological・Ecological.kepub.epub", DownloadFileNames.converted(titled, "temporary.kepub.epub", 1, 1))
+    assertEqualValue("Chapter 1.5 - A & B (part 2).epub", DownloadFileNames.converted(chapter, "temporary.epub", 2, 2))
+    assertEqualValue("Chapter 1.5 - A-B", DownloadFileNames.stem(chapter.copy(title = "A:B")))
   }
 
   @Test

@@ -140,18 +140,35 @@ const trackHeaders = [
   { title: 'Last check', key: 'lastCheck' },
   { title: '', key: 'actions', sortable: false },
 ]
+const recordStatus = (item: Record) => overview.value?.filePresence?.[item.id] ?? 'UNAVAILABLE'
+const presenceLabel = (status: string) =>
+  (
+    ({
+      PRESENT: 'Downloaded',
+      MISSING: 'Missing file - can download again',
+      STAGED: 'Conversion staged - retry conversion',
+      INCOMPLETE: 'Some converted parts missing',
+      UNAVAILABLE: 'File location unavailable',
+    }) as { [key: string]: string }
+  )[status] ?? ''
+const chapterFileStatus = computed(() => {
+  const result = new Map<string, string>()
+  for (const item of state.value?.history ?? []) {
+    if (
+      item.provider === provider.value &&
+      item.seriesId === selected.value?.id &&
+      item.destination.libraryId === libraryId.value &&
+      item.destination.folder === folder.value.trim() &&
+      !result.has(item.chapter.id)
+    )
+      result.set(item.chapter.id, recordStatus(item))
+  }
+  return result
+})
 const alreadyDownloaded = computed(
   () =>
     new Set(
-      state.value?.history
-        .filter(
-          (item) =>
-            item.provider === provider.value &&
-            item.seriesId === selected.value?.id &&
-            item.destination.libraryId === libraryId.value &&
-            item.destination.folder === folder.value.trim(),
-        )
-        .map((item) => item.chapter.id),
+      [...chapterFileStatus.value].filter(([, status]) => status !== 'MISSING').map(([id]) => id),
     ),
 )
 const stamp = (value?: string) => (value ? new Date(value).toLocaleString() : '—')
@@ -533,6 +550,10 @@ function retry(item: Record) {
           >{{ library(item.destination.libraryId) }}
           <div class="text-body-small">{{ conversionFiles(item) }}</div></template
         >
+        <template #[`item.scan`]="{ item }">
+          {{ presenceLabel(recordStatus(item)) }}
+          <div class="text-body-small">{{ item.scan }}</div>
+        </template>
         <template #[`item.mode`]="{ item }">{{
           matches(item)?.enabled ? 'Enabled' : matches(item) ? 'Paused' : 'Untracked'
         }}</template>
@@ -913,7 +934,9 @@ function retry(item: Record) {
                       chapter.number +
                       (chapter.title ? ' · ' + chapter.title : '') +
                       (chapter.publishedAt ? ' · ' + stamp(chapter.publishedAt) : '') +
-                      (alreadyDownloaded.has(chapter.id) ? ' · Downloaded' : '')
+                      (chapterFileStatus.has(chapter.id)
+                        ? ' · ' + presenceLabel(chapterFileStatus.get(chapter.id) ?? '')
+                        : '')
                     "
                     hide-details
                     density="compact"
@@ -1000,7 +1023,7 @@ function retry(item: Record) {
             />
             <v-checkbox
               v-model="prependWhitePage"
-              label="Add a white page at the beginning of each chapter"
+              label="Duplicate the first page for spread alignment"
               :hint="
                 mode === 'manual'
                   ? 'Applies to all selected chapters.'
@@ -1103,7 +1126,13 @@ function retry(item: Record) {
               :key="item.id"
               :title="'Chapter ' + item.chapter.number"
               :subtitle="
-                conversionFiles(item) + ' · ' + item.scan + ' · ' + stamp(item.downloadedAt)
+                conversionFiles(item) +
+                ' · ' +
+                presenceLabel(recordStatus(item)) +
+                ' · ' +
+                item.scan +
+                ' · ' +
+                stamp(item.downloadedAt)
               "
             />
             <v-list-item

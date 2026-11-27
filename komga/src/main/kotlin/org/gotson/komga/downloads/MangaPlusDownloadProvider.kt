@@ -2,12 +2,15 @@
 // See MANGATHR-LICENSE.txt in the packaged resources.
 package org.gotson.komga.downloads
 
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.stereotype.Component
 import java.net.URI
 import java.time.Instant
 import java.util.UUID
+
+private val logger = KotlinLogging.logger {}
 
 /** Native MANGA Plus adapter for chapters made available by the source. */
 @Component
@@ -58,10 +61,12 @@ class MangaPlusDownloadProvider(
   ): List<SourceChapter> {
     val id = titleId(seriesId)
     // Mangathr selects language at catalogue lookup and ignores group filters.
-    val detail = detail(id)
+    val data = detailResponse(id)
+    val detail = parseDetail(data, id)
     val edition = (detail.wireMessage(1).wireValue(7) ?: 0L).toInt()
     val chapterLanguage = listOf("en", "es", "fr", "id", "pt-br", "ru", "th").getOrElse(edition) { "" }
-    val chapters = mangaPlusChapters(detail, id)
+    val chapters = mangaPlusChapters(detail, id, mangaPlusFields(data))
+    logger.info { "MANGA Plus title $id: parsed ${chapters.size} distinct chapters from ${data.size} metadata bytes" }
     return chapters
       .mapIndexed { index, chapter ->
         val number =
@@ -91,6 +96,7 @@ class MangaPlusDownloadProvider(
           setOf("MangaPlus"),
         )
       }.asReversed()
+      .sortedByDescending { it.number.toBigDecimalOrNull() ?: java.math.BigDecimal.ZERO }
   }
 
   override fun nextRelease(seriesId: String): Instant? = mangaPlusRelease(detail(titleId(seriesId)))
@@ -101,14 +107,19 @@ class MangaPlusDownloadProvider(
     return mangaPlusViewerPages(viewer, imageHosts, http)
   }
 
-  private fun detail(id: Long): List<MangaPlusField> {
-    val data = get("/title_detailV4?title_id=$id&clang=eng", "$website/titles/$id")
-    return try {
+  private fun detailResponse(id: Long): ByteArray = get("/title_detailV4?title_id=$id&clang=eng", "$website/titles/$id")
+
+  private fun detail(id: Long): List<MangaPlusField> = parseDetail(detailResponse(id), id)
+
+  private fun parseDetail(
+    data: ByteArray,
+    id: Long,
+  ): List<MangaPlusField> =
+    try {
       mangaPlusDetail(data, id)
     } catch (e: IllegalArgumentException) {
       throw IllegalStateException("MANGA Plus title detail invalid for $id: ${e.message}", e)
     }
-  }
 
   private fun series(title: List<MangaPlusField>): SourceSeries {
     val id = title.wireValue(1)

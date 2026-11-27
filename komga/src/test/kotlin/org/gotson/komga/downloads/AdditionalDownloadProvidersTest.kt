@@ -182,6 +182,24 @@ class AdditionalDownloadProvidersTest {
   }
 
   @Test
+  fun `Manga Plus combines V4 and legacy chapter metadata without duplicate IDs`() {
+    val titleId = 100056L
+
+    fun chapter(
+      id: Long,
+      name: String,
+    ) = wireInt(1, titleId) + wireInt(2, id) + wireString(3, name) + wireString(4, "Subtitle")
+    val v4 = chapter(2, "#2") + wireString(5, "https://example.test/secure/title/$titleId/chapter/2/chapter_thumbnail/a.jpg")
+    val legacy = wireBytes(2, chapter(1, "#1")) + wireBytes(4, chapter(2, "#2"))
+    val detail = mangaPlusFields(wireBytes(47, wireBytes(2, v4)) + wireBytes(28, legacy))
+    assertEqualValue(setOf(1L, 2L), mangaPlusChapters(detail, titleId).map { it.id }.toSet())
+    assertEqualValue(2, mangaPlusChapters(detail, titleId).size)
+    val sibling = chapter(3, "#3") + wireString(5, "https://example.test/secure/title/$titleId/chapter/3/chapter_thumbnail/a.jpg")
+    val response = mangaPlusFields(wireBytes(47, v4) + wireBytes(48, sibling))
+    assertEqualValue(setOf(1L, 2L, 3L), mangaPlusChapters(detail, titleId, response).map { it.id }.toSet())
+  }
+
+  @Test
   fun `Manga Plus legacy chapter blocks preserve first and last list order`() {
     val title = wireInt(1, 100056) + wireString(2, "Fixture")
 

@@ -390,10 +390,18 @@ class DownloadService(
     prependWhitePage: Boolean = false,
   ): DownloadRecord {
     val current = state()
-    current.history
-      .find {
-        it.provider == source.id && it.chapter.id == chapter.id && it.destination == destination
-      }?.let { return it }
+    val existing =
+      current.history.find {
+        it.provider == source.id && it.seriesId == seriesId && it.chapter.id == chapter.id && it.destination == destination
+      }
+    if (existing != null) {
+      when (files.presence(existing)) {
+        DownloadPresence.PRESENT, DownloadPresence.STAGED -> return existing
+        DownloadPresence.MISSING -> Unit
+        DownloadPresence.INCOMPLETE -> error("Some converted parts remain on disk. Restore the missing parts or remove the remaining parts before downloading again.")
+        DownloadPresence.UNAVAILABLE -> error("Recorded download location is unavailable. Check the library before downloading again.")
+      }
+    }
     val settings = current.kcc
     val selected = profileId ?: if (mode == "auto") settings.autoProfileId else settings.manualProfileId
     val profile = settings.profiles.find { it.id == selected }
@@ -414,7 +422,7 @@ class DownloadService(
         prependWhitePage = prependWhitePage,
       )
     try {
-      store.update { it.copy(history = listOf(record) + it.history) }
+      store.update { it.copy(history = listOf(record) + it.history.filterNot { previous -> previous.id == existing?.id }) }
     } catch (e: Exception) {
       if (profile != null) runCatching { files.removeOriginal(record) }
       throw e

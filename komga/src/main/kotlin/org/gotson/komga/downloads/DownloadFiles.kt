@@ -2,12 +2,11 @@ package org.gotson.komga.downloads
 
 import org.gotson.komga.domain.persistence.LibraryRepository
 import org.springframework.stereotype.Component
-import java.awt.Color
-import java.awt.image.BufferedImage
-import java.io.ByteArrayOutputStream
 import java.nio.file.Files
 import java.nio.file.LinkOption.NOFOLLOW_LINKS
+import java.nio.file.NoSuchFileException
 import java.nio.file.Path
+import java.nio.file.attribute.BasicFileAttributes
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 import javax.imageio.ImageIO
@@ -18,6 +17,14 @@ data class PageDimensions(
   val width: Int? = null,
   val height: Int? = null,
 )
+
+enum class DownloadPresence {
+  PRESENT,
+  MISSING,
+  STAGED,
+  INCOMPLETE,
+  UNAVAILABLE,
+}
 
 @Component
 class DownloadFiles(
@@ -76,7 +83,8 @@ class DownloadFiles(
   ): String {
     require(pages.isNotEmpty()) { "Source returned no pages" }
     val root = root(destination.libraryId)
-    val name = safeName("Chapter " + chapter.number + " - " + chapter.title) + " [" + safeName(downloadChapterFileId(chapter.id)) + "].cbz"
+
+    val name = DownloadFileNames.stem(chapter) + ".cbz"
     val folder =
       if (forConversion) {
         target(root, destination.folder, false)
@@ -105,8 +113,8 @@ class DownloadFiles(
           require(extension in setOf("jpeg", "jpg", "png", "webp", "gif", "avif", "bmp")) { "Unsupported source page type" }
           val validated = validatedPage(page)
           if (prependWhitePage && index == 0) {
-            zip.putNextEntry(ZipEntry("0000.png"))
-            zip.write(whitePage(validated.width, validated.height))
+            zip.putNextEntry(ZipEntry("0000.$extension"))
+            zip.write(validated.bytes)
             zip.closeEntry()
           }
           zip.putNextEntry(ZipEntry((index + 1).toString().padStart(4, '0') + "." + extension))
@@ -156,24 +164,6 @@ class DownloadFiles(
     val height: Int,
   )
 
-  private fun whitePage(
-    width: Int,
-    height: Int,
-  ): ByteArray {
-    val image = BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY)
-    val graphics = image.createGraphics()
-    try {
-      graphics.color = Color.WHITE
-      graphics.fillRect(0, 0, width, height)
-    } finally {
-      graphics.dispose()
-    }
-    return ByteArrayOutputStream().use { output ->
-      check(ImageIO.write(image, "png", output)) { "Unable to create white page" }
-      output.toByteArray()
-    }
-  }
-
   private fun validatedPage(page: SourcePage): ValidatedPage {
     val bytes = page.open().use { it.readNBytes(32 * 1024 * 1024 + 1) }
     require(bytes.size in 1..(32 * 1024 * 1024)) { "Invalid source page size" }
@@ -214,6 +204,77 @@ class DownloadFiles(
     check(Files.isRegularFile(original, NOFOLLOW_LINKS)) { "Original CBZ is unavailable" }
     return original
   }
+
+  /** Check recorded paths, not just download history. Never follow symlinks or treat an offline library as deleted. */
+  fun presence(record: DownloadRecord): DownloadPresence =
+    runCatching {
+      presence(record, root(record.destination.libraryId))
+    }.getOrDefault(DownloadPresence.UNAVAILABLE)
+
+  fun presence(records: List<DownloadRecord>): Map<String, DownloadPresence> {
+    val roots = records.map { it.destination.libraryId }.distinct().associateWith { runCatching { root(it) }.getOrNull() }
+    return records.associate { record ->
+      record.id to (roots[record.destination.libraryId]?.let { presence(record, it) } ?: DownloadPresence.UNAVAILABLE)
+    }
+  }
+
+  private fun presence(
+    record: DownloadRecord,
+    root: Path,
+  ): DownloadPresence =
+    runCatching {
+      val conversion = record.conversion
+      if (conversion?.status == "Converted") {
+        val outputs = conversion.files.ifEmpty { listOfNotNull(conversion.file) }
+        require(outputs.isNotEmpty()) { "Converted record has no output paths" }
+        val present = outputs.map { relativeFilePresent(root, it) }
+        when {
+          present.all { it } -> DownloadPresence.PRESENT
+          present.none { it } -> DownloadPresence.MISSING
+          else -> DownloadPresence.INCOMPLETE
+        }
+      } else if (conversion != null) {
+        val path = Path.of(record.file)
+        val exists =
+          if (path.isAbsolute) {
+            val parent = requireNotNull(path.parent)
+            require(path == path.normalize() && parent.parent == systemTemp() && parent.fileName.toString().startsWith("komga-download-")) { "Invalid staged CBZ path" }
+            require(path.fileName.toString().endsWith(".cbz", ignoreCase = true)) { "Invalid staged CBZ type" }
+            val parentExists =
+              try {
+                require(Files.readAttributes(parent, BasicFileAttributes::class.java, NOFOLLOW_LINKS).isDirectory) { "Invalid staged directory" }
+                true
+              } catch (_: NoSuchFileException) {
+                false
+              }
+            parentExists && regularFilePresent(path)
+          } else {
+            relativeFilePresent(root, record.file)
+          }
+        if (exists) DownloadPresence.STAGED else DownloadPresence.MISSING
+      } else {
+        if (relativeFilePresent(root, record.file)) DownloadPresence.PRESENT else DownloadPresence.MISSING
+      }
+    }.getOrDefault(DownloadPresence.UNAVAILABLE)
+
+  private fun relativeFilePresent(
+    root: Path,
+    value: String,
+  ): Boolean {
+    val path = Path.of(value)
+    require(path.root == null && path.parent != null && path.none { it.toString() in setOf("..", ".") }) { "Invalid recorded output path" }
+    val directory = target(root, path.parent.toString(), false)
+    return regularFilePresent(directory.resolve(path.fileName))
+  }
+
+  private fun regularFilePresent(path: Path): Boolean =
+    try {
+      val attributes = Files.readAttributes(path, BasicFileAttributes::class.java, NOFOLLOW_LINKS)
+      require(attributes.isRegularFile && attributes.size() > 0) { "Recorded output is not a nonempty regular file" }
+      true
+    } catch (_: NoSuchFileException) {
+      false
+    }
 
   fun removeOriginal(record: DownloadRecord) {
     val original = sourceArchive(record)

@@ -62,7 +62,9 @@ export type Record = {
   conversion?: { profile: Profile; status: string; file?: string; files?: string[]; error?: string }
 }
 export type Kcc = { autoProfileId: string; manualProfileId: string; profiles: Profile[] }
+export type DownloadPresence = 'PRESENT' | 'MISSING' | 'STAGED' | 'INCOMPLETE' | 'UNAVAILABLE'
 export type Overview = {
+  filePresence: { [id: string]: DownloadPresence }
   state: { tracked: Tracked[]; history: Record[]; kcc: Kcc }
   providers: { id: string; label: string }[]
   libraries: { id: string; name: string }[]

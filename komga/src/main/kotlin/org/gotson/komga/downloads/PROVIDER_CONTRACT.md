@@ -38,11 +38,11 @@ implement the contract rather than implementing a separate download pipeline.
 `SourceSeries.id` and `SourceChapter.id` are opaque source identifiers, not
 UI row numbers, titles, array positions, or temporary URLs. They must be stable
 across restarts and chapter-list refreshes. Chapter IDs must be unique within
-the provider: current history deduplicates by provider ID, chapter ID and
-destination. Encode composite IDs safely for a single REST path segment, and
+the provider: current history deduplicates by provider ID, series ID, chapter ID and
+destination, and checks whether the recorded output still exists. Encode composite IDs safely for a single REST path segment, and
 avoid slash, backslash, percent escapes, query strings and credentials. Do not
-change previously persisted IDs without a documented migration. Long chapter
-IDs are compacted by the common filename helper, not by the adapter. Never
+change previously persisted IDs without a documented migration. Chapter IDs remain in history, independent of the normalized chapter-title
+filename. Filename collisions must never overwrite an existing book. Never
 interpret an identifier as a local filesystem path.
 
 ### Chapter metadata

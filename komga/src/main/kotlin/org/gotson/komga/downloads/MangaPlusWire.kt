@@ -78,6 +78,7 @@ internal data class MangaPlusChapter(
 internal fun mangaPlusChapters(
   detail: List<MangaPlusField>,
   titleId: Long,
+  response: List<MangaPlusField> = detail,
 ): List<MangaPlusChapter> {
   val found = linkedMapOf<Long, MangaPlusChapter>()
   var visited = 0
@@ -86,26 +87,25 @@ internal fun mangaPlusChapters(
     fields: List<MangaPlusField>,
     depth: Int,
   ) {
-    if (depth > 14 || ++visited > 20_000) return
+    if (depth > 14) return
+    check(++visited <= 100_000) { "MANGA Plus chapter metadata traversal limit exceeded" }
     val id = fields.wireValue(2)
     val name = fields.wireText(3)
     if (fields.wireValue(1) == titleId && id != null && id > 0 && name.isNotBlank() &&
       fields.wireText(5).contains("/secure/title/$titleId/chapter/$id/chapter_thumbnail/")
     ) {
       found.putIfAbsent(id, MangaPlusChapter(id, name, fields.wireText(4)))
-      return
     }
     fields.filter { it.wire == 2 && it.bytes.isNotEmpty() }.forEach { field ->
-      if (visited < 20_000) runCatching { mangaPlusFields(field.bytes) }.getOrNull()?.let { walk(it, depth + 1) }
+      runCatching { mangaPlusFields(field.bytes) }.getOrNull()?.let { walk(it, depth + 1) }
     }
   }
-  walk(detail, 0)
-  if (found.isNotEmpty()) return found.values.toList()
+  walk(response, 0)
   // The bundled Go schema defines field 28 as ChapterBlock, first/last lists 2 and 4.
   // Older payloads do not necessarily contain the V4 thumbnail marker.
-  for (block in detail.wireMessages(28)) {
+  for (block in detail.filter { it.number == 28 && it.wire == 2 }.mapNotNull { runCatching { mangaPlusFields(it.bytes) }.getOrNull() }) {
     for (field in listOf(2, 4)) {
-      for (chapter in block.wireMessages(field)) {
+      for (chapter in block.filter { it.number == field && it.wire == 2 }.mapNotNull { runCatching { mangaPlusFields(it.bytes) }.getOrNull() }) {
         val id = chapter.wireValue(2) ?: continue
         val name = chapter.wireText(3)
         if (chapter.wireValue(1) != titleId || id !in 1..0xffff_ffffL || name.isBlank()) continue

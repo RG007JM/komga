@@ -85,7 +85,10 @@ class DownloadKcc(
         validateOutput(output, profile.format)
       }
       files.target(root, record.destination.folder, true)
-      val targets = outputs.map { output -> destination.resolve(output.fileName) }
+      val targets =
+        outputs.mapIndexed { index, output ->
+          destination.resolve(DownloadFileNames.converted(record.chapter, output.fileName.toString(), index + 1, outputs.size))
+        }
       check(targets.none { Files.exists(it, NOFOLLOW_LINKS) }) { "KCC output already exists; original retained" }
       outputs.zip(targets).forEach { (output, target) ->
         val temporary = Files.createTempFile(destination, ".manga-conversion-", ".tmp")

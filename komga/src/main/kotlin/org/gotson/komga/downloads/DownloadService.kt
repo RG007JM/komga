@@ -22,6 +22,8 @@ data class TrackRequest(
   val filters: ChapterFilters = ChapterFilters(),
   val enabled: Boolean = true,
   val kccProfileId: String? = null,
+  val prependWhitePage: Boolean = false,
+  val initialChapterIds: Set<String> = emptySet(),
 )
 
 data class ManualRequest(
@@ -32,7 +34,27 @@ data class ManualRequest(
   val chapterIds: Set<String>,
   val filters: ChapterFilters = ChapterFilters(),
   val kccProfileId: String? = null,
+  val prependWhitePage: Boolean = false,
 )
+
+internal object PublicationReleaseEstimate {
+  fun expected(
+    chapters: List<SourceChapter>,
+    now: Instant,
+  ): Instant? {
+    val dates =
+      chapters
+        .filter { it.publishedAt != null && !it.publishedAt.isAfter(now) }
+        .groupBy { it.number.ifBlank { it.id } }
+        .values
+        .mapNotNull { editions -> editions.mapNotNull { it.publishedAt }.minOrNull() }
+        .distinct()
+        .sortedDescending()
+    val latest = dates.firstOrNull() ?: return null
+    val previous = dates.drop(1).firstOrNull { Duration.between(it, latest) >= Duration.ofHours(1) } ?: return null
+    return latest.plus(Duration.between(previous, latest))
+  }
+}
 
 @Service
 class DownloadService(
@@ -66,7 +88,12 @@ class DownloadService(
   fun track(request: TrackRequest): TrackedManga {
     validate(request.destination, request.kccProfileId)
     val existing = state().tracked.find { it.provider == request.provider && it.seriesId == request.seriesId }
-    val seen = existing?.seen ?: provider(request.provider).chapters(request.seriesId, request.filters).map { it.id }.toSet()
+    require(request.initialChapterIds.size <= 100) { "Select up to 100 initial chapters" }
+    val source = provider(request.provider)
+    val available = if (existing == null || request.initialChapterIds.isNotEmpty()) source.chapters(request.seriesId, request.filters) else emptyList()
+    val availableIds = available.map { it.id }.toSet()
+    require(availableIds.containsAll(request.initialChapterIds)) { "One or more selected chapters are unavailable under the current filters" }
+    val seen = existing?.seen ?: availableIds
     val tracked =
       TrackedManga(
         existing?.id ?: UUID.randomUUID().toString(),
@@ -84,10 +111,15 @@ class DownloadService(
         existing?.releaseBasis,
         existing?.result,
         existing?.error,
+        prependWhitePage = request.prependWhitePage,
+        pendingInitialChapterIds = request.initialChapterIds,
       )
     store.update { current ->
       val previous = current.tracked.find { it.provider == request.provider && it.seriesId == request.seriesId }
-      val updated = previous?.let { tracked.copy(id = it.id, seen = it.seen) } ?: tracked
+      val updated =
+        previous?.let {
+          tracked.copy(id = it.id, seen = it.seen, pendingInitialChapterIds = it.pendingInitialChapterIds + request.initialChapterIds)
+        } ?: tracked
       current.copy(tracked = current.tracked.filterNot { it.id == updated.id } + updated)
     }
     return state().tracked.first { it.provider == request.provider && it.seriesId == request.seriesId }
@@ -114,8 +146,10 @@ class DownloadService(
     }
   }
 
-  @Scheduled(fixedDelay = 60_000, initialDelay = 60_000)
+  @Scheduled(fixedDelay = 15_000, initialDelay = 60_000)
   fun tick() {
+    val due = Instant.now()
+    if (state().tracked.none { it.enabled && (it.nextCheck == null || !it.nextCheck.isAfter(due)) }) return
     if (!checking.compareAndSet(false, true)) return
     try {
       submit {
@@ -150,7 +184,7 @@ class DownloadService(
       val errors =
         chapters.mapNotNull { chapter ->
           runCatching {
-            save(source, request.seriesId, request.title, request.destination, chapter, "manual", request.kccProfileId)
+            save(source, request.seriesId, request.title, request.destination, chapter, "manual", request.kccProfileId, request.prependWhitePage)
           }.exceptionOrNull()
         }
       if (errors.isNotEmpty()) error(errors.size.toString() + " manual downloads failed: " + errors.first().message)
@@ -273,13 +307,14 @@ class DownloadService(
     try {
       val source = provider(tracked.provider)
       val chapters = source.chapters(tracked.seriesId, tracked.filters)
-      val fresh = chapters.filterNot { it.id in tracked.seen }.sortedBy { it.publishedAt }
+      val fresh = chapters.filter { it.id !in tracked.seen || it.id in tracked.pendingInitialChapterIds }.sortedBy { it.publishedAt }
       val completed = mutableSetOf<String>()
-      var failure: String? = null
+      val unavailableInitial = tracked.pendingInitialChapterIds - chapters.map { it.id }.toSet()
+      var failure: String? = if (unavailableInitial.isEmpty()) null else "${unavailableInitial.size} selected initial chapters are no longer available"
       fresh.forEach { chapter ->
         val current = state().tracked.find { it.id == id } ?: return@forEach
         if (scheduled && !current.enabled) return@forEach
-        runCatching { save(source, current.seriesId, current.title, current.destination, chapter, "auto", current.kccProfileId) }
+        runCatching { save(source, current.seriesId, current.title, current.destination, chapter, "auto", current.kccProfileId, current.prependWhitePage) }
           .onSuccess { record ->
             completed += chapter.id
             if (record.conversion?.status == "Failed" || record.scan.startsWith("Scan enqueue failed")) {
@@ -288,39 +323,52 @@ class DownloadService(
           }.onFailure { failure = it.message ?: "Chapter download failed" }
       }
       val known = runCatching { source.nextRelease(tracked.seriesId) }.getOrNull()
-      val history =
-        state()
-          .history
-          .filter { it.provider == tracked.provider && it.seriesId == tracked.seriesId }
-          .distinctBy { it.chapter.number.ifBlank { it.chapter.id } }
-          .sortedByDescending { it.downloadedAt }
-          .take(2)
-      val timestamps = history.mapNotNull { it.chapter.publishedAt }.sortedDescending()
-      val estimateDates = if (timestamps.size == 2 && timestamps[0] != timestamps[1]) timestamps else history.map { it.downloadedAt }
-      val interval = estimateDates.takeIf { it.size == 2 }?.let { Duration.between(it[1], it[0]) }
-      val estimate = interval?.takeIf { it >= Duration.ofHours(1) }?.let { estimateDates.first().plus(it) }
-      val expected = known ?: estimate
+      val estimate =
+        if (tracked.provider == "mangaplus") {
+          null
+        } else {
+          val downloaded =
+            state()
+              .history
+              .filter {
+                it.provider == tracked.provider && it.seriesId == tracked.seriesId && it.destination == tracked.destination
+              }.map { it.chapter }
+              .filter { chapter ->
+                val groups = chapter.groups.map { it.lowercase() }.toSet()
+                (tracked.filters.language.isBlank() || chapter.language.equals(tracked.filters.language, ignoreCase = true)) &&
+                  (tracked.filters.includeGroups.isEmpty() || tracked.filters.includeGroups.any { it.lowercase() in groups }) &&
+                  tracked.filters.excludeGroups.none { it.lowercase() in groups }
+              }
+          PublicationReleaseEstimate.expected(chapters + downloaded, Instant.now())
+        }
+      val previousSchedule = tracked.expectedRelease.takeIf { tracked.releaseBasis == "Source schedule" }
+      val sourceSchedule = if (tracked.provider == "mangaplus") SourceReleasePolling.expected(Instant.now(), known, previousSchedule) else known
+      val expected = sourceSchedule ?: estimate
       val nextPoll = now.plus(Duration.ofMinutes(30))
-      val next = known?.takeIf { it.isAfter(now) && it.isBefore(nextPoll) } ?: nextPoll
+      val next =
+        if (tracked.provider == "mangaplus")
+          SourceReleasePolling.next(Instant.now(), sourceSchedule)
+        else
+          known?.takeIf { it.isAfter(now) && it.isBefore(nextPoll) } ?: nextPoll
       updateTrack(id) {
         it.copy(
           seen = it.seen + completed,
+          pendingInitialChapterIds = it.pendingInitialChapterIds - completed,
           lastCheck = now,
           nextCheck = next.takeIf { _ -> it.enabled },
           expectedRelease = expected,
           releaseBasis =
             when {
-              known != null -> "Source schedule"
+              sourceSchedule != null -> "Source schedule"
               estimate == null -> null
-              estimateDates === timestamps -> "Estimated from publication dates"
-              else -> "Estimated from download times"
+              else -> "Estimated from publication dates"
             },
           result = if (fresh.isEmpty()) "No new chapters" else completed.size.toString() + " chapters processed",
           error = failure,
         )
       }
     } catch (e: Exception) {
-      updateTrack(id) { it.copy(lastCheck = now, nextCheck = now.plus(Duration.ofMinutes(30)).takeIf { _ -> it.enabled }, error = e.message ?: "Source check failed") }
+      updateTrack(id) { it.copy(lastCheck = now, nextCheck = (if (tracked.provider == "mangaplus") SourceReleasePolling.next(Instant.now(), tracked.expectedRelease.takeIf { tracked.releaseBasis == "Source schedule" }) else now.plus(Duration.ofMinutes(30))).takeIf { _ -> it.enabled }, error = e.message ?: "Source check failed") }
     }
   }
 
@@ -339,6 +387,7 @@ class DownloadService(
     chapter: SourceChapter,
     mode: String,
     profileId: String? = null,
+    prependWhitePage: Boolean = false,
   ): DownloadRecord {
     val current = state()
     current.history
@@ -348,7 +397,7 @@ class DownloadService(
     val settings = current.kcc
     val selected = profileId ?: if (mode == "auto") settings.autoProfileId else settings.manualProfileId
     val profile = settings.profiles.find { it.id == selected }
-    val file = files.archive(destination, title, chapter, source.pages(chapter.id), forConversion = profile != null)
+    val file = files.archive(destination, title, chapter, source.pages(chapter.id), forConversion = profile != null, prependWhitePage = prependWhitePage)
     val record =
       DownloadRecord(
         UUID.randomUUID().toString(),
@@ -362,6 +411,7 @@ class DownloadService(
         mode,
         if (profile == null) "Pending scan" else "Awaiting conversion",
         profile?.let { Conversion(it, "Queued") },
+        prependWhitePage = prependWhitePage,
       )
     try {
       store.update { it.copy(history = listOf(record) + it.history) }

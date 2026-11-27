@@ -33,6 +33,7 @@ const results = ref<Series[]>()
 const selected = ref<Series>()
 const chapters = ref<Chapter[]>([])
 const selectedChapters = ref<string[]>([])
+const loadedChapterPath = ref('')
 const dimensions = ref<{ [id: string]: Dimensions[] }>({})
 const dimensionError = ref<{ [id: string]: string }>({})
 const expanded = ref<string>()
@@ -42,6 +43,20 @@ const language = ref('en')
 const includes = ref('')
 const excludes = ref('')
 const profileId = ref('inherit')
+const prependWhitePage = ref(false)
+const minimalColourArgs = [
+  '--mozjpeg',
+  '--eraserainbow',
+  '--forcecolor',
+  '--cropping=0',
+  '--interpanelcrop=0',
+  '--splitter=1',
+  '--norotate',
+  '--gamma=1',
+  '--noautocontrast',
+  '--metadatatitle=2',
+  '--keepcomicinfo=1',
+]
 const state = computed(() => overview.value?.state)
 const kccCapabilities = computed(() => overview.value?.kccCapabilities)
 const kccDevices = computed(
@@ -149,13 +164,20 @@ const chip = (status?: string) =>
       ? 'info'
       : undefined
 const asMessage = (cause: unknown) => (cause instanceof Error ? cause.message : String(cause))
-const chapterPath = () =>
-  '/' +
-  encodeURIComponent(provider.value) +
-  '/series/' +
-  encodeURIComponent(selected.value?.id ?? '') +
-  '/chapters?language=' +
-  encodeURIComponent(language.value)
+const chapterPath = () => {
+  const filters = currentFilters()
+  const params = new URLSearchParams({ language: filters.language })
+  filters.includeGroups.forEach((group) => params.append('includeGroups', group))
+  filters.excludeGroups.forEach((group) => params.append('excludeGroups', group))
+  return (
+    '/' +
+    encodeURIComponent(provider.value) +
+    '/series/' +
+    encodeURIComponent(selected.value?.id ?? '') +
+    '/chapters?' +
+    params.toString()
+  )
+}
 const matches = (item: Record) =>
   state.value?.tracked.find(
     (track) => track.provider === item.provider && track.seriesId === item.seriesId,
@@ -221,6 +243,7 @@ function open(kind: 'manual' | 'track' | 'edit', item?: Tracked) {
   selected.value = item ? { id: item.seriesId, title: item.title } : undefined
   chapters.value = []
   selectedChapters.value = []
+  loadedChapterPath.value = ''
   dimensions.value = {}
   dimensionError.value = {}
   expanded.value = undefined
@@ -230,6 +253,7 @@ function open(kind: 'manual' | 'track' | 'edit', item?: Tracked) {
   includes.value = item?.filters.includeGroups.join(', ') ?? ''
   excludes.value = item?.filters.excludeGroups.join(', ') ?? ''
   profileId.value = item?.kccProfileId ?? 'inherit'
+  prependWhitePage.value = item?.prependWhitePage ?? false
   mode.value = kind
 }
 function editFromHistory(item: Tracked) {
@@ -253,6 +277,7 @@ function resetSearch() {
   results.value = undefined
   chapters.value = []
   selectedChapters.value = []
+  loadedChapterPath.value = ''
 }
 function pick(series: Series) {
   selected.value = series
@@ -267,12 +292,19 @@ function pick(series: Series) {
   selectedChapters.value = []
   chapters.value = []
   expanded.value = undefined
-  if (mode.value === 'manual') loadChapters()
+  loadChapters()
 }
 function loadChapters() {
   void perform(async () => {
     selectedChapters.value = []
-    chapters.value = await downloadsApi<Chapter[]>(chapterPath())
+    chapters.value = []
+    loadedChapterPath.value = ''
+    const path = chapterPath()
+    const result = await downloadsApi<Chapter[]>(path)
+    if (path === chapterPath()) {
+      chapters.value = result
+      loadedChapterPath.value = path
+    }
   })
 }
 async function showDimensions(chapter: Chapter) {
@@ -304,6 +336,7 @@ function submit() {
       title: selected.value.title,
       destination: { libraryId: libraryId.value, folder: folder.value.trim() },
       filters: currentFilters(),
+      prependWhitePage: prependWhitePage.value,
     }
     if (mode.value === 'manual') {
       await downloadsApi('/manual', 'POST', {
@@ -317,6 +350,10 @@ function submit() {
       await downloadsApi('/tracked', 'PUT', {
         ...payload,
         enabled: editing.value?.enabled ?? true,
+        initialChapterIds:
+          loadedChapterPath.value === chapterPath()
+            ? selectedChapters.value.filter((id) => !alreadyDownloaded.value.has(id))
+            : [],
         kccProfileId: profileId.value === 'inherit' ? null : profileId.value,
       })
       tab.value = 'tracked'
@@ -335,6 +372,7 @@ function toggle(item: Tracked) {
       destination,
       filters,
       enabled: !enabled,
+      prependWhitePage: item.prependWhitePage ?? false,
       kccProfileId,
     })
     await update(enabled ? 'Auto-fetch paused' : 'Auto-fetch resumed')
@@ -373,7 +411,7 @@ function editProfile(item?: Profile) {
         manga: true,
         keepOriginal: false,
         outputFolder: '',
-        extraArgs: ['--mozjpeg', '--metadatatitle=2', '--keepcomicinfo=1'],
+        extraArgs: [...minimalColourArgs],
       }
 }
 function saveKcc(settings: Kcc, done?: () => void) {
@@ -540,6 +578,12 @@ function retry(item: Record) {
         <template #[`item.nextCheck`]="{ item }">{{ stamp(item.nextCheck) }}</template>
         <template #[`item.lastCheck`]="{ item }"
           >{{ stamp(item.lastCheck) }}
+          <div
+            v-if="item.pendingInitialChapterIds?.length"
+            class="text-body-small"
+          >
+            {{ item.pendingInitialChapterIds.length }} initial chapters pending
+          </div>
           <div
             v-if="item.error"
             class="text-body-small text-error"
@@ -817,14 +861,24 @@ function retry(item: Record) {
               v-model="language"
               label="Chapter language code"
               :disabled="working"
-              @change="mode === 'manual' && loadChapters()"
+              @update:model-value="selectedChapters = []"
+              @change="loadChapters()"
             />
-            <template v-if="mode === 'manual'">
-              <div class="d-flex align-center justify-space-between">
-                <h2 class="text-title-medium">Chapters</h2>
+            <template v-if="selected">
+              <div class="d-flex align-center justify-space-between flex-wrap">
+                <h2 class="text-title-medium">
+                  {{ mode === 'manual' ? 'Chapters' : 'Existing chapters to download' }}
+                </h2>
+                <v-btn
+                  variant="text"
+                  :disabled="working"
+                  @click="loadChapters()"
+                  >Load / refresh chapters</v-btn
+                >
                 <v-btn
                   variant="text"
                   color="primary"
+                  :disabled="working || loadedChapterPath !== chapterPath()"
                   @click="
                     selectedChapters = chapters
                       .filter((chapter) => !alreadyDownloaded.has(chapter.id))
@@ -835,21 +889,30 @@ function retry(item: Record) {
                 >
               </div>
               <p class="text-body-small text-medium-emphasis">
-                Page dimensions are measured before conversion and may take a moment to load.
+                {{
+                  mode === 'manual'
+                    ? 'Page dimensions are measured before conversion and may take a moment to load.'
+                    : 'Select up to 100 existing chapters to fetch with this series settings. Leave empty to follow future releases only.'
+                }}
               </p>
               <div
-                v-for="chapter in chapters"
+                v-for="chapter in loadedChapterPath === chapterPath() ? chapters : []"
                 :key="chapter.id"
               >
                 <div class="d-flex align-center justify-space-between flex-wrap">
                   <v-checkbox
                     v-model="selectedChapters"
                     :value="chapter.id"
-                    :disabled="alreadyDownloaded.has(chapter.id)"
+                    :disabled="
+                      working ||
+                      alreadyDownloaded.has(chapter.id) ||
+                      (!selectedChapters.includes(chapter.id) && selectedChapters.length >= 100)
+                    "
                     :label="
                       'Chapter ' +
                       chapter.number +
                       (chapter.title ? ' · ' + chapter.title : '') +
+                      (chapter.publishedAt ? ' · ' + stamp(chapter.publishedAt) : '') +
                       (alreadyDownloaded.has(chapter.id) ? ' · Downloaded' : '')
                     "
                     hide-details
@@ -910,7 +973,7 @@ function retry(item: Record) {
                 <v-divider />
               </div>
               <p
-                v-if="!chapters.length && !working"
+                v-if="loadedChapterPath === chapterPath() && !chapters.length && !working"
                 class="text-medium-emphasis"
               >
                 No chapters available for the selected language.
@@ -935,22 +998,35 @@ function retry(item: Record) {
                 mode === 'manual' ? 'KCC profile for this download' : 'KCC profile for this manga'
               "
             />
+            <v-checkbox
+              v-model="prependWhitePage"
+              label="Add a white page at the beginning of each chapter"
+              :hint="
+                mode === 'manual'
+                  ? 'Applies to all selected chapters.'
+                  : 'Applies to future chapters of this series.'
+              "
+              persistent-hint
+            />
             <template v-if="mode !== 'manual'">
               <v-text-field
                 v-model="includes"
                 label="Include chapter groups"
                 hint="Comma-separated names"
+                @update:model-value="selectedChapters = []"
               />
               <v-text-field
                 v-model="excludes"
                 label="Exclude chapter groups"
                 hint="Comma-separated names"
+                @update:model-value="selectedChapters = []"
               />
               <p
                 v-if="mode === 'track'"
                 class="text-body-small text-medium-emphasis"
               >
-                Auto-fetch starts with newly released chapters.
+                Selected existing chapters are queued for the next auto-fetch check. Unselected
+                chapters are skipped; future releases are fetched automatically.
               </p>
             </template>
           </template>
@@ -974,7 +1050,10 @@ function retry(item: Record) {
               !selected ||
               !libraryId ||
               !folder.trim() ||
-              (mode === 'manual' && !selectedChapters.some((id) => !alreadyDownloaded.has(id)))
+              (mode === 'manual' &&
+                (loadedChapterPath !== chapterPath() ||
+                  !selectedChapters.some((id) => !alreadyDownloaded.has(id)))) ||
+              (selectedChapters.length > 0 && loadedChapterPath !== chapterPath())
             "
             @click="submit"
             >{{
@@ -1099,6 +1178,17 @@ function retry(item: Record) {
           <p class="text-body-small text-medium-emphasis mb-2">
             Converted books are saved in the selected manga folder. The temporary source CBZ is
             deleted after successful conversion.
+          </p>
+          <v-btn
+            class="mb-2"
+            variant="outlined"
+            @click="profile.extraArgs = [...minimalColourArgs]"
+            >Use minimal colour processing</v-btn
+          >
+          <p class="text-body-small text-medium-emphasis mb-2">
+            Replaces extra options with MozJPEG, rainbow eraser and colour mode. Explicitly disables
+            margin cropping, page splitting, gamma correction and autocontrast. KCC still fits
+            images to the selected device.
           </p>
           <KccOptionsEditor
             v-model="profile.extraArgs"

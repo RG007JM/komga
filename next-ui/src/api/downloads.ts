@@ -2,7 +2,13 @@ import { ApiBaseUrl } from '@/api/base'
 
 export type Destination = { libraryId: string; folder: string }
 export type Series = { id: string; title: string }
-export type Chapter = { id: string; number: string; title: string; groups: string[] }
+export type Chapter = {
+  id: string
+  number: string
+  title: string
+  groups: string[]
+  publishedAt?: string | null
+}
 export type Dimensions = { number: number; width?: number; height?: number }
 export type Filters = { language: string; includeGroups: string[]; excludeGroups: string[] }
 export type Tracked = {
@@ -14,6 +20,8 @@ export type Tracked = {
   filters: Filters
   enabled: boolean
   kccProfileId?: string | null
+  prependWhitePage?: boolean
+  pendingInitialChapterIds?: string[]
   lastCheck?: string
   nextCheck?: string
   expectedRelease?: string
@@ -23,7 +31,12 @@ export type Tracked = {
 }
 export type KccOption = { flag: string; group: string; kind: string; description: string }
 export type KccDevice = { code: string; name: string; width: number; height: number }
-export type KccCapabilities = { version: string; devices: KccDevice[]; formats: string[]; options: KccOption[] }
+export type KccCapabilities = {
+  version: string
+  devices: KccDevice[]
+  formats: string[]
+  options: KccOption[]
+}
 export type Profile = {
   id: string
   name: string
@@ -45,6 +58,7 @@ export type Record = {
   downloadedAt: string
   mode: string
   scan: string
+  prependWhitePage?: boolean
   conversion?: { profile: Profile; status: string; file?: string; files?: string[]; error?: string }
 }
 export type Kcc = { autoProfileId: string; manualProfileId: string; profiles: Profile[] }

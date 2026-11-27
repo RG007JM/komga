@@ -2,6 +2,9 @@ package org.gotson.komga.downloads
 
 import org.gotson.komga.domain.persistence.LibraryRepository
 import org.springframework.stereotype.Component
+import java.awt.Color
+import java.awt.image.BufferedImage
+import java.io.ByteArrayOutputStream
 import java.nio.file.Files
 import java.nio.file.LinkOption.NOFOLLOW_LINKS
 import java.nio.file.Path
@@ -69,10 +72,11 @@ class DownloadFiles(
     chapter: SourceChapter,
     pages: List<SourcePage>,
     forConversion: Boolean = false,
+    prependWhitePage: Boolean = false,
   ): String {
     require(pages.isNotEmpty()) { "Source returned no pages" }
     val root = root(destination.libraryId)
-    val name = safeName("Chapter " + chapter.number + " - " + chapter.title) + " [" + safeName(chapter.id) + "].cbz"
+    val name = safeName("Chapter " + chapter.number + " - " + chapter.title) + " [" + safeName(downloadChapterFileId(chapter.id)) + "].cbz"
     val folder =
       if (forConversion) {
         target(root, destination.folder, false)
@@ -99,8 +103,14 @@ class DownloadFiles(
         pages.forEachIndexed { index, page ->
           val extension = page.filename.substringAfterLast('.', "").lowercase()
           require(extension in setOf("jpeg", "jpg", "png", "webp", "gif", "avif", "bmp")) { "Unsupported source page type" }
+          val validated = validatedPage(page)
+          if (prependWhitePage && index == 0) {
+            zip.putNextEntry(ZipEntry("0000.png"))
+            zip.write(whitePage(validated.width, validated.height))
+            zip.closeEntry()
+          }
           zip.putNextEntry(ZipEntry((index + 1).toString().padStart(4, '0') + "." + extension))
-          zip.write(validatedPage(page))
+          zip.write(validated.bytes)
           zip.closeEntry()
         }
         zip.putNextEntry(ZipEntry("ComicInfo.xml"))
@@ -140,7 +150,31 @@ class DownloadFiles(
     }
   }
 
-  private fun validatedPage(page: SourcePage): ByteArray {
+  private data class ValidatedPage(
+    val bytes: ByteArray,
+    val width: Int,
+    val height: Int,
+  )
+
+  private fun whitePage(
+    width: Int,
+    height: Int,
+  ): ByteArray {
+    val image = BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY)
+    val graphics = image.createGraphics()
+    try {
+      graphics.color = Color.WHITE
+      graphics.fillRect(0, 0, width, height)
+    } finally {
+      graphics.dispose()
+    }
+    return ByteArrayOutputStream().use { output ->
+      check(ImageIO.write(image, "png", output)) { "Unable to create white page" }
+      output.toByteArray()
+    }
+  }
+
+  private fun validatedPage(page: SourcePage): ValidatedPage {
     val bytes = page.open().use { it.readNBytes(32 * 1024 * 1024 + 1) }
     require(bytes.size in 1..(32 * 1024 * 1024)) { "Invalid source page size" }
     ImageIO.createImageInputStream(bytes.inputStream()).use { image ->
@@ -149,14 +183,16 @@ class DownloadFiles(
       val reader = readers.next()
       try {
         reader.setInput(image, true, true)
-        val pixels = reader.getWidth(0).toLong() * reader.getHeight(0)
+        val width = reader.getWidth(0)
+        val height = reader.getHeight(0)
+        val pixels = width.toLong() * height
         require(pixels in 1..40_000_000L) { "Source page exceeds the image size limit" }
         require(reader.read(0) != null) { "Source page could not be decoded" }
+        return ValidatedPage(bytes, width, height)
       } finally {
         reader.dispose()
       }
     }
-    return bytes
   }
 
   private fun systemTemp(): Path = Path.of(System.getProperty("java.io.tmpdir")).toRealPath()

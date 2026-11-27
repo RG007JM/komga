@@ -39,6 +39,31 @@ class DownloadStoreTest {
   }
 
   @Test
+  fun `white page setting persists and legacy entries default to disabled`() {
+    val enabled = TrackedManga("entry", "fixture", "series", "Series", DownloadDestination("library", "Series"), prependWhitePage = true)
+    store().update { DownloadState(tracked = listOf(enabled)) }
+    assertTrueValue(
+      store()
+        .read()
+        .tracked
+        .single()
+        .prependWhitePage,
+    )
+    val path = directory.resolve("manga-downloads.json")
+    val mapper = jacksonObjectMapper()
+    val json = mapper.readTree(path.toFile())
+    (json.path("tracked").get(0) as com.fasterxml.jackson.databind.node.ObjectNode).remove("prependWhitePage")
+    mapper.writeValue(path.toFile(), json)
+    assertFalseValue(
+      store()
+        .read()
+        .tracked
+        .single()
+        .prependWhitePage,
+    )
+  }
+
+  @Test
   fun `corrupt state is reported as unhealthy`() {
     Files.writeString(directory.resolve("manga-downloads.json"), "{broken")
     assertFalseValue(store().health())

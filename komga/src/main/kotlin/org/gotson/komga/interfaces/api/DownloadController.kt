@@ -50,7 +50,7 @@ class DownloadController(
     @PathVariable source: String,
     @RequestParam q: String,
   ): List<SourceSeries> {
-    require(q.isNotBlank() && q.length <= 150) { "Enter a title or a source ID" }
+    require(q.isNotBlank() && q.length <= (if (source == "cubari") 2048 else 150)) { "Enter a title or a source ID" }
     return service.provider(source).search(q.trim())
   }
 
@@ -59,7 +59,9 @@ class DownloadController(
     @PathVariable source: String,
     @PathVariable id: String,
     @RequestParam(defaultValue = "en") language: String,
-  ) = service.provider(source).chapters(id, ChapterFilters(language))
+    @RequestParam(required = false) includeGroups: Set<String>?,
+    @RequestParam(required = false) excludeGroups: Set<String>?,
+  ) = service.provider(source).chapters(id, ChapterFilters(language, includeGroups.orEmpty(), excludeGroups.orEmpty()))
 
   @GetMapping("/{source}/chapters/{id}/dimensions")
   fun dimensions(

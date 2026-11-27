@@ -42,7 +42,7 @@ class DownloadServiceTest {
     every { source.pages(any()) } returns emptyList()
     every { files.root("library") } returns directory
     every { files.target(directory, "Series", false) } returns directory.resolve("Series")
-    every { files.archive(any(), any(), any(), any(), any()) } returns "Series/chapter.cbz"
+    every { files.archive(any(), any(), any(), any(), any(), any()) } returns "Series/chapter.cbz"
     every { converter.convert(any(), any()) } returns listOf("Series/chapter.epub", "Series/chapter 2.epub")
     every { files.removeOriginal(any()) } answers {
       val record = firstArg<DownloadRecord>()
@@ -106,7 +106,81 @@ class DownloadServiceTest {
     val entry = track()
     assertEqualValue(setOf(old.id), entry.seen)
     assertTrueValue(service.state().history.isEmpty())
-    verify(exactly = 0) { files.archive(any(), any(), any(), any(), any()) }
+    verify(exactly = 0) { files.archive(any(), any(), any(), any(), any(), any()) }
+  }
+
+  @Test
+  fun `selected existing chapters are fetched with series profile and white page`() {
+    every { source.chapters("series", any()) } returns listOf(old, fresh)
+    val entry = service.track(TrackRequest("fixture", "series", "Series", destination, kccProfileId = "off", prependWhitePage = true, initialChapterIds = setOf(fresh.id)))
+    assertEqualValue(setOf(fresh.id), entry.pendingInitialChapterIds)
+    service.check(entry.id)
+    awaitCheck(entry.id)
+    assertEqualValue(
+      fresh.id,
+      service
+        .state()
+        .history
+        .single()
+        .chapter.id,
+    )
+    assertTrueValue(
+      service
+        .state()
+        .history
+        .single()
+        .prependWhitePage,
+    )
+    assertTrueValue(
+      service
+        .state()
+        .tracked
+        .single()
+        .pendingInitialChapterIds
+        .isEmpty(),
+    )
+    verify(exactly = 1) { files.archive(any(), any(), any(), any(), false, true) }
+  }
+
+  @Test
+  fun `unknown initial chapter is rejected before tracking`() {
+    assertThrowsType(IllegalArgumentException::class.java) {
+      service.track(TrackRequest("fixture", "series", "Series", destination, initialChapterIds = setOf("unknown")))
+    }
+    assertTrueValue(service.state().tracked.isEmpty())
+  }
+
+  @Test
+  fun `publication estimate uses source dates even before downloads`() {
+    val first = Instant.parse("2026-01-01T12:00:00Z")
+    val second = first.plusSeconds(7 * 86400L)
+    every { source.chapters("series", any()) } returns listOf(old.copy(publishedAt = first), fresh.copy(publishedAt = second))
+    val entry = track("off")
+    service.check(entry.id)
+    awaitCheck(entry.id)
+    assertEqualValue(
+      second.plusSeconds(7 * 86400L),
+      service
+        .state()
+        .tracked
+        .single()
+        .expectedRelease,
+    )
+    assertEqualValue(
+      "Estimated from publication dates",
+      service
+        .state()
+        .tracked
+        .single()
+        .releaseBasis,
+    )
+    assertTrueValue(service.state().history.isEmpty())
+  }
+
+  @Test
+  fun `one dated chapter cannot establish release cadence`() {
+    assertNullValue(PublicationReleaseEstimate.expected(listOf(old), Instant.parse("2026-02-01T00:00:00Z")))
+    assertNullValue(PublicationReleaseEstimate.expected(listOf(old, old.copy(id = "alternate")), Instant.parse("2026-02-01T00:00:00Z")))
   }
 
   @Test
@@ -124,7 +198,7 @@ class DownloadServiceTest {
     assertEqualValue("Converted", record.conversion?.status)
     assertEqualValue(listOf("Series/chapter.epub", "Series/chapter 2.epub"), record.conversion?.files)
     assertEqualValue("Scan queued", record.scan)
-    verify(exactly = 1) { files.archive(any(), any(), any(), any(), true) }
+    verify(exactly = 1) { files.archive(any(), any(), any(), any(), true, false) }
     verify(exactly = 1) { converter.convert(any(), global) }
     verify(exactly = 1) { files.removeOriginal(any()) }
   }
@@ -140,7 +214,7 @@ class DownloadServiceTest {
     val record = checkFresh("off")
     assertNullValue(record.conversion)
     assertEqualValue("Scan queued", record.scan)
-    verify(exactly = 1) { files.archive(any(), any(), any(), any(), false) }
+    verify(exactly = 1) { files.archive(any(), any(), any(), any(), false, false) }
     verify(exactly = 0) { converter.convert(any(), any()) }
   }
 
@@ -148,7 +222,7 @@ class DownloadServiceTest {
   fun `download failure does not mark new chapter as seen`() {
     val entry = track("off")
     every { source.chapters("series", any()) } returns listOf(old, fresh)
-    every { files.archive(any(), any(), any(), any(), any()) } throws IllegalStateException("fixture failure")
+    every { files.archive(any(), any(), any(), any(), any(), any()) } throws IllegalStateException("fixture failure")
     service.check(entry.id)
     awaitCheck(entry.id)
     assertEqualValue(
@@ -205,6 +279,40 @@ class DownloadServiceTest {
       Thread.sleep(10)
     }
     error("Manual download did not finish: ${service.workerError}")
+  }
+
+  @Test
+  fun `auto fetch applies persistent white page setting`() {
+    val entry = service.track(TrackRequest("fixture", "series", "Series", destination, kccProfileId = "off", prependWhitePage = true))
+    assertTrueValue(entry.prependWhitePage)
+    every { source.chapters("series", any()) } returns listOf(old, fresh)
+    service.check(entry.id)
+    awaitCheck(entry.id)
+    assertTrueValue(
+      service
+        .state()
+        .history
+        .single()
+        .prependWhitePage,
+    )
+    verify(exactly = 1) { files.archive(any(), any(), any(), any(), false, true) }
+  }
+
+  @Test
+  fun `manual white page setting applies to every selected chapter`() {
+    every { source.chapters("series", any()) } returns listOf(old, fresh)
+    service.download(ManualRequest("fixture", "series", "Series", destination, setOf(old.id, fresh.id), kccProfileId = "off", prependWhitePage = true))
+    val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10)
+    while (System.nanoTime() < deadline) {
+      val history = service.state().history
+      if (history.size == 2 && history.all { it.scan == "Scan queued" }) {
+        assertTrueValue(history.all { it.prependWhitePage })
+        verify(exactly = 2) { files.archive(any(), any(), any(), any(), false, true) }
+        return
+      }
+      Thread.sleep(10)
+    }
+    error("Manual downloads did not finish: ${service.workerError}")
   }
 
   @Test

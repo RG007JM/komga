@@ -92,17 +92,49 @@ class DownloadFilesTest {
   }
 
   @Test
+  fun `optional white page has first source page dimensions and preserves source bytes`() {
+    val first = png(23, 42)
+    val second = png(10, 20)
+    var opened = 0
+    val pages =
+      listOf(
+        SourcePage("first.png") {
+          opened++
+          first.inputStream()
+        },
+        SourcePage("second.png") {
+          opened++
+          second.inputStream()
+        },
+      )
+    val file = files().archive(destination, "Series", chapter, pages, prependWhitePage = true)
+    assertEqualValue(2, opened)
+    ZipFile(root.resolve(file).toFile()).use { zip ->
+      assertEqualValue(listOf("0000.png", "0001.png", "0002.png", "ComicInfo.xml"), zip.entries().toList().map { it.name })
+      val blank = zip.getInputStream(zip.getEntry("0000.png")).use { ImageIO.read(it) }
+      assertEqualValue(23, blank.width)
+      assertEqualValue(42, blank.height)
+      assertTrueValue((0 until blank.height).all { y -> (0 until blank.width).all { x -> blank.getRGB(x, y) == -1 } })
+      assertTrueValue(zip.getInputStream(zip.getEntry("0001.png")).use { it.readBytes().contentEquals(first) })
+      assertTrueValue(zip.getInputStream(zip.getEntry("0002.png")).use { it.readBytes().contentEquals(second) })
+    }
+  }
+
+  @Test
   fun `conversion source is outside the library and is removed after conversion`() {
     val files = files()
     val pages = listOf(SourcePage("a.png") { png(23, 42).inputStream() })
-    val file = files.archive(destination, "Series", chapter, pages, forConversion = true)
+    val file = files.archive(destination, "Series", chapter, pages, forConversion = true, prependWhitePage = true)
     val input = Path.of(file)
     try {
       assertTrueValue(input.isAbsolute)
       assertFalseValue(input.startsWith(root))
       assertTrueValue(input.parent.parent == Path.of(System.getProperty("java.io.tmpdir")).toRealPath())
       assertFalseValue(Files.exists(root.resolve("Series")))
-      ZipFile(input.toFile()).use { zip -> assertTrueValue(zip.getEntry("0001.png") != null) }
+      ZipFile(input.toFile()).use { zip ->
+        assertTrueValue(zip.getEntry("0000.png") != null)
+        assertTrueValue(zip.getEntry("0001.png") != null)
+      }
       val scanner = FileSystemScanner(emptyList(), emptyList())
       assertTrueValue(scanner.scanRootFolder(root).series.isEmpty())
       val record = DownloadRecord("id", "fixture", "series", "Series", chapter, destination, file, Instant.now(), "manual", "Awaiting conversion")

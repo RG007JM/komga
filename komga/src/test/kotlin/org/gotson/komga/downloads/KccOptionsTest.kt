@@ -29,6 +29,12 @@ class KccOptionsTest {
   }
 
   @Test
+  fun `minimal colour preset disables optional transformations`() {
+    val args = listOf("--mozjpeg", "--eraserainbow", "--forcecolor", "--cropping=0", "--interpanelcrop=0", "--splitter=1", "--norotate", "--gamma=1", "--noautocontrast", "--metadatatitle=2", "--keepcomicinfo=1")
+    assertEqualValue(listOf("--profile=KoLC", "--format=EPUB", "--manga-style") + args, KccOptions.arguments(profile.copy(extraArgs = args)))
+  }
+
+  @Test
   fun `managed and malformed options are rejected`() {
     listOf("--delete", "-d", "--output=/tmp", "--profile=OTHER", "--filefusion", "--help", "other.cbz", "--forcecolor=true", "--gamma=NaN", "--jpeg-quality=96", "--cropping=3").forEach { arg ->
       assertThrowsType(IllegalArgumentException::class.java) { KccOptions.validate(profile.copy(extraArgs = listOf(arg))) }

@@ -30,6 +30,8 @@ data class TrackedManga(
   val releaseBasis: String? = null,
   val result: String? = null,
   val error: String? = null,
+  val prependWhitePage: Boolean = false,
+  val pendingInitialChapterIds: Set<String> = emptySet(),
 )
 
 data class DownloadRecord(
@@ -44,6 +46,7 @@ data class DownloadRecord(
   val mode: String,
   val scan: String,
   val conversion: Conversion? = null,
+  val prependWhitePage: Boolean = false,
 )
 
 data class Conversion(

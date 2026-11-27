@@ -28,6 +28,11 @@ const stopEntry = ref<Tracked>()
 const details = ref<{ provider: string; seriesId: string; title: string }>()
 const working = ref(false)
 const provider = ref('')
+const previewSupported = computed(
+  () =>
+    overview.value?.providers.find((item) => item.id === provider.value)?.pagePreviewSupported !==
+    false,
+)
 const query = ref('')
 const results = ref<Series[]>()
 const selected = ref<Series>()
@@ -212,6 +217,7 @@ const currentFilters = (): Filters => ({
 
 let poll: ReturnType<typeof setInterval> | undefined
 let loadSequence = 0
+let polling = false
 async function refresh() {
   const sequence = ++loadSequence
   const result = await downloadsApi<Overview>()
@@ -240,9 +246,14 @@ async function update(message: string) {
 onMounted(() => {
   void perform(refresh)
   poll = setInterval(() => {
-    if (!working.value)
-      void refresh().catch((cause) => {
+    if (working.value || polling) return
+    polling = true
+    void refresh()
+      .catch((cause) => {
         error.value = asMessage(cause)
+      })
+      .finally(() => {
+        polling = false
       })
   }, 4000)
 })
@@ -325,6 +336,7 @@ function loadChapters() {
   })
 }
 async function showDimensions(chapter: Chapter) {
+  if (!previewSupported.value) return
   if (expanded.value === chapter.id) {
     expanded.value = undefined
     return
@@ -381,24 +393,20 @@ function submit() {
 }
 function toggle(item: Tracked) {
   void perform(async () => {
-    const { provider, seriesId, title, destination, filters, enabled, kccProfileId } = item
-    await downloadsApi('/tracked', 'PUT', {
-      provider,
-      seriesId,
-      title,
-      destination,
-      filters,
-      enabled: !enabled,
-      prependWhitePage: item.prependWhitePage ?? false,
-      kccProfileId,
-    })
-    await update(enabled ? 'Auto-fetch paused' : 'Auto-fetch resumed')
+    await downloadsApi('/tracked/' + item.id + '/enabled', 'PUT', !item.enabled)
+    await update(item.enabled ? 'Auto-fetch paused' : 'Auto-fetch resumed')
   })
 }
 function check(item: Tracked) {
   void perform(async () => {
     await downloadsApi('/tracked/' + item.id + '/check', 'POST')
     await update('Check queued')
+  })
+}
+function rescan(item: Record) {
+  void perform(async () => {
+    await downloadsApi('/history/' + item.id + '/rescan', 'POST')
+    await update('Library scan queued')
   })
 }
 function checkAll() {
@@ -490,6 +498,15 @@ function retry(item: Record) {
       class="my-3"
       >{{ overview.workerError }}</v-alert
     >
+    <v-alert
+      v-if="overview?.queue?.busy || overview?.queue?.queued"
+      type="info"
+      variant="tonal"
+      class="my-3"
+    >
+      {{ overview?.queue?.active ?? 'Download worker active' }} ·
+      {{ overview?.queue?.queued ?? 0 }} queued jobs
+    </v-alert>
     <v-progress-linear
       v-if="working"
       indeterminate
@@ -553,6 +570,7 @@ function retry(item: Record) {
         <template #[`item.scan`]="{ item }">
           {{ presenceLabel(recordStatus(item)) }}
           <div class="text-body-small">{{ item.scan }}</div>
+          <div class="text-body-small">{{ overview?.importStatus?.[item.id] }}</div>
         </template>
         <template #[`item.mode`]="{ item }">{{
           matches(item)?.enabled ? 'Enabled' : matches(item) ? 'Paused' : 'Untracked'
@@ -606,6 +624,12 @@ function retry(item: Record) {
             {{ item.pendingInitialChapterIds.length }} initial chapters pending
           </div>
           <div
+            v-if="item.pendingAutoChapterIds?.length"
+            class="text-body-small"
+          >
+            {{ item.pendingAutoChapterIds.length }} new chapters pending
+          </div>
+          <div
             v-if="item.error"
             class="text-body-small text-error"
           >
@@ -615,7 +639,7 @@ function retry(item: Record) {
         <template #[`item.actions`]="{ item }"
           ><v-btn
             variant="text"
-            :disabled="working"
+            :disabled="working || !item.enabled"
             @click="check(item)"
             >Check now</v-btn
           ><v-btn
@@ -641,8 +665,8 @@ function retry(item: Record) {
           :disabled="working"
           @click="
             perform(async () => {
-              await refresh()
-              notify('Healthcheck complete')
+              await downloadsApi('/health/providers', 'POST')
+              await update('Read-only provider healthcheck queued')
             })
           "
           >Run healthcheck</v-btn
@@ -809,7 +833,7 @@ function retry(item: Record) {
               {{ item.conversion.error }}
             </div>
             <v-btn
-              v-if="item.conversion?.status === 'Failed'"
+              v-if="item.conversion?.status === 'Failed' && recordStatus(item) === 'STAGED'"
               variant="text"
               color="primary"
               :disabled="working"
@@ -918,7 +942,9 @@ function retry(item: Record) {
               <p class="text-body-small text-medium-emphasis">
                 {{
                   mode === 'manual'
-                    ? 'Page dimensions are measured before conversion and may take a moment to load.'
+                    ? previewSupported
+                      ? 'Page dimensions are measured before conversion and may take a moment to load.'
+                      : 'Page previews are unavailable for this provider before downloading.'
                     : 'Select up to 100 existing chapters to fetch with this series settings. Leave empty to follow future releases only.'
                 }}
               </p>
@@ -948,6 +974,7 @@ function retry(item: Record) {
                     density="compact"
                   />
                   <v-btn
+                    v-if="previewSupported"
                     variant="text"
                     color="primary"
                     :aria-expanded="expanded === chapter.id"
@@ -1138,9 +1165,24 @@ function retry(item: Record) {
                 ' · ' +
                 item.scan +
                 ' · ' +
+                (overview?.importStatus?.[item.id] ?? 'Import not verified') +
+                ' · ' +
                 stamp(item.downloadedAt)
               "
-            />
+            >
+              <template #append>
+                <v-btn
+                  v-if="
+                    recordStatus(item) === 'PRESENT' &&
+                    overview?.importStatus?.[item.id] !== 'Imported and ready'
+                  "
+                  variant="text"
+                  :disabled="working"
+                  @click="rescan(item)"
+                  >Rescan</v-btn
+                >
+              </template>
+            </v-list-item>
             <v-list-item
               v-if="!detailRecords.length"
               title="No downloads recorded"

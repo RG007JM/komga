@@ -23,7 +23,7 @@ with tempfile.TemporaryDirectory(prefix='komga-kcc-smoke-') as tmp:
             draw.rectangle((150, 150, 650, 400), fill=(40, 100, 160))
             draw.ellipse((200, 500, 600, 900), fill=(160, 60, 40))
             draw.text((100, 100), f'Fixture page {n}', fill='black')
-            page = root / f'{n:04}.png'
+            page = root / (f'{n:04}.avif' if n == 1 else f'{n:04}.png')
             img.save(page)
             archive.write(page, page.name)
         archive.writestr('ComicInfo.xml', '<ComicInfo><Title>Fixture</Title><Series>Test</Series><Number>1</Number></ComicInfo>')

@@ -32,6 +32,12 @@ data class TrackedManga(
   val error: String? = null,
   val prependWhitePage: Boolean = false,
   val pendingInitialChapterIds: Set<String> = emptySet(),
+  val catalogueVersion: String? = null,
+  val publicationFloor: Instant? = null,
+  val chapterNumberFloor: String? = null,
+  val revision: String = "legacy",
+  val pendingAutoChapterIds: Set<String> = emptySet(),
+  val failedChapterAttempts: Map<String, Int> = emptyMap(),
 )
 
 data class DownloadRecord(
@@ -103,11 +109,16 @@ class DownloadStore(
 
   @Synchronized
   fun update(mutate: (DownloadState) -> DownloadState): DownloadState {
-    val next = mutate(read())
+    val previous = read()
+    val next = mutate(previous)
+    if (next == previous) return previous
     Files.createDirectories(directory)
     val temporary = Files.createTempFile(directory, ".manga-downloads-", ".tmp")
     try {
       mapper.writeValue(temporary.toFile(), next)
+      java.nio.channels.FileChannel
+        .open(temporary, java.nio.file.StandardOpenOption.WRITE)
+        .use { it.force(true) }
       Files.move(temporary, path, ATOMIC_MOVE, REPLACE_EXISTING)
       state = next
     } finally {

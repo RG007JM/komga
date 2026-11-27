@@ -39,6 +39,7 @@ class MangaPlusDownloadProvider(
   private val session = UUID.randomUUID().toString()
   override val id = "mangaplus"
   override val label = if (native == null) "MANGA Plus (web)" else "MANGA Plus (native)"
+  override val catalogueVersion: String get() = "1:${if (native == null) "web" else "native"}:$language"
   private val base = "https://jumpg-webapi.tokyo-cdn.com/api"
   private val hosts = setOf("jumpg-webapi.tokyo-cdn.com")
   private val website = "https://mangaplus.shueisha.co.jp"

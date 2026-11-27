@@ -64,6 +64,24 @@ class DownloadStoreTest {
   }
 
   @Test
+  fun `release baseline and pending automatic chapters survive restart with legacy defaults`() {
+    val tracked = TrackedManga("entry", "fixture", "series", "Series", DownloadDestination("library", "Series"), catalogueVersion = "native", publicationFloor = Instant.parse("2026-01-01T00:00:00Z"), chapterNumberFloor = "145.5", revision = "revision", pendingAutoChapterIds = setOf("pending"))
+    val state = DownloadState(tracked = listOf(tracked))
+    store().update { state }
+    assertEqualValue(state, store().read())
+    val path = directory.resolve("manga-downloads.json")
+    val mapper = jacksonObjectMapper()
+    val json = mapper.readTree(path.toFile())
+    val legacy = json.path("tracked").get(0) as com.fasterxml.jackson.databind.node.ObjectNode
+    listOf("catalogueVersion", "publicationFloor", "chapterNumberFloor", "revision", "pendingAutoChapterIds").forEach { legacy.remove(it) }
+    mapper.writeValue(path.toFile(), json)
+    val restored = store().read().tracked.single()
+    assertNullValue(restored.catalogueVersion)
+    assertNullValue(restored.publicationFloor)
+    assertTrueValue(restored.pendingAutoChapterIds.isEmpty())
+  }
+
+  @Test
   fun `corrupt state is reported as unhealthy`() {
     Files.writeString(directory.resolve("manga-downloads.json"), "{broken")
     assertFalseValue(store().health())

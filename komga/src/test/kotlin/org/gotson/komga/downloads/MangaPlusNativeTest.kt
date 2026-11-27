@@ -22,10 +22,50 @@ class MangaPlusNativeTest {
   private val title = num(1, titleId) + str(2, "Fixture") + num(7, 0)
 
   @Test
-  fun `native title search loads all catalogue buckets with configured language`() {
+  fun `native title search uses the standalone search endpoint first`() {
     every { http.nativeMangaPlusResponse(any(), setOf(host), any(), false) } returns NativeMangaPlusResponse(bytes(1, bytes(32, bytes(2, title))), null)
     assertEqualValue(listOf(SourceSeries(titleId.toString(), "Fixture")), provider.search("fixture"))
+    verify(exactly = 1) { http.nativeMangaPlusResponse(match { it.host == host && it.path == "/api/title_list/search" }, setOf(host), any(), false) }
+    verify(exactly = 0) { http.nativeMangaPlusResponse(match { it.path == "/api/title_list/all_v3" }, any(), any(), false) }
+  }
+
+  @Test
+  fun `empty successful search loads the three catalogue buckets`() {
+    every { http.nativeMangaPlusResponse(match { it.path == "/api/title_list/search" }, setOf(host), any(), false) } returns NativeMangaPlusResponse(bytes(1, byteArrayOf()), null)
+    every { http.nativeMangaPlusResponse(match { it.path == "/api/title_list/all_v3" }, setOf(host), any(), false) } returns NativeMangaPlusResponse(bytes(1, bytes(32, bytes(2, title))), null)
+    assertEqualValue(listOf(SourceSeries(titleId.toString(), "Fixture")), provider.search("fixture"))
     verify(exactly = 3) { http.nativeMangaPlusResponse(match { it.host == host && it.path == "/api/title_list/all_v3" && it.query.contains("lang=eng") }, setOf(host), any(), false) }
+  }
+
+  @Test
+  fun `catalogue error envelope stops search and does not fall back`() {
+    every { http.nativeMangaPlusResponse(any(), setOf(host), any(), false) } returns NativeMangaPlusResponse(bytes(2, str(1, "Denied")), null)
+    assertThrowsType(IllegalStateException::class.java) { provider.search("fixture") }
+    verify(exactly = 1) { http.nativeMangaPlusResponse(any(), setOf(host), any(), false) }
+    verify(exactly = 0) { http.nativeMangaPlusResponse(match { it.path == "/api/title_list/all_v3" }, any(), any(), false) }
+  }
+
+  @Test
+  fun `native catalogue applies proto3 default language when field is omitted`() {
+    val implicitEnglish = num(1, titleId) + str(2, "Fixture")
+    val french = num(1, titleId + 1) + str(2, "French fixture") + num(7, 2)
+    val malformed = num(1, titleId + 2) + str(2, "Invalid language fixture") + str(7, "invalid")
+    val catalogue = bytes(1, bytes(32, bytes(2, implicitEnglish) + bytes(2, title) + bytes(2, french) + bytes(2, malformed)))
+    assertEqualValue(listOf(SourceSeries(titleId.toString(), "Fixture")), mangaPlusNativeTitles(catalogue, 0))
+    assertEqualValue(listOf(SourceSeries((titleId + 1).toString(), "French fixture")), mangaPlusNativeTitles(catalogue, 2))
+    assertTrueValue(mangaPlusNativeTitles(catalogue, 1).isEmpty())
+    assertThrowsType(IllegalStateException::class.java) { mangaPlusNativeTitles(catalogue + bytes(2, str(1, "Denied")), 0) }
+  }
+
+  @Test
+  fun `catalogue diagnostics distinguish missing success and error envelopes`() {
+    val denied = runCatching { mangaPlusNativeTitles(bytes(2, str(1, "PRIVATE_FIXTURE")), 0) }.exceptionOrNull()
+    assertTrueValue(denied is IllegalStateException)
+    assertTrueValue(denied?.message.orEmpty().contains("error envelope"))
+    assertTrueValue(!denied?.message.orEmpty().contains("PRIVATE_FIXTURE"))
+    val unknown = runCatching { mangaPlusNativeTitles(bytes(35, title), 0) }.exceptionOrNull()
+    assertTrueValue(unknown?.message.orEmpty().contains("lacks a unique success envelope"))
+    assertTrueValue(mangaPlusNativeTitles(bytes(1, byteArrayOf()), 0).isEmpty())
   }
 
   @Test
@@ -59,6 +99,22 @@ class MangaPlusNativeTest {
     assertThrowsType(IllegalStateException::class.java) { provider.pages("2") }
     verify(exactly = 0) { http.nativeMangaPlusResponse(any(), any(), any(), true) }
     verify(exactly = 0) { http.bytes(any(), any(), any()) }
+  }
+
+  @Test
+  fun `native ordinary images retain their bytes and still require an image reader`() {
+    val png =
+      ByteArrayOutputStream()
+        .also {
+          ImageIO.write(BufferedImage(5, 6, BufferedImage.TYPE_INT_RGB), "png", it)
+        }.toByteArray()
+    assertEqualValue("png", nativeMangaPlusImageSignature(png))
+    assertTrueValue(nativeMangaPlusImage(png, null, 1).contentEquals(png))
+    assertTrueValue(nativeMangaPlusImage(png, byteArrayOf(1), 1).contentEquals(png))
+    assertEqualValue("webp", nativeMangaPlusImageSignature("RIFF0000WEBP".toByteArray()))
+    assertThrowsType(IllegalStateException::class.java) {
+      nativeMangaPlusImage("not an image".toByteArray(), null, 3)
+    }
   }
 
   private fun chapter(

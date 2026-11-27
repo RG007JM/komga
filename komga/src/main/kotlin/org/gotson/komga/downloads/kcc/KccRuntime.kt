@@ -98,6 +98,8 @@ class KccRuntime(
   ) {
     val builder = ProcessBuilder(command).redirectErrorStream(true).redirectOutput(log.toFile())
     builder.environment()["PATH"] = pathDirectories.joinToString(File.pathSeparator) { it.toString() }
+    // KCC processes do not need the downloader's native identity.
+    builder.environment().keys.removeIf { it.equals("MANGAPLUS_DEVICE_SECRET", ignoreCase = true) }
     if (directory != null) builder.directory(directory.toFile())
     val process = builder.start()
     try {

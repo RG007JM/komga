@@ -1,10 +1,13 @@
 // Adapted from the user-supplied Mangathr native downloader.
 package org.gotson.komga.downloads
 
+import io.github.oshai.kotlinlogging.KotlinLogging
 import java.net.URI
 import java.time.Instant
 import java.util.HexFormat
 import javax.imageio.ImageIO
+
+private val nativeCatalogueLogger = KotlinLogging.logger {}
 
 internal class MangaPlusNative(
   private val http: ProviderHttp,
@@ -41,14 +44,39 @@ internal class MangaPlusNative(
   fun detail(id: Long): ByteArray = request("title_detailV3", mapOf("title_id" to id.toString(), "lang" to languageCode, "clang" to languageCode)).body
 
   fun search(query: String): List<SourceSeries> {
+    val languageParameters = mapOf("lang" to languageCode, "clang" to languageCode)
+    // The standalone native downloader tries SearchView before the catalogue buckets.
+    val primary = catalogue("title_list/search", languageParameters, "search")
     val titles =
-      listOf("serializing", "completed", "one_shot")
-        .flatMap { bucket ->
-          val data = request("title_list/all_v3", mapOf("type" to bucket, "lang" to languageCode, "clang" to languageCode)).body
-          mangaPlusNativeTitles(data, language)
-        }.distinctBy { it.id }
-    check(titles.isNotEmpty()) { "Native MANGA Plus catalogue returned no recognizable titles" }
+      if (primary.isNotEmpty()) {
+        primary
+      } else {
+        // Only a valid, successful response with no recognized titles may use this fallback.
+        // An error envelope, network failure or rate limit stops the operation.
+        listOf("serializing", "completed", "one_shot").flatMap { bucket ->
+          catalogue("title_list/all_v3", languageParameters + ("type" to bucket), bucket)
+        }
+      }.distinctBy { it.id }
+    check(titles.isNotEmpty()) { "Native MANGA Plus catalogue returned no recognizable titles for the configured language" }
     return titles.filter { it.title.contains(query, ignoreCase = true) }.sortedBy { it.title.lowercase() }
+  }
+
+  private fun catalogue(
+    endpoint: String,
+    parameters: Map<String, String>,
+    label: String,
+  ): List<SourceSeries> {
+    val data = request(endpoint, parameters).body
+    val titles =
+      try {
+        mangaPlusNativeTitles(data, language)
+      } catch (e: IllegalStateException) {
+        throw IllegalStateException("Native MANGA Plus catalogue ($label): ${e.message}", e)
+      } catch (e: IllegalArgumentException) {
+        throw IllegalStateException("Native MANGA Plus catalogue ($label): malformed protobuf (${data.size} bytes)", e)
+      }
+    nativeCatalogueLogger.info { "MANGA Plus native catalogue ($label): ${titles.size} distinct titles from ${data.size} metadata bytes" }
+    return titles
   }
 
   fun chapters(id: Long): List<SourceChapter> {
@@ -122,7 +150,7 @@ internal class MangaPlusNative(
     var total = 0L
     return pages.mapIndexed { index, page ->
       val body = http.nativeMangaPlusResponse(page.uri, assetHosts, imageHeaders, true).body
-      val image = mangaPlusDecodeImage(body, page.key)
+      val image = nativeMangaPlusImage(body, page.key, index + 1)
       total += image.size
       check(total <= 256L * 1024 * 1024) { "Native chapter exceeds the 256 MiB staging limit" }
       val extension = nativeImageExtension(image)
@@ -198,7 +226,19 @@ internal fun mangaPlusNativeTitles(
   language: Int,
 ): List<SourceSeries> {
   val envelope = mangaPlusFields(data)
-  check(envelope.none { it.number == 2 && it.wire == 2 } && envelope.wireMessage(1).isNotEmpty()) { "Native MANGA Plus catalogue request was denied or unavailable" }
+  // Log only field numbers, wire types and byte lengths, never values, raw bytes or URLs.
+  val shape =
+    envelope.take(16).joinToString(", ") { field ->
+      "${field.number}/${field.wire}:${field.bytes.size}"
+    }
+  val diagnostic = "${data.size} bytes; top-level field/wire:length=[$shape]"
+  check(envelope.none { it.number == 2 && it.wire == 2 }) {
+    "response contains an error envelope ($diagnostic); request stopped"
+  }
+  check(envelope.count { it.number == 1 && it.wire == 2 } == 1) {
+    "response lacks a unique success envelope ($diagnostic)"
+  }
+  val success = envelope.wireMessage(1)
   val found = linkedMapOf<Long, SourceSeries>()
   var visited = 0
 
@@ -211,7 +251,7 @@ internal fun mangaPlusNativeTitles(
     val id = fields.wireValue(1)
     val nameBytes = fields.firstOrNull { it.number == 2 && it.wire == 2 }?.bytes
     val name = nameBytes?.toString(Charsets.UTF_8)?.trim().orEmpty()
-    if (id != null && id in 1..0xffff_ffffL && fields.wireValue(7) == language.toLong() &&
+    if (id != null && id in 1..0xffff_ffffL && (fields.wireValue(7) ?: 0L) == language.toLong() && fields.none { it.number == 7 && it.wire != 0 } &&
       nameBytes != null && nameBytes.size in 1..299 && '\uFFFD' !in name && name.isNotEmpty() &&
       name.none { it.isISOControl() } && !name.startsWith("http://") && !name.startsWith("https://")
     ) {
@@ -221,7 +261,7 @@ internal fun mangaPlusNativeTitles(
       runCatching { mangaPlusFields(field.bytes) }.getOrNull()?.let { walk(it, depth + 1) }
     }
   }
-  walk(envelope.wireMessage(1), 0)
+  walk(success, 0)
   return found.values.toList()
 }
 
@@ -265,6 +305,43 @@ internal fun nativeMangaPlusPageRecords(
         HexFormat.of().parseHex(it)
       }
     NativeMangaPlusPage(uri, key)
+  }
+}
+
+/** Preserve ordinary image responses; retain the existing decoder and validation for other representations. */
+internal fun nativeMangaPlusImage(
+  body: ByteArray,
+  key: ByteArray?,
+  pageNumber: Int,
+): ByteArray {
+  val format = nativeMangaPlusImageSignature(body)
+  return try {
+    if (format != "unknown") mangaPlusDecodeImage(body, null) else mangaPlusDecodeImage(body, key)
+  } catch (e: IllegalStateException) {
+    if (e.message != "MANGA Plus response is not a supported image") throw e
+    error("Native MANGA Plus page $pageNumber: unsupported image (rawFormat=$format, bytes=${body.size}, representationMetadata=${key != null}); request stopped")
+  }
+}
+
+/** Diagnostic only: a signature never substitutes for ImageIO or archive validation. */
+internal fun nativeMangaPlusImageSignature(body: ByteArray): String {
+  fun matches(
+    offset: Int,
+    signature: ByteArray,
+  ): Boolean = body.size >= offset + signature.size && signature.indices.all { body[offset + it] == signature[it] }
+
+  fun ascii(
+    offset: Int,
+    signature: String,
+  ): Boolean = matches(offset, signature.toByteArray(Charsets.US_ASCII))
+  return when {
+    matches(0, byteArrayOf(0xff.toByte(), 0xd8.toByte(), 0xff.toByte())) -> "jpeg"
+    matches(0, byteArrayOf(0x89.toByte(), 0x50, 0x4e, 0x47, 13, 10, 26, 10)) -> "png"
+    ascii(0, "GIF87a") || ascii(0, "GIF89a") -> "gif"
+    ascii(0, "RIFF") && ascii(8, "WEBP") -> "webp"
+    ascii(0, "BM") -> "bmp"
+    ascii(4, "ftyp") && (ascii(8, "avif") || ascii(8, "avis")) -> "avif"
+    else -> "unknown"
   }
 }
 

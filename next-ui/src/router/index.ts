@@ -11,10 +11,22 @@ import { parse, stringify } from 'qs'
 
 import { scrollerQuery, scrollMap } from '@/router/scroll'
 
+// Keep the API/resource base independent from the NextUI navigation base.
+const resourceBase = window.resourceBaseUrl || '/'
+const routerBase = import.meta.env.PROD ? `${resourceBase}next/` : import.meta.env.BASE_URL
+if (
+  import.meta.env.PROD &&
+  [resourceBase, resourceBase.slice(0, -1)].includes(window.location.pathname)
+) {
+  window.history.replaceState(
+    window.history.state,
+    '',
+    routerBase + window.location.search + window.location.hash,
+  )
+}
+
 const router = createRouter({
-  history: createWebHistory(
-    import.meta.env.PROD ? window.resourceBaseUrl : import.meta.env.BASE_URL,
-  ),
+  history: createWebHistory(routerBase),
   routes: setupLayouts(routes),
   scrollBehavior(to, from, savedPosition) {
     // ignore redundant navigations (like useRouteQuery syncing URL parameters)
@@ -45,7 +57,7 @@ router.onError((err, to) => {
     if (!localStorage.getItem('vuetify:dynamic-reload')) {
       console.log('Reloading page to fix dynamic import error')
       localStorage.setItem('vuetify:dynamic-reload', 'true')
-      location.assign(to.fullPath)
+      location.assign(router.resolve(to.fullPath).href)
     } else {
       console.error('Dynamic import error, reloading page did not fix it', err)
     }

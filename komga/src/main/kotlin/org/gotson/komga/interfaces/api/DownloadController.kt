@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Hidden
 import org.gotson.komga.domain.persistence.LibraryRepository
 import org.gotson.komga.downloads.ChapterFilters
 import org.gotson.komga.downloads.DownloadFiles
+import org.gotson.komga.downloads.DownloadImportStatus
 import org.gotson.komga.downloads.DownloadService
 import org.gotson.komga.downloads.KccSettings
 import org.gotson.komga.downloads.ManualRequest
@@ -33,6 +34,7 @@ class DownloadController(
   private val service: DownloadService,
   private val files: DownloadFiles,
   private val libraries: LibraryRepository,
+  private val imports: DownloadImportStatus,
 ) {
   @GetMapping
   fun overview() =
@@ -40,13 +42,19 @@ class DownloadController(
       mapOf(
         "state" to snapshot,
         "filePresence" to files.presence(snapshot.history),
-        "providers" to service.providers.values.map { mapOf("id" to it.id, "label" to it.label) },
+        "providers" to service.providers.values.map { mapOf("id" to it.id, "label" to it.label, "pagePreviewSupported" to it.pagePreviewSupported) },
+        "queue" to service.queueStatus(),
+        "importStatus" to snapshot.history.associate { it.id to imports.status(it) },
         "libraries" to libraries.findAll().map { mapOf("id" to it.id, "name" to it.name) },
         "health" to service.health(),
         "workerError" to service.workerError,
         "kccCapabilities" to mapOf("version" to KccOptions.VERSION, "devices" to KccOptions.devices, "formats" to KccOptions.formats, "options" to KccOptions.options),
       )
     }
+
+  @PostMapping("/health/providers")
+  @ResponseStatus(HttpStatus.ACCEPTED)
+  fun probeProviders() = service.probeProviders()
 
   @GetMapping("/{source}/search")
   fun search(
@@ -81,6 +89,13 @@ class DownloadController(
     @RequestBody request: TrackRequest,
   ) = service.track(request)
 
+  @PutMapping("/tracked/{id}/enabled")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  fun enabled(
+    @PathVariable id: String,
+    @RequestBody enabled: Boolean,
+  ) = service.setEnabled(id, enabled)
+
   @DeleteMapping("/tracked/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   fun stop(
@@ -110,6 +125,12 @@ class DownloadController(
   fun retry(
     @PathVariable id: String,
   ) = service.retry(id)
+
+  @PostMapping("/history/{id}/rescan")
+  @ResponseStatus(HttpStatus.ACCEPTED)
+  fun rescan(
+    @PathVariable id: String,
+  ) = service.rescan(id)
 
   @ExceptionHandler(IllegalArgumentException::class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)

@@ -257,6 +257,16 @@ class DownloadFiles(
       }
     }.getOrDefault(DownloadPresence.UNAVAILABLE)
 
+  fun publishedPaths(record: DownloadRecord): List<Path> {
+    val library = requireNotNull(libraries.findByIdOrNull(record.destination.libraryId)) { "Library no longer exists" }
+    val configuredRoot = Path.of(library.root.toURI()).toAbsolutePath().normalize()
+    val root = configuredRoot.toRealPath()
+    if (presence(record, root) != DownloadPresence.PRESENT) return emptyList()
+    val outputs = record.conversion?.let { it.files.ifEmpty { listOfNotNull(it.file) } } ?: listOf(record.file)
+    // Komga indexes URLs relative to the configured library root, which may itself be a symlink.
+    return outputs.map { value -> configuredRoot.resolve(Path.of(value)) }
+  }
+
   private fun relativeFilePresent(
     root: Path,
     value: String,

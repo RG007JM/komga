@@ -22,12 +22,13 @@ class DownloadServiceTest {
 
   private val destination = DownloadDestination("library", "Series")
   private val old = SourceChapter("old", "1", "Old", Instant.parse("2026-01-01T00:00:00Z"), "en", "https://example.org/old")
-  private val fresh = old.copy(id = "fresh", number = "2", title = "New")
+  private val fresh = old.copy(id = "fresh", number = "2", title = "New", publishedAt = null)
   private val source = mockk<DownloadProvider>()
   private val files = mockk<DownloadFiles>()
   private val converter = mockk<DownloadKcc>()
   private val tasks = mockk<TaskEmitter>(relaxed = true)
   private lateinit var service: DownloadService
+  private lateinit var store: DownloadStore
   private val global = KccProfile("global", "Global", "KoLC", keepOriginal = false)
   private val specific = KccProfile("specific", "Specific", "KoLC", keepOriginal = false)
 
@@ -35,8 +36,9 @@ class DownloadServiceTest {
   fun setup() {
     val properties = mockk<KomgaProperties>()
     every { properties.configDir } returns directory.toString()
-    val store = DownloadStore(properties, jacksonObjectMapper().findAndRegisterModules())
+    store = DownloadStore(properties, jacksonObjectMapper().findAndRegisterModules())
     every { source.id } returns "fixture"
+    every { source.catalogueVersion } returns "1"
     every { source.chapters("series", any()) } returns listOf(old)
     every { source.nextRelease("series") } returns null
     every { source.pages(any()) } returns emptyList()
@@ -112,6 +114,160 @@ class DownloadServiceTest {
     assertEqualValue(listOf(record), service.state().history)
     assertThrowsType(IllegalArgumentException::class.java) { service.check(entry.id) }
     verify(exactly = 0) { files.removeOriginal(any()) }
+  }
+
+  @Test
+  fun `legacy catalogue expansion is baselined without downloading`() {
+    val legacy = TrackedManga("legacy", "fixture", "series", "Series", destination, seen = setOf(old.id))
+    store.update { it.copy(tracked = listOf(legacy)) }
+    every { source.chapters("series", any()) } returns listOf(old, fresh)
+    service.check(legacy.id)
+    awaitCheck(legacy.id)
+    assertEqualValue(
+      setOf(old.id, fresh.id),
+      service
+        .state()
+        .tracked
+        .single()
+        .seen,
+    )
+    assertTrueValue(service.state().history.isEmpty())
+    verify(exactly = 0) { source.pages(any()) }
+  }
+
+  @Test
+  fun `pause during active batch prevents subsequent chapters`() {
+    val entry = track("off")
+    every { source.chapters("series", any()) } returns listOf(old, fresh, fresh.copy(id = "third", number = "3"))
+    every { files.archive(any(), any(), any(), any(), any(), any()) } answers {
+      service.setEnabled(entry.id, false)
+      "Series/chapter.cbz"
+    }
+    service.check(entry.id)
+    awaitIdle { service.state().history.size == 1 }
+    assertFalseValue(
+      service
+        .state()
+        .tracked
+        .single()
+        .enabled,
+    )
+    assertEqualValue(1, service.state().history.size)
+    verify(exactly = 1) { source.pages(any()) }
+  }
+
+  @Test
+  fun `automatic batch is limited and unprocessed chapters remain eligible`() {
+    val entry = track("off")
+    every { source.chapters("series", any()) } returns listOf(old) + (2..15).map { fresh.copy(id = "$it", number = "$it") }
+    service.check(entry.id)
+    awaitCheck(entry.id)
+    assertEqualValue(10, service.state().history.size)
+    assertEqualValue(
+      11,
+      service
+        .state()
+        .tracked
+        .single()
+        .seen.size,
+    )
+    assertEqualValue(
+      4,
+      service
+        .state()
+        .tracked
+        .single()
+        .pendingAutoChapterIds.size,
+    )
+    assertEqualValue(
+      "15",
+      service
+        .state()
+        .tracked
+        .single()
+        .chapterNumberFloor,
+    )
+    verify(exactly = 10) { source.pages(any()) }
+  }
+
+  @Test
+  fun `restart marks interrupted conversion failed and requeues pending scan`() {
+    val staged = DownloadRecord("staged", "fixture", "series", "Series", old, destination, "staged.cbz", Instant.now(), "manual", "Awaiting conversion", Conversion(global, "Converting"))
+    val published = staged.copy(id = "published", file = "Series/chapter.cbz", scan = "Pending scan", conversion = null)
+    store.update { it.copy(history = listOf(staged, published)) }
+    every { files.presence(published) } returns DownloadPresence.PRESENT
+    service.recoverInterruptedWork()
+    awaitIdle {
+      service
+        .state()
+        .history
+        .first { it.id == "published" }
+        .scan == "Scan queued"
+    }
+    assertEqualValue(
+      "Failed",
+      service
+        .state()
+        .history
+        .first { it.id == "staged" }
+        .conversion
+        ?.status,
+    )
+    assertEqualValue(
+      "Scan queued",
+      service
+        .state()
+        .history
+        .first { it.id == "published" }
+        .scan,
+    )
+    verify(exactly = 0) { source.pages(any()) }
+    verify(exactly = 0) { converter.convert(any(), any()) }
+    verify(exactly = 1) { tasks.scanLibrary("library") }
+  }
+
+  private fun awaitIdle(done: () -> Boolean) {
+    val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(10)
+    while (System.nanoTime() < deadline) {
+      val queue = service.queueStatus()
+      if (done() && queue["busy"] == false && queue["queued"] == 0) return
+      Thread.sleep(10)
+    }
+    error("Worker did not become idle")
+  }
+
+  @Test
+  fun `provider health probe is metadata only`() {
+    track("off")
+    val called = java.util.concurrent.CountDownLatch(1)
+    every { source.chapters("series", any()) } answers {
+      called.countDown()
+      listOf(old)
+    }
+    service.probeProviders()
+    assertTrueValue(called.await(10, TimeUnit.SECONDS))
+    awaitIdle { true }
+    verify(exactly = 2) { source.chapters("series", any()) }
+    verify(exactly = 0) { source.pages(any()) }
+    assertTrueValue(service.state().history.isEmpty())
+  }
+
+  @Test
+  fun `paused entry cannot be checked manually`() {
+    val entry = track(enabled = false)
+    assertThrowsType(IllegalArgumentException::class.java) { service.check(entry.id) }
+  }
+
+  @Test
+  fun `changing filters seeds new catalogue`() {
+    val entry = track("off")
+    every { source.chapters("series", any()) } returns listOf(old, fresh)
+    val changed = service.track(TrackRequest("fixture", "series", "Series", destination, filters = ChapterFilters(language = "fr"), kccProfileId = "off"))
+    assertEqualValue(entry.id, changed.id)
+    assertEqualValue(setOf(old.id, fresh.id), changed.seen)
+    service.check(entry.id)
+    awaitCheck(entry.id)
+    verify(exactly = 0) { source.pages(any()) }
   }
 
   @Test

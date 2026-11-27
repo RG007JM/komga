@@ -9,6 +9,9 @@ interface DownloadProvider {
   val label: String
   val pagePreviewSupported: Boolean get() = true
 
+  /** Increment when a provider changes the meaning or coverage of its chapter catalogue. */
+  val catalogueVersion: String get() = "1"
+
   fun search(query: String): List<SourceSeries>
 
   fun chapters(

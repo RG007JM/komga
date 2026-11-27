@@ -1,0 +1,28 @@
+name: Native downloader smoke test
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'komga/src/main/kotlin/org/gotson/komga/downloads/**'
+      - 'komga/src/test/kotlin/org/gotson/komga/downloads/**'
+      - '.github/workflows/downloader-native-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  linux-native:
+    runs-on: ubuntu-latest
+    env:
+      KOMGA_TEST_NATIVE_AVIF: 'true'
+      JDK_JAVA_OPTIONS: --enable-native-access=ALL-UNNAMED
+      LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v6.4.1
+      - name: Install existing Komga native libraries
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libheif-dev libheif-plugin-dav1d libjxl-dev libwebp-dev
+      - name: Verify native decoder and downloader regressions
+        run: ./gradlew :komga:test --tests 'org.gotson.komga.downloads.*' --tests 'org.gotson.komga.architecture.*' --console=plain

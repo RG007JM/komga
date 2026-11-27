@@ -110,12 +110,13 @@ const { data: siblings, isPending: siblingsLoading } = useQuery(() => ({
       condition: {
         collectionId: {
           operator: 'Is',
-          value: collection.value?.id,
+          value: collection.value?.id ?? 'none',
         },
       },
     },
     pageRequest: PageRequest.Unpaged(sort.value),
   }),
+  enabled: top.value?.type === 'collection' && !!collection.value?.id,
 }))
 
 const previous = computed(() =>

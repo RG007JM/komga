@@ -22,6 +22,7 @@ export type Tracked = {
   kccProfileId?: string | null
   prependWhitePage?: boolean
   pendingInitialChapterIds?: string[]
+  pendingAutoChapterIds?: string[]
   lastCheck?: string
   nextCheck?: string
   expectedRelease?: string
@@ -66,7 +67,9 @@ export type DownloadPresence = 'PRESENT' | 'MISSING' | 'STAGED' | 'INCOMPLETE' |
 export type Overview = {
   filePresence: { [id: string]: DownloadPresence }
   state: { tracked: Tracked[]; history: Record[]; kcc: Kcc }
-  providers: { id: string; label: string }[]
+  providers: { id: string; label: string; pagePreviewSupported?: boolean }[]
+  queue?: { active?: string | null; queued: number; busy: boolean }
+  importStatus?: { [id: string]: string }
   libraries: { id: string; name: string }[]
   health: { [component: string]: string }
   kccCapabilities: KccCapabilities
